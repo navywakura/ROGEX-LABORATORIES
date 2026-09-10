@@ -43,7 +43,7 @@ Akida, preview de PRISMA). Eso es laboratorio, no vaporware.
 - [ECHO-1 frente a ECHO-2 — resultados](https://www.rogexlaboratories.com/docs/echoai/resultados): evolución medida, gráficas, fases, controles y datos descargables
 - [ECHO-2 — cierre, resultados y vídeo](https://www.rogexlaboratories.com/docs/echoai/echo2): benchmarks causales, GUI neuronal y dron 3D
 - [Cómo se construyó](https://www.rogexlaboratories.com/docs/echoai/proceso): slices, controles, revisión adversarial y mutantes
-- [ECHO-3 — hoja de ruta](https://www.rogexlaboratories.com/docs/echoai/ruta): tres mundos 3D, sensores, PX4 y dron al edge
+- [ECHO-3 — hoja de ruta](https://www.rogexlaboratories.com/docs/echoai/ruta): COMPOSE-1, evidencia auditable, mundos A/B/C, PX4, energía prevista y transferencia sin mapa
 - [Hardware previsto](https://www.rogexlaboratories.com/docs/echoai/hardware): escalera de compra y función de cada componente
 - [Límites](https://www.rogexlaboratories.com/docs/echoai/limites): resultados, deuda y condiciones antes de volar
 - [echOS — qué es](https://www.rogexlaboratories.com/docs/echos/que-es)
@@ -72,4 +72,5 @@ son capacidades cerradas; ECHO-3 es la hoja de ruta.
 - [Texto completo](https://www.rogexlaboratories.com/llms-full.txt)
 - [ECHO-2 en Markdown](https://www.rogexlaboratories.com/raw/es/echoai/echo2.md)
 - [Resultados comparados en Markdown](https://www.rogexlaboratories.com/raw/es/echoai/resultados.md)
+- [Hoja de ruta ECHO-3 en Markdown](https://www.rogexlaboratories.com/raw/es/echoai/ruta.md)
 - [Datos ECHO-2](https://www.rogexlaboratories.com/data/echo2-benchmark.json)

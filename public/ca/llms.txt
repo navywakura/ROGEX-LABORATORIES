@@ -42,7 +42,7 @@ la preview de PRISMA. Això és laboratori, no fum.
 - [ECHO-1 davant d'ECHO-2 — resultats](https://www.rogexlaboratories.com/ca/docs/echoai/resultados)
 - [ECHO-2 — tancament, resultats i vídeo](https://www.rogexlaboratories.com/ca/docs/echoai/echo2)
 - [Com es va construir](https://www.rogexlaboratories.com/ca/docs/echoai/proceso)
-- [ECHO-3 — full de ruta](https://www.rogexlaboratories.com/ca/docs/echoai/ruta)
+- [ECHO-3 — full de ruta](https://www.rogexlaboratories.com/ca/docs/echoai/ruta): COMPOSE-1, evidència auditable, mons A/B/C, PX4, energia prevista i transferència sense mapa
 - [Maquinari previst](https://www.rogexlaboratories.com/ca/docs/echoai/hardware)
 - [Límits d'echoAI](https://www.rogexlaboratories.com/ca/docs/echoai/limites)
 - [echOS — què és](https://www.rogexlaboratories.com/ca/docs/echos/que-es)
@@ -70,4 +70,5 @@ ECHO-1 i ECHO-2 són capacitats tancades; ECHO-3 és el full de ruta.
 - [Text complet](https://www.rogexlaboratories.com/ca/llms-full.txt)
 - [ECHO-2 en Markdown](https://www.rogexlaboratories.com/raw/ca/echoai/echo2.md)
 - [Resultats comparats en Markdown](https://www.rogexlaboratories.com/raw/ca/echoai/resultados.md)
+- [Full de ruta ECHO-3 en Markdown](https://www.rogexlaboratories.com/raw/ca/echoai/ruta.md)
 - [Dades ECHO-2](https://www.rogexlaboratories.com/data/echo2-benchmark.json)

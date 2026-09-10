@@ -171,7 +171,7 @@ const ES_PAGES = [
     path: "/docs/echoai/ruta",
     title: "echoAI — hoja de ruta ECHO-3",
     description:
-      "Hoja de ruta de ECHO-3: tres mundos 3D, aerodinámica, viento, IMU, PX4, órdenes y transferencia hacia un dron físico al edge.",
+      "ECHO-3: composición local de medios a fines, evidencia auditable, tres mundos A/B/C, PX4, energía prevista y transferencia sin mapa.",
   },
   {
     path: "/docs/echoai/hardware",
@@ -286,7 +286,7 @@ const EN_META = {
   ],
   "/docs/echoai/ruta": [
     "echoAI — ECHO-3 roadmap",
-    "ECHO-3 roadmap: three 3D worlds, aerodynamics, wind, IMU, PX4, commands and transfer towards a physical edge drone.",
+    "ECHO-3 roadmap: local means-end composition, auditable evidence, three A/B/C worlds, PX4, predicted energy and map-free transfer.",
   ],
   "/docs/echoai/hardware": [
     "echoAI — planned hardware",
@@ -382,7 +382,7 @@ const CA_META = {
   ],
   "/docs/echoai/ruta": [
     "echoAI — full de ruta ECHO-3",
-    "Full de ruta d'ECHO-3: tres mons 3D, aerodinàmica, vent, IMU, PX4, ordres i transferència cap a un dron físic a l'edge.",
+    "ECHO-3: composició local de mitjans a fins, evidència auditable, tres mons A/B/C, PX4, energia prevista i transferència sense mapa.",
   ],
   "/docs/echoai/hardware": [
     "echoAI — maquinari previst",
