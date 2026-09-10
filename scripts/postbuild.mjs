@@ -2,8 +2,9 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { marked } from "marked";
-import { PAGES, SITE, ECHO2_VIDEO, abs, imageFor, jsonLd } from "../src/site.js";
+import { PAGES, SITE, abs, imageFor, jsonLd } from "../src/site.js";
 import { alternatePaths } from "../src/i18n.js";
+import { ABOUT_COPY } from "../src/about-copy.js";
 
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 const dist = path.join(root, "dist");
@@ -32,7 +33,7 @@ function strip(html) {
 function inject(html, page) {
   const url = abs(page.path);
   const image = imageFor(page);
-  const robots = page.noindex ? "noindex, nofollow" : "index, follow";
+  const robots = page.noindex ? "noindex, nofollow" : "index, follow, max-image-preview:large";
   const language = page.lang === "en" ? "en" : page.lang === "ca" ? "ca" : "es";
   const localeByLanguage = { es: SITE.locale, en: SITE.localeAlt, ca: SITE.localeCa };
   const localeAlternates = Object.entries(localeByLanguage)
@@ -40,13 +41,6 @@ function inject(html, page) {
     .map(([, locale]) => `    <meta property="og:locale:alternate" content="${locale}" />`)
     .join("\n");
   const alternate = alternatePaths(page.path);
-  const isEcho2 = page.path.includes("/docs/echoai/echo2");
-  const videoMeta = isEcho2 ? `
-    <meta property="og:video" content="${abs(ECHO2_VIDEO)}" />
-    <meta property="og:video:secure_url" content="${abs(ECHO2_VIDEO)}" />
-    <meta property="og:video:type" content="video/mp4" />
-    <meta property="og:video:width" content="1280" />
-    <meta property="og:video:height" content="720" />` : "";
   const markdownHref = markdownSource(page);
   const markdownAlternate = markdownHref
     ? `\n    <link rel="alternate" type="text/markdown" href="${abs(markdownHref)}" />`
@@ -67,7 +61,7 @@ function inject(html, page) {
     <link rel="alternate" hreflang="ca" href="${abs(alternate.ca)}" />
     <link rel="alternate" hreflang="x-default" href="${abs(alternate.es)}" />
     <link rel="image_src" href="${image.url}" />
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content="${page.path.includes("/docs/") ? "article" : "website"}" />
     <meta property="og:site_name" content="${esc(SITE.name)}" />
     <meta property="og:locale" content="${localeByLanguage[language]}" />
 ${localeAlternates}
@@ -75,12 +69,12 @@ ${localeAlternates}
     <meta property="og:description" content="${esc(page.description)}" />
     <meta property="og:url" content="${url}" />
     <meta property="og:image" content="${image.url}" />
+    <meta property="og:image:url" content="${image.url}" />
     <meta property="og:image:secure_url" content="${image.url}" />
-    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:type" content="${image.type}" />
     <meta property="og:image:width" content="${image.width}" />
     <meta property="og:image:height" content="${image.height}" />
     <meta property="og:image:alt" content="${esc(image.alt)}" />
-${videoMeta}
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="${esc(page.title)}" />
     <meta name="twitter:description" content="${esc(page.description)}" />
@@ -125,6 +119,9 @@ function staticBody(page) {
   let body = "";
   if (file && fs.existsSync(file)) {
     body = marked.parse(fs.readFileSync(file, "utf8"));
+  } else if (page.path.replace(/^\/(?:en|ca)(?=\/|$)/, "") === "/about") {
+    const copy = ABOUT_COPY[language];
+    body = `<h1>RxLabs®</h1><p>${esc(copy.intro)}</p><p>${esc(copy.lines)}</p><p><strong>echOS</strong> — ${esc(copy.echos)}</p><p><strong>PRISMA</strong> — ${esc(copy.prisma)}</p><p><strong>echoAI</strong> — ${esc(copy.echoai)}</p><p>knightsys@proton.me</p>`;
   } else if (page.path.replace(/^\/(?:en|ca)(?=\/|$)/, "") === "/docs") {
     const docs = PAGES.filter((entry) => entry.lang === language && entry.path.includes("/docs/") && !entry.noindex);
     body = `<h1>${language === "en" ? "Documentation" : language === "ca" ? "Documentació" : "Documentación"}</h1><ul>${docs.map((entry) => `<li><a href="${entry.path}">${esc(entry.title)}</a><p>${esc(entry.description)}</p></li>`).join("")}</ul>`;
@@ -143,6 +140,11 @@ function esc(s) {
 }
 
 for (const page of PAGES) {
+  const imageUrl = new URL(imageFor(page).url);
+  const imagePath = path.join(root, "public", imageUrl.pathname.replace(/^\//, ""));
+  if (!fs.existsSync(imagePath)) {
+    throw new Error(`Missing Open Graph image for ${page.path}: ${imagePath}`);
+  }
   const html = inject(template, page);
   if (page.path === "/") {
     fs.writeFileSync(path.join(dist, "index.html"), html);

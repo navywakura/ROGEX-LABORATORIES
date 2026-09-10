@@ -25,12 +25,23 @@ export const ECHOAI_OG = {
 };
 
 export const ECHO2_OG = {
-  image: "/media/echoai/opengraph/echo2.png",
+  image: "/media/echoai/opengraph/echo2-card.jpg",
   imageW: 1200,
   imageH: 630,
+  imageType: "image/jpeg",
   imageAlt: "ECHO-2 en directo — red neuronal y dron 3D",
   imageAltEn: "ECHO-2 live — neural network and 3D drone",
   imageAltCa: "ECHO-2 en directe — xarxa neuronal i dron 3D",
+};
+
+export const ECHO_RESULTS_OG = {
+  image: "/media/echoai/opengraph/results-card.jpg",
+  imageW: 1200,
+  imageH: 630,
+  imageType: "image/jpeg",
+  imageAlt: "ECHO-AI — evolución medida de ECHO-1 a ECHO-2",
+  imageAltEn: "ECHO-AI — measured evolution from ECHO-1 to ECHO-2",
+  imageAltCa: "ECHO-AI — evolució mesurada d'ECHO-1 a ECHO-2",
 };
 
 export const ECHO2_VIDEO = "/media/echoai/echo2-neural-viz-demo.mp4";
@@ -146,9 +157,9 @@ const ES_PAGES = [
   },
   {
     path: "/docs/echoai/resultados",
-    title: "ECHO-1 — resultados y benchmark",
+    title: "ECHO-AI — resultados ECHO-1 frente a ECHO-2",
     description:
-      "Resultados visuales de ECHO-1: aprendizaje por turno, patrones 80/80, transferencia +128, conflicto cortical, capacidades y datos reproducibles.",
+      "Evolución medida de ECHO-1 a ECHO-2: memoria y transferencia frente a supervivencia, patrones, consolidación, homeostasis y 640 neuronas.",
   },
   {
     path: "/docs/echoai/proceso",
@@ -266,8 +277,8 @@ const EN_META = {
     "ECHO-2 closed: 512 LIF + 128 Adaptive-LIF neurons, survival, patterns, consolidation, inheritance, thermal control and a direct video demonstration.",
   ],
   "/docs/echoai/resultados": [
-    "ECHO-1 — results and benchmark",
-    "Visual ECHO-1 results: turn-by-turn learning, patterns at 80/80, transfer +128, cortical conflict, capabilities and reproducible data.",
+    "ECHO-AI — ECHO-1 versus ECHO-2 results",
+    "Measured evolution from ECHO-1 to ECHO-2: memory and transfer versus survival, patterns, consolidation, homeostasis and 640 neurons.",
   ],
   "/docs/echoai/proceso": [
     "echoAI — how it was built",
@@ -362,8 +373,8 @@ const CA_META = {
     "ECHO-2 tancat: 512 LIF + 128 Adaptive-LIF, supervivència, patrons, consolidació, herència, control tèrmic i una demostració directa en vídeo.",
   ],
   "/docs/echoai/resultados": [
-    "ECHO-1 — resultats i benchmark",
-    "Resultats visuals d'ECHO-1: aprenentatge torn a torn, patrons 80/80, transferència +128, conflicte cortical, capacitats i dades reproduïbles.",
+    "ECHO-AI — resultats ECHO-1 davant d'ECHO-2",
+    "Evolució mesurada d'ECHO-1 a ECHO-2: memòria i transferència davant supervivència, patrons, consolidació, homeòstasi i 640 neurones.",
   ],
   "/docs/echoai/proceso": [
     "echoAI — com es va construir",
@@ -425,11 +436,13 @@ export function abs(path) {
 export function imageFor(page) {
   const source = page?.path?.includes("/docs/echoai/echo2")
     ? ECHO2_OG
+    : page?.path?.includes("/docs/echoai/resultados") ? ECHO_RESULTS_OG
     : page?.path?.includes("/docs/echoai/") ? ECHOAI_OG : SITE;
   return {
     url: abs(source.image),
     width: source.imageW,
     height: source.imageH,
+    type: source.imageType || "image/png",
     alt: source === SITE
       ? page?.lang === "en" ? SITE.imageAltEn : page?.lang === "ca" ? SITE.imageAltCa : SITE.imageAlt
       : page?.lang === "en" ? source.imageAltEn || source.imageAlt
@@ -440,6 +453,7 @@ export function imageFor(page) {
 
 export function jsonLd(page) {
   const language = page?.lang === "en" ? "en" : page?.lang === "ca" ? "ca" : "es";
+  const socialImage = imageFor(page);
   const org = {
     "@context": "https://schema.org",
     "@type": ["Organization", "ResearchOrganization"],
@@ -471,6 +485,12 @@ export function jsonLd(page) {
       inLanguage: language,
       isPartOf: { "@type": "WebSite", name: SITE.name, url: SITE.url },
       author: { "@type": "Person", name: SITE.author },
+      primaryImageOfPage: {
+        "@type": "ImageObject",
+        url: socialImage.url,
+        width: socialImage.width,
+        height: socialImage.height,
+      },
     },
   ];
   if (page.path.includes("/docs/echoai/echo2")) {
@@ -496,6 +516,29 @@ export function jsonLd(page) {
         contentUrl: abs("/data/echo2-benchmark.json"),
         encodingFormat: "application/json",
       },
+    });
+  }
+  if (page.path.includes("/docs/echoai/resultados")) {
+    graph.push({
+      "@type": "Dataset",
+      name: `ECHO-1 / ECHO-2 results — ${language}`,
+      description: page.description,
+      url: abs(page.path),
+      creator: { "@type": "Person", name: SITE.author },
+      distribution: [
+        {
+          "@type": "DataDownload",
+          name: "ECHO-1 benchmark",
+          contentUrl: abs("/data/echo1-benchmark.json"),
+          encodingFormat: "application/json",
+        },
+        {
+          "@type": "DataDownload",
+          name: "ECHO-2 benchmark",
+          contentUrl: abs("/data/echo2-benchmark.json"),
+          encodingFormat: "application/json",
+        },
+      ],
     });
   }
   return {

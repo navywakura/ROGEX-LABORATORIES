@@ -9,7 +9,7 @@ NEURAL-VIZ-1 made it observable in a native GUI.
 ## Direct demonstration
 
 <figure class="echo2-video">
-  <video controls preload="metadata" playsinline poster="/media/echoai/opengraph/echo2.png" aria-label="Demonstration of the native ECHO-2 GUI">
+  <video controls preload="metadata" playsinline poster="/media/echoai/opengraph/echo2-card.jpg" aria-label="Demonstration of the native ECHO-2 GUI">
     <source src="/media/echoai/echo2-neural-viz-demo.mp4" type="video/mp4">
     Your browser cannot play MP4. <a href="/media/echoai/echo2-neural-viz-demo.mp4">Download the video</a>.
   </video>

@@ -7,6 +7,10 @@
     {
       "source": "/(.*)",
       "headers": [{ "key": "Theme-Color", "value": "#000000" }]
+    },
+    {
+      "source": "/media/echoai/opengraph/(.*)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=86400, immutable" }]
     }
   ],
   "redirects": [

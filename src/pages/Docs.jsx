@@ -61,7 +61,7 @@ import caEchoaiRuta from "../content/ca/echoai/ruta.md?raw";
 import caEchoaiHardware from "../content/ca/echoai/hardware.md?raw";
 import caEchoaiLimites from "../content/ca/echoai/limites.md?raw";
 import caLabEco from "../content/ca/lab/ecosistema.md?raw";
-import Echo1Results from "./Echo1Results.jsx";
+import EchoResults from "./EchoResults.jsx";
 
 marked.setOptions({ gfm: true, breaks: false });
 
@@ -215,7 +215,7 @@ export default function Docs({ language = "es" }) {
           ))}
         </aside>
         {doc.id === "echoai/resultados" ? (
-          <Echo1Results language={language} />
+          <EchoResults language={language} />
         ) : (
           <article
             className="docs-body"

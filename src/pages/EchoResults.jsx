@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
-import benchmark from "../data/echo1-benchmark.json";
+import echo1 from "../data/echo1-benchmark.json";
+import echo2 from "../data/echo2-benchmark.json";
 
 const ACTIONS = {
   es: ["acercarse", "evitar", "esperar"],
@@ -161,6 +162,106 @@ const COPY = {
   },
 };
 
+const EVOLUTION_COPY = {
+  es: {
+    kicker: "Dos cierres · evidencia reproducible",
+    title: "ECHO-AI — evolución de ECHO-1 a ECHO-2",
+    intro: "Los resultados se separan por versión. Cada cifra conserva su banco, su control y su denominador; no se mezclan en una puntuación de inteligencia inventada.",
+    closed: "cerrado",
+    echo1Lead: "Aprende consecuencias, recuerda episodios y transfiere patrones entre mundos discretos.",
+    echo2Lead: "Conserva ECHO-1 y añade cuerpo viable, tiempo, consolidación, herencia y regulación interna.",
+    checks: "pruebas de aceptación",
+    coreTurns: "turnos en la traza canónica",
+    prediction: "predicción T conocida",
+    transfer: "transferencia agregada",
+    reports: "informes de cierre verdes",
+    neurons: "neuronas monitorizadas",
+    stream: "frames STREAM-1",
+    heat: "turnos con energía + temperatura",
+    compare: "Cambios medidos con controles",
+    compareIntro: "Las dos primeras comparaciones proceden de CAPACITY-1. La tercera muestra escala ejercitada; usa cargas distintas y no representa precisión comparable.",
+    perception: "Firmas perceptivas reservadas",
+    temporal: "Discriminación temporal · 640 neuronas totales",
+    sequence: "Escala de secuencia ejercitada",
+    echo1Size: "baseline de tamaño ECHO-1 · 256 LIF",
+    echo2Perception: "ECHO-2 · 512 LIF",
+    static: "control · 640 LIF estáticas",
+    adaptive: "ECHO-2 · 512 LIF + 128 ALIF",
+    echo1Core: "ECHO-1 · núcleo",
+    echo2Stream: "ECHO-2 · STREAM-1",
+    phases: "ECHO-2 por fase",
+    phaseIntro: "Ocho informes verdes cierran las capacidades nuevas. Los resultados rojos anteriores de GEN-1 y HEAT-1 se conservan en el laboratorio.",
+    data1: "Datos ECHO-1 (.json)", data2: "Datos ECHO-2 (.json)",
+  },
+  en: {
+    kicker: "Two closures · reproducible evidence",
+    title: "ECHO-AI — evolution from ECHO-1 to ECHO-2",
+    intro: "Results are separated by release. Every figure retains its bench, control and denominator; they are not merged into an invented intelligence score.",
+    closed: "closed",
+    echo1Lead: "Learns consequences, remembers episodes and transfers patterns across discrete worlds.",
+    echo2Lead: "Retains ECHO-1 and adds a viable body, time, consolidation, inheritance and internal regulation.",
+    checks: "acceptance tests", coreTurns: "turns in the canonical trace", prediction: "known T prediction", transfer: "aggregate transfer",
+    reports: "green closure reports", neurons: "monitored neurons", stream: "STREAM-1 frames", heat: "turns with energy + temperature",
+    compare: "Changes measured with controls",
+    compareIntro: "The first two comparisons come from CAPACITY-1. The third shows exercised scale; it uses different workloads and does not represent comparable accuracy.",
+    perception: "Held-out perceptual signatures", temporal: "Temporal discrimination · 640 total neurons", sequence: "Exercised sequence scale",
+    echo1Size: "ECHO-1-size baseline · 256 LIF", echo2Perception: "ECHO-2 · 512 LIF", static: "control · 640 static LIF",
+    adaptive: "ECHO-2 · 512 LIF + 128 ALIF", echo1Core: "ECHO-1 · core", echo2Stream: "ECHO-2 · STREAM-1",
+    phases: "ECHO-2 by phase", phaseIntro: "Eight green reports close the new capabilities. Earlier red GEN-1 and HEAT-1 results remain in the laboratory.",
+    data1: "ECHO-1 data (.json)", data2: "ECHO-2 data (.json)",
+  },
+  ca: {
+    kicker: "Dos tancaments · evidència reproduïble",
+    title: "ECHO-AI — evolució d'ECHO-1 a ECHO-2",
+    intro: "Els resultats se separen per versió. Cada xifra conserva el seu banc, control i denominador; no es barregen en una puntuació d'intel·ligència inventada.",
+    closed: "tancat",
+    echo1Lead: "Aprèn conseqüències, recorda episodis i transfereix patrons entre mons discrets.",
+    echo2Lead: "Conserva ECHO-1 i afegeix cos viable, temps, consolidació, herència i regulació interna.",
+    checks: "proves d'acceptació", coreTurns: "torns a la traça canònica", prediction: "predicció T coneguda", transfer: "transferència agregada",
+    reports: "informes de tancament verds", neurons: "neurones monitoritzades", stream: "frames STREAM-1", heat: "torns amb energia + temperatura",
+    compare: "Canvis mesurats amb controls",
+    compareIntro: "Les dues primeres comparacions provenen de CAPACITY-1. La tercera mostra escala exercitada; usa càrregues diferents i no representa precisió comparable.",
+    perception: "Signatures perceptives reservades", temporal: "Discriminació temporal · 640 neurones totals", sequence: "Escala de seqüència exercitada",
+    echo1Size: "baseline de mida ECHO-1 · 256 LIF", echo2Perception: "ECHO-2 · 512 LIF", static: "control · 640 LIF estàtiques",
+    adaptive: "ECHO-2 · 512 LIF + 128 ALIF", echo1Core: "ECHO-1 · nucli", echo2Stream: "ECHO-2 · STREAM-1",
+    phases: "ECHO-2 per fase", phaseIntro: "Vuit informes verds tanquen les capacitats noves. Els resultats vermells anteriors de GEN-1 i HEAT-1 es conserven al laboratori.",
+    data1: "Dades ECHO-1 (.json)", data2: "Dades ECHO-2 (.json)",
+  },
+};
+
+const PHASES = {
+  es: [
+    ["VITA-1 · FOOD-1 · SURV-1", "Muerte efectiva y supervivencia con memoria: medianas 28/40/40 frente a 16/16/16 al resetear."],
+    ["SHIFT-S", "Adaptación frente a Q congelada: +421, +416 y +446 turnos; también se publica la transferencia negativa frente a scratch."],
+    ["PATTERN-1", "32/32 variantes reservadas frente a 0/32 por coincidencia exacta, sin usar id de objeto o posición."],
+    ["STREAM-1", "4.608 frames, 48 bloques y 4.512/4.512 predicciones conocidas en el brazo coherente."],
+    ["SLEEP-2", "8.208 filas se consolidan en 144 reglas: 720/720 held-out frente a 0/720 de T, sin reescribir CAM/T/Q."],
+    ["GEN-1f", "Presupuesto heredado 8: 360 errores tardíos frente a 602 del naïf; 52 victorias, 24 derrotas y 52 empates."],
+    ["HEAT-1b", "20.786 turnos con energía y temperatura frente a 7.221 sin temperatura; examen cargar/enfriar 12/12."],
+    ["CAPACITY-1 · NEURAL-VIZ-1", "512 LIF: 2.048/2.048; 128 ALIF adicionales: 256/256 temporal; GUI Python observable."],
+  ],
+  en: [
+    ["VITA-1 · FOOD-1 · SURV-1", "Effective death and survival with memory: medians 28/40/40 versus 16/16/16 after reset."],
+    ["SHIFT-S", "Adaptation versus frozen Q: +421, +416 and +446 turns; negative transfer versus scratch is also published."],
+    ["PATTERN-1", "32/32 held-out variants versus 0/32 exact matching, without object or position IDs."],
+    ["STREAM-1", "4,608 frames, 48 chunks and 4,512/4,512 known predictions in the coherent arm."],
+    ["SLEEP-2", "8,208 rows consolidate into 144 rules: 720/720 held-out versus T at 0/720, without rewriting CAM/T/Q."],
+    ["GEN-1f", "Inherited budget 8: 360 late errors versus naïve at 602; 52 wins, 24 losses and 52 ties."],
+    ["HEAT-1b", "20,786 turns with energy and temperature versus 7,221 without temperature; load/cool exam 12/12."],
+    ["CAPACITY-1 · NEURAL-VIZ-1", "512 LIF: 2,048/2,048; 128 additional ALIF: 256/256 temporal; observable Python GUI."],
+  ],
+  ca: [
+    ["VITA-1 · FOOD-1 · SURV-1", "Mort efectiva i supervivència amb memòria: medianes 28/40/40 davant 16/16/16 després del reset."],
+    ["SHIFT-S", "Adaptació davant Q congelada: +421, +416 i +446 torns; també es publica la transferència negativa davant scratch."],
+    ["PATTERN-1", "32/32 variants reservades davant 0/32 per coincidència exacta, sense ids d'objecte o posició."],
+    ["STREAM-1", "4.608 frames, 48 blocs i 4.512/4.512 prediccions conegudes al braç coherent."],
+    ["SLEEP-2", "8.208 files es consoliden en 144 regles: 720/720 held-out davant T a 0/720, sense reescriure CAM/T/Q."],
+    ["GEN-1f", "Pressupost heretat 8: 360 errors tardans davant 602 del naïf; 52 victòries, 24 derrotes i 52 empats."],
+    ["HEAT-1b", "20.786 torns amb energia i temperatura davant 7.221 sense temperatura; examen carregar/refredar 12/12."],
+    ["CAPACITY-1 · NEURAL-VIZ-1", "512 LIF: 2.048/2.048; 128 ALIF addicionals: 256/256 temporal; GUI Python observable."],
+  ],
+};
+
 function pct(value, language) {
   return new Intl.NumberFormat(language, { maximumFractionDigits: 2 }).format(value * 100) + "%";
 }
@@ -184,6 +285,115 @@ function Bar({ label, value, max, tone = "primary" }) {
       </div>
       <strong>{value}</strong>
     </div>
+  );
+}
+
+function ReleaseCard({ release, lead, status, stats, tone }) {
+  return (
+    <section className={`release-card is-${tone}`} aria-labelledby={`${tone}-release-title`}>
+      <div className="release-card-head">
+        <h2 id={`${tone}-release-title`}>{release}</h2>
+        <span>● {status}</span>
+      </div>
+      <p>{lead}</p>
+      <dl>
+        {stats.map(([value, label]) => (
+          <div key={label}><dt>{label}</dt><dd>{value}</dd></div>
+        ))}
+      </dl>
+    </section>
+  );
+}
+
+function RatioRow({ label, value, total, display, tone }) {
+  const width = total > 0 ? Math.max(0, Math.min(100, value / total * 100)) : 0;
+  return (
+    <div className="evolution-ratio">
+      <span>{label}</span>
+      <i aria-hidden="true"><b className={`is-${tone}`} style={{ width: `${width}%` }} /></i>
+      <strong>{display}</strong>
+    </div>
+  );
+}
+
+function Evolution({ language }) {
+  const c = EVOLUTION_COPY[language];
+  const e1Prediction = pct(echo1.core.predictionAccuracy, language);
+  const e2Neurons = echo2.capacity.lif + echo2.capacity.adaptiveLif;
+  return (
+    <>
+      <header className="evolution-hero">
+        <span className="bench-kicker">{c.kicker}</span>
+        <h1>{c.title}</h1>
+        <p>{c.intro}</p>
+      </header>
+
+      <div className="release-columns">
+        <ReleaseCard
+          release="ECHO-1"
+          lead={c.echo1Lead}
+          status={c.closed}
+          tone="echo1"
+          stats={[
+            [echo1.releaseAcceptanceTests, c.checks],
+            [echo1.core.turns, c.coreTurns],
+            [e1Prediction, c.prediction],
+            [`+${echo1.transfer.aggregateGain}`, c.transfer],
+          ]}
+        />
+        <ReleaseCard
+          release="ECHO-2"
+          lead={c.echo2Lead}
+          status={c.closed}
+          tone="echo2"
+          stats={[
+            [echo2.sources.length, c.reports],
+            [`${e2Neurons} (${echo2.capacity.lif}+${echo2.capacity.adaptiveLif})`, c.neurons],
+            [echo2.stream.frames.toLocaleString(language), c.stream],
+            [echo2.heat.jointTurns.toLocaleString(language), c.heat],
+          ]}
+        />
+      </div>
+
+      <section className="bench-section evolution-comparisons" aria-labelledby="evolution-comparison-title">
+        <span className="bench-kicker">CAPACITY-1 · STREAM-1</span>
+        <h2 id="evolution-comparison-title">{c.compare}</h2>
+        <p>{c.compareIntro}</p>
+        <div className="evolution-chart-grid">
+          <div className="evolution-chart">
+            <h3>{c.perception}</h3>
+            <RatioRow label={c.echo1Size} value={echo2.comparison.perception.echo1SizeBaseline.hits} total={echo2.comparison.perception.echo1SizeBaseline.total} display="829 / 2.048" tone="echo1" />
+            <RatioRow label={c.echo2Perception} value={echo2.comparison.perception.echo2.hits} total={echo2.comparison.perception.echo2.total} display="2.048 / 2.048" tone="echo2" />
+          </div>
+          <div className="evolution-chart">
+            <h3>{c.temporal}</h3>
+            <RatioRow label={c.static} value={echo2.comparison.temporal.staticControl.hits} total={echo2.comparison.temporal.staticControl.total} display="0 / 256" tone="echo1" />
+            <RatioRow label={c.adaptive} value={echo2.comparison.temporal.echo2.hits} total={echo2.comparison.temporal.echo2.total} display="256 / 256" tone="echo2" />
+          </div>
+          <div className="evolution-chart is-wide">
+            <h3>{c.sequence}</h3>
+            <RatioRow label={c.echo1Core} value={echo2.comparison.streamScale.echo1Turns} total={echo2.comparison.streamScale.echo2Frames} display="352" tone="echo1" />
+            <RatioRow label={c.echo2Stream} value={echo2.comparison.streamScale.echo2Frames} total={echo2.comparison.streamScale.echo2Frames} display="4.608" tone="echo2" />
+          </div>
+        </div>
+      </section>
+
+      <section className="bench-section" aria-labelledby="echo2-phases-title">
+        <span className="bench-kicker">ECHO-2</span>
+        <h2 id="echo2-phases-title">{c.phases}</h2>
+        <p>{c.phaseIntro}</p>
+        <div className="phase-results">
+          {PHASES[language].map(([name, result]) => (
+            <article key={name}><span>✓</span><h3>{name}</h3><p>{result}</p></article>
+          ))}
+        </div>
+        <div className="results-downloads">
+          <a className="bench-download" href="/data/echo1-benchmark.json" download>{c.data1}</a>
+          <a className="bench-download is-echo2" href="/data/echo2-benchmark.json" download>{c.data2}</a>
+        </div>
+      </section>
+
+    </>
   );
 }
 
@@ -350,7 +560,7 @@ function Results({ data, cursor, setCursor, language, copy }) {
     <>
       <header className="bench-hero">
         <span className="bench-kicker">{copy.canonical}</span>
-        <h1>{copy.title}</h1>
+        <h2>{copy.title}</h2>
         <p>{copy.intro}</p>
         <div className="bench-stats">
           <Stat value="−12 → +5" label={copy.statPolicy} />
@@ -498,13 +708,14 @@ function Results({ data, cursor, setCursor, language, copy }) {
   );
 }
 
-export default function Echo1Results({ language = "es" }) {
+export default function EchoResults({ language = "es" }) {
   const [cursor, setCursor] = useState(0);
   const copy = COPY[language];
 
   return (
     <article className="docs-body benchmark-page">
-      <Results data={benchmark} cursor={cursor} setCursor={setCursor} language={language} copy={copy} />
+      <Evolution language={language} />
+      <Results data={echo1} cursor={cursor} setCursor={setCursor} language={language} copy={copy} />
     </article>
   );
 }

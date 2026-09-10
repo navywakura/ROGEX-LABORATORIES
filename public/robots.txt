@@ -33,6 +33,9 @@ Allow: /
 User-agent: Google-Extended
 Allow: /
 
+User-agent: Discordbot
+Allow: /
+
 User-agent: PerplexityBot
 Allow: /
 

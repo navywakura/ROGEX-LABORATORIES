@@ -9,7 +9,7 @@ LIF + 128 Adaptive-LIF y NEURAL-VIZ-1 la hizo observable en una GUI nativa.
 ## Demostración directa
 
 <figure class="echo2-video">
-  <video controls preload="metadata" playsinline poster="/media/echoai/opengraph/echo2.png" aria-label="Demostración de la GUI nativa de ECHO-2">
+  <video controls preload="metadata" playsinline poster="/media/echoai/opengraph/echo2-card.jpg" aria-label="Demostración de la GUI nativa de ECHO-2">
     <source src="/media/echoai/echo2-neural-viz-demo.mp4" type="video/mp4">
     Tu navegador no puede reproducir MP4. <a href="/media/echoai/echo2-neural-viz-demo.mp4">Descarga el vídeo</a>.
   </video>

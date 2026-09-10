@@ -9,7 +9,7 @@ internes. CAPACITY-1 va justificar una arquitectura de monitor de 512 LIF +
 ## Demostració directa
 
 <figure class="echo2-video">
-  <video controls preload="metadata" playsinline poster="/media/echoai/opengraph/echo2.png" aria-label="Demostració de la GUI nativa d'ECHO-2">
+  <video controls preload="metadata" playsinline poster="/media/echoai/opengraph/echo2-card.jpg" aria-label="Demostració de la GUI nativa d'ECHO-2">
     <source src="/media/echoai/echo2-neural-viz-demo.mp4" type="video/mp4">
     El navegador no pot reproduir MP4. <a href="/media/echoai/echo2-neural-viz-demo.mp4">Descarrega el vídeo</a>.
   </video>

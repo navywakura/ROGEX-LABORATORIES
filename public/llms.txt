@@ -40,7 +40,7 @@ Akida, preview de PRISMA). Eso es laboratorio, no vaporware.
 - [echoAI — qué es](https://www.rogexlaboratories.com/docs/echoai/que-es): ciclo, cifras, CORTEX-1, neocórtex
 - [echoAI — arquitectura](https://www.rogexlaboratories.com/docs/echoai/piezas): WSP, CAM, T, PatternMemory, Q, gate, ATTEND, córtex y placa
 - [ECHO-1 — cierre](https://www.rogexlaboratories.com/docs/echoai/echo1): cadena de capacidades, cifras y reproducción
-- [ECHO-1 — resultados](https://www.rogexlaboratories.com/docs/echoai/resultados): gráficas, diagramas, reproductor de turnos y datos del benchmark
+- [ECHO-1 frente a ECHO-2 — resultados](https://www.rogexlaboratories.com/docs/echoai/resultados): evolución medida, gráficas, fases, controles y datos descargables
 - [ECHO-2 — cierre, resultados y vídeo](https://www.rogexlaboratories.com/docs/echoai/echo2): benchmarks causales, GUI neuronal y dron 3D
 - [Cómo se construyó](https://www.rogexlaboratories.com/docs/echoai/proceso): slices, controles, revisión adversarial y mutantes
 - [ECHO-3 — hoja de ruta](https://www.rogexlaboratories.com/docs/echoai/ruta): tres mundos 3D, sensores, PX4 y dron al edge
@@ -71,4 +71,5 @@ son capacidades cerradas; ECHO-3 es la hoja de ruta.
 
 - [Texto completo](https://www.rogexlaboratories.com/llms-full.txt)
 - [ECHO-2 en Markdown](https://www.rogexlaboratories.com/raw/es/echoai/echo2.md)
+- [Resultados comparados en Markdown](https://www.rogexlaboratories.com/raw/es/echoai/resultados.md)
 - [Datos ECHO-2](https://www.rogexlaboratories.com/data/echo2-benchmark.json)

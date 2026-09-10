@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { PAGES, SITE } from "../src/site.js";
+import { PAGES, SITE, ECHO2_OG } from "../src/site.js";
 
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 const publicDir = path.join(root, "public");
@@ -106,7 +106,7 @@ const urls = indexable.map((page) => {
       : base.startsWith("/docs/") ? "0.8" : "0.7";
   const loc = `${SITE.url}${page.path === "/" ? "/" : page.path}`;
   if (page.path.includes("/docs/echoai/echo2")) {
-    return `  <url><loc>${loc}</loc><lastmod>${lastmod}</lastmod><priority>${priority}</priority><video:video><video:thumbnail_loc>${SITE.url}/media/echoai/opengraph/echo2.png</video:thumbnail_loc><video:title>${xml(page.title)}</video:title><video:description>${xml(page.description)}</video:description><video:content_loc>${SITE.url}/media/echoai/echo2-neural-viz-demo.mp4</video:content_loc><video:duration>123</video:duration><video:publication_date>2026-09-09T21:10:07Z</video:publication_date></video:video></url>`;
+    return `  <url><loc>${loc}</loc><lastmod>${lastmod}</lastmod><priority>${priority}</priority><video:video><video:thumbnail_loc>${SITE.url}${ECHO2_OG.image}</video:thumbnail_loc><video:title>${xml(page.title)}</video:title><video:description>${xml(page.description)}</video:description><video:content_loc>${SITE.url}/media/echoai/echo2-neural-viz-demo.mp4</video:content_loc><video:duration>123</video:duration><video:publication_date>2026-09-09T21:10:07Z</video:publication_date></video:video></url>`;
   }
   return `  <url><loc>${loc}</loc><lastmod>${lastmod}</lastmod><priority>${priority}</priority></url>`;
 });

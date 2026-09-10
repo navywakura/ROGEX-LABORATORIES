@@ -40,7 +40,7 @@ PRISMA preview. That is laboratory work, not vapourware.
 - [echoAI — what it is](https://www.rogexlaboratories.com/en/docs/echoai/que-es)
 - [echoAI — architecture](https://www.rogexlaboratories.com/en/docs/echoai/piezas)
 - [ECHO-1 — closure](https://www.rogexlaboratories.com/en/docs/echoai/echo1)
-- [ECHO-1 — results](https://www.rogexlaboratories.com/en/docs/echoai/resultados)
+- [ECHO-1 versus ECHO-2 — results](https://www.rogexlaboratories.com/en/docs/echoai/resultados)
 - [ECHO-2 — closure, results and video](https://www.rogexlaboratories.com/en/docs/echoai/echo2)
 - [How it was built](https://www.rogexlaboratories.com/en/docs/echoai/proceso)
 - [ECHO-3 roadmap](https://www.rogexlaboratories.com/en/docs/echoai/ruta)
@@ -71,4 +71,5 @@ closed capabilities; ECHO-3 is the roadmap.
 
 - [Complete text](https://www.rogexlaboratories.com/en/llms-full.txt)
 - [ECHO-2 as Markdown](https://www.rogexlaboratories.com/raw/en/echoai/echo2.md)
+- [Compared results as Markdown](https://www.rogexlaboratories.com/raw/en/echoai/resultados.md)
 - [ECHO-2 data](https://www.rogexlaboratories.com/data/echo2-benchmark.json)

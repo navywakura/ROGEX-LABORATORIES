@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { SITE, ECHO2_VIDEO, abs, imageFor, pageFor, jsonLd } from "../site.js";
+import { SITE, abs, imageFor, pageFor, jsonLd } from "../site.js";
 import { alternatePaths, docsPagePath } from "../i18n.js";
 
 function upsert(selector, attrs) {
@@ -42,21 +42,6 @@ function replaceOgLocaleAlternates(language) {
     el.setAttribute("property", "og:locale:alternate");
     el.setAttribute("content", locale);
     document.head.appendChild(el);
-  }
-}
-
-function replaceVideoMetadata(page) {
-  document.head.querySelectorAll('meta[property^="og:video"]').forEach((el) => el.remove());
-  if (!page.path.includes("/docs/echoai/echo2")) return;
-  const fields = {
-    "og:video": abs(ECHO2_VIDEO),
-    "og:video:secure_url": abs(ECHO2_VIDEO),
-    "og:video:type": "video/mp4",
-    "og:video:width": "1280",
-    "og:video:height": "720",
-  };
-  for (const [property, content] of Object.entries(fields)) {
-    upsert(`meta[property="${property}"]`, { property, content });
   }
 }
 
@@ -105,15 +90,16 @@ export default function Head() {
     upsert('meta[name="citation_author"]', { name: "citation_author", content: SITE.author });
 
     const og = {
-      "og:type": "website",
+      "og:type": page.path.includes("/docs/") ? "article" : "website",
       "og:site_name": SITE.name,
       "og:locale": locales[language],
       "og:title": page.title,
       "og:description": page.description,
       "og:url": url,
       "og:image": image.url,
+      "og:image:url": image.url,
       "og:image:secure_url": image.url,
-      "og:image:type": "image/png",
+      "og:image:type": image.type,
       "og:image:width": String(image.width),
       "og:image:height": String(image.height),
       "og:image:alt": image.alt,
@@ -122,7 +108,7 @@ export default function Head() {
       upsert(`meta[property="${k}"]`, { property: k, content: v });
     }
     replaceOgLocaleAlternates(language);
-    replaceVideoMetadata(page);
+    document.head.querySelectorAll('meta[property^="og:video"]').forEach((el) => el.remove());
     replaceMarkdownAlternate(page, language);
 
     upsert('meta[name="twitter:card"]', { name: "twitter:card", content: "summary_large_image" });
