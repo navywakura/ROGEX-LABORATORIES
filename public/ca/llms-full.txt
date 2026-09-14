@@ -1,7 +1,7 @@
 # RxLabs® — text complet per a models
 
 > Laboratori de programari. Codi que s'executa, evidència pública i xifres mesurades.
-> Font: documentació pública. Lloc: https://rxlabs.org/ca
+> Font: documentació pública. Lloc: https://www.rxlabs.org/ca
 
 ---
 

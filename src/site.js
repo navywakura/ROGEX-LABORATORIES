@@ -1,7 +1,10 @@
 export const SITE = {
   name: "RxLabs®",
-  url: "https://rxlabs.org",
-  docsUrl: "https://rxlabs.org/docs",
+  // Vercel serves the apex through a permanent redirect to this hostname.
+  // OpenGraph must use the final 200 URL so social crawlers never have to
+  // infer metadata across a redirect.
+  url: "https://www.rxlabs.org",
+  docsUrl: "https://www.rxlabs.org/docs",
   locale: "es_ES",
   localeAlt: "en_US",
   localeCa: "ca_ES",

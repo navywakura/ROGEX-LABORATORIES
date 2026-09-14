@@ -1,7 +1,7 @@
 # RxLabs® — texto completo para modelos
 
 > Laboratorio de software. Código que corre, evidencia pública y cifras medidas.
-> Fuente: docs públicas. Sitio: https://rxlabs.org
+> Fuente: docs públicas. Sitio: https://www.rxlabs.org
 
 ---
 
