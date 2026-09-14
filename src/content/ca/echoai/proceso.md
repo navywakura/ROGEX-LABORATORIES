@@ -6,9 +6,9 @@ evidència pròpia i acaba en una porta que ha de poder dir que no.
 
 ## Direcció i traçabilitat
 
-Roger Navarro dirigeix el producte i la seva arquitectura, fixa els invariants,
-opera el laboratori i accepta o rebutja cada fase. L'evolució tècnica queda
-traçada en especificacions, codi, proves, informes i commits reproduïbles.
+Els invariants del laboratori fixen què pot modificar una fase i què ha de
+romandre separat. L'evolució tècnica queda traçada en especificacions, codi,
+proves, informes i commits reproduïbles.
 
 Les eines auxiliars del procés intern no formen part de l'evidència publicada.
 Les afirmacions públiques se sostenen únicament en el comportament del sistema,

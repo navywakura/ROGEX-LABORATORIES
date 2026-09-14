@@ -47,12 +47,14 @@ function replaceOgLocaleAlternates(language) {
 
 function replaceMarkdownAlternate(page, language) {
   document.head.querySelectorAll('link[rel="alternate"][type="text/markdown"]').forEach((el) => el.remove());
-  if (!page.path.includes("/docs/")) return;
-  const slug = page.path.replace(/^\/(?:en|ca)(?=\/|$)/, "").replace(/^\/docs\//, "");
+  const base = page.path.replace(/^\/(?:en|ca)(?=\/|$)/, "");
+  if (!base.includes("/docs/") && !base.includes("/articulos/")) return;
+  const isArticle = base.includes("/articulos/");
+  const slug = base.replace(/^\/(?:docs|articulos)\//, "");
   const el = document.createElement("link");
   el.rel = "alternate";
   el.type = "text/markdown";
-  el.href = abs(`/raw/${language}/${slug}.md`);
+  el.href = abs(`/raw/${language}/${isArticle ? "articulos/" : ""}${slug}.md`);
   document.head.appendChild(el);
 }
 
@@ -60,7 +62,7 @@ export default function Head() {
   const loc = useLocation();
   const docsHost =
     typeof window !== "undefined" &&
-    window.location.hostname === "docs.rogexlaboratories.com";
+    ["docs.rxlabs.org", "docs.rogexlaboratories.com"].includes(window.location.hostname);
 
   useEffect(() => {
     const path = docsPagePath(loc.pathname, docsHost);
@@ -90,7 +92,7 @@ export default function Head() {
     upsert('meta[name="citation_author"]', { name: "citation_author", content: SITE.author });
 
     const og = {
-      "og:type": page.path.includes("/docs/") ? "article" : "website",
+      "og:type": page.path.includes("/docs/") || page.article ? "article" : "website",
       "og:site_name": SITE.name,
       "og:locale": locales[language],
       "og:title": page.title,

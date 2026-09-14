@@ -1,8 +1,8 @@
 # Hardware previsto
 
-Esta es la plataforma de desarrollo propuesta para avanzar hacia ECHO-3. No es
-un inventario del laboratorio: salvo que se indique lo contrario, son compras
-candidatas.
+Esta es la plataforma propuesta para avanzar hacia ECHO-3. Hoy echoAI cierra
+software y PX4 SITL: los elementos de esta página son compras candidatas, no
+hardware operativo del agente.
 
 ## Escalera de pruebas
 

@@ -1,7 +1,7 @@
 # RxLabs® — texto completo para modelos
 
-> Laboratorio de investigación de Roger Navarro (Girona). Software real, cifras medidas.
-> Fuente: docs públicas. Sitio: https://www.rogexlaboratories.com
+> Laboratorio de software. Código que corre, evidencia pública y cifras medidas.
+> Fuente: docs públicas. Sitio: https://rxlabs.org
 
 ---
 
@@ -59,88 +59,27 @@ heredadas de un folleto.
 
 # echoAI
 
-echoAI es un agente situado de dos relojes. No es un chatbot y no es un
-modelo de lenguaje con herramientas.
-
-El reloj rápido percibe, recuerda, predice, actúa y aprende usando tablas y
-enteros. El reloj lento, cuando se conecta, puede leer lenguaje y proponer una
-hipótesis. El gate conserva la última palabra y ninguna propuesta del córtex se
-convierte por sí sola en un hecho.
+echoAI es un agente situado de dos relojes. El rápido representa, recuerda, anticipa, decide y aprende con estructuras discretas. El lento puede proponer cuando ATTEND encuentra una razón; no controla directamente el cuerpo.
 
 ```text
-percibir → recordar → predecir → actuar → consecuencia → aprender
-                                      ↑
-                          hipótesis lenta, sólo cuando ATTEND la solicita
+percibir → WSP → CAM → T / Pattern / Q → gate → acción → consecuencia → aprendizaje
 ```
 
-## Estado actual
+No es un chatbot conectado a motores. WSP es el único paquete compartido; CAM, Q y T responden preguntas distintas; una hipótesis no se convierte en hecho sin evidencia; y el gate sigue teniendo la última palabra.
 
-**ECHO-1 quedó cerrado el 5 de septiembre de 2026 y ECHO-2 el 9 de septiembre
-de 2026.** La suite canónica de ECHO-1 termina con 488 pruebas correctas y un
-`expectedFailure` explícito: WALK-1
-sin el resto entero opt-in. No se oculta como verde.
+## Estado publicado
 
-ECHO-1 demuestra que el mismo animal:
+ECHO-1 cerró el ciclo base: memoria episódica, consecuencias, predicción, patrones, transferencia y narración póstuma. ECHO-2 cerró supervivencia, cambio de distribución, streaming, consolidación, herencia acotada, energía, temperatura y un monitor de 512 LIF + 128 Adaptive-LIF.
 
-- conserva CAM, Q, T y PatternMemory al cruzar mundos;
-- distingue cambios propios de cambios del entorno;
-- aprende a transportar un objeto y a abrir un recipiente;
-- despierta el córtex después de una contradicción conocida, no antes;
-- narra lo ocurrido sin que la narración pueda modificar el animal;
-- aprende una regularidad temporal que T de un paso no puede representar;
-- obtiene una ventaja causal frente a controles nuevos o sólo envejecidos.
+ECHO-3 lleva 8 de 15 fases software cerradas. Ya funciona con tres salas A/B/C, un cuerpo X500 en PX4 SITL, señales de cámara/LiDAR/IMU con procedencia, identidad fuera de muestra, dinámica corta, fusión de evidencias y composición de alternativas para una meta bloqueada.
 
-El cierre de transferencia usa tres mundos. En las dos fronteras medidas, el
-animal transferido obtiene `208 vs 152` (`+56`) y `224 vs 152` (`+72`). La
-ganancia agregada es `+128`. No intervienen un LLM ni etiquetas humanas.
+La demostración no depende de que una frase suene bien. Cada fase conserva entradas, semillas, controles, informe y un auditor que vuelve a calcular el resultado. La página de [resultados](./resultados) mantiene los cierres de ECHO-1/ECHO-2 y añade el estado actual de ECHO-3.
 
-ECHO-2 conserva ese núcleo y añade supervivencia entre vidas, generalización
-de patrones, flujo continuo, consolidación, herencia de una predisposición y
-regulación conjunta de energía y temperatura. CAPACITY-1 seleccionó un monitor
-de 512 LIF + 128 Adaptive-LIF: 2.048/2.048 firmas perceptivas y 256/256
-secuencias temporales. [Cierre, gráficas y vídeo de ECHO-2](./echo2).
+## Qué está haciendo ECHO-3
 
-## Tres canales que no se mezclan
+Una observación puede decir “hay una estación allí”, pero esa observación no dice que haya un camino. ECHO-3 conserva la fuente, la edad y la certeza; busca un acceso posible, calcula un siguiente paso bajo presupuesto y lo contrasta contra la consecuencia. Cuando dos sensores discrepan, conserva el desacuerdo en lugar de fabricar una respuesta única.
 
-| Canal | Pregunta | Dónde vive |
-|---|---|---|
-| Representación | ¿qué ocurre? | WSP de 16 bytes |
-| Epistemología | ¿lo sé? | CAM + VERIFY + extracto |
-| Control | ¿qué hago? | Q + gate |
-
-CAM registra lo que ocurrió. Q aprende lo que conviene hacer. T predice el
-resultado de una acción. Que una frase suene convincente no cambia ninguno de
-esos contratos.
-
-## Cifras que se pueden volver a medir
-
-| Banco | Resultado |
-|---|---|
-| Anillo, política aprendida ante amenaza | `[-12, +5, 0]` |
-| Preguntar frente a no preguntar | `+80` frente a `-80` |
-| ATTEND con córtex habilitado | 36 despertares de 256 turnos |
-| SIGN-C, decisión que el rápido no resolvía | córtex `+16`, rápido `0` |
-| TALK-1 | 496/496 cláusulas; 256/256 registros |
-| PATTERN-0 | 80/80 frente a T 40/80 |
-| XFER-1 | `+56` y `+72` en fronteras independientes |
-| Hechos falsos / ranuras destruidas | `0 / 0` |
-
-La ejecución principal mantiene el córtex apagado. Qwen3-4B se probó aparte,
-local y cuantizado, detrás del mismo enchufe y de una gramática de salida. En
-SIGN-C resolvió los dos ejemplos canónicos, 4 de 6 paráfrasis que el stub no
-resolvía y produjo `CortexROI +16`; dos amenazas no canónicas equivocadas
-quedan registradas como deuda de seguridad, no escondidas.
-
-## Qué significa y qué no
-
-Es evidencia de memoria, control, predicción, composición y transferencia en
-mundos sintéticos. No es todavía un robot, no demuestra percepción visual y no
-autoriza a poner un modelo generativo en el control de motores.
-
-ECHO-3 llevará el contrato cerrado de ECHO-2 a tres mundos 3D, sensores,
-dinámica de vuelo, PX4 y finalmente un cuerpo físico en el edge.
-
-— R.N.
+El próximo experimento es CAUSE-1: escenas emparejadas para medir si una transición se debe a su propia acción o a un cambio externo. La hoja de ruta completa está en [ECHO-3](./ruta).
 
 ---
 
@@ -470,6 +409,24 @@ ECHO-1 y ECHO-2 están cerrados. Esta página separa sus resultados para mostrar
 la evolución sin mezclar bancos distintos en una puntuación de inteligencia.
 Cada cifra conserva su control, denominador e informe de origen.
 
+## ECHO-3 · estado actual
+
+ECHO-3 lleva 8 de 15 fases software cerradas: SIM-3, FLIGHT-1S v6,
+SENSOR-1S v3, GROUND-1 v2, DYNAMIC-1 v2, PATTERN-1R v4, FUSION-1 y
+COMPOSE-1 v4. Estos bancos usan otro cuerpo, otros sensores y otros
+denominadores, por lo que no se mezclan con las cifras históricas de abajo.
+
+| Banco actual | Resultado publicado |
+|---|---:|
+| COMPOSE-1 funcional B/C | 6.144 misiones |
+| Metas físicas simuladas · composición | 6/6 |
+| Metas físicas simuladas · horizonte único | 0/6 |
+| Vuelos nuevos PX4 SITL | 32 |
+
+El planificador convencional empató la distancia física en este escenario. El
+resultado se conserva como control: la evidencia explica qué pasó sin fabricar
+una clasificación general.
+
 ## ECHO-1 · memoria, acción y transferencia
 
 | Medida | Resultado |
@@ -546,9 +503,9 @@ produce evidencia propia y termina en una puerta que debe poder decir que no.
 
 ## Dirección y trazabilidad
 
-Roger Navarro dirige el producto y su arquitectura, fija los invariantes,
-opera el laboratorio y acepta o rechaza cada fase. La evolución técnica queda
-trazada en especificaciones, código, pruebas, informes y commits reproducibles.
+Los invariantes del laboratorio fijan qué puede modificar una fase y qué debe
+quedar separado. La evolución técnica queda trazada en especificaciones,
+código, pruebas, informes y commits reproducibles.
 
 Las herramientas auxiliares del proceso interno no forman parte de la
 evidencia publicada. Las afirmaciones públicas se sostienen únicamente en el
@@ -623,131 +580,52 @@ incluye las huellas SHA-256 de esos informes y de la demostración en vídeo.
 
 <!-- src/content/echoai/ruta.md · /docs/echoai/ruta -->
 
-# Hoja de ruta — ECHO-3
+# ECHO-3 — hoja de ruta
 
-ECHO-1 y ECHO-2 están cerrados. ECHO-3 es **plan** hasta que cada fase tenga
-banco, controles, informe y cierre reproducible.
+ECHO-1 y ECHO-2 están cerrados. ECHO-3 ya ha cruzado la mitad: **8 de 15 fases de software** tienen banco, controles, informe y certificado reproducible.
 
-## Tesis medible
-
-ECHO-3 será una capa local de decisión para robots que recompone una misión
-cuando fallan sus supuestos, administra evidencia y recursos, y permite
-auditar cada decisión.
+La tesis es concreta: una capa local de decisión para un robot que conserva evidencia con fuente y edad, recompone el siguiente paso cuando un supuesto falla y deja una traza auditable.
 
 ```text
-sensores → WSP → evidencia/CAM → T/PATTERN → búsqueda/Q → gate
-         → objetivo o setpoint → PX4 → consecuencia → aprendizaje
+sensor → WSP → CAM/evidencia → T/PATTERN → búsqueda/Q → gate → PX4 → consecuencia
 ```
 
-PX4 conserva estabilización, control de motores y failsafes. echoAI escoge
-objetivos y acciones de alto nivel. Ningún LLM escribe hechos, memorias,
-setpoints aceptados ni motores.
+WSP sigue siendo el único bus. CAM registra hechos; T y Pattern anticipan; Q ordena alternativas; el gate acepta, modifica o bloquea. PX4 estabiliza, ejecuta el setpoint y mantiene sus failsafes. Ningún LLM escribe hechos, memorias, setpoints aceptados ni motores.
 
-La planificación, el retorno energético y la fusión sensorial no se presentan
-como exclusivos. Se medirá si su combinación auditable mejora recuperación,
-uso de evidencia y economía de misión frente a controles equivalentes.
+## Cerrado
 
-## Fases
+- [x] **SIM-3** — A, B y C nacen de manifiestos declarativos. El agente no recibe mapa, semilla, id de sala ni solución.
+- [x] **FLIGHT-1S v6** — el X500 en SITL despega, mantiene y recupera estabilidad ante una perturbación medida.
+- [x] **SENSOR-1S v3** — cámara, LiDAR e IMU publican tiempo, ruido, latencia, pérdida y procedencia.
+- [x] **GROUND-1 v2** — el adaptador lleva esas observaciones al WSP y a la memoria sin coordenadas oracle ni segundo bus.
+- [x] **DYNAMIC-1 v2** — separa cambio externo de escena estable y mantiene predicciones cortas.
+- [x] **PATTERN-1R v4** — conserva identidad de objeto entre vistas fuera de muestra.
+- [x] **FUSION-1** — mantiene evidencias independientes cuando discrepan; baja certeza y no completa el hecho.
+- [x] **COMPOSE-1 v4** — compone accesos conocidos para una meta bloqueada y verifica cada paso antes de continuar.
 
-| Slice | Pregunta que debe cerrar |
-|---|---|
-| SIM-3 | los mismos binarios ejecutan A/B/C sin filtraciones ni ramas por sala |
-| FLIGHT-1 | el cuerpo simulado vuela con dinámica y perturbaciones medidas |
-| SENSOR-1 | cámara, IMU y LiDAR entregan tiempo, ruido, pérdida y fuente explícitos |
-| GROUND-1 | las observaciones físicas producen WSP sin coordenadas oracle ni segundo bus |
-| PATTERN-1R | vistas distintas mantienen identidad de objeto fuera de muestra |
-| FUSION-1 | la evidencia independiente conserva desacuerdo y reduce la certeza correcta |
-| DYNAMIC-1 | detecta movimiento externo y predice trayectorias cortas |
-| **COMPOSE-1** | combina capacidades conocidas para una meta bloqueada sin receta de ruta |
-| CAUSE-1 | separa una transición causada por su acto de un cambio externo emparejado |
-| PX4-1 | entrega objetivos acotados sin saltarse PID ni failsafes |
-| POWER-1 | vuelve o abandona usando coste previsto y margen, además del failsafe de PX4 |
-| SAFE-1 | contiene sensores congelados, desconexiones y propuestas erróneas |
-| HOST-1 | actualiza el valor de un signo por consecuencias de una fuente |
-| TRANSFER-3 | lo aprendido en A mejora B/C frente a scratch sin mapa ni nombre del mundo |
-| DRONE-3 | cierra la misión en SITL, HIL y jaula con trazabilidad causal |
+COMPOSE-1 cerró 6.144 misiones funcionales B/C. En la rama física hay seis metas alcanzables: composición las cerró 6/6 y el control de una sola acción 0/6; el banco también incluye 32 vuelos PX4 SITL. El planificador convencional igualó la distancia física de ese escenario, por lo que se conserva como control en lugar de presentar una ventaja que no existe.
 
-## COMPOSE-1 — la meta detrás de la barrera
+## Siguiente bloque
 
-«La banana detrás de la pared» se traduce a un cuerpo que ECHO-3 realmente
-tendrá: una estación de carga visible o recordada, inaccesible por la ruta
-directa. El dron debe buscar una entrada, verificar el paso y llegar con
-reserva. Si agota el presupuesto, informa `acceso_no_encontrado` y vuelve; no
-demuestra que el acceso no exista.
+- [ ] **CAUSE-1** — emparejar escenas para separar “cambió por mi acto” de “cambió fuera de mí”.
+- [ ] **PX4-1** — entregar objetivos acotados a PX4 sin tocar PID, control de actitud ni failsafes.
+- [ ] **POWER-1** — elegir retorno o abandono por coste previsto, reserva e incertidumbre.
+- [ ] **SAFE-1** — sostener sensor congelado, desconexión y propuesta errónea sin aceptar un paso inadmisible.
+- [ ] **HOST-1** — aprender el valor de un signo por consecuencias observadas de fuente, contexto y señal.
+- [ ] **TRANSFER-3** — congelar lo aprendido en A y medir la mejora en B/C frente a scratch, sin mapa ni nombre del mundo.
+- [ ] **DRONE-3** — cerrar la misma misión mediante SITL, HIL y jaula con trazabilidad causal.
 
-| Evidencia | Respuesta válida |
-|---|---|
-| vio la estación antes de quedar oculta | conserva su ubicación como creencia con antigüedad y busca cómo verificarla |
-| la ve a través de cristal | separa objeto visible de volumen transitable y busca otro acceso |
-| una fuente afirma que está detrás | conserva una hipótesis atribuida y busca evidencia |
+## La meta detrás de una barrera
 
-Ver un objeto por cristal y detectar una pared son observaciones compatibles.
-Existe contradicción sólo cuando fuentes comparables afirman valores opuestos
-sobre el mismo volumen y tiempo. La ausencia de retorno LiDAR tampoco implica
-espacio libre.
+La prueba central de COMPOSE-1 no es una regla “gira a la izquierda”. Una estación de carga puede verse o recordarse, pero la ruta recta queda bloqueada. El agente conserva ubicación, fuente y antigüedad; busca un lateral o una abertura, predice el coste del siguiente paso, lo pasa por el gate y comprueba la consecuencia antes de planificar otra vez.
 
-```text
-meta observable
-→ evidencia, fuente, edad y desconocidos
-→ alternativas físicamente disponibles
-→ consecuencia, incertidumbre y coste previstos
-→ gate de choque, evidencia y reserva
-→ un siguiente paso
-→ consecuencia real y nueva planificación
-```
+Si se agota el presupuesto, `acceso_no_encontrado` es un resultado válido: pide ayuda o vuelve. Una trayectoria imaginada nunca entra en CAM como un hecho observado.
 
-La búsqueda inicial comparará presupuestos de 8 y 32 candidatos y hasta cuatro
-capacidades de alto nivel. Son límites para medir, no garantías de solución. Q
-puede ordenar alternativas y T/PATTERN respaldar predicciones. Los rollouts son
-hipótesis: nunca se escriben en CAM como hechos.
+## Después del cierre
 
-El informe distinguirá composición con affordances conocidas de descubrimiento
-por consecuencias. Palo, caja o herramientas quedan para un cuerpo con
-manipulación física; activarlos por contacto no demostraría manipulación.
+El cierre de ECHO-3 dejará preparada la base para **METAVERSE-1**: tres mapas 3D de mayor riqueza, geometría de Blender, rutas nuevas, obstáculos fijos y móviles, más vóxeles y rumbos, IMU, motores, PID/PX4, aerodinámica, viento y órdenes del usuario como aterrizar o ir a una coordenada. El mismo contrato permitirá distinguir una demo visual de una conducta que ha pasado un banco.
 
-## Mundos y evaluación
-
-- **A:** entrenamiento, selección y depuración.
-- **B:** validación congelada; si provoca ajustes, deja de ser confirmación.
-- **C:** examen sellado, abierto una vez al final.
-
-Los SDF y manifiestos construyen la verdad física, pero el agente no recibe
-mapa, waypoint, nombre, hash, seed ni identificadores que revelen la solución.
-En B/C se congelan reglas y parámetros aprendidos; percepción, localización y
-seguimiento siguen activos.
-
-COMPOSE-1 se comparará con Q reactiva, búsqueda sin procedencia/caducidad y un
-planificador convencional con los mismos sensores y presupuesto. Un planner
-con verdad completa se publica sólo como techo oracle. El auditor debe detectar
-un mutante que use una receta o el identificador del mundo.
-
-Las restricciones comunes incluyen cero hechos falsos, escrituras imaginadas
-en CAM, fugas oracle, bypasses del gate, bypasses del failsafe y setpoints
-inadmisibles aceptados dentro del dominio publicado. Después se comparan éxito,
-recomposición, colisiones, energía, intervenciones, latencia P99, CPU y memoria.
-
-## Herencia, aborto y lenguaje
-
-GEN-1f sólo hereda `evidence_budget=8`; el hijo nace con CAM, Q, T y PATTERN
-vacíos. No hereda mapas, objetos, confianza social ni «azul malo». Abortar una
-misión preserva el cuerpo y no equivale a morir.
-
-HOST-1 llega después de COMPOSE-1, cuando ya existe algo físico que pedir. El
-valor entero de `fuente + signo + contexto` cambia sólo por consecuencias
-observadas. Las órdenes humanas libres y una demo pública más rica quedan para
-después del cierre mínimo.
-
-## Frontera posterior
-
-Dentro de ECHO-3 entran los tres mundos geométricos simples, sensores mínimos,
-PX4, composición, transferencia congelada, HIL y jaula. Después se ampliarán
-la fidelidad visual y aerodinámica, el viento complejo, el número de sensores y
-vehículos, las órdenes libres y la transferencia entre morfologías.
-
-AKD1500 M.2 sigue condicionado a disponer de la tarjeta. Podrá acelerar
-percepción; Q, T, CAM, VERIFY y gate permanecerán en CPU.
-
-— R.N.
+AKD1500 M.2 entrará cuando la tarjeta exista en el laboratorio. Será un coprocesador de percepción con comparación CPU/placa sobre la misma tarea. WSP, CAM, VERIFY, T, Q y gate se mantienen en CPU.
 
 ---
 
@@ -755,9 +633,9 @@ percepción; Q, T, CAM, VERIFY y gate permanecerán en CPU.
 
 # Hardware previsto
 
-Esta es la plataforma de desarrollo propuesta para avanzar hacia ECHO-3. No es
-un inventario del laboratorio: salvo que se indique lo contrario, son compras
-candidatas.
+Esta es la plataforma propuesta para avanzar hacia ECHO-3. Hoy echoAI cierra
+software y PX4 SITL: los elementos de esta página son compras candidatas, no
+hardware operativo del agente.
 
 ## Escalera de pruebas
 
@@ -1784,3 +1662,52 @@ están comprobados. Falta el papeleo — una licencia de verdad, una vía de
 pago, un contacto de soporte — y la función que era el punto del
 ejercicio: enchufar un casco y verlo analizado en directo, sin un script
 puente en medio.
+
+---
+
+<!-- src/content/articles/echo3-a-mitad.md · /articulos/echo3-a-mitad -->
+
+# ECHO-3 ha pasado la mitad
+
+> 8 de 15 fases de software cerradas · 14 de septiembre de 2026
+
+ECHO-3 ya no es una lista de piezas imaginadas. Es un banco de decisión para un cuerpo simulado: percibe señales con fuente y tiempo, conserva lo observado, prueba un siguiente paso, comprueba qué ocurrió y deja una traza que se puede recalcular.
+
+La idea cabe en una línea:
+
+```text
+sensor → WSP → memoria/evidencia → predicción y búsqueda → gate → PX4 → consecuencia
+```
+
+No hay un modelo de lenguaje dirigiendo motores. El paquete WSP de 16 bytes transporta el hecho operativo; CAM conserva episodios; T anticipa; Q ordena alternativas; y el gate decide si el siguiente paso puede salir. PX4 sigue siendo quien estabiliza el vehículo y aplica sus protecciones.
+
+## Qué corre ya
+
+Las ocho fases cerradas cubren el suelo sobre el que se construye una misión:
+
+| Fase | Qué ya demuestra el banco |
+|---|---|
+| SIM-3 | Tres salas A/B/C se ejecutan desde manifiestos declarativos sin enseñar al agente el mapa, la semilla ni la respuesta. |
+| FLIGHT-1S | El X500 simulado despega, mantiene posición y recupera estabilidad ante perturbaciones medidas. |
+| SENSOR-1S | Cámara, LiDAR e IMU entregan observaciones con tiempo, ruido, latencia, pérdida y procedencia. |
+| GROUND-1 | Esas observaciones entran en el único WSP y en la memoria del agente, sin una coordenada oracle escondida. |
+| DYNAMIC-1 | El agente separa un objeto que cambia de una escena quieta y mantiene una predicción corta. |
+| PATTERN-1R | La identidad no depende de una vista exacta: la misma pieza puede reaparecer desde otra posición. |
+| FUSION-1 | Dos sensores que discrepan siguen siendo dos evidencias. El agente baja su certeza y no inventa el hueco. |
+| COMPOSE-1 | Ante una meta bloqueada, compone alternativas conocidas, verifica cada paso y vuelve a planificar. |
+
+La última prueba es la más fácil de entender. Hay una estación visible pero la ruta directa está cerrada. El agente no recibe la instrucción «gira a la izquierda». Recupera dónde la vio, compara los accesos disponibles, estima el coste del siguiente movimiento y sólo ejecuta el que pasa el gate. Si el acceso no aparece dentro del presupuesto, termina con `acceso_no_encontrado` y vuelve.
+
+El cierre de COMPOSE-1 dejó 6.144 misiones funcionales en B/C. En la parte física simulada, seis metas alcanzables se cerraron 6/6 con composición y 0/6 sin horizonte; también hay 32 vuelos nuevos de PX4 SITL. El planificador convencional igualó la distancia física en ese escenario. Se publica así porque el objetivo no es declarar una victoria por etiqueta: es saber exactamente qué parte del contrato aporta cada resultado.
+
+## Cómo se programa y se comprueba
+
+Cada fase empieza con una pregunta pequeña, una métrica y un control. La sala A sirve para construir. B valida parámetros congelados. C queda sellada hasta el examen. El manifiesto crea paredes, sensores y condiciones del mundo; ese mismo manifiesto nunca se entrega como memoria al agente.
+
+Después se lanzan controles que quitan una causa cada vez: una política reactiva, un horizonte de una acción, un planificador convencional y mutantes que intentan filtrar el mapa o saltarse la verificación. El informe conserva las semillas, los hashes, las trazas y el resultado rojo cuando aparece. Un verde no se obtiene moviendo la portería después de mirar la corrida.
+
+## La segunda mitad
+
+CAUSE-1 es el siguiente paso: emparejar dos escenas para que el agente pueda distinguir «esto cambió porque yo actué» de «esto cambió fuera de mí». Después llegan la entrega de objetivos acotados a PX4, la energía prevista, los fallos de sensores, los signos con un operador, la transferencia A→B/C y el cierre del cuerpo de dron en SITL, HIL y jaula.
+
+Cuando esa cadena esté completa, el siguiente salto será un mundo 3D más rico: geometría hecha en Blender, rutas nuevas, objetos móviles, IMU, motores, PID, aerodinámica y viento. El trabajo actual no se sustituye; es el contrato que hará posible comprobar ese mundo sin convertir una escena bonita en una afirmación vacía.

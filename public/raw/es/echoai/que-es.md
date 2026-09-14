@@ -1,84 +1,23 @@
 # echoAI
 
-echoAI es un agente situado de dos relojes. No es un chatbot y no es un
-modelo de lenguaje con herramientas.
-
-El reloj rápido percibe, recuerda, predice, actúa y aprende usando tablas y
-enteros. El reloj lento, cuando se conecta, puede leer lenguaje y proponer una
-hipótesis. El gate conserva la última palabra y ninguna propuesta del córtex se
-convierte por sí sola en un hecho.
+echoAI es un agente situado de dos relojes. El rápido representa, recuerda, anticipa, decide y aprende con estructuras discretas. El lento puede proponer cuando ATTEND encuentra una razón; no controla directamente el cuerpo.
 
 ```text
-percibir → recordar → predecir → actuar → consecuencia → aprender
-                                      ↑
-                          hipótesis lenta, sólo cuando ATTEND la solicita
+percibir → WSP → CAM → T / Pattern / Q → gate → acción → consecuencia → aprendizaje
 ```
 
-## Estado actual
+No es un chatbot conectado a motores. WSP es el único paquete compartido; CAM, Q y T responden preguntas distintas; una hipótesis no se convierte en hecho sin evidencia; y el gate sigue teniendo la última palabra.
 
-**ECHO-1 quedó cerrado el 5 de septiembre de 2026 y ECHO-2 el 9 de septiembre
-de 2026.** La suite canónica de ECHO-1 termina con 488 pruebas correctas y un
-`expectedFailure` explícito: WALK-1
-sin el resto entero opt-in. No se oculta como verde.
+## Estado publicado
 
-ECHO-1 demuestra que el mismo animal:
+ECHO-1 cerró el ciclo base: memoria episódica, consecuencias, predicción, patrones, transferencia y narración póstuma. ECHO-2 cerró supervivencia, cambio de distribución, streaming, consolidación, herencia acotada, energía, temperatura y un monitor de 512 LIF + 128 Adaptive-LIF.
 
-- conserva CAM, Q, T y PatternMemory al cruzar mundos;
-- distingue cambios propios de cambios del entorno;
-- aprende a transportar un objeto y a abrir un recipiente;
-- despierta el córtex después de una contradicción conocida, no antes;
-- narra lo ocurrido sin que la narración pueda modificar el animal;
-- aprende una regularidad temporal que T de un paso no puede representar;
-- obtiene una ventaja causal frente a controles nuevos o sólo envejecidos.
+ECHO-3 lleva 8 de 15 fases software cerradas. Ya funciona con tres salas A/B/C, un cuerpo X500 en PX4 SITL, señales de cámara/LiDAR/IMU con procedencia, identidad fuera de muestra, dinámica corta, fusión de evidencias y composición de alternativas para una meta bloqueada.
 
-El cierre de transferencia usa tres mundos. En las dos fronteras medidas, el
-animal transferido obtiene `208 vs 152` (`+56`) y `224 vs 152` (`+72`). La
-ganancia agregada es `+128`. No intervienen un LLM ni etiquetas humanas.
+La demostración no depende de que una frase suene bien. Cada fase conserva entradas, semillas, controles, informe y un auditor que vuelve a calcular el resultado. La página de [resultados](./resultados) mantiene los cierres de ECHO-1/ECHO-2 y añade el estado actual de ECHO-3.
 
-ECHO-2 conserva ese núcleo y añade supervivencia entre vidas, generalización
-de patrones, flujo continuo, consolidación, herencia de una predisposición y
-regulación conjunta de energía y temperatura. CAPACITY-1 seleccionó un monitor
-de 512 LIF + 128 Adaptive-LIF: 2.048/2.048 firmas perceptivas y 256/256
-secuencias temporales. [Cierre, gráficas y vídeo de ECHO-2](./echo2).
+## Qué está haciendo ECHO-3
 
-## Tres canales que no se mezclan
+Una observación puede decir “hay una estación allí”, pero esa observación no dice que haya un camino. ECHO-3 conserva la fuente, la edad y la certeza; busca un acceso posible, calcula un siguiente paso bajo presupuesto y lo contrasta contra la consecuencia. Cuando dos sensores discrepan, conserva el desacuerdo en lugar de fabricar una respuesta única.
 
-| Canal | Pregunta | Dónde vive |
-|---|---|---|
-| Representación | ¿qué ocurre? | WSP de 16 bytes |
-| Epistemología | ¿lo sé? | CAM + VERIFY + extracto |
-| Control | ¿qué hago? | Q + gate |
-
-CAM registra lo que ocurrió. Q aprende lo que conviene hacer. T predice el
-resultado de una acción. Que una frase suene convincente no cambia ninguno de
-esos contratos.
-
-## Cifras que se pueden volver a medir
-
-| Banco | Resultado |
-|---|---|
-| Anillo, política aprendida ante amenaza | `[-12, +5, 0]` |
-| Preguntar frente a no preguntar | `+80` frente a `-80` |
-| ATTEND con córtex habilitado | 36 despertares de 256 turnos |
-| SIGN-C, decisión que el rápido no resolvía | córtex `+16`, rápido `0` |
-| TALK-1 | 496/496 cláusulas; 256/256 registros |
-| PATTERN-0 | 80/80 frente a T 40/80 |
-| XFER-1 | `+56` y `+72` en fronteras independientes |
-| Hechos falsos / ranuras destruidas | `0 / 0` |
-
-La ejecución principal mantiene el córtex apagado. Qwen3-4B se probó aparte,
-local y cuantizado, detrás del mismo enchufe y de una gramática de salida. En
-SIGN-C resolvió los dos ejemplos canónicos, 4 de 6 paráfrasis que el stub no
-resolvía y produjo `CortexROI +16`; dos amenazas no canónicas equivocadas
-quedan registradas como deuda de seguridad, no escondidas.
-
-## Qué significa y qué no
-
-Es evidencia de memoria, control, predicción, composición y transferencia en
-mundos sintéticos. No es todavía un robot, no demuestra percepción visual y no
-autoriza a poner un modelo generativo en el control de motores.
-
-ECHO-3 llevará el contrato cerrado de ECHO-2 a tres mundos 3D, sensores,
-dinámica de vuelo, PX4 y finalmente un cuerpo físico en el edge.
-
-— R.N.
+El próximo experimento es CAUSE-1: escenas emparejadas para medir si una transición se debe a su propia acción o a un cambio externo. La hoja de ruta completa está en [ECHO-3](./ruta).

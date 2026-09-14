@@ -7,11 +7,12 @@ import About from "./pages/About.jsx";
 import Contact from "./pages/Contact.jsx";
 import NotFound from "./pages/NotFound.jsx";
 import Docs from "./pages/Docs.jsx";
+import Articles from "./pages/Articles.jsx";
 import { languageForPath } from "./i18n.js";
 
 function isDocsHost() {
   if (typeof window === "undefined") return false;
-  return window.location.hostname === "docs.rogexlaboratories.com";
+  return ["docs.rxlabs.org", "docs.rogexlaboratories.com"].includes(window.location.hostname);
 }
 
 export default function App() {
@@ -49,6 +50,12 @@ export default function App() {
         <Route path="/contact" element={<Contact language="es" />} />
         <Route path="/en/contact" element={<Contact language="en" />} />
         <Route path="/ca/contact" element={<Contact language="ca" />} />
+        <Route path="/articulos" element={<Articles language="es" />} />
+        <Route path="/articulos/echo3-a-mitad" element={<Articles language="es" />} />
+        <Route path="/en/articulos" element={<Articles language="en" />} />
+        <Route path="/en/articulos/echo3-a-mitad" element={<Articles language="en" />} />
+        <Route path="/ca/articulos" element={<Articles language="ca" />} />
+        <Route path="/ca/articulos/echo3-a-mitad" element={<Articles language="ca" />} />
         <Route path="/docs/prisma/social" element={<Navigate to="/docs/prisma/resumen" replace />} />
         <Route path="/docs/prisma/overview" element={<Navigate to="/docs/prisma/resumen" replace />} />
         <Route path="/docs/prisma/technical" element={<Navigate to="/docs/prisma/tecnico" replace />} />

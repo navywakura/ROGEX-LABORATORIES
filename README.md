@@ -1,12 +1,13 @@
 # RxLabs®
 
-Landing de [rogexlaboratories.com](https://www.rogexlaboratories.com).
+Landing de [rxlabs.org](https://rxlabs.org).
 
 - `/` dos cuadrados: echOS · PRISMA
 - `/about` `/contact`
-- `/docs` (también `docs.rogexlaboratories.com`) — echOS, PRISMA y echoAI, en castellano
+- `/docs` (también `docs.rxlabs.org`) — echOS, PRISMA y echoAI, en castellano
 - echoAI documenta arquitectura, cierre y benchmark visual de ECHO-1, proceso experimental,
-  roadmap ECHO-2/ECHO-3, hardware previsto y límites
+  roadmap ECHO-3, hardware previsto, siguiente frontera y artículos de laboratorio
+- `/articulos/echo3-a-mitad` — estado verificable de ECHO-3: 8 de 15 fases de software cerradas
 - `/echos` `/prisma` → 404 (productos aún no lanzados)
 
 ```

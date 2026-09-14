@@ -6,9 +6,9 @@ produce evidencia propia y termina en una puerta que debe poder decir que no.
 
 ## Dirección y trazabilidad
 
-Roger Navarro dirige el producto y su arquitectura, fija los invariantes,
-opera el laboratorio y acepta o rechaza cada fase. La evolución técnica queda
-trazada en especificaciones, código, pruebas, informes y commits reproducibles.
+Los invariantes del laboratorio fijan qué puede modificar una fase y qué debe
+quedar separado. La evolución técnica queda trazada en especificaciones,
+código, pruebas, informes y commits reproducibles.
 
 Las herramientas auxiliares del proceso interno no forman parte de la
 evidencia publicada. Las afirmaciones públicas se sostienen únicamente en el

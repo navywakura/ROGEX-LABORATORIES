@@ -32,16 +32,28 @@ const docs = [
   ["prisma/tecnico", "prisma/tecnico.md"],
 ];
 
+const articles = [
+  ["articulos/echo3-a-mitad", "articles/echo3-a-mitad.md"],
+];
+
 const full = [
   "# RxLabs® — texto completo para modelos",
   "",
-  "> Laboratorio de investigación de Roger Navarro (Girona). Software real, cifras medidas.",
+  "> Laboratorio de software. Código que corre, evidencia pública y cifras medidas.",
   `> Fuente: docs públicas. Sitio: ${SITE.url}`,
   "",
   ...docs.flatMap(([slug, file]) => [
     "---",
     "",
     `<!-- src/content/${file} · /docs/${slug} -->`,
+    "",
+    fs.readFileSync(path.join(contentDir, file), "utf8").trim(),
+    "",
+  ]),
+  ...articles.flatMap(([slug, file]) => [
+    "---",
+    "",
+    `<!-- src/content/${file} · /${slug} -->`,
     "",
     fs.readFileSync(path.join(contentDir, file), "utf8").trim(),
     "",
@@ -53,13 +65,21 @@ fs.writeFileSync(path.join(publicDir, "llms-full.txt"), `${full.trimEnd()}\n`);
 const englishFull = [
   "# RxLabs® — complete text for models",
   "",
-  "> Roger Navarro's research laboratory in Girona. Real software, measured figures.",
+  "> Software laboratory. Running code, public evidence and measured figures.",
   `> Source: public documentation. Site: ${SITE.url}/en`,
   "",
   ...docs.flatMap(([slug, file]) => [
     "---",
     "",
     `<!-- src/content/en/${file} · /en/docs/${slug} -->`,
+    "",
+    fs.readFileSync(path.join(contentDir, "en", file), "utf8").trim(),
+    "",
+  ]),
+  ...articles.flatMap(([slug, file]) => [
+    "---",
+    "",
+    `<!-- src/content/en/${file} · /en/${slug} -->`,
     "",
     fs.readFileSync(path.join(contentDir, "en", file), "utf8").trim(),
     "",
@@ -72,13 +92,21 @@ fs.writeFileSync(path.join(englishPublicDir, "llms-full.txt"), `${englishFull.tr
 const catalanFull = [
   "# RxLabs® — text complet per a models",
   "",
-  "> Laboratori de recerca de Roger Navarro a Girona. Programari real, xifres mesurades.",
+  "> Laboratori de programari. Codi que s'executa, evidència pública i xifres mesurades.",
   `> Font: documentació pública. Lloc: ${SITE.url}/ca`,
   "",
   ...docs.flatMap(([slug, file]) => [
     "---",
     "",
     `<!-- src/content/ca/${file} · /ca/docs/${slug} -->`,
+    "",
+    fs.readFileSync(path.join(contentDir, "ca", file), "utf8").trim(),
+    "",
+  ]),
+  ...articles.flatMap(([slug, file]) => [
+    "---",
+    "",
+    `<!-- src/content/ca/${file} · /ca/${slug} -->`,
     "",
     fs.readFileSync(path.join(contentDir, "ca", file), "utf8").trim(),
     "",
@@ -95,9 +123,15 @@ for (const language of ["es", "en", "ca"]) {
     fs.mkdirSync(path.dirname(target), { recursive: true });
     fs.copyFileSync(source, target);
   }
+  for (const [slug, file] of articles) {
+    const source = path.join(contentDir, language === "es" ? "" : language, file);
+    const target = path.join(publicDir, "raw", language, `${slug}.md`);
+    fs.mkdirSync(path.dirname(target), { recursive: true });
+    fs.copyFileSync(source, target);
+  }
 }
 
-const lastmod = "2026-09-10";
+const lastmod = "2026-09-14";
 const indexable = PAGES.filter((page) => !page.noindex);
 const urls = indexable.map((page) => {
   const base = page.path.replace(/^\/(?:en|ca)(?=\/|$)/, "") || "/";

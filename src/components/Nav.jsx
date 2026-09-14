@@ -5,15 +5,9 @@ import { basePath, localizedPath } from "../i18n.js";
 const WWW = SITE.url.replace(/\/$/, "");
 
 const LABELS = {
-  es: { contact: "Contacto", about: "Qué es RxLabs®", docs: "Docs", pending: "aún no" },
-  en: { contact: "Contact", about: "About RxLabs®", docs: "Docs", pending: "not yet" },
-  ca: { contact: "Contacte", about: "Què és RxLabs®", docs: "Docs", pending: "encara no" },
-};
-
-const FLAGS = {
-  es: "/media/openmoji/spain.svg",
-  en: "/media/openmoji/england.svg",
-  ca: "/media/openmoji/catalunya.svg",
+  es: { contact: "Contacto", about: "RxLabs®", docs: "Docs", articles: "Artículos", pending: "aún no" },
+  en: { contact: "Contact", about: "RxLabs®", docs: "Docs", articles: "Articles", pending: "not yet" },
+  ca: { contact: "Contacte", about: "RxLabs®", docs: "Docs", articles: "Articles", pending: "encara no" },
 };
 
 export default function Nav({ path, docsHost = false, language = "es" }) {
@@ -49,11 +43,8 @@ export default function Nav({ path, docsHost = false, language = "es" }) {
       "aria-current": language === targetLanguage ? "true" : undefined,
       title: label,
     };
-    return docsHost ? (
-      <a href={target} {...props}><img src={FLAGS[targetLanguage]} alt="" /></a>
-    ) : (
-      <Link to={target} {...props}><img src={FLAGS[targetLanguage]} alt="" /></Link>
-    );
+    return docsHost ? <a href={target} {...props}>{targetLanguage.toUpperCase()}</a>
+      : <Link to={target} {...props}>{targetLanguage.toUpperCase()}</Link>;
   };
 
   return (
@@ -62,6 +53,7 @@ export default function Nav({ path, docsHost = false, language = "es" }) {
         {item("/contact", labels.contact)}
         {item("/about", labels.about)}
         {item("/docs", labels.docs)}
+        {item("/articulos", labels.articles)}
       </div>
       <div className="nav-cluster nav-products">
         <span className="nav-dead" title={labels.pending}>echOS</span>

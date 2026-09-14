@@ -75,7 +75,7 @@ const CATALOG = [
   { group: "echoAI", id: "echoai/proceso", title: "Cómo se construyó", src: echoaiProceso },
   { group: "echoAI", id: "echoai/ruta", title: "ECHO-3", src: echoaiRuta },
   { group: "echoAI", id: "echoai/hardware", title: "Hardware previsto", src: echoaiHardware },
-  { group: "echoAI", id: "echoai/limites", title: "Límites", src: echoaiLimites },
+  { group: "echoAI", id: "echoai/limites", title: "Siguiente frontera", src: echoaiLimites },
   { group: "echOS", id: "echos/que-es", title: "Qué es", src: echosQue },
   { group: "echOS", id: "echos/guia", title: "Guía de uso", src: echosGuide },
   { group: "echOS", id: "echos/arquitectura", title: "Arquitectura", src: echosArch },
@@ -98,7 +98,7 @@ const EN_CATALOG = [
   { group: "echoAI", id: "echoai/proceso", title: "How it was built", src: enEchoaiProceso },
   { group: "echoAI", id: "echoai/ruta", title: "ECHO-3", src: enEchoaiRuta },
   { group: "echoAI", id: "echoai/hardware", title: "Planned hardware", src: enEchoaiHardware },
-  { group: "echoAI", id: "echoai/limites", title: "Limitations", src: enEchoaiLimites },
+  { group: "echoAI", id: "echoai/limites", title: "Next frontier", src: enEchoaiLimites },
   { group: "echOS", id: "echos/que-es", title: "What it is", src: enEchosQue },
   { group: "echOS", id: "echos/guia", title: "User guide", src: enEchosGuide },
   { group: "echOS", id: "echos/arquitectura", title: "Architecture", src: enEchosArch },
@@ -121,7 +121,7 @@ const CA_CATALOG = [
   { group: "echoAI", id: "echoai/proceso", title: "Com es va construir", src: caEchoaiProceso },
   { group: "echoAI", id: "echoai/ruta", title: "ECHO-3", src: caEchoaiRuta },
   { group: "echoAI", id: "echoai/hardware", title: "Maquinari previst", src: caEchoaiHardware },
-  { group: "echoAI", id: "echoai/limites", title: "Límits", src: caEchoaiLimites },
+  { group: "echoAI", id: "echoai/limites", title: "Frontera següent", src: caEchoaiLimites },
   { group: "echOS", id: "echos/que-es", title: "Què és", src: caEchosQue },
   { group: "echOS", id: "echos/guia", title: "Guia d'ús", src: caEchosGuide },
   { group: "echOS", id: "echos/arquitectura", title: "Arquitectura", src: caEchosArch },
@@ -152,7 +152,7 @@ export default function Docs({ language = "es" }) {
     return window.matchMedia("(min-width: 861px)").matches;
   });
   const docsHost = typeof window !== "undefined"
-    && window.location.hostname === "docs.rogexlaboratories.com";
+    && ["docs.rxlabs.org", "docs.rogexlaboratories.com"].includes(window.location.hostname);
   const catalog = language === "en" ? EN_CATALOG : language === "ca" ? CA_CATALOG : CATALOG;
 
   const slug = useMemo(() => {

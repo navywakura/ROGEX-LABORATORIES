@@ -1,7 +1,7 @@
 # RxLabs® — text complet per a models
 
-> Laboratori de recerca de Roger Navarro a Girona. Programari real, xifres mesurades.
-> Font: documentació pública. Lloc: https://www.rogexlaboratories.com/ca
+> Laboratori de programari. Codi que s'executa, evidència pública i xifres mesurades.
+> Font: documentació pública. Lloc: https://rxlabs.org/ca
 
 ---
 
@@ -59,88 +59,27 @@ heretades d'un fullet.
 
 # echoAI
 
-echoAI és un agent situat de dos rellotges. No és un chatbot ni un model de
-llenguatge amb eines.
-
-El rellotge ràpid percep, recorda, prediu, actua i aprèn fent servir taules i
-enters. El rellotge lent, quan es connecta, pot llegir llenguatge i proposar una
-hipòtesi. El gate conserva l'última paraula i cap proposta del còrtex no es
-converteix per si sola en un fet.
+echoAI és un agent situat de dos rellotges. El ràpid representa, recorda, anticipa, decideix i aprèn amb estructures discretes. El lent pot proposar quan ATTEND té una raó; no controla directament el cos.
 
 ```text
-percebre → recordar → predir → actuar → conseqüència → aprendre
-                                      ↑
-                       hipòtesi lenta, només quan ATTEND la demana
+percebre → WSP → CAM → T / Pattern / Q → gate → acció → conseqüència → aprenentatge
 ```
 
-## Estat actual
+No és un chatbot connectat a motors. WSP és l'únic paquet compartit; CAM, Q i T responen preguntes diferents; una hipòtesi no es converteix en fet sense evidència; i el gate conserva l'última paraula.
 
-**ECHO-1 va quedar tancat el 5 de setembre de 2026 i ECHO-2 el 9 de setembre
-de 2026.** La suite canònica d'ECHO-1 acaba amb 488 proves correctes i un
-`expectedFailure` explícit: WALK-1 sense la resta
-entera opt-in. No s'amaga com a verd.
+## Estat publicat
 
-ECHO-1 demostra que el mateix animal:
+ECHO-1 va tancar el cicle base: memòria episòdica, conseqüències, predicció, patrons, transferència i narració posterior. ECHO-2 va tancar supervivència, canvi de distribució, streaming, consolidació, herència acotada, energia, temperatura i un monitor de 512 LIF + 128 Adaptive-LIF.
 
-- conserva CAM, Q, T i PatternMemory quan travessa mons;
-- distingeix els canvis propis dels canvis de l'entorn;
-- aprèn a transportar un objecte i a obrir un recipient;
-- desperta el còrtex després d'una contradicció coneguda, no abans;
-- narra el que ha passat sense que la narració pugui modificar l'animal;
-- aprèn una regularitat temporal que la T d'un pas no pot representar;
-- obté un avantatge causal davant de controls nous o només envellits.
+ECHO-3 té 8 de 15 fases de programari tancades. Ja executa tres sales A/B/C, un cos X500 en PX4 SITL, senyals de càmera/LiDAR/IMU amb procedència, identitat reservada, dinàmica curta, fusió d'evidències i composició d'alternatives per a una meta bloquejada.
 
-El tancament de transferència fa servir tres mons. A les dues fronteres
-mesurades, l'animal transferit obté `208 vs 152` (`+56`) i `224 vs 152` (`+72`).
-El guany agregat és `+128`. No hi intervenen cap LLM ni etiquetes humanes.
+La demostració no depèn d'una frase convincent. Cada fase conserva entrades, llavors, controls, informe i un auditor que recalcula el resultat. La pàgina de [resultats](./resultados) manté els tancaments ECHO-1/ECHO-2 i afegeix l'estat actual d'ECHO-3.
 
-ECHO-2 conserva aquest nucli i afegeix supervivència entre vides,
-generalització de patrons, flux continu, consolidació, herència d'una
-predisposició i regulació conjunta d'energia i temperatura. CAPACITY-1 va
-seleccionar un monitor de 512 LIF + 128 Adaptive-LIF: 2.048/2.048 signatures
-perceptives i 256/256 seqüències temporals. [Tancament, gràfiques i vídeo
-d'ECHO-2](./echo2).
+## Què fa ECHO-3
 
-## Tres canals que no es barregen
+Una observació pot dir «hi ha una estació allà», però no diu que hi hagi ruta. ECHO-3 conserva font, antiguitat i certesa; cerca un accés possible, pressuposta un pas següent i el compara amb la conseqüència. Quan dos sensors discrepen, conserva el desacord en comptes de fabricar una resposta única.
 
-| Canal | Pregunta | On viu |
-|---|---|---|
-| Representació | què passa? | WSP de 16 bytes |
-| Epistemologia | ho sé? | CAM + VERIFY + extracte |
-| Control | què faig? | Q + gate |
-
-CAM registra el que ha passat. Q aprèn què convé fer. T prediu el resultat
-d'una acció. Que una frase soni convincent no canvia cap d'aquests contractes.
-
-## Xifres que es poden tornar a mesurar
-
-| Banc | Resultat |
-|---|---|
-| Anell, política apresa davant d'una amenaça | `[-12, +5, 0]` |
-| Preguntar davant de no preguntar | `+80` davant de `-80` |
-| ATTEND amb el còrtex habilitat | 36 despertars de 256 torns |
-| SIGN-C, decisió que el ràpid no resolia | còrtex `+16`, ràpid `0` |
-| TALK-1 | 496/496 clàusules; 256/256 registres |
-| PATTERN-0 | 80/80 davant de T 40/80 |
-| XFER-1 | `+56` i `+72` en fronteres independents |
-| Fets falsos / ranures destruïdes | `0 / 0` |
-
-L'execució principal manté el còrtex apagat. Qwen3-4B es va provar a part,
-localment i quantitzat, darrere del mateix connector i d'una gramàtica de
-sortida. A SIGN-C va resoldre els dos exemples canònics, 4 de 6 paràfrasis que
-l'stub no resolia i va produir `CortexROI +16`; dues amenaces no canòniques
-errònies queden registrades com a deute de seguretat, no amagades.
-
-## Què significa i què no
-
-És evidència de memòria, control, predicció, composició i transferència en mons
-sintètics. Encara no és un robot, no demostra percepció visual i no autoritza a
-posar un model generatiu en el control de motors.
-
-ECHO-3 portarà el contracte tancat d'ECHO-2 a tres mons 3D, sensors, dinàmica
-de vol, PX4 i finalment un cos físic a l'edge.
-
-— R.N.
+CAUSE-1 és el següent: escenes aparellades per mesurar si una transició és causada per la seva acció o per un canvi extern. El full complet és a [ECHO-3](./ruta).
 
 ---
 
@@ -542,9 +481,9 @@ evidència pròpia i acaba en una porta que ha de poder dir que no.
 
 ## Direcció i traçabilitat
 
-Roger Navarro dirigeix el producte i la seva arquitectura, fixa els invariants,
-opera el laboratori i accepta o rebutja cada fase. L'evolució tècnica queda
-traçada en especificacions, codi, proves, informes i commits reproduïbles.
+Els invariants del laboratori fixen què pot modificar una fase i què ha de
+romandre separat. L'evolució tècnica queda traçada en especificacions, codi,
+proves, informes i commits reproduïbles.
 
 Les eines auxiliars del procés intern no formen part de l'evidència publicada.
 Les afirmacions públiques se sostenen únicament en el comportament del sistema,
@@ -620,131 +559,46 @@ inclou les empremtes SHA-256 d'aquests informes i de la demostració en vídeo.
 
 <!-- src/content/ca/echoai/ruta.md · /ca/docs/echoai/ruta -->
 
-# Full de ruta — ECHO-3
+# ECHO-3 — full de ruta
 
-ECHO-1 i ECHO-2 estan tancats. ECHO-3 continua sent **pla** fins que cada fase
-tingui banc, controls, informe i tancament reproduïble.
+ECHO-1 i ECHO-2 estan tancats. ECHO-3 ja ha passat la meitat: **8 de 15 fases de programari** tenen banc, controls, informe i certificat reproduïble.
 
-## Tesi mesurable
-
-ECHO-3 serà una capa local de decisió per a robots que recompon una missió quan
-fallen els seus supòsits, administra evidència i recursos, i permet auditar
-cada decisió.
+La tesi és concreta: una capa local de decisió per a un robot que conserva evidència amb font i antiguitat, recompon un pas següent quan falla un supòsit i deixa una traça auditable.
 
 ```text
-sensors → WSP → evidència/CAM → T/PATTERN → cerca/Q → gate
-        → objectiu o setpoint → PX4 → conseqüència → aprenentatge
+sensor → WSP → CAM/evidència → T/PATTERN → cerca/Q → gate → PX4 → conseqüència
 ```
 
-PX4 conserva estabilització, control dels motors i failsafes. echoAI escull
-objectius i accions d'alt nivell. Cap LLM escriu fets, memòries, setpoints
-acceptats ni motors.
+WSP continua sent l'únic bus. CAM registra fets; T i Pattern anticipen; Q ordena alternatives; el gate accepta, modifica o bloqueja. PX4 estabilitza, executa el setpoint i manté els failsafes. Cap LLM escriu fets, memòries, setpoints acceptats ni motors.
 
-La planificació, el retorn energètic i la fusió sensorial no es presenten com a
-exclusius. Es mesurarà si la combinació auditable millora la recuperació, l'ús
-d'evidència i l'economia de missió davant controls equivalents.
+## Tancat
 
-## Fases
+- [x] **SIM-3** — A, B i C neixen de manifests declaratius; l'agent no rep mapa, llavor, id de sala ni solució.
+- [x] **FLIGHT-1S v6** — l'X500 en SITL s'enlaira, manté i recupera estabilitat després d'una pertorbació mesurada.
+- [x] **SENSOR-1S v3** — càmera, LiDAR i IMU publiquen temps, soroll, latència, pèrdua i procedència.
+- [x] **GROUND-1 v2** — un adaptador porta aquestes observacions a WSP i memòria sense coordenades oracle ni segon bus.
+- [x] **DYNAMIC-1 v2** — separa canvi extern d'escena estable i manté prediccions curtes.
+- [x] **PATTERN-1R v4** — conserva identitat d'objecte entre vistes reservades.
+- [x] **FUSION-1** — manté evidències independents quan discrepen, baixa la certesa i no completa el fet.
+- [x] **COMPOSE-1 v4** — compon accessos coneguts per a una meta bloquejada i verifica cada pas abans de continuar.
 
-| Slice | Pregunta que ha de tancar |
-|---|---|
-| SIM-3 | els mateixos binaris executen A/B/C sense filtracions ni branques per sala |
-| FLIGHT-1 | el cos simulat vola amb dinàmica i pertorbacions mesurades |
-| SENSOR-1 | càmera, IMU i LiDAR exposen temps, soroll, pèrdua i font |
-| GROUND-1 | les observacions físiques produeixen WSP sense coordenades oracle ni un altre bus |
-| PATTERN-1R | vistes diferents mantenen la identitat de l'objecte fora de mostra |
-| FUSION-1 | l'evidència independent conserva el desacord i redueix la certesa correcta |
-| DYNAMIC-1 | detecta moviment extern i prediu trajectòries curtes |
-| **COMPOSE-1** | combina capacitats conegudes per a una meta bloquejada sense recepta de ruta |
-| CAUSE-1 | separa una transició causada pel seu acte d'un canvi extern emparellat |
-| PX4-1 | lliura objectius acotats sense saltar-se PID ni failsafes |
-| POWER-1 | torna o abandona segons cost previst i marge, a més del failsafe de PX4 |
-| SAFE-1 | conté sensors congelats, desconnexions i propostes errònies |
-| HOST-1 | actualitza el valor d'un signe per conseqüències d'una font |
-| TRANSFER-3 | el que ha après a A millora B/C davant scratch sense mapa ni nom del món |
-| DRONE-3 | tanca la missió en SITL, HIL i gàbia amb traçabilitat causal |
+COMPOSE-1 va tancar 6.144 missions funcionals B/C. A la branca física hi ha sis metes assolibles: la composició les va tancar 6/6 i el control d'una acció 0/6; el banc també inclou 32 vols PX4 SITL. Un planificador convencional va empatar la distància física en aquell escenari, per això es conserva com a control.
 
-## COMPOSE-1 — la meta darrere de la barrera
+## Bloc següent
 
-«La banana darrere de la paret» es tradueix al cos que ECHO-3 tindrà: una
-estació de càrrega visible o recordada, inaccessible per la ruta directa. El
-dron ha de buscar una entrada, verificar el pas i arribar amb reserva. Si
-esgota el pressupost, informa `acces_no_trobat` i torna; no demostra que
-l'accés no existeixi.
+- [ ] **CAUSE-1** — aparellar escenes per separar «ha canviat perquè he actuat» de «ha canviat fora de mi».
+- [ ] **PX4-1** — lliurar metes acotades a PX4 sense tocar PID, control d'actitud ni failsafes.
+- [ ] **POWER-1** — triar retorn o abortament per cost previst, reserva i incertesa.
+- [ ] **SAFE-1** — sostenir sensors congelats, desconnexió i propostes errònies sense acceptar un pas inadmissible.
+- [ ] **HOST-1** — aprendre el valor d'un signe per conseqüències observades de font, context i senyal.
+- [ ] **TRANSFER-3** — congelar l'après a A i mesurar la millora a B/C davant scratch, sense mapa ni nom de sala.
+- [ ] **DRONE-3** — tancar la mateixa missió amb SITL, HIL i gàbia, amb traçabilitat causal.
 
-| Evidència | Resposta vàlida |
-|---|---|
-| va veure l'estació abans que quedés oculta | conserva una creença amb antiguitat i busca des d'on verificar-la |
-| la veu a través d'un vidre | separa objecte visible de volum transitable i busca un altre accés |
-| una font afirma que és al darrere | conserva una hipòtesi atribuïda i busca evidència |
+## Després del tancament
 
-Veure un objecte a través d'un vidre i detectar una paret són observacions
-compatibles. Només hi ha contradicció quan fonts comparables afirmen valors
-oposats sobre el mateix volum i temps. L'absència de retorn LiDAR tampoc implica
-espai lliure.
+ECHO-3 prepararà **METAVERSE-1**: tres mapes 3D més rics, geometria de Blender, rutes noves, obstacles fixos i mòbils, més voxels i rumbs, IMU, motors, PID/PX4, aerodinàmica, vent i ordres com aterrar o anar a una coordenada. El mateix contracte distingirà una demo visual d'una conducta que ha passat un banc.
 
-```text
-meta observable
-→ evidència, font, edat i desconeguts
-→ alternatives físicament disponibles
-→ conseqüència, incertesa i cost previstos
-→ gate de xoc, evidència i reserva
-→ un pas següent
-→ conseqüència real i nova planificació
-```
-
-La cerca inicial compara pressupostos de 8 i 32 candidats i fins a quatre
-capacitats d'alt nivell. Són límits per mesurar, no garanties de solució. Q pot
-ordenar alternatives i T/PATTERN donar suport a prediccions. Els rollouts són
-hipòtesis i mai no s'escriuen a CAM com a fets.
-
-L'informe distingirà composició amb affordances conegudes de descobriment per
-conseqüències. Pals, caixes i eines queden per a un cos amb manipulació física;
-activar-los per contacte no demostraria manipulació.
-
-## Mons i avaluació
-
-- **A:** entrenament, selecció i desenvolupament.
-- **B:** validació congelada; si provoca ajustos, deixa de ser confirmació.
-- **C:** examen segellat, obert una vegada al final.
-
-Els SDF i manifestos construeixen la veritat física, però l'agent no rep mapa,
-waypoint, nom, hash, seed ni identificadors que revelin la solució. A B/C es
-congelen regles i paràmetres apresos; percepció, localització i seguiment
-continuen actius.
-
-COMPOSE-1 es compararà amb Q reactiva, cerca sense procedència/caducitat i un
-planificador convencional amb els mateixos sensors i pressupost. Un planner amb
-la veritat completa és només un sostre oracle. L'auditor ha de detectar un
-mutant que llegeixi una recepta o l'identificador del món.
-
-Les restriccions comunes inclouen zero fets falsos, escriptures imaginades a
-CAM, filtracions oracle, bypasses del gate, bypasses del failsafe i setpoints
-inadmissibles acceptats dins del domini publicat. Després es comparen èxit,
-recomposició, col·lisions, energia, intervencions, latència P99, CPU i memòria.
-
-## Herència, avortament i llenguatge
-
-GEN-1f només hereta `evidence_budget=8`; el fill neix amb CAM, Q, T i PATTERN
-buits. No hereta mapes, objectes, confiança social ni «blau dolent». Avortar
-una missió preserva el cos i no equival a morir.
-
-HOST-1 arriba després de COMPOSE-1, quan ja existeix alguna cosa física a
-demanar. El valor enter de `font + signe + context` canvia només per
-conseqüències observades. Les ordres humanes lliures i una demostració pública
-més rica queden per després del tancament mínim.
-
-## Frontera posterior
-
-Dins d'ECHO-3 entren els tres mons geomètrics simples, sensors mínims, PX4,
-composició, transferència congelada, HIL i gàbia. Després s'ampliaran la
-fidelitat visual i aerodinàmica, el vent complex, el nombre de sensors i
-vehicles, les ordres lliures i la transferència entre morfologies.
-
-AKD1500 M.2 continua condicionat a disposar de la targeta. Podrà accelerar
-percepció; Q, T, CAM, VERIFY i gate romandran a CPU.
-
-— R.N.
+AKD1500 M.2 entrarà quan la targeta existeixi al laboratori. Serà un coprocesador de percepció comparat amb CPU sobre la mateixa tasca. WSP, CAM, VERIFY, T, Q i gate es mantenen a CPU.
 
 ---
 
@@ -1766,3 +1620,48 @@ El motor, la capa d'anàlisi, l'estadística i la interfície funcionen i estan
 comprovats. Falta la paperassa — una llicència de debò, una via de pagament, un
 contacte de suport — i la funció que era el punt de l'exercici: connectar-hi un
 casc i veure'l analitzat en directe, sense un script pont pel mig.
+
+---
+
+<!-- src/content/ca/articles/echo3-a-mitad.md · /ca/articulos/echo3-a-mitad -->
+
+# ECHO-3 ha passat la meitat
+
+> 8 de 15 fases de programari tancades · 14 de setembre de 2026
+
+ECHO-3 ja no és una llista de peces imaginades. És un banc de decisió per a un cos simulat: rep senyals amb font i temps, conserva allò observat, prova un pas següent, comprova què ha passat i deixa una traça que es pot recalcular.
+
+```text
+sensor → WSP → memòria/evidència → predicció i cerca → gate → PX4 → conseqüència
+```
+
+Cap model de llenguatge condueix motors. El paquet WSP de 16 bytes porta el fet operatiu; CAM conserva episodis; T prediu; Q ordena alternatives; i el gate decideix si el pas següent pot sortir. PX4 continua estabilitzant el vehicle i aplica les seves proteccions.
+
+## Què s'executa ara
+
+| Fase | Què demostra el seu banc |
+|---|---|
+| SIM-3 | Tres sales A/B/C s'executen des de manifests declaratius sense donar a l'agent el mapa, la llavor ni la resposta. |
+| FLIGHT-1S | L'X500 simulat s'enlaira, manté posició i recupera estabilitat després de pertorbacions mesurades. |
+| SENSOR-1S | Càmera, LiDAR i IMU lliuren observacions amb temps, soroll, latència, pèrdua i procedència. |
+| GROUND-1 | Aquestes observacions entren en l'únic WSP i en la memòria de l'agent, sense una coordenada oracle amagada. |
+| DYNAMIC-1 | L'agent separa un objecte que canvia d'una escena quieta i manté una predicció curta. |
+| PATTERN-1R | La identitat no depèn d'una vista exacta: la mateixa peça pot reaparèixer des d'una altra posició. |
+| FUSION-1 | Dos sensors que discrepen continuen sent dues evidències. L'agent baixa la certesa i no inventa un pas. |
+| COMPOSE-1 | Davant una meta bloquejada, compon alternatives conegudes, verifica cada pas i torna a planificar. |
+
+L'última prova és fàcil d'imaginar. Una estació de càrrega és visible però la ruta directa està tancada. L'agent no rep la instrucció «gira a l'esquerra». Recupera on la va veure, compara accessos disponibles, estima el cost del moviment següent i només n'executa un que passa el gate. Si no apareix cap accés dins del pressupost, acaba amb `acces_no_trobat` i torna.
+
+COMPOSE-1 es va tancar amb 6.144 missions funcionals B/C. A la seva part física simulada, sis metes assolibles es van tancar 6/6 amb composició i 0/6 sense horitzó; també inclou 32 vols nous de PX4 SITL. Un planificador convencional va empatar la distància física en aquell escenari. Es publica així perquè l'objectiu és saber què aporta cada part del contracte.
+
+## Com es programa i es comprova
+
+Cada fase comença amb una pregunta petita, una mètrica i un control. La sala A serveix per construir. B valida paràmetres congelats. C queda segellada fins a l'examen. El manifest crea parets, sensors i condicions; aquest mateix manifest no s'entrega mai a l'agent com a memòria.
+
+Els controls treuen una causa cada vegada: una política reactiva, un horitzó d'una acció, un planificador convencional i mutants que intenten filtrar el mapa o saltar-se la verificació. L'informe conserva llavors, hashes, traces i un resultat vermell quan apareix. Un verd no surt de moure la porteria després de mirar una corrida.
+
+## La segona meitat
+
+CAUSE-1 és el pas següent: escenes aparellades perquè l'agent separi «això ha canviat perquè jo he actuat» d'«això ha canviat fora de mi». Després arriben metes PX4 acotades, energia prevista, fallades de sensor, signes amb un operador, transferència A→B/C i el tancament del cos de dron en SITL, HIL i gàbia.
+
+Quan es tanqui aquesta cadena, el següent salt serà un món 3D més ric: geometria de Blender, rutes noves, objectes mòbils, IMU, motors, PID, aerodinàmica i vent. El treball actual n'és el contracte: la manera de comprovar que una escena bonica diu alguna cosa real.

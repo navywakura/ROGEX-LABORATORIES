@@ -9,6 +9,40 @@ const ACTIONS = {
 };
 const GATES = ["OK", "MODIFY", "BLOCK"];
 
+const ECHO3_NOW = {
+  es: {
+    kicker: "Estado actual · 14 septiembre 2026", title: "ECHO-3 · 8 de 15 fases software cerradas",
+    text: "ECHO-1 y ECHO-2 siguen aquí como cierres históricos. El trabajo actual ya ejecuta tres mundos A/B/C, sensores con procedencia, PX4 SITL, dinámica, identidad, fusión y composición de alternativas.",
+    detail: "COMPOSE-1: 6.144 misiones funcionales B/C; seis metas físicas simuladas 6/6 con composición y 0/6 sin horizonte; 32 vuelos PX4 SITL nuevos.",
+    link: "Ver artículo y hoja de ruta", href: "/articulos/echo3-a-mitad",
+  },
+  en: {
+    kicker: "Current state · 14 September 2026", title: "ECHO-3 · 8 of 15 software phases closed",
+    text: "ECHO-1 and ECHO-2 remain here as historical closures. Current work already runs three A/B/C worlds, sourced sensors, PX4 SITL, dynamics, identity, fusion and alternative composition.",
+    detail: "COMPOSE-1: 6,144 functional B/C missions; six simulated physical goals 6/6 with composition and 0/6 without a horizon; 32 new PX4 SITL flights.",
+    link: "Read the article and roadmap", href: "/en/articulos/echo3-a-mitad",
+  },
+  ca: {
+    kicker: "Estat actual · 14 setembre 2026", title: "ECHO-3 · 8 de 15 fases de programari tancades",
+    text: "ECHO-1 i ECHO-2 es mantenen aquí com a tancaments històrics. El treball actual ja executa tres mons A/B/C, sensors amb procedència, PX4 SITL, dinàmica, identitat, fusió i composició d'alternatives.",
+    detail: "COMPOSE-1: 6.144 missions funcionals B/C; sis metes físiques simulades 6/6 amb composició i 0/6 sense horitzó; 32 vols PX4 SITL nous.",
+    link: "Veure l'article i el full de ruta", href: "/ca/articulos/echo3-a-mitad",
+  },
+};
+
+function Echo3Now({ language }) {
+  const copy = ECHO3_NOW[language];
+  return (
+    <section className="bench-section echo3-now">
+      <span className="bench-kicker">{copy.kicker}</span>
+      <h2>{copy.title}</h2>
+      <p>{copy.text}</p>
+      <p><strong>{copy.detail}</strong></p>
+      <a className="bench-download" href={copy.href}>{copy.link}</a>
+    </section>
+  );
+}
+
 const TERMS = {
   es: [
     ["WSP", "Paquete de 16 bytes que representa lo percibido en un formato compartido."],
@@ -714,6 +748,7 @@ export default function EchoResults({ language = "es" }) {
 
   return (
     <article className="docs-body benchmark-page">
+      <Echo3Now language={language} />
       <Evolution language={language} />
       <Results data={echo1} cursor={cursor} setCursor={setCursor} language={language} copy={copy} />
     </article>

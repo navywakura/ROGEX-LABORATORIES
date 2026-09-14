@@ -1,7 +1,7 @@
 export const SITE = {
   name: "RxLabs®",
-  url: "https://www.rogexlaboratories.com",
-  docsUrl: "https://docs.rogexlaboratories.com",
+  url: "https://rxlabs.org",
+  docsUrl: "https://rxlabs.org/docs",
   locale: "es_ES",
   localeAlt: "en_US",
   localeCa: "ca_ES",
@@ -14,14 +14,7 @@ export const SITE = {
   imageAltCa: "RxLabs® — laboratori de recerca. echOS, PRISMA i echoAI.",
   twitter: "",
   email: "knightsys@proton.me",
-  author: "Roger Navarro",
-};
-
-export const ECHOAI_OG = {
-  image: "/media/echoai/opengraph/echoai.png",
-  imageW: 1200,
-  imageH: 480,
-  imageAlt: "ECHO-AI — RxLabs®",
+  author: "RxLabs®",
 };
 
 export const ECHO2_OG = {
@@ -44,6 +37,15 @@ export const ECHO_RESULTS_OG = {
   imageAltCa: "ECHO-AI — evolució mesurada d'ECHO-1 a ECHO-2",
 };
 
+export const ECHO3_ARTICLE_OG = {
+  image: "/og.png",
+  imageW: 1200,
+  imageH: 480,
+  imageAlt: "ECHO-3 — desarrollo de echoAI en RxLabs®",
+  imageAltEn: "ECHO-3 — echoAI development at RxLabs®",
+  imageAltCa: "ECHO-3 — desenvolupament d'echoAI a RxLabs®",
+};
+
 export const ECHO2_VIDEO = "/media/echoai/echo2-neural-viz-demo.mp4";
 
 const ES_PAGES = [
@@ -51,24 +53,24 @@ const ES_PAGES = [
     path: "/",
     title: "RxLabs® — laboratorio de investigación",
     description:
-      "Laboratorio de software de Roger Navarro (Girona). echOS 3.0 para robótica al edge, PRISMA y echoAI: software real, límites publicados y cifras medibles.",
+      "Laboratorio de software. echOS 3.0 para robótica al edge, PRISMA y echoAI: software que corre, evidencia pública y cifras medibles.",
   },
   {
     path: "/about",
     title: "Qué es RxLabs®",
     description:
-      "RxLabs® es el laboratorio de Roger Navarro, Girona. echOS 3.0, PRISMA y echoAI: código que corre, límites publicados y números que se pueden volver a medir.",
+      "RxLabs® reúne echOS 3.0, PRISMA y echoAI: código que corre, evidencia pública y números que se pueden volver a medir.",
   },
   {
     path: "/contact",
     title: "Contacto — RxLabs®",
-    description: "Contacto de RxLabs®: knightsys@proton.me — Roger Navarro, Girona.",
+    description: "Contacto de RxLabs®: knightsys@proton.me.",
   },
   {
     path: "/docs",
     title: "Documentación — RxLabs®",
     description:
-      "Docs públicas del laboratorio: echOS 3.0, PRISMA y echoAI. Guías, arquitectura, evidencia, capturas reales y límites publicados.",
+      "Docs públicas del laboratorio: echOS 3.0, PRISMA y echoAI. Guías, arquitectura, evidencia, capturas reales, hojas de ruta y artículos.",
   },
   {
     path: "/docs/echos/que-es",
@@ -135,7 +137,7 @@ const ES_PAGES = [
     path: "/docs/echoai/que-es",
     title: "echoAI — RxLabs®",
     description:
-      "Agente situado de dos relojes. ECHO-1 y ECHO-2 cerrados: memoria, supervivencia, patrones, consolidación, herencia y control interno medidos.",
+      "Agente situado de dos relojes. ECHO-1 y ECHO-2 cerrados; ECHO-3 lleva 8 de 15 fases software: evidencia, identidad, fusión, dinámica, búsqueda y PX4 SITL.",
   },
   {
     path: "/docs/echoai/piezas",
@@ -171,7 +173,7 @@ const ES_PAGES = [
     path: "/docs/echoai/ruta",
     title: "echoAI — hoja de ruta ECHO-3",
     description:
-      "ECHO-3: composición local de medios a fines, evidencia auditable, tres mundos A/B/C, PX4, energía prevista y transferencia sin mapa.",
+      "ECHO-3: 8 de 15 fases software cerradas. A/B/C, sensores con procedencia, PX4 SITL, fusión y composición ya corren; CAUSE-1 abre el siguiente bloque.",
   },
   {
     path: "/docs/echoai/hardware",
@@ -181,9 +183,20 @@ const ES_PAGES = [
   },
   {
     path: "/docs/echoai/limites",
-    title: "echoAI — límites",
+    title: "echoAI — siguiente frontera",
     description:
-      "Qué no demuestra ECHO-2 y qué debe verificarse antes de volar: física, sensores, deadlines, failsafes, HIL, energía y hardware ausente.",
+      "Lo que abre ECHO-3 después del cierre actual: causa, energía, seguridad, transferencia, HIL, jaula y un mundo 3D de mayor fidelidad.",
+  },
+  {
+    path: "/articulos",
+    title: "Artículos — RxLabs®",
+    description: "Notas de laboratorio sobre echOS, PRISMA y echoAI: lo que ya corre, cómo se prueba y lo que sigue.",
+  },
+  {
+    path: "/articulos/echo3-a-mitad",
+    title: "ECHO-3 ya ha llegado a la mitad — RxLabs®",
+    description: "ECHO-3 tiene 8 de 15 fases software cerradas: tres mundos A/B/C, sensores con procedencia, PX4 SITL, dinámica, identidad, fusión y composición. Ante una meta bloqueada no recibe una receta: conserva evidencia, compara accesos, pasa el siguiente paso por el gate y comprueba la consecuencia. COMPOSE-1 conserva 6.144 misiones B/C y 32 vuelos PX4 SITL; CAUSE-1 es el siguiente experimento.",
+    article: true,
   },
   {
     path: "/echos",
@@ -208,16 +221,16 @@ const ES_PAGES = [
 const EN_META = {
   "/": [
     "RxLabs® — research laboratory",
-    "Roger Navarro's software laboratory in Girona. echOS 3.0 for edge robotics, PRISMA and echoAI: real software, published limitations and measurable figures.",
+    "A software laboratory. echOS 3.0 for edge robotics, PRISMA and echoAI: running software, public evidence and measurable figures.",
   ],
   "/about": [
     "About RxLabs®",
-    "RxLabs® is Roger Navarro's laboratory in Girona. echOS 3.0, PRISMA and echoAI: running code, published limitations and numbers that can be measured again.",
+    "RxLabs® brings together echOS 3.0, PRISMA and echoAI: running code, public evidence and figures that can be measured again.",
   ],
-  "/contact": ["Contact — RxLabs®", "Contact RxLabs®: knightsys@proton.me — Roger Navarro, Girona."],
+  "/contact": ["Contact — RxLabs®", "Contact RxLabs®: knightsys@proton.me."],
   "/docs": [
     "Documentation — RxLabs®",
-    "Public documentation for echOS 3.0, PRISMA and echoAI: guides, architecture, evidence, real screenshots and published limitations.",
+    "Public documentation for echOS 3.0, PRISMA and echoAI: guides, architecture, evidence, real screenshots, roadmaps and articles.",
   ],
   "/docs/echos/que-es": [
     "echOS — RxLabs®",
@@ -262,7 +275,7 @@ const EN_META = {
   ],
   "/docs/echoai/que-es": [
     "echoAI — RxLabs®",
-    "A two-clock situated agent. ECHO-1 and ECHO-2 are closed: measured memory, survival, patterns, consolidation, inheritance and internal control.",
+    "A two-clock situated agent. ECHO-1 and ECHO-2 are closed; ECHO-3 has 8 of 15 software phases: evidence, identity, fusion, dynamics, search and PX4 SITL.",
   ],
   "/docs/echoai/piezas": [
     "echoAI — architecture",
@@ -286,16 +299,18 @@ const EN_META = {
   ],
   "/docs/echoai/ruta": [
     "echoAI — ECHO-3 roadmap",
-    "ECHO-3 roadmap: local means-end composition, auditable evidence, three A/B/C worlds, PX4, predicted energy and map-free transfer.",
+    "ECHO-3 roadmap: 8 of 15 software phases closed. A/B/C, sourced sensors, PX4 SITL, fusion and composition run now; CAUSE-1 opens the next block.",
   ],
   "/docs/echoai/hardware": [
     "echoAI — planned hardware",
     "Candidate ECHO-3 platform: Crazyflie, X500/Pixhawk, Jetson, OAK-D, TFmini-S, Livox Mid-360 and optional Akida.",
   ],
   "/docs/echoai/limites": [
-    "echoAI — limitations",
-    "What ECHO-2 does not demonstrate and what must be verified before flight: physics, sensors, deadlines, failsafes, HIL, energy and absent hardware.",
+    "echoAI — next frontier",
+    "What ECHO-3 opens after the current closure: cause, energy, safety, transfer, HIL, a cage and a higher-fidelity 3D world.",
   ],
+  "/articulos": ["Articles — RxLabs®", "Laboratory notes on echOS, PRISMA and echoAI: what runs now, how it is tested and what follows."],
+  "/articulos/echo3-a-mitad": ["ECHO-3 has reached the halfway point — RxLabs®", "ECHO-3 has 8 of 15 software phases closed: A/B/C worlds, sourced sensors, PX4 SITL, dynamics, identity, fusion and composition. With a blocked goal it keeps evidence, compares accesses, passes a next step through the gate and checks the consequence. COMPOSE-1 keeps 6,144 B/C missions and 32 PX4 SITL flights; CAUSE-1 is next."],
   "/echos": ["404 — RxLabs®", "Not found."],
   "/prisma": ["404 — RxLabs®", "Not found."],
   "/echoai": ["404 — RxLabs®", "Not found."],
@@ -304,16 +319,16 @@ const EN_META = {
 const CA_META = {
   "/": [
     "RxLabs® — laboratori de recerca",
-    "Laboratori de programari de Roger Navarro a Girona. echOS 3.0 per a robòtica a l'edge, PRISMA i echoAI: programari real, límits publicats i xifres mesurables.",
+    "Laboratori de programari. echOS 3.0 per a robòtica a l'edge, PRISMA i echoAI: programari que s'executa, evidència pública i xifres mesurables.",
   ],
   "/about": [
     "Què és RxLabs®",
-    "RxLabs® és el laboratori de Roger Navarro a Girona. echOS 3.0, PRISMA i echoAI: codi que s'executa, límits publicats i xifres que es poden tornar a mesurar.",
+    "RxLabs® reuneix echOS 3.0, PRISMA i echoAI: codi que s'executa, evidència pública i xifres que es poden tornar a mesurar.",
   ],
-  "/contact": ["Contacte — RxLabs®", "Contacte de RxLabs®: knightsys@proton.me — Roger Navarro, Girona."],
+  "/contact": ["Contacte — RxLabs®", "Contacte de RxLabs®: knightsys@proton.me."],
   "/docs": [
     "Documentació — RxLabs®",
-    "Documentació pública d'echOS 3.0, PRISMA i echoAI: guies, arquitectura, evidència, captures reals i límits publicats.",
+    "Documentació pública d'echOS 3.0, PRISMA i echoAI: guies, arquitectura, evidència, captures reals, fulls de ruta i articles.",
   ],
   "/docs/echos/que-es": [
     "echOS — RxLabs®",
@@ -358,7 +373,7 @@ const CA_META = {
   ],
   "/docs/echoai/que-es": [
     "echoAI — RxLabs®",
-    "Agent situat de dos rellotges. ECHO-1 i ECHO-2 estan tancats: memòria, supervivència, patrons, consolidació, herència i control intern mesurats.",
+    "Agent situat de dos rellotges. ECHO-1 i ECHO-2 estan tancats; ECHO-3 té 8 de 15 fases: evidència, identitat, fusió, dinàmica, cerca i PX4 SITL.",
   ],
   "/docs/echoai/piezas": [
     "echoAI — arquitectura",
@@ -382,16 +397,18 @@ const CA_META = {
   ],
   "/docs/echoai/ruta": [
     "echoAI — full de ruta ECHO-3",
-    "ECHO-3: composició local de mitjans a fins, evidència auditable, tres mons A/B/C, PX4, energia prevista i transferència sense mapa.",
+    "ECHO-3: 8 de 15 fases de programari tancades. A/B/C, sensors amb procedència, PX4 SITL, fusió i composició ja s'executen; CAUSE-1 obre el bloc següent.",
   ],
   "/docs/echoai/hardware": [
     "echoAI — maquinari previst",
     "Plataforma candidata per a ECHO-3: Crazyflie, X500/Pixhawk, Jetson, OAK-D, TFmini-S, Livox Mid-360 i Akida opcional.",
   ],
   "/docs/echoai/limites": [
-    "echoAI — límits",
-    "Què no demostra ECHO-2 i què cal verificar abans de volar: física, sensors, deadlines, failsafes, HIL, energia i maquinari absent.",
+    "echoAI — frontera següent",
+    "El que obre ECHO-3 després del tancament actual: causa, energia, seguretat, transferència, HIL, gàbia i un món 3D de més fidelitat.",
   ],
+  "/articulos": ["Articles — RxLabs®", "Notes de laboratori sobre echOS, PRISMA i echoAI: què funciona ara, com es prova i què ve després."],
+  "/articulos/echo3-a-mitad": ["ECHO-3 ja ha arribat a la meitat — RxLabs®", "ECHO-3 té 8 de 15 fases de programari tancades: mons A/B/C, sensors amb procedència, PX4 SITL, dinàmica, identitat, fusió i composició. Davant una meta bloquejada conserva evidència, compara accessos, passa un pas pel gate i comprova la conseqüència. COMPOSE-1 conserva 6.144 missions B/C i 32 vols PX4 SITL; CAUSE-1 és el següent."],
   "/echos": ["404 — RxLabs®", "No trobat."],
   "/prisma": ["404 — RxLabs®", "No trobat."],
   "/echoai": ["404 — RxLabs®", "No trobat."],
@@ -434,10 +451,9 @@ export function abs(path) {
 }
 
 export function imageFor(page) {
-  const source = page?.path?.includes("/docs/echoai/echo2")
-    ? ECHO2_OG
-    : page?.path?.includes("/docs/echoai/resultados") ? ECHO_RESULTS_OG
-    : page?.path?.includes("/docs/echoai/") ? ECHOAI_OG : SITE;
+  // All public routes deliberately share one laboratory card. Replacing
+  // public/og.png updates home, documentation and article previews together.
+  const source = SITE;
   return {
     url: abs(source.image),
     width: source.imageW,
@@ -467,7 +483,6 @@ export function jsonLd(page) {
       addressLocality: "Girona",
       addressCountry: "ES",
     },
-    founder: { "@type": "Person", name: SITE.author },
     description: language === "en"
       ? "Software research laboratory. echOS, PRISMA and echoAI: running code and measured numbers."
       : language === "ca"
@@ -484,7 +499,7 @@ export function jsonLd(page) {
       url: abs(page.path),
       inLanguage: language,
       isPartOf: { "@type": "WebSite", name: SITE.name, url: SITE.url },
-      author: { "@type": "Person", name: SITE.author },
+      author: { "@type": "Organization", name: SITE.author },
       primaryImageOfPage: {
         "@type": "ImageObject",
         url: socialImage.url,
@@ -510,7 +525,7 @@ export function jsonLd(page) {
       name: `ECHO-2 benchmark — ${language}`,
       description: page.description,
       url: abs("/data/echo2-benchmark.json"),
-      creator: { "@type": "Person", name: SITE.author },
+      creator: { "@type": "Organization", name: SITE.author },
       distribution: {
         "@type": "DataDownload",
         contentUrl: abs("/data/echo2-benchmark.json"),
@@ -524,7 +539,7 @@ export function jsonLd(page) {
       name: `ECHO-1 / ECHO-2 results — ${language}`,
       description: page.description,
       url: abs(page.path),
-      creator: { "@type": "Person", name: SITE.author },
+      creator: { "@type": "Organization", name: SITE.author },
       distribution: [
         {
           "@type": "DataDownload",
@@ -539,6 +554,19 @@ export function jsonLd(page) {
           encodingFormat: "application/json",
         },
       ],
+    });
+  }
+  if (page.article) {
+    graph.push({
+      "@type": "Article",
+      headline: page.title,
+      description: page.description,
+      mainEntityOfPage: abs(page.path),
+      image: socialImage.url,
+      datePublished: "2026-09-14",
+      dateModified: "2026-09-14",
+      author: { "@type": "Organization", name: SITE.name },
+      publisher: { "@type": "Organization", name: SITE.name, logo: abs(SITE.image) },
     });
   }
   return {

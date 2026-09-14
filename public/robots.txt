@@ -42,4 +42,4 @@ Allow: /
 User-agent: Applebot-Extended
 Allow: /
 
-Sitemap: https://www.rogexlaboratories.com/sitemap.xml
+Sitemap: https://rxlabs.org/sitemap.xml

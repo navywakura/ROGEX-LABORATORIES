@@ -4,6 +4,24 @@ ECHO-1 y ECHO-2 están cerrados. Esta página separa sus resultados para mostrar
 la evolución sin mezclar bancos distintos en una puntuación de inteligencia.
 Cada cifra conserva su control, denominador e informe de origen.
 
+## ECHO-3 · estado actual
+
+ECHO-3 lleva 8 de 15 fases software cerradas: SIM-3, FLIGHT-1S v6,
+SENSOR-1S v3, GROUND-1 v2, DYNAMIC-1 v2, PATTERN-1R v4, FUSION-1 y
+COMPOSE-1 v4. Estos bancos usan otro cuerpo, otros sensores y otros
+denominadores, por lo que no se mezclan con las cifras históricas de abajo.
+
+| Banco actual | Resultado publicado |
+|---|---:|
+| COMPOSE-1 funcional B/C | 6.144 misiones |
+| Metas físicas simuladas · composición | 6/6 |
+| Metas físicas simuladas · horizonte único | 0/6 |
+| Vuelos nuevos PX4 SITL | 32 |
+
+El planificador convencional empató la distancia física en este escenario. El
+resultado se conserva como control: la evidencia explica qué pasó sin fabricar
+una clasificación general.
+
 ## ECHO-1 · memoria, acción y transferencia
 
 | Medida | Resultado |

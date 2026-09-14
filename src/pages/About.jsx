@@ -6,12 +6,8 @@ export default function About({ language = "es" }) {
     <main className="page">
       <article className="sheet">
         <h1>RxLabs®</h1>
-        <p>
-          {copy.intro}
-        </p>
-        <p>
-          {copy.lines}
-        </p>
+        <p>{copy.intro}</p>
+        <p>{copy.lines}</p>
         <p>
           <strong>echOS</strong> — {copy.echos}
         </p>

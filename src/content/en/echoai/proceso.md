@@ -6,10 +6,9 @@ evidence and ends at a gate that must be able to say no.
 
 ## Direction and traceability
 
-Roger Navarro directs the product and its architecture, establishes the
-invariants, operates the laboratory and accepts or rejects each phase. Technical
-evolution is traced through specifications, code, tests, reports and
-reproducible commits.
+The laboratory invariants establish what a phase may modify and what must stay
+separate. Technical evolution is traced through specifications, code, tests,
+reports and reproducible commits.
 
 Auxiliary tools from the internal process are not part of the published
 evidence. Public claims rest solely on system behaviour, controls and

@@ -1,83 +1,23 @@
 # echoAI
 
-echoAI is a two-clock situated agent. It is not a chatbot and it is not a
-language model with tools.
-
-The fast clock perceives, remembers, predicts, acts and learns using tables and
-integers. When connected, the slow clock can read language and propose a
-hypothesis. The gate retains the final say, and no cortex proposal becomes a
-fact by itself.
+echoAI is a two-clock situated agent. The fast clock represents, remembers, predicts, decides and learns with discrete structures. The slow clock may propose when ATTEND has a reason; it does not directly control the body.
 
 ```text
-perceive → remember → predict → act → consequence → learn
-                                      ↑
-                      slow hypothesis, only when requested by ATTEND
+perceive → WSP → CAM → T / Pattern / Q → gate → action → consequence → learning
 ```
 
-## Current status
+It is not a chatbot connected to motors. WSP is the only shared packet; CAM, Q and T answer different questions; a hypothesis cannot become a fact without evidence; and the gate retains the final word.
 
-**ECHO-1 closed on 5 September 2026 and ECHO-2 on 9 September 2026.** The
-canonical ECHO-1 suite ends with 488 passing tests and one explicit
-`expectedFailure`: WALK-1 without the opt-in
-integer remainder. It is not hidden as green.
+## Published state
 
-ECHO-1 demonstrates that the same animal:
+ECHO-1 closed the base cycle: episodic memory, consequences, prediction, patterns, transfer and post-hoc narration. ECHO-2 closed survival, distribution shift, streaming, consolidation, bounded inheritance, energy, temperature and a 512 LIF + 128 Adaptive-LIF monitor.
 
-- preserves CAM, Q, T and PatternMemory when crossing between worlds;
-- distinguishes its own changes from changes in the environment;
-- learns to carry an object and open a container;
-- wakes the cortex after a known contradiction, not before it;
-- narrates what happened without allowing the narration to modify the animal;
-- learns a temporal regularity that one-step T cannot represent;
-- gains a causal advantage over new or merely aged controls.
+ECHO-3 has 8 of 15 software phases closed. It already runs three A/B/C rooms, an X500 body in PX4 SITL, camera/LiDAR/IMU signals with provenance, held-out identity, short dynamics, evidence fusion and alternative composition for a blocked goal.
 
-The transfer closure uses three worlds. At the two measured boundaries, the
-transferred animal scores `208 vs 152` (`+56`) and `224 vs 152` (`+72`). The
-aggregate gain is `+128`. No LLM or human labels are involved.
+The demonstration does not depend on a convincing sentence. Every phase keeps inputs, seeds, controls, a report and an auditor that recalculates its result. The [results](./resultados) page keeps ECHO-1/ECHO-2 closures and adds ECHO-3’s current state.
 
-ECHO-2 retains that core and adds survival across lives, pattern
-generalisation, continuous streams, consolidation, inherited predisposition
-and joint energy/temperature regulation. CAPACITY-1 selected a monitor with
-512 LIF + 128 Adaptive-LIF neurons: 2,048/2,048 perceptual signatures and
-256/256 temporal sequences. [ECHO-2 closure, charts and video](./echo2).
+## What ECHO-3 is doing
 
-## Three channels that do not mix
+An observation may say “there is a station there”, but it does not say that there is a route. ECHO-3 keeps source, age and certainty; searches for a possible access, budgets a next step and compares it with the consequence. When two sensors disagree, it retains disagreement instead of fabricating a single answer.
 
-| Channel | Question | Where it lives |
-|---|---|---|
-| Representation | What is happening? | 16-byte WSP |
-| Epistemology | Do I know it? | CAM + VERIFY + extract |
-| Control | What should I do? | Q + gate |
-
-CAM records what happened. Q learns what is worth doing. T predicts the result
-of an action. A convincing-sounding sentence changes none of those contracts.
-
-## Figures that can be measured again
-
-| Bench | Result |
-|---|---|
-| Ring, learned policy in the face of danger | `[-12, +5, 0]` |
-| Asking versus not asking | `+80` versus `-80` |
-| ATTEND with the cortex enabled | 36 wakes in 256 turns |
-| SIGN-C, decision the fast clock could not solve | cortex `+16`, fast `0` |
-| TALK-1 | 496/496 clauses; 256/256 records |
-| PATTERN-0 | 80/80 versus T 40/80 |
-| XFER-1 | `+56` and `+72` at independent boundaries |
-| False facts / destroyed slots | `0 / 0` |
-
-The main run keeps the cortex disabled. Qwen3-4B was tested separately, locally
-and quantised, behind the same plug and an output grammar. In SIGN-C it solved
-both canonical examples, 4 of 6 paraphrases the stub could not solve, and
-produced `CortexROI +16`; two wrong non-canonical threat answers remain recorded
-as safety debt rather than hidden.
-
-## What this does and does not mean
-
-This is evidence of memory, control, prediction, composition and transfer in
-synthetic worlds. It is not yet a robot, does not demonstrate visual perception,
-and does not authorise placing a generative model in motor control.
-
-ECHO-3 will take ECHO-2's closed contract into three 3D worlds, sensors,
-flight dynamics, PX4 and ultimately a physical body at the edge.
-
-— R.N.
+CAUSE-1 is next: paired scenes will measure whether a transition is caused by its own action or an external change. The complete roadmap is in [ECHO-3](./ruta).

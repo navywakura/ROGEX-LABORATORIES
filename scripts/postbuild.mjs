@@ -61,7 +61,7 @@ function inject(html, page) {
     <link rel="alternate" hreflang="ca" href="${abs(alternate.ca)}" />
     <link rel="alternate" hreflang="x-default" href="${abs(alternate.es)}" />
     <link rel="image_src" href="${image.url}" />
-    <meta property="og:type" content="${page.path.includes("/docs/") ? "article" : "website"}" />
+    <meta property="og:type" content="${page.path.includes("/docs/") || page.article ? "article" : "website"}" />
     <meta property="og:site_name" content="${esc(SITE.name)}" />
     <meta property="og:locale" content="${localeByLanguage[language]}" />
 ${localeAlternates}
@@ -80,6 +80,9 @@ ${localeAlternates}
     <meta name="twitter:description" content="${esc(page.description)}" />
     <meta name="twitter:image" content="${image.url}" />
     <meta name="twitter:image:alt" content="${esc(image.alt)}" />${markdownAlternate}
+${page.article ? `    <meta property="article:published_time" content="2026-09-14" />
+    <meta property="article:modified_time" content="2026-09-14" />
+    <meta property="article:section" content="echoAI" />` : ""}
 `;
 
   html = html
@@ -95,22 +98,25 @@ function pageLanguage(page) {
   return page.lang === "en" ? "en" : page.lang === "ca" ? "ca" : "es";
 }
 
-function docSlug(page) {
-  return page.path.replace(/^\/(?:en|ca)(?=\/|$)/, "").replace(/^\/docs\/?/, "");
+function contentPath(page) {
+  return page.path.replace(/^\/(?:en|ca)(?=\/|$)/, "");
 }
 
 function markdownSource(page) {
-  const slug = docSlug(page);
-  if (!slug || !page.path.includes("/docs/")) return null;
-  return `/raw/${pageLanguage(page)}/${slug}.md`;
+  const local = contentPath(page);
+  if (local.startsWith("/docs/")) return `/raw/${pageLanguage(page)}/${local.slice(6)}.md`;
+  if (local.startsWith("/articulos/")) return `/raw/${pageLanguage(page)}/${local.slice(1)}.md`;
+  return null;
 }
 
 function markdownFile(page) {
-  let slug = docSlug(page);
-  if (!slug) return null;
+  const local = contentPath(page);
+  if (!local.startsWith("/docs/") && !local.startsWith("/articulos/")) return null;
+  const isArticle = local.startsWith("/articulos/");
+  let slug = local.replace(/^\/(?:docs|articulos)\//, "");
   if (slug === "prisma/resumen") slug = "prisma/overview";
   const language = pageLanguage(page);
-  return path.join(contentDir, language === "es" ? "" : language, `${slug}.md`);
+  return path.join(contentDir, language === "es" ? "" : language, isArticle ? "articles" : "", `${slug}.md`);
 }
 
 function staticBody(page) {
@@ -125,6 +131,10 @@ function staticBody(page) {
   } else if (page.path.replace(/^\/(?:en|ca)(?=\/|$)/, "") === "/docs") {
     const docs = PAGES.filter((entry) => entry.lang === language && entry.path.includes("/docs/") && !entry.noindex);
     body = `<h1>${language === "en" ? "Documentation" : language === "ca" ? "Documentació" : "Documentación"}</h1><ul>${docs.map((entry) => `<li><a href="${entry.path}">${esc(entry.title)}</a><p>${esc(entry.description)}</p></li>`).join("")}</ul>`;
+  } else if (page.path.replace(/^\/(?:en|ca)(?=\/|$)/, "") === "/articulos") {
+    const label = language === "en" ? "Articles" : language === "ca" ? "Articles" : "Artículos";
+    const articles = PAGES.filter((entry) => entry.lang === language && entry.article);
+    body = `<h1>${label}</h1><ul>${articles.map((entry) => `<li><a href="${entry.path}">${esc(entry.title)}</a><p>${esc(entry.description)}</p></li>`).join("")}</ul>`;
   } else {
     return "";
   }
