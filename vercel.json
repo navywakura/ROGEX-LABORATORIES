@@ -15,39 +15,63 @@
   ],
   "redirects": [
     {
+      "source": "/",
+      "has": [{ "type": "host", "value": "rogexlaboratories.com" }],
+      "destination": "https://www.rxlabs.org",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "rogexlaboratories.com" }],
+      "destination": "https://www.rxlabs.org/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [{ "type": "host", "value": "www.rogexlaboratories.com" }],
+      "destination": "https://www.rxlabs.org",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.rogexlaboratories.com" }],
+      "destination": "https://www.rxlabs.org/:path*",
+      "permanent": true
+    },
+    {
       "source": "/ca",
       "has": [{ "type": "host", "value": "docs.rogexlaboratories.com" }],
-      "destination": "https://rxlabs.org/ca/docs",
+      "destination": "https://www.rxlabs.org/ca/docs",
       "permanent": true
     },
     {
       "source": "/ca/:path*",
       "has": [{ "type": "host", "value": "docs.rogexlaboratories.com" }],
-      "destination": "https://rxlabs.org/ca/docs/:path*",
+      "destination": "https://www.rxlabs.org/ca/docs/:path*",
       "permanent": true
     },
     {
       "source": "/en",
       "has": [{ "type": "host", "value": "docs.rogexlaboratories.com" }],
-      "destination": "https://rxlabs.org/en/docs",
+      "destination": "https://www.rxlabs.org/en/docs",
       "permanent": true
     },
     {
       "source": "/en/:path*",
       "has": [{ "type": "host", "value": "docs.rogexlaboratories.com" }],
-      "destination": "https://rxlabs.org/en/docs/:path*",
+      "destination": "https://www.rxlabs.org/en/docs/:path*",
       "permanent": true
     },
     {
       "source": "/",
       "has": [{ "type": "host", "value": "docs.rogexlaboratories.com" }],
-      "destination": "https://rxlabs.org/docs",
+      "destination": "https://www.rxlabs.org/docs",
       "permanent": true
     },
     {
       "source": "/:path*",
       "has": [{ "type": "host", "value": "docs.rogexlaboratories.com" }],
-      "destination": "https://rxlabs.org/docs/:path*",
+      "destination": "https://www.rxlabs.org/docs/:path*",
       "permanent": true
     }
   ],
