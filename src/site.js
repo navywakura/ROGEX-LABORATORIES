@@ -145,9 +145,9 @@ const ES_PAGES = [
   },
   {
     path: "/docs/prisma/eeg-dron",
-    title: "PRISMA — campaña EEG → dron",
+    title: "PRISMA — intención → dron: EEG, EMG y control corporal",
     description:
-      "Campaña abierta: ¿puede PRISMA guiar un dron con EEG? Lo demostrado (1,16 bits/min en vuelo real), lo que no («pensar en subir»), la arquitectura con echoAI y echOS, fases y controles.",
+      "Campaña exploratoria: cómo convertir una intención en una propuesta de vuelo. Qué se ha demostrado con EEG, EMG, torso e implantes, qué significa «a la velocidad del pensamiento», arquitectura con gates y escalera de pruebas.",
     section: "PRISMA",
     datePublished: "2026-09-18",
     dateModified: "2026-09-18",
@@ -433,12 +433,12 @@ const CA_META = {
 };
 
 EN_META["/docs/prisma/eeg-dron"] = [
-  "PRISMA — EEG → drone campaign",
-  "Open campaign: can PRISMA guide a drone with EEG? What has been shown (1.16 bits/min in real flight), what has not (\"thinking up\"), the architecture with echoAI and echOS, phases and controls.",
+  "PRISMA — intent → drone: EEG, EMG and body control",
+  "Exploratory campaign: turning an intention into a flight proposal. What EEG, EMG, torso and implant studies have shown, what \"at the speed of thought\" means, gated architecture and test ladder.",
 ];
 CA_META["/docs/prisma/eeg-dron"] = [
-  "PRISMA — campanya EEG → dron",
-  "Campanya oberta: pot PRISMA guiar un dron amb EEG? El que s'ha demostrat (1,16 bits/min en vol real), el que no («pensar a pujar»), l'arquitectura amb echoAI i echOS, fases i controls.",
+  "PRISMA — intenció → dron: EEG, EMG i control corporal",
+  "Campanya exploratòria: com convertir una intenció en una proposta de vol. Què s'ha demostrat amb EEG, EMG, tors i implants, què vol dir «a la velocitat del pensament», arquitectura amb gates i escala de proves.",
 ];
 for (const product of PRODUCTS) {
   EN_META[`/${product.slug}`] = [product.copy.en.title, product.copy.en.description];

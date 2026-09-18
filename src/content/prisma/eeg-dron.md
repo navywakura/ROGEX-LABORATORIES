@@ -1,150 +1,206 @@
-# Campaña abierta: ¿puede PRISMA guiar un dron con EEG?
+# Intención → dron: EEG, EMG y control corporal
 
-**Estado: 18 de septiembre de 2026 · campaña abierta · todavía sin resultados propios.** No hay casco EEG ni dron físico en el laboratorio. Este documento fija la pregunta, lo que ya se sabe, lo que no y cómo lo vamos a medir.
+**Estado: 18 de septiembre de 2026 · campaña exploratoria · sin resultados propios de control de un dron.** No hay casco EEG, sensores EMG ni dron físico en el laboratorio. La campaña empieza con datos públicos y simulación.
 
-> La idea de partida: medir EEG con PRISMA, traducirlo a un patrón que echoAI y echOS entiendan y que el dron actúe en consecuencia. Por ejemplo, pensar en subir y que el dron suba. O subir el brazo.
+> La idea de partida: pensar en subir y que el dron suba, a la velocidad del pensamiento, como si fuera una extensión del sistema nervioso. Este documento separa lo que ya se ha demostrado, lo que no y cómo lo vamos a medir.
 
-## Resumen honesto
+## Resumen
 
-- **Sí se ha movido un dron con EEG no invasivo.** Pero no leyendo el pensamiento «subir»: la persona aprende a modular sus ritmos sensoriomotores imaginando movimientos, y cada patrón se asigna a una orden. En el estudio de referencia, «subir» era imaginar las dos manos a la vez.
-- **Es lento.** En ese estudio, el vuelo real transmitió 1,16 bits por minuto, algo más de una decisión sí/no perfecta por minuto. Los pilotos pasaron por 3,1 aros en cada prueba de cuatro minutos; con teclado, 12,0.
-- **No funciona igual para todos.** Se estima que entre el 15 y el 30 % de los usuarios no consigue controlar este tipo de interfaz.
-- **«Pensar en subir» no es decodificable hoy con fiabilidad.** En un conjunto abierto de cuatro palabras de habla interior (*arriba, abajo, izquierda, derecha*), un trabajo de 2025 llega al 46,6 % por sujeto, con un azar del 25 %.
-- **La latencia de microsegundos de PRISMA no es la latencia de la interfaz.** Una decisión de imaginación motora necesita ventanas de EEG de uno o dos segundos. El tiempo lo marca la fisiología, no el motor.
+- **Ya se ha pilotado un cuadricóptero real con EEG**, pero con imaginación motora entrenada: en el estudio de referencia, «subir» era imaginar las dos manos. Con cinco participantes, esa tarea alcanzó 1,16 bits por minuto y 3,1 aros por prueba de cuatro minutos, frente a 12 con teclado.
+- **Hay rutas más rápidas, pero no todas son EEG ni son accesibles.** Una persona con tetraplejia manejó un dron virtual con un implante intracortical que decodificaba movimientos de dedos. Personas sin experiencia aprendieron a pilotar drones reales moviendo el torso. Una pulsera EMG decodifica gestos y escritura sin ajustarse a cada persona.
+- **«Subir» puede significar cuatro cosas distintas:** intentar un movimiento, imaginarlo, elegir una meta o pensar la palabra. Cada una se mide y se decodifica de forma diferente.
+- **La velocidad no la da el motor de PRISMA.** La latencia depende de la señal, del procesamiento y de la respuesta que vuelve a la persona; no se deduce del tiempo de cómputo de un evento. Hoy la latencia de extremo a extremo de RxLabs es desconocida, porque todavía no existe la cadena física para medirla.
+- **Una extensión del cuerpo necesita un camino de vuelta.** Sentir lo que hace el dron, con imagen o vibración, importa tanto como enviarle órdenes.
 
-Por eso la campaña no intenta pilotar un dron con la mente. Intenta algo más estrecho y comprobable: **que PRISMA proponga pocas intenciones discretas, lentas y fiables, y que un error del decodificador no pueda convertirse nunca en un error de vuelo.**
+La campaña compara esas rutas con la misma simulación y los mismos filtros de seguridad: PRISMA propone intenciones acotadas y echoAI y echOS las filtran antes de que lleguen al controlador de vuelo.
 
-## Tres cosas distintas que se suelen mezclar
+## Cuatro significados de «subir»
 
-| Qué hace la persona | Qué mide el EEG | ¿Sirve para un dron? |
-|---|---|---|
-| **Piensa en «subir»** (contenido mental, habla interior) | Ningún patrón específico y estable en el cuero cabelludo | Hoy no. En *Thinking out loud* (10 participantes, 136 canales), un trabajo de 2025 obtiene 46,6 % por sujeto y 32 % entre sujetos con cuatro palabras; el azar es el 25 %. Las revisiones señalan que la mayoría de estudios son offline y síncronos. |
-| **Imagina mover manos o pies** (imaginación motora) | Desincronización de los ritmos mu y beta (8–30 Hz) sobre la corteza sensoriomotora: C3, Cz, C4 | Sí, con entrenamiento y pocas clases. Es la vía demostrada. La asignación a órdenes es arbitraria: «ambas manos = subir». |
-| **Sube el brazo de verdad** (movimiento real) | Potencial de preparación unos 500 ms antes del movimiento, desincronización más intensa y actividad muscular que contamina la señal | Técnicamente sí, pero si el brazo se mueve, un sensor inercial o un EMG lo miden antes, mejor y más barato. El EEG sólo tiene sentido si la persona no puede moverse, o como comparación. |
+| Qué hace la persona | Qué se ha podido decodificar | Qué no está demostrado | Ruta de control razonable |
+|---|---|---|---|
+| **Intentar un movimiento**, también con parálisis | Movimientos de dedos en 4 grados de libertad con un implante intracortical (una persona, dron virtual) | Que sirva cualquier zona o cualquier tarea sin entrenamiento | Asociar una variable motora calibrada a una intención acotada |
+| **Imaginar un movimiento** | Modulación de los ritmos sensoriomotores en EEG, como en LaFleur et al. | Un símbolo «arriba» idéntico para todas las personas | Selección discreta de metas, con una clase de reposo explícita |
+| **Elegir una meta espacial** | Objetivos e imaginación de acciones en la corteza parietal posterior (implante, una persona, tarea instruida) | Leer metas libres fuera del paradigma | Proponer un destino y dejar la trayectoria a la autonomía |
+| **Pensar la palabra** | Habla interior con EEG: en un conjunto abierto de cuatro palabras, un trabajo de 2025 obtuvo una media del 46,6 % dentro de cada sujeto frente a un azar del 25 %, en evaluación offline | Una fiabilidad suficiente para dar órdenes de vuelo | Línea exploratoria offline; nunca mando principal |
 
-Hay una cuarta vía, los paradigmas evocados (SSVEP, P300): la persona mira estímulos que parpadean y el EEG detecta a cuál atiende. Consiguen precisiones altas —según la UTS, un sistema desarrollado con el ejército australiano controló un robot cuadrúpedo con hasta un 94 %—, pero dependen de mirar una pantalla o unas gafas de realidad aumentada. Es control por atención visual, no por pensamiento.
+Si la persona **mueve de verdad** el brazo o el torso, la señal más directa es el propio movimiento o la actividad muscular, medidos con sensores inerciales o EMG. Eso no es «leer el cerebro», pero sí una interfaz corporal legítima, y hoy es la ruta accesible más rápida. Una interfaz que use actividad muscular debe llamarse por lo que mide.
 
 ## Lo que ya se ha demostrado
 
-| Trabajo | Paradigma | Resultado | Coste o límite |
+| Trabajo | Señal y tarea | Resultado | Límite que no hay que olvidar |
 |---|---|---|---|
-| LaFleur et al., 2013 | Imaginación motora, 64 canales. Mano derecha → derecha; izquierda → izquierda; ambas → subir; no imaginar nada → bajar. Avance automático a 0,69 m/s | 5 sujetos; 79,2 % de los objetivos válidos en grupo, hasta 90,5 % individual | 1,16 bits/min; 3,1 aros por prueba de 4 min frente a 12,0 con teclado. Los sujetos sin experiencia entrenaron de media 5 h 20 min en entornos virtuales durante unos 3 meses antes de volar |
-| Duan et al., 2019 | Híbrido: imaginación motora para girar, SSVEP con LED para subir y bajar, parpadeo para cambiar de modo | Calibración: SSVEP 83,44 %, imaginación motora 80,45 %, parpadeo 99,07 %. Tarea de vuelo compleja: 86,5 % | 1,69 bits/min frente a 3,90 con mando. Ventanas de 1,5 s y una orden por segundo; fatiga mental |
-| BCI Competition IV, conjunto 2a | 4 clases de imaginación motora, 9 sujetos, 22 canales, 250 Hz | Ganador (FBCSP): kappa 0,57, donde el azar es 0 | Referencia offline, no vuelo |
-| Faisal et al., 2023 (UTS) | SSVEP con electrodos secos de grafeno y gafas de realidad aumentada | Hasta 94 % controlando un robot cuadrúpedo, según la UTS | Requiere mirar estímulos que parpadean |
+| LaFleur et al., 2013 | EEG, imaginación motora, 64 canales. Mano derecha → derecha; izquierda → izquierda; ambas → subir; nada → bajar | Cuadricóptero real. 1,16 bits/min; 3,1 aros por prueba de 4 min frente a 12 con teclado. Ventanas espectrales de 160 ms y una actualización cada 30 ms | 5 participantes. Los que no tenían experiencia entrenaron de media 5 h 20 min durante unos 3 meses |
+| Willsey et al., 2025 | Implante intracortical, movimientos de dedos en 4 grados de libertad | 76 objetivos por minuto y 2,60 bits/s en la tarea de dedos; después, un cuadricóptero virtual por circuitos de aros | Una persona con tetraplejia; dron virtual, no físico |
+| Miehlbradt et al., 2018 | Movimientos del torso | Personas sin experiencia dominaron drones simulados y reales, y superaron a quienes usaban joystick | Interfaz cuerpo-máquina, no señal cerebral directa |
+| Kaifosh et al., 2025 | EMG de superficie en una pulsera | 0,66 objetivos/s en navegación, 0,88 gestos/s y 20,9 palabras/min escribiendo, con modelos que generalizan entre personas | Actividad muscular en tareas de ordenador, no un dron. Sus modelos no son una implementación de PRISMA |
+| Chen et al., 2015 | EEG con estímulos visuales parpadeantes (SSVEP) | Deletreo en línea con hasta 5,32 bits/s | Hay que mirar los estímulos: es control por atención visual, no por pensamiento |
 
-Otros tres resultados fijan los límites:
+Estos resultados no se suman ni se comparan directamente: cada uno mide una tarea distinta, en su propia unidad. Lo que sí muestran es que **el paradigma cambia el resultado más que el sensor**. El mismo EEG va de 1,16 bits por minuto en un vuelo con imaginación motora a varios bits por segundo deletreando con estímulos visuales.
 
-- **Usuarios que no logran controlarla.** Vidaurre y Blankertz estiman que el control no funciona para entre un 15 y un 30 % de los usuarios. Su propio trabajo muestra que adaptar a la vez usuario y máquina puede recuperar a algunos.
-- **Saber cuándo la persona quiere mandar.** En modo asíncrono el sistema debe distinguir una orden de «no estoy mandando nada». Un detector clásico de este tipo encontraba en torno al 40 % de los movimientos con un 1 % de falsos positivos. Si ese 1 % se mide por decisión y el sistema decide varias veces por segundo, se traduce en varias falsas alarmas por minuto.
-- **Generalización.** MOABB comparó algoritmos en 12 conjuntos abiertos con más de 250 sujetos: muchos métodos validados en un conjunto no generalizan fuera de él.
+Otros tres resultados marcan límites:
 
-## Qué tiene PRISMA hoy para esto
+- **No todas las personas controlan la interfaz a la primera.** Vidaurre y Blankertz estimaban entre un 15 y un 30 % de usuarios con los que el control por ritmos sensoriomotores no funcionaba. Su propio trabajo muestra que adaptar a la vez persona y máquina recupera a parte de ellos.
+- **Distinguir una orden de «no estoy mandando nada» es difícil.** En modo asíncrono, un detector clásico encontraba en torno al 40 % de los movimientos con un 1 % de falsos positivos. La métrica que importa son las falsas activaciones por minuto en reposo.
+- **Generalizar es difícil.** MOABB comparó algoritmos en 12 conjuntos abiertos con más de 250 sujetos: muchos métodos validados en un conjunto no generalizan fuera de él.
+
+## ¿Qué significa «a la velocidad del pensamiento»?
+
+No hay una única velocidad: conducción nerviosa, preparación, decisión, movimiento y percepción son procesos distintos. Como referencia, en adultos de 18 a 25 años el tiempo medio de reacción visual de cada persona tuvo una mediana de 243 ms en una tarea simple y de 382 ms al elegir entre cuatro respuestas. Esas cifras incluyen decidir y moverse, y no son una constante universal.
+
+Para que un dron se sienta parte del cuerpo, lo decisivo es el **bucle completo**:
+
+```text
+intención → señal (EEG · EMG · torso · implante)
+  → evidencia suficiente → decodificador → propuesta o abstención
+  → gate de echoAI → Intent ABI → safety gate de echOS
+  → radio → autopiloto → primer movimiento medible del dron
+  → cámara o sensor → pantalla o vibración → percepción de la persona
+```
+
+Tres ideas guían la campaña:
+
+- **Una ventana corta no hace una interfaz rápida.** LaFleur usó ventanas EEG de 160 ms, pero tomar una decisión fiable, evitar falsas órdenes y cerrar el bucle lleva bastante más. Hay que medir la respuesta a un cambio, no deducirla del tamaño de la ventana.
+- **El cuello de botella está en la señal y en el retorno, no en el cómputo.** Como ejemplo aritmético, acelerar un clasificador de 3 a 1 ms ahorra 2 ms; acortar la acumulación de evidencia de 50 a 25 ms ahorra 25, siempre que no aumenten las falsas órdenes.
+- **Agencia no es propiedad corporal.** En experimentos de laboratorio con manos artificiales, los desfases por debajo de unos 300 ms favorecen sentir la mano como propia, y los retrasos crecientes reducen tanto la sensación de agencia como la de propiedad. No es un umbral universal para drones, pero explica por qué importan los bucles cortos.
+
+**Hoy la latencia de extremo a extremo de RxLabs es desconocida.** El primer objetivo es medirla por tramos, con marcas de tiempo desde el sensor de origen.
+
+## Qué tiene PRISMA hoy y qué le falta
 
 **Existe:**
 
-- Lectura de GDF verificada con registros reales de BCI Competition IV 2a: 288 épocas por sesión, 72 por clase.
-- Filtros causales, referencia, detección de canales malos, ICA, tiempo-frecuencia y ERD/ERS, que es la medida base de la imaginación motora.
-- El motor Rust por eventos (modulación delta → LIF → STDP), con entrada en vivo por TCP, un puente para LSL y un generador sintético.
+- Lectura de GDF verificada con registros reales de BCI Competition IV 2a.
+- Filtros causales, referencia, detección de canales malos, ICA, tiempo-frecuencia y ERD/ERS.
+- El motor Rust por eventos (modulación delta → LIF → STDP), con entrada en vivo por TCP, un puente LSL y un generador sintético.
 
-**No existe:**
+**Falta, por orden de impacto en latencia y seguridad:**
 
-- **Ningún decodificador BCI.** Ni CSP/FBCSP, ni geometría de Riemann, ni LDA, ni una evaluación al estilo MOABB.
-- **Reloj de origen en vivo.** El protocolo TCP actual pone la marca de tiempo al recibir cada muestra: no distingue retraso, pérdida o silencio, y no transporta marcadores.
-- **Hardware.** No hay casco EEG ni dron físico en el laboratorio.
+1. **Tiempo de origen.** La entrada TCP marca cada muestra al recibirla. Hacen falta la marca del sensor, un número de secuencia, el registro de pérdidas y marcadores.
+2. **Reposo y abstención.** Una clase «no estoy mandando», caducidad de cada propuesta y trazas hasta los dos gates, midiendo falsas activaciones por minuto.
+3. **Ingesta multimodal.** EEG, EMG y sensores inerciales, cada uno a su frecuencia y sincronizados de forma documentada.
+4. **Decodificadores de referencia.** Para EEG, CSP/FBCSP con LDA y geometría de Riemann; para EMG, características causales con clasificación o regresión; para datos intracorticales, ridge y Kalman. La red LIF/STDP de PRISMA compite contra ellos; su ventaja no se da por supuesta.
+5. **Evaluación honesta.** Separación por días y por personas, entrenamiento sólo con el pasado y replay a tiempo real.
 
-El propio motor mantiene una línea en su panel de límites que esta campaña no cambia: *«NO lee el pensamiento ni decodifica contenido mental.»*
+El panel de límites de PRISMA sigue diciendo lo mismo: *«NO lee el pensamiento ni decodifica contenido mental.»*
 
-## Arquitectura propuesta: un contrato, no una fusión
+## Arquitectura y autoridad
 
 PRISMA, echoAI y echOS siguen siendo líneas separadas. La campaña define la costura entre ellas:
 
 ```text
-EEG (conjunto público reproducido como si fuera en vivo)
-  → PRISMA · QC · filtro causal · decodificador · probabilidad por clase
-  → evidencia acumulada · umbral · tiempo de permanencia · clase «reposo»
-  → propuesta de intención: clase, confianza, ventana causal, caducidad
-  → gate de echoAI · OK · MODIFY · BLOCK
-  → Intent ABI de echOS · HOLD · APPROACH · AVOID · RETURN_HOME · LAND · ABORT
-  → safety gate de echOS → PX4 (estabilización y failsafes)
+sensor → PRISMA · calidad · decodificación · abstención
+  → intención candidata → gate de echoAI · OK · MODIFY · BLOCK
+  → Intent ABI de echOS (v1, 72 B) → safety gate de echOS
+  → adaptador → controlador de vuelo (PX4 o firmware del Crazyflie)
 ```
 
 Reglas de diseño:
 
-1. **El EEG propone; nunca manda.** La salida de PRISMA es una propuesta más, como las del reloj lento de echoAI. El gate decide, y la [Intent ABI de echOS](/docs/echos/arquitectura) no tiene campos para motores.
-2. **Por defecto, HOLD.** Sin evidencia suficiente, el dron se mantiene. La clase «reposo» es obligatoria.
-3. **Pocas órdenes y de alto nivel.** «Subir» se expresa como un APPROACH a un punto medio metro por encima, con límite de velocidad y caducidad. La persona elige *qué* hacer; la autonomía decide *cómo* volar.
-4. **Autonomía compartida.** Mientras llega una decisión, el dron sigue recorriendo distancia: con los 0,69 m/s de LaFleur y una ventana de 1,5 s como la de Duan, algo más de un metro. Evitar obstáculos y respetar la geovalla corresponde a echoAI, echOS y PX4, no al EEG.
-5. **Ningún LLM en el bucle.** Igual que en echoAI y en PRISMA, un modelo de lenguaje puede explicar resultados, pero no decodificar ni dar órdenes.
-6. **Los certificados no se heredan.** Los verdes de [ECHO-3](/docs/echoai/ruta) no validan el control por EEG, y la latencia de microsegundos de PRISMA no es la latencia de la interfaz.
+1. **La señal propone; nunca manda.** La salida de PRISMA es una propuesta más, como las del reloj lento de echoAI. Decide el gate, y la [Intent ABI de echOS](/docs/echos/arquitectura) no tiene campos para motores.
+2. **La persona elige qué; la autonomía decide cómo.** «Subir» se expresa como un APPROACH a un punto medio metro por encima, con límite de velocidad y caducidad. La autonomía local estabiliza y evita obstáculos sin esperar a la siguiente decisión humana.
+3. **Sin cambios en la ABI al empezar.** Si las mediciones muestran que encadenar metas no basta para un control continuo, se estudiará en un diseño aparte una consigna de velocidad acotada: marco de referencia, velocidad y aceleración máximas, duración y caducidad, sin PWM y con los dos gates.
+4. **Reposo explícito y HOLD como respuesta por defecto**, sabiendo que HOLD no basta si el dron pierde su posición. La pérdida de localización, de enlace o de un sensor necesita una contingencia validada.
+5. **Ningún LLM en el bucle.** Un modelo de lenguaje puede explicar resultados, pero no decodificar ni dar órdenes.
+6. **Los filtros limitan consecuencias; no leen la mente.** Una orden equivocada pero dentro de los límites puede pasar los dos gates. Lo defendible es que las barreras limitan ciertas consecuencias bajo supuestos comprobados, no que ningún error de decodificación pueda llegar al vuelo.
+7. **Los certificados no se heredan.** Los verdes de [ECHO-3](/docs/echoai/ruta) no validan el control por EEG, EMG ni torso.
 
-Más adelante se puede estudiar un veto basado en potenciales de error: el cerebro produce una respuesta característica al ver que la máquina se equivoca, y más de una década de trabajos muestra que puede detectarse en un solo ensayo. Serviría para deshacer una orden mal decodificada, no para darlas.
+Más adelante puede estudiarse un canal de corrección con potenciales de error: el cerebro produce una respuesta característica al ver que la máquina se equivoca. Esa respuesta llega después del error, así que sirve para deshacer una orden, no como barrera ante una colisión.
 
-## Plan por fases
+## El camino de vuelta
 
-Cada fase congela sus métricas, umbrales y reglas de parada antes de empezar, y publica sus resultados, también los negativos.
+Una extensión del sistema nervioso no sólo envía órdenes: también siente. En un estudio con una persona con tetraplejia, añadir tacto mediante estimulación intracortical redujo a la mitad el tiempo de una tarea con brazo robótico, de una mediana de 20,9 s a 10,2 s. RxLabs no propone implantes. Su primer retorno será visual y háptico no invasivo, con vibraciones que distingan tres mensajes:
+
+- **intención recibida**, confirmada al instante en local;
+- **intención aceptada** por los gates;
+- **movimiento observado** por los sensores del dron, con la edad del dato visible.
+
+Una vibración de «hecho» antes de que el dron se mueva mentiría sobre su estado. Por eso cada experimento medirá por separado el rendimiento, la sensación de agencia («lo he causado yo») y la de propiedad («lo siento mío»).
+
+## Escalera de pruebas
+
+Cada fase congela sus métricas, umbrales y reglas de parada antes de empezar, y publica sus resultados, también los negativos. La campaña es independiente del programa de validación de PRISMA. Los nombres de fase se conservan; desde EEG-1, cada fase compara modalidades.
 
 | Fase | Qué se hace | Qué debe demostrar | Necesita |
 |---|---|---|---|
-| **EEG-0 · Contrato** | Formato de la propuesta de intención, métricas, controles y reglas de parada | Un documento congelado antes de ver ningún dato | Nada |
-| **EEG-1 · Offline** | Decodificación sobre BCI IV 2a (4 clases, 9 sujetos) y PhysioNet EEGMMIDB (109 sujetos, movimiento real e imaginado; objetivos arriba y abajo con ambos puños o ambos pies). Referencias: CSP+LDA, FBCSP y Riemann; PRISMA como brazo experimental | Reproducir las referencias publicadas antes de afirmar nada sobre PRISMA, y medir si las características por eventos aportan algo | Datos públicos |
-| **EEG-2 · Pseudo-online** | Reproducir registros continuos por la entrada en vivo de PRISMA, de forma causal | Latencia de decisión, falsas activaciones por minuto en reposo y tiempo hasta la orden correcta | Reloj de origen y marcadores en el protocolo |
-| **EEG-3 · Bucle simulado** | Las intenciones decodificadas del replay entran en el gate de echoAI, en echOS y en PX4 SITL | Tareas completadas frente a teclado, órdenes bloqueadas o corregidas por el gate y **cero órdenes inseguras en PX4** | Lo anterior; sin hardware |
-| **EEG-4 · Persona real** | Calibración y control en línea, todavía en simulación | Rendimiento por persona, incluidas quienes no logren controlarla | Casco con cobertura sensoriomotora, consentimiento informado y aprobación ética |
-| **EEG-5 · Dron en jaula** | Vuelo físico con piloto de seguridad e interruptor de corte | Lo mismo que EEG-3, con un cuerpo real | DRONE-3 cerrado y hardware; sin fecha |
+| **EEG-0 · Contrato** | Formato de la intención propuesta, marcas de tiempo por tramo, métricas, controles y reglas de parada | Un documento congelado antes de ver datos | Nada |
+| **EEG-1 · Datos públicos** | Intracortical: FALCON H1 (CC BY 4.0). EEG: PhysioNet EEGMMIDB y BCI Competition IV 2a, sin redistribuirlo. EMG: el conjunto abierto de Kaifosh et al., de uso no comercial. Referencias clásicas frente a PRISMA | Reproducir las referencias, con separación por días, antes de afirmar nada sobre PRISMA | Datos públicos |
+| **EEG-2 · Replay causal** | Reproducir registros a tiempo real por la entrada de PRISMA, con pérdidas, jitter, paquetes viejos y fallos inyectados | Latencia por tramo, falsas activaciones por minuto cuando los datos lo permitan y capacidad de cancelar | Tiempo de origen y marcadores |
+| **EEG-3 · Bucle simulado** | Intenciones decodificadas → gates → PX4 SITL, con retorno simulado | Ningún camino que evite los gates y trazas completas de cada orden | Todo lo anterior; sin hardware |
+| **EEG-4 · Personas, no invasivo** | Torso/IMU y EMG comparados con la misma simulación, límites y retorno; EEG para elegir metas | Latencia física medida por tramos, falsas activaciones, fatiga, agencia y estabilidad entre días | Sensores, consentimiento informado y aprobación ética |
+| **EEG-5 · Dron contenido** | Crazyflie en un recinto cerrado mediante un adaptador propio (usa el firmware de Bitcraze y CRTP, no PX4), con piloto de seguridad. El X500 con PX4 será una campaña aparte | Lo mismo que EEG-4 con un cuerpo real, sin heredar resultados de la simulación | EEG-4 cerrado y hardware |
 
-**Controles obligatorios desde EEG-1:**
+**Controles obligatorios:**
 
 - Etiquetas barajadas: el resultado tiene que caer al nivel del azar.
-- **Control de artefactos:** un clasificador que sólo vea canales frontales y temporales, donde dominan ojos y músculos. Si rinde casi igual que el que usa C3, Cz y C4, el decodificador está leyendo artefactos y no la corteza motora.
-- Validación entre sesiones y entre sujetos. Nunca ventanas del mismo ensayo repartidas entre entrenamiento y prueba.
-- Métricas por persona, no sólo medias: kappa, exactitud, ITR de Wolpaw y cuántos sujetos superan el umbral de azar significativo.
+- **EMG y EOG registrados junto al EEG**, para detectar si el decodificador aprovecha músculos u ojos en vez de la corteza.
+- Separación por días y por personas. Nunca ventanas del mismo ensayo repartidas entre entrenamiento y prueba.
+- Métricas por persona y distribuciones completas (P50, P95, P99 y peores casos), no sólo medias. Los tiempos agotados cuentan como fallos.
 
-**Reglas de parada:**
+**Reglas de parada:** fuga de datos, marcas de tiempo desconocidas para una afirmación temporal, licencia insuficiente, rendimiento que desaparece entre días o cualquier camino que evite los gates. Si PRISMA no aporta nada frente a las referencias clásicas, el decodificador será clásico y así se dirá.
 
-- Si no se reproducen las referencias publicadas, se detiene la campaña y se corrige el pipeline.
-- Si las características de PRISMA no aportan frente a CSP o Riemann con la misma información, el decodificador será clásico y así se dirá. El valor de PRISMA quedaría en la infraestructura: control de calidad, tiempo real y trazabilidad.
-- Si las falsas activaciones en reposo no bajan del umbral congelado, no hay bucle cerrado.
+## Hardware
 
-## Hardware para las fases con personas
+Nada de esto está todavía en el laboratorio.
 
-Un casco de consumo con cuatro electrodos en la frente y detrás de las orejas (como Muse: TP9, AF7, AF8 y TP10) no cubre la corteza sensoriomotora y no sirve para imaginación motora. Hace falta un montaje con C3, Cz, C4 y sus vecinos. Las placas abiertas de 8 a 16 canales basadas en el ADS1299, como OpenBCI Cyton con Daisy, son un punto de partida razonable, preferiblemente con electrodos de gel. La elección se hará en EEG-4, no antes.
+- **EEG:** hace falta un montaje con C3, Cz y C4, las posiciones habituales de la imaginación motora. Un casco con electrodos sólo en la frente y detrás de las orejas, como Muse, no las cubre.
+- **EMG y torso:** sensores de superficie y unidades inerciales. Son la primera ruta con personas.
+- **BrainChip AKD1500:** coprocesador neuromórfico candidato (arquitectura Akida 1.0) para un modelo compatible, siempre con una CPU como referencia. Que PRISMA use LIF/STDP no hace portable su red: habrá que convertirla, compilarla y medir la latencia y la energía del sistema completo. No se publicarán cifras de fabricante como resultados propios.
+- **Implantes:** sólo datos públicos. Cualquier trabajo con personas implantadas se haría con un grupo clínico autorizado; RxLabs no propone implantar a personas sanas para pilotar.
 
-## Ética y datos
+## Ética, datos y ley
 
-El EEG son datos sobre procesos cerebrales. La Carta de Derechos Digitales de España (2021, artículo XXVI) pide garantizar su confidencialidad y seguridad, el control de cada persona sobre su identidad y su autodeterminación. En esta campaña:
-
-- Las fases 0 a 3 usan sólo conjuntos públicos, bajo sus licencias.
-- Cualquier registro propio exigirá consentimiento informado, aprobación de un comité de ética y minimización de datos.
-- PRISMA no es un producto sanitario y esta campaña no tiene fines clínicos.
-- Cualquier vuelo físico será en jaula, con piloto de seguridad y conforme a la normativa.
+- **Datos cerebrales y musculares:** RGPD y Carta de Derechos Digitales de España (artículo XXVI). Minimización, seudonimización y ninguna reutilización para inferir salud o identidad.
+- **Productos sanitarios:** cualquier vía invasiva o de estimulación entra en el Reglamento (UE) 2017/745 y requiere un socio clínico y un comité de ética.
+- **Inteligencia artificial:** el Reglamento (UE) 2024/1689 se aplica según la finalidad; hacer investigación no exime de todo.
+- **Vuelo:** Reglamento (UE) 2019/947 y Real Decreto 517/2024. En la categoría abierta, volar con gafas FPV exige un observador visual.
+- **Doble uso:** el control neural de drones interesa al sector militar. RxLabs es civil: no acepta encargos de armamento ni de selección de objetivos, y revisa cualquier exportación según el Reglamento (UE) 2021/821.
 
 ## Qué contaría como éxito
 
 No «controlar un dron con la mente». Éxito sería publicar, con datos y controles:
 
-- qué fracción de personas consigue dar dos o tres órdenes fiables;
-- cuánto tardan y con cuántas falsas activaciones por minuto;
-- si la representación por eventos de PRISMA aporta algo o no;
-- y que, en simulación, ninguna orden mal decodificada llega a PX4 sin pasar por el gate.
+- qué ruta (torso, EMG, EEG o una combinación) permite dar órdenes fiables, y a qué fracción de personas;
+- la latencia medida de cada tramo, desde el sensor hasta lo que percibe la persona;
+- cuántas falsas activaciones por minuto produce cada ruta en reposo;
+- si la representación por eventos de PRISMA aporta algo frente a las referencias clásicas;
+- y que ninguna orden llega al controlador de vuelo sin pasar por los dos gates.
 
 Un resultado negativo bien medido también responde a la pregunta.
 
 ## Fuentes
 
+**Control de drones y decodificación**
+
 - LaFleur K. et al. (2013). *Quadcopter control in three-dimensional space using a noninvasive motor imagery-based brain–computer interface.* J. Neural Eng. 10(4):046003. [doi:10.1088/1741-2560/10/4/046003](https://doi.org/10.1088/1741-2560/10/4/046003) · [texto completo](https://pmc.ncbi.nlm.nih.gov/articles/PMC3839680/)
-- Duan X. et al. (2019). *Quadcopter flight control using a non-invasive multi-modal brain computer interface.* Front. Neurorobot. 13:23. [doi:10.3389/fnbot.2019.00023](https://doi.org/10.3389/fnbot.2019.00023)
-- BCI Competition IV, resultados del conjunto 2a. [bbci.de](https://www.bbci.de/competition/iv/results/)
-- Faisal S. N. et al. (2023). *Noninvasive sensors for brain–machine interfaces based on micropatterned epitaxial graphene.* ACS Appl. Nano Mater. 6(7):5440–5447. [doi:10.1021/acsanm.2c05546](https://doi.org/10.1021/acsanm.2c05546) · [nota de la UTS](https://www.uts.edu.au/news/2023/08/advancing-biosensor-tech-and-brain-computer-interfaces)
+- Willsey M. S. et al. (2025). *A high-performance brain–computer interface for finger decoding and quadcopter game control in an individual with paralysis.* Nat. Med. [doi:10.1038/s41591-024-03341-8](https://doi.org/10.1038/s41591-024-03341-8)
+- Miehlbradt J. et al. (2018). *Data-driven body–machine interface for the accurate control of drones.* PNAS. [doi:10.1073/pnas.1718648115](https://doi.org/10.1073/pnas.1718648115)
+- Kaifosh P., Reardon T. R., CTRL-labs at Reality Labs (2025). *A generic non-invasive neuromotor interface for human-computer interaction.* Nature. [doi:10.1038/s41586-025-09255-w](https://doi.org/10.1038/s41586-025-09255-w)
+- Chen X. et al. (2015). *High-speed spelling with a noninvasive brain–computer interface.* PNAS. [doi:10.1073/pnas.1508080112](https://doi.org/10.1073/pnas.1508080112)
+- Aflalo T. et al. (2015). *Decoding motor imagery from the posterior parietal cortex of a tetraplegic human.* Science 348:906–910. [doi:10.1126/science.aaa5417](https://doi.org/10.1126/science.aaa5417)
+- Nieto N. et al. (2022). *Thinking out loud, an open-access EEG-based BCI dataset for inner speech recognition.* Sci. Data 9:52. [doi:10.1038/s41597-022-01147-2](https://doi.org/10.1038/s41597-022-01147-2)
+- Radwan Y. A. et al. (2025). *Stochasticity as a solution for overfitting — a new model and comparative study on non-invasive EEG prospects.* Front. Hum. Neurosci. 19:1484470. [doi:10.3389/fnhum.2025.1484470](https://doi.org/10.3389/fnhum.2025.1484470)
 - Vidaurre C., Blankertz B. (2010). *Towards a cure for BCI illiteracy.* Brain Topogr. 23(2):194–198. [doi:10.1007/s10548-009-0121-6](https://doi.org/10.1007/s10548-009-0121-6)
 - Bashashati A., Ward R. K., Birch G. E. (2007). *Towards development of a 3-state self-paced brain-computer interface.* Comput. Intell. Neurosci. [doi:10.1155/2007/84386](https://doi.org/10.1155/2007/84386)
 - Jayaram V., Barachant A. (2018). *MOABB: trustworthy algorithm benchmarking for BCIs.* J. Neural Eng. 15(6):066011. [doi:10.1088/1741-2552/aadea0](https://doi.org/10.1088/1741-2552/aadea0)
-- Lew E. et al. (2012). *Detection of self-paced reaching movement intention from EEG signals.* Front. Neuroeng. 5:13. [doi:10.3389/fneng.2012.00013](https://doi.org/10.3389/fneng.2012.00013)
-- Nieto N. et al. (2022). *Thinking out loud, an open-access EEG-based BCI dataset for inner speech recognition.* Sci. Data 9:52. [doi:10.1038/s41597-022-01147-2](https://doi.org/10.1038/s41597-022-01147-2)
-- Radwan Y. A. et al. (2025). *Stochasticity as a solution for overfitting — a new model and comparative study on non-invasive EEG prospects.* Front. Hum. Neurosci. 19:1484470. [doi:10.3389/fnhum.2025.1484470](https://doi.org/10.3389/fnhum.2025.1484470)
-- Lopez-Bernal D. et al. (2022). *A state-of-the-art review of EEG-based imagined speech decoding.* Front. Hum. Neurosci. 16:867281. [doi:10.3389/fnhum.2022.867281](https://doi.org/10.3389/fnhum.2022.867281)
 - Chavarriaga R., Sobolewski A., Millán J. d. R. (2014). *Errare machinale est: the use of error-related potentials in brain-machine interfaces.* Front. Neurosci. 8:208. [doi:10.3389/fnins.2014.00208](https://doi.org/10.3389/fnins.2014.00208)
+
+**Tiempo, cuerpo y retorno**
+
+- Deary I. J., Liewald D., Nissan J. (2011). *A free, easy-to-use, computer-based simple and four-choice reaction time programme: the Deary-Liewald reaction time task.* Behav. Res. Methods 43:258–268. [doi:10.3758/s13428-010-0024-1](https://doi.org/10.3758/s13428-010-0024-1)
+- Shimada S., Fukuda K., Hiraki K. (2009). *Rubber hand illusion under delayed visual feedback.* PLoS ONE 4:e6185. [doi:10.1371/journal.pone.0006185](https://doi.org/10.1371/journal.pone.0006185)
+- Kalckert A., Ehrsson H. H. (2012). *Moving a rubber hand that feels like your own: a dissociation of ownership and agency.* Front. Hum. Neurosci. 6:40. [doi:10.3389/fnhum.2012.00040](https://doi.org/10.3389/fnhum.2012.00040)
+- Shibuya S., Unenaka S., Ohki Y. (2018). *The relationship between the virtual hand illusion and motor performance.* Front. Psychol. 9:2242. [doi:10.3389/fpsyg.2018.02242](https://doi.org/10.3389/fpsyg.2018.02242)
+- Flesher S. N. et al. (2021). *A brain-computer interface that evokes tactile sensations improves robotic arm control.* Science. [doi:10.1126/science.abd0380](https://doi.org/10.1126/science.abd0380)
+
+**Datos, hardware y normas**
+
+- FALCON H1, DANDI 000954, CC BY 4.0. [dandiarchive.org](https://dandiarchive.org/dandiset/000954) · [benchmark FALCON](https://snel-repo.github.io/falcon/datasets.html)
 - *EEG Motor Movement/Imagery Dataset* (Schalk et al., BCI2000), PhysioNet. [physionet.org](https://physionet.org/content/eegmmidb/1.0.0/)
+- BCI Competition IV. [bbci.de](https://www.bbci.de/competition/iv/)
+- *Generic neuromotor interface*, datos y código de Kaifosh et al. [github.com/facebookresearch](https://github.com/facebookresearch/generic-neuromotor-interface)
+- Akida 1.0, documentación de BrainChip. [doc.brainchipinc.com](https://doc.brainchipinc.com/user_guide/hardware/1.0.html)
+- Firmware de Crazyflie y CRTP, Bitcraze. [bitcraze.io](https://www.bitcraze.io/documentation/repository/crazyflie-firmware/master/functional-areas/crtp/crtp_platform/)
+- Reglamentos (UE) [2016/679](https://eur-lex.europa.eu/eli/reg/2016/679/oj), [2017/745](https://eur-lex.europa.eu/eli/reg/2017/745/oj), [2024/1689](https://eur-lex.europa.eu/eli/reg/2024/1689/oj), [2019/947](https://eur-lex.europa.eu/eli/reg_impl/2019/947/oj) y [2021/821](https://eur-lex.europa.eu/eli/reg/2021/821/oj); [Real Decreto 517/2024](https://www.boe.es/diario_boe/txt.php?id=BOE-A-2024-11377); [EASA, vuelo FPV](https://www.easa.europa.eu/en/light/topics/drone-racing-and-flying-drone-goggles-first-person-view-fpv)
 - Carta de Derechos Digitales, Gobierno de España (2021). [espanadigital.gob.es](https://espanadigital.gob.es/lineas-de-actuacion/carta-de-derechos-digitales)
 
 — R.N.

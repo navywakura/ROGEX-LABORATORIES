@@ -10,7 +10,7 @@ Landing de [rxlabs.org](https://rxlabs.org).
   El widget sólo aparece si `widget.json` responde, es decir, con el widget del
   servidor activado en Discord
 - Footer con el mapa completo del sitio; títulos de docs compartidos en `src/docs-catalog.js`
-- `/docs/prisma/eeg-dron` — campaña abierta EEG → dron (PRISMA × echoAI × echOS), enlazada desde `/prisma`
+- `/docs/prisma/eeg-dron` — campaña exploratoria intención → dron (EEG, EMG y control corporal; PRISMA × echoAI × echOS), enlazada desde `/prisma`
 - `/docs` (también `docs.rxlabs.org`) — echOS, PRISMA y echoAI, en castellano
 - echoAI documenta arquitectura, cierre y benchmark visual de ECHO-1, proceso experimental,
   roadmap ECHO-3, hardware previsto, siguiente frontera y artículos de laboratorio
