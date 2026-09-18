@@ -9,8 +9,13 @@
 
 # The laboratory
 
-Rogex Laboratories / RxLabs. An independent laboratory in Girona. Three lines
-of research, with executable code and published limitations.
+Rogex Laboratories / RxLabs. An independent laboratory in Girona and a
+non-profit organisation. Three lines of research — artificial intelligence,
+neurotechnology and operating systems for heap-0 neuromorphic robotic
+runtimes — with executable code and published limitations.
+
+In the future, RxLabs® will become a real company, a Spanish limited company
+(S.L.), to build autonomous drones with echoAI and echOS.
 
 There is no single binary joining them. They share a method: a small hot path,
 events instead of polling when they add value, bounded memory, and no hardware

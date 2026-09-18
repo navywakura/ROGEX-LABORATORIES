@@ -5,9 +5,9 @@ import { basePath, localizedPath } from "../i18n.js";
 const WWW = SITE.url.replace(/\/$/, "");
 
 const LABELS = {
-  es: { contact: "Contacto", about: "RxLabs®", docs: "Docs", articles: "Artículos", pending: "aún no" },
-  en: { contact: "Contact", about: "RxLabs®", docs: "Docs", articles: "Articles", pending: "not yet" },
-  ca: { contact: "Contacte", about: "RxLabs®", docs: "Docs", articles: "Articles", pending: "encara no" },
+  es: { contact: "Contacto", about: "RxLabs®", docs: "Docs", articles: "Artículos" },
+  en: { contact: "Contact", about: "RxLabs®", docs: "Docs", articles: "Articles" },
+  ca: { contact: "Contacte", about: "RxLabs®", docs: "Docs", articles: "Articles" },
 };
 
 export default function Nav({ path, docsHost = false, language = "es" }) {
@@ -56,9 +56,9 @@ export default function Nav({ path, docsHost = false, language = "es" }) {
         {item("/articulos", labels.articles)}
       </div>
       <div className="nav-cluster nav-products">
-        <span className="nav-dead" title={labels.pending}>echOS</span>
-        <span className="nav-dead" title={labels.pending}>PRISMA</span>
-        <span className="nav-dead" title={labels.pending}>echoAI</span>
+        {item("/echos", "echOS")}
+        {item("/prisma", "PRISMA")}
+        {item("/echoai", "echoAI")}
         {item("/", "Home")}
         <span className="lang-switch" role="group" aria-label={language === "en" ? "Language" : language === "ca" ? "Idioma" : "Idioma"}>
           {languageItem("es", "Español")}

@@ -2,8 +2,14 @@
 
 Landing de [rxlabs.org](https://rxlabs.org).
 
-- `/` dos cuadrados: echOS · PRISMA
-- `/about` `/contact`
+- `/` tres paneles que abren `/echos` · `/prisma` · `/echoai` (`/echo` redirige a `/echos`)
+- `/echos` `/prisma` `/echoai` — páginas de producto en modo artículo, datos en `src/products.js`.
+  La primera imagen de `media` es la imagen principal de la página y su `og:image`;
+  `postbuild` falla si el ancho/alto declarados no coinciden con el archivo
+- `/about` `/contact` — contacto con correo e invitación a Discord (`discord.gg/rxlabs`).
+  El widget sólo aparece si `widget.json` responde, es decir, con el widget del
+  servidor activado en Discord
+- Footer con el mapa completo del sitio; títulos de docs compartidos en `src/docs-catalog.js`
 - `/docs` (también `docs.rxlabs.org`) — echOS, PRISMA y echoAI, en castellano
 - echoAI documenta arquitectura, cierre y benchmark visual de ECHO-1, proceso experimental,
   roadmap ECHO-3, hardware previsto, siguiente frontera y artículos de laboratorio
@@ -12,7 +18,6 @@ Landing de [rxlabs.org](https://rxlabs.org).
 - `/docs/echoai/transfer` — contrato, controles y puertas para la confirmación
 - `/data/echo3-status.json` y `/evidence/echo3/` — instantánea de cifras, informes de origen y hashes
 - `/articulos/echo3-a-mitad` — archivo histórico del 14/09/2026, con enlace al estado actual
-- `/echos` `/prisma` → 404 (productos aún no lanzados)
 
 ```
 npm i

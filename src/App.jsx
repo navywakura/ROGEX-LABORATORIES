@@ -1,13 +1,16 @@
+import { useEffect } from "react";
 import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import { Analytics } from "@vercel/analytics/react";
 import Head from "./components/Head.jsx";
 import Nav from "./components/Nav.jsx";
+import Footer from "./components/Footer.jsx";
 import Home from "./pages/Home.jsx";
 import About from "./pages/About.jsx";
 import Contact from "./pages/Contact.jsx";
 import NotFound from "./pages/NotFound.jsx";
 import Docs from "./pages/Docs.jsx";
 import Articles from "./pages/Articles.jsx";
+import Product from "./pages/Product.jsx";
 import { languageForPath } from "./i18n.js";
 
 function isDocsHost() {
@@ -20,6 +23,12 @@ export default function App() {
   const docsHost = isDocsHost();
   const language = languageForPath(loc.pathname);
 
+  // Client-side navigation keeps the scroll offset; footer links would
+  // otherwise open the next page already scrolled to its bottom.
+  useEffect(() => {
+    if (!loc.hash) window.scrollTo(0, 0);
+  }, [loc.pathname, loc.hash]);
+
   if (docsHost) {
     return (
       <>
@@ -28,6 +37,7 @@ export default function App() {
         <Routes>
           <Route path="/*" element={<Docs language={language} />} />
         </Routes>
+        <Footer language={language} docsHost />
         <Analytics />
       </>
     );
@@ -38,9 +48,9 @@ export default function App() {
       <Head />
       <Nav path={loc.pathname} language={language} />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/en" element={<Home />} />
-        <Route path="/ca" element={<Home />} />
+        <Route path="/" element={<Home language="es" />} />
+        <Route path="/en" element={<Home language="en" />} />
+        <Route path="/ca" element={<Home language="ca" />} />
         <Route path="/home" element={<Navigate to="/" replace />} />
         <Route path="/en/home" element={<Navigate to="/en" replace />} />
         <Route path="/ca/home" element={<Navigate to="/ca" replace />} />
@@ -68,11 +78,21 @@ export default function App() {
         <Route path="/docs/*" element={<Docs language="es" />} />
         <Route path="/en/docs/*" element={<Docs language="en" />} />
         <Route path="/ca/docs/*" element={<Docs language="ca" />} />
-        <Route path="/echos" element={<NotFound language="es" />} />
-        <Route path="/prisma" element={<NotFound language="es" />} />
-        <Route path="/echoai" element={<NotFound language="es" />} />
+        <Route path="/echos" element={<Product slug="echos" language="es" />} />
+        <Route path="/en/echos" element={<Product slug="echos" language="en" />} />
+        <Route path="/ca/echos" element={<Product slug="echos" language="ca" />} />
+        <Route path="/prisma" element={<Product slug="prisma" language="es" />} />
+        <Route path="/en/prisma" element={<Product slug="prisma" language="en" />} />
+        <Route path="/ca/prisma" element={<Product slug="prisma" language="ca" />} />
+        <Route path="/echoai" element={<Product slug="echoai" language="es" />} />
+        <Route path="/en/echoai" element={<Product slug="echoai" language="en" />} />
+        <Route path="/ca/echoai" element={<Product slug="echoai" language="ca" />} />
+        <Route path="/echo" element={<Navigate to="/echos" replace />} />
+        <Route path="/en/echo" element={<Navigate to="/en/echos" replace />} />
+        <Route path="/ca/echo" element={<Navigate to="/ca/echos" replace />} />
         <Route path="*" element={<NotFound language={language} />} />
       </Routes>
+      <Footer language={language} />
       <Analytics />
     </>
   );

@@ -1,17 +1,20 @@
 # RxLabs®
 
-> Laboratori de programari. Codi que s'executa, evidència pública i xifres que es poden tornar a mesurar.
+> Laboratori de recerca en intel·ligència artificial, neurotecnologia i sistemes operatius per a runtimes robòtics neuromòrfics heap-0. Organització sense ànim de lucre. Codi que s'executa, evidència pública i xifres que es poden tornar a mesurar.
+
+En el futur, RxLabs® es convertirà en una empresa real, una societat limitada (S.L.), per construir drons autònoms amb echoAI i echOS.
 
 Lloc: https://rxlabs.org/ca
 Documentació: https://rxlabs.org/ca/docs
 Contacte: knightsys@proton.me
+Discord: https://discord.gg/rxlabs
 Text complet: https://rxlabs.org/ca/llms-full.txt
 
 ## Projectes
 
-- **echOS 3.0** — unikernel per a robòtica a l'edge amb pipeline sensor→intenció, safety gate i pont PX4. [Docs](https://rxlabs.org/ca/docs/echos/que-es)
-- **PRISMA** — anàlisi d'EEG per a recerca amb motor Rust orientat a esdeveniments. [Docs](https://rxlabs.org/ca/docs/prisma/resumen)
-- **echoAI** — agent situat de dos rellotges amb WSP de 16 bytes, CAM, T, Q i gate. ECHO-1 i ECHO-2 estan tancats; ECHO-3 té 13 de 15 certificats de programari; TRANSFER-3 vermell i DRONE-3 pendent. [Docs](https://rxlabs.org/ca/docs/echoai/que-es)
+- **echOS 3.0** — unikernel per a robòtica a l'edge amb pipeline sensor→intenció, safety gate i pont PX4. [Pàgina](https://www.rxlabs.org/ca/echos) · [Docs](https://rxlabs.org/ca/docs/echos/que-es)
+- **PRISMA** — anàlisi d'EEG per a recerca amb motor Rust orientat a esdeveniments. [Pàgina](https://www.rxlabs.org/ca/prisma) · [Docs](https://rxlabs.org/ca/docs/prisma/resumen)
+- **echoAI** — agent situat de dos rellotges amb WSP de 16 bytes, CAM, T, Q i gate. ECHO-1 i ECHO-2 estan tancats; ECHO-3 té 13 de 15 certificats de programari; TRANSFER-3 vermell i DRONE-3 pendent. [Pàgina](https://www.rxlabs.org/ca/echoai) · [Docs](https://rxlabs.org/ca/docs/echoai/que-es)
 
 ## ECHO-3 ara
 

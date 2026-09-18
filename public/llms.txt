@@ -1,17 +1,20 @@
 # RxLabs®
 
-> Laboratorio de software. Código que corre, evidencia pública y cifras que se pueden volver a medir.
+> Laboratorio de investigación de inteligencia artificial, neurotecnología y sistemas operativos para runtimes robóticos neuromórficos heap-0. Organización sin fines de lucro. Código que corre, evidencia pública y cifras que se pueden volver a medir.
+
+En el futuro, RxLabs® se convertirá en una empresa real, una sociedad limitada (S.L.), para construir drones autónomos con echoAI y echOS.
 
 Sitio: https://rxlabs.org
 Documentación: https://rxlabs.org/docs
 Contacto: knightsys@proton.me
+Discord: https://discord.gg/rxlabs
 Texto completo: https://rxlabs.org/llms-full.txt
 
 ## Proyectos
 
-- **echOS 3.0** — unikernel para robótica al edge con pipeline sensor→intención, safety gate y puente PX4. [Docs](https://rxlabs.org/docs/echos/que-es)
-- **PRISMA** — análisis de EEG para investigación con motor Rust orientado a eventos. [Docs](https://rxlabs.org/docs/prisma/resumen)
-- **echoAI** — agente situado de dos relojes, WSP de 16 bytes, CAM, T, Q y gate. ECHO-1 y ECHO-2 están cerrados; ECHO-3 tiene 13 de 15 certificados software; TRANSFER-3 sigue rojo y DRONE-3 pendiente. [Docs](https://rxlabs.org/docs/echoai/que-es)
+- **echOS 3.0** — unikernel para robótica al edge con pipeline sensor→intención, safety gate y puente PX4. [Página](https://www.rxlabs.org/echos) · [Docs](https://rxlabs.org/docs/echos/que-es)
+- **PRISMA** — análisis de EEG para investigación con motor Rust orientado a eventos. [Página](https://www.rxlabs.org/prisma) · [Docs](https://rxlabs.org/docs/prisma/resumen)
+- **echoAI** — agente situado de dos relojes, WSP de 16 bytes, CAM, T, Q y gate. ECHO-1 y ECHO-2 están cerrados; ECHO-3 tiene 13 de 15 certificados software; TRANSFER-3 sigue rojo y DRONE-3 pendiente. [Página](https://www.rxlabs.org/echoai) · [Docs](https://rxlabs.org/docs/echoai/que-es)
 
 ## ECHO-3 ahora
 

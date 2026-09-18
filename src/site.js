@@ -1,4 +1,6 @@
 import { ARTICLES } from "./articles.js";
+import { PRODUCTS, PRODUCT_DATE, productImage } from "./products.js";
+import { LAB_COPY } from "./about-copy.js";
 
 export const SITE = {
   name: "RxLabs®",
@@ -19,7 +21,16 @@ export const SITE = {
   imageAltCa: "RxLabs® — laboratori de recerca. echOS, PRISMA i echoAI.",
   twitter: "",
   email: "knightsys@proton.me",
+  discord: "https://discord.gg/rxlabs",
   author: "RxLabs®",
+};
+
+export const NOT_FOUND = {
+  path: "/404",
+  title: "404 — RxLabs®",
+  description: "No encontrado.",
+  noindex: true,
+  lang: "es",
 };
 
 export const ECHO2_OG = {
@@ -58,18 +69,18 @@ const ES_PAGES = [
     path: "/",
     title: "RxLabs® — laboratorio de investigación",
     description:
-      "Laboratorio de software. echOS 3.0 para robótica al edge, PRISMA y echoAI: software que corre, evidencia pública y cifras medibles.",
+      "Laboratorio de investigación sin fines de lucro: inteligencia artificial, neurotecnología y sistemas operativos para runtimes robóticos neuromórficos heap-0. echOS, PRISMA y echoAI.",
   },
   {
     path: "/about",
     title: "Qué es RxLabs®",
     description:
-      "RxLabs® reúne echOS 3.0, PRISMA y echoAI: código que corre, evidencia pública y números que se pueden volver a medir.",
+      "RxLabs®, organización sin fines de lucro: investigación en IA, neurotecnología y sistemas operativos robóticos. echOS, PRISMA y echoAI; a futuro, una S.L. para drones autónomos.",
   },
   {
     path: "/contact",
     title: "Contacto — RxLabs®",
-    description: "Contacto de RxLabs®: knightsys@proton.me.",
+    description: "Contacto de RxLabs®: knightsys@proton.me y la comunidad en Discord, discord.gg/rxlabs.",
   },
   {
     path: "/docs",
@@ -210,36 +221,28 @@ const ES_PAGES = [
     title: "TRANSFER-3 — contrato, resultados y estado",
     description: "TRANSFER-3 sigue rojo: escuela exacta, pilotos B2/B3 sin utilidad frente al nominal, 261 tests y auditorías reproducibles. Sin hardware ni B/C final abierto.",
   },
-  {
-    path: "/echos",
-    title: "404 — RxLabs®",
-    description: "No encontrado.",
-    noindex: true,
-  },
-  {
-    path: "/prisma",
-    title: "404 — RxLabs®",
-    description: "No encontrado.",
-    noindex: true,
-  },
-  {
-    path: "/echoai",
-    title: "404 — RxLabs®",
-    description: "No encontrado.",
-    noindex: true,
-  },
+  ...PRODUCTS.map((product) => ({
+    path: `/${product.slug}`,
+    title: product.copy.es.title,
+    description: product.copy.es.description,
+    product: product.slug,
+    section: product.section,
+    image: productImage(product),
+    datePublished: PRODUCT_DATE,
+    dateModified: PRODUCT_DATE,
+  })),
 ];
 
 const EN_META = {
   "/": [
     "RxLabs® — research laboratory",
-    "A software laboratory. echOS 3.0 for edge robotics, PRISMA and echoAI: running software, public evidence and measurable figures.",
+    "Non-profit research laboratory: artificial intelligence, neurotechnology and operating systems for heap-0 neuromorphic robotic runtimes. echOS, PRISMA and echoAI.",
   ],
   "/about": [
     "About RxLabs®",
-    "RxLabs® brings together echOS 3.0, PRISMA and echoAI: running code, public evidence and figures that can be measured again.",
+    "RxLabs®, a non-profit organisation: research in AI, neurotechnology and robotic operating systems. echOS, PRISMA and echoAI; in the future, an S.L. for autonomous drones.",
   ],
-  "/contact": ["Contact — RxLabs®", "Contact RxLabs®: knightsys@proton.me."],
+  "/contact": ["Contact — RxLabs®", "Contact RxLabs®: knightsys@proton.me and the Discord community, discord.gg/rxlabs."],
   "/docs": [
     "Documentation — RxLabs®",
     "Public documentation for echOS 3.0, PRISMA and echoAI: guides, architecture, evidence, real screenshots, roadmaps and articles.",
@@ -323,21 +326,18 @@ const EN_META = {
   ],
   "/articulos": ["Articles — RxLabs®", "Laboratory notes on echOS, PRISMA and echoAI: what runs now, how it is tested and what follows."],
   "/articulos/echo3-a-mitad": ["ECHO-3 has reached the halfway point — RxLabs®", "ECHO-3 has 8 of 15 software phases closed: A/B/C worlds, sourced sensors, PX4 SITL, dynamics, identity, fusion and composition. With a blocked goal it keeps evidence, compares accesses, passes a next step through the gate and checks the consequence. COMPOSE-1 keeps 6,144 B/C missions and 32 PX4 SITL flights; CAUSE-1 is next."],
-  "/echos": ["404 — RxLabs®", "Not found."],
-  "/prisma": ["404 — RxLabs®", "Not found."],
-  "/echoai": ["404 — RxLabs®", "Not found."],
 };
 
 const CA_META = {
   "/": [
     "RxLabs® — laboratori de recerca",
-    "Laboratori de programari. echOS 3.0 per a robòtica a l'edge, PRISMA i echoAI: programari que s'executa, evidència pública i xifres mesurables.",
+    "Laboratori de recerca sense ànim de lucre: intel·ligència artificial, neurotecnologia i sistemes operatius per a runtimes robòtics neuromòrfics heap-0. echOS, PRISMA i echoAI.",
   ],
   "/about": [
     "Què és RxLabs®",
-    "RxLabs® reuneix echOS 3.0, PRISMA i echoAI: codi que s'executa, evidència pública i xifres que es poden tornar a mesurar.",
+    "RxLabs®, organització sense ànim de lucre: recerca en IA, neurotecnologia i sistemes operatius robòtics. echOS, PRISMA i echoAI; en el futur, una S.L. per a drons autònoms.",
   ],
-  "/contact": ["Contacte — RxLabs®", "Contacte de RxLabs®: knightsys@proton.me."],
+  "/contact": ["Contacte — RxLabs®", "Contacte de RxLabs®: knightsys@proton.me i la comunitat a Discord, discord.gg/rxlabs."],
   "/docs": [
     "Documentació — RxLabs®",
     "Documentació pública d'echOS 3.0, PRISMA i echoAI: guies, arquitectura, evidència, captures reals, fulls de ruta i articles.",
@@ -421,11 +421,12 @@ const CA_META = {
   ],
   "/articulos": ["Articles — RxLabs®", "Notes de laboratori sobre echOS, PRISMA i echoAI: què funciona ara, com es prova i què ve després."],
   "/articulos/echo3-a-mitad": ["ECHO-3 ja ha arribat a la meitat — RxLabs®", "ECHO-3 té 8 de 15 fases de programari tancades: mons A/B/C, sensors amb procedència, PX4 SITL, dinàmica, identitat, fusió i composició. Davant una meta bloquejada conserva evidència, compara accessos, passa un pas pel gate i comprova la conseqüència. COMPOSE-1 conserva 6.144 missions B/C i 32 vols PX4 SITL; CAUSE-1 és el següent."],
-  "/echos": ["404 — RxLabs®", "No trobat."],
-  "/prisma": ["404 — RxLabs®", "No trobat."],
-  "/echoai": ["404 — RxLabs®", "No trobat."],
 };
 
+for (const product of PRODUCTS) {
+  EN_META[`/${product.slug}`] = [product.copy.en.title, product.copy.en.description];
+  CA_META[`/${product.slug}`] = [product.copy.ca.title, product.copy.ca.description];
+}
 for (const entry of ARTICLES) {
   EN_META[`/articulos/${entry.slug}`] = [`${entry.title.en} — RxLabs®`, entry.summary.en];
   CA_META[`/articulos/${entry.slug}`] = [`${entry.title.ca} — RxLabs®`, entry.summary.ca];
@@ -469,25 +470,39 @@ export function abs(path) {
   return SITE.url.replace(/\/$/, "") + (path.startsWith("/") ? path : `/${path}`);
 }
 
+function languageOf(page) {
+  return page?.lang === "en" ? "en" : page?.lang === "ca" ? "ca" : "es";
+}
+
 export function imageFor(page) {
-  // All public routes deliberately share one laboratory card. Replacing
+  // Product pages carry their own card: the first image rendered on the page.
+  // Every other public route shares one laboratory card, so replacing
   // public/og.png updates home, documentation and article previews together.
-  const source = SITE;
+  const language = languageOf(page);
+  if (page?.image) {
+    return {
+      url: abs(page.image.src),
+      width: page.image.width,
+      height: page.image.height,
+      type: page.image.type,
+      alt: page.image.alt[language],
+    };
+  }
   return {
-    url: abs(source.image),
-    width: source.imageW,
-    height: source.imageH,
-    type: source.imageType || "image/png",
-    alt: source === SITE
-      ? page?.lang === "en" ? SITE.imageAltEn : page?.lang === "ca" ? SITE.imageAltCa : SITE.imageAlt
-      : page?.lang === "en" ? source.imageAltEn || source.imageAlt
-        : page?.lang === "ca" ? source.imageAltCa || source.imageAlt
-          : source.imageAlt,
+    url: abs(SITE.image),
+    width: SITE.imageW,
+    height: SITE.imageH,
+    type: "image/png",
+    alt: language === "en" ? SITE.imageAltEn : language === "ca" ? SITE.imageAltCa : SITE.imageAlt,
   };
 }
 
+export function ogType(page) {
+  return page.path.includes("/docs/") || page.article || page.product ? "article" : "website";
+}
+
 export function jsonLd(page) {
-  const language = page?.lang === "en" ? "en" : page?.lang === "ca" ? "ca" : "es";
+  const language = languageOf(page);
   const socialImage = imageFor(page);
   const org = {
     "@context": "https://schema.org",
@@ -497,16 +512,13 @@ export function jsonLd(page) {
     url: SITE.url,
     logo: abs(SITE.image),
     email: SITE.email,
+    sameAs: [SITE.discord],
     address: {
       "@type": "PostalAddress",
       addressLocality: "Girona",
       addressCountry: "ES",
     },
-    description: language === "en"
-      ? "Software research laboratory. echOS, PRISMA and echoAI: running code and measured numbers."
-      : language === "ca"
-        ? "Laboratori de recerca de programari. echOS, PRISMA i echoAI: codi que s'executa i xifres mesurades."
-        : "Laboratorio de investigación de software. echOS, PRISMA y echoAI: código que corre, números medidos.",
+    description: `${LAB_COPY[language].mission} ${LAB_COPY[language].nonprofit}`,
   };
   if (!page || page.noindex) return org;
   const graph = [
@@ -575,13 +587,20 @@ export function jsonLd(page) {
       ],
     });
   }
-  if (page.article) {
+  if (page.article || page.product) {
     graph.push({
       "@type": "Article",
       headline: page.title,
       description: page.description,
       mainEntityOfPage: abs(page.path),
-      image: socialImage.url,
+      image: {
+        "@type": "ImageObject",
+        url: socialImage.url,
+        width: socialImage.width,
+        height: socialImage.height,
+      },
+      inLanguage: language,
+      articleSection: page.section || "echoAI",
       datePublished: page.datePublished,
       dateModified: page.dateModified,
       author: { "@type": "Organization", name: SITE.name },

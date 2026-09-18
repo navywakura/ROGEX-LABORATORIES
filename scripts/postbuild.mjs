@@ -2,9 +2,11 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { marked } from "marked";
-import { PAGES, SITE, abs, imageFor, jsonLd } from "../src/site.js";
-import { alternatePaths } from "../src/i18n.js";
+import { NOT_FOUND, PAGES, SITE, abs, imageFor, jsonLd, ogType } from "../src/site.js";
+import { alternatePaths, localizedPath } from "../src/i18n.js";
 import { ABOUT_COPY } from "../src/about-copy.js";
+import { productFor } from "../src/products.js";
+import { docCatalog } from "../src/docs-catalog.js";
 
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 const dist = path.join(root, "dist");
@@ -61,7 +63,7 @@ function inject(html, page) {
     <link rel="alternate" hreflang="ca" href="${abs(alternate.ca)}" />
     <link rel="alternate" hreflang="x-default" href="${abs(alternate.es)}" />
     <link rel="image_src" href="${image.url}" />
-    <meta property="og:type" content="${page.path.includes("/docs/") || page.article ? "article" : "website"}" />
+    <meta property="og:type" content="${ogType(page)}" />
     <meta property="og:site_name" content="${esc(SITE.name)}" />
     <meta property="og:locale" content="${localeByLanguage[language]}" />
 ${localeAlternates}
@@ -80,9 +82,9 @@ ${localeAlternates}
     <meta name="twitter:description" content="${esc(page.description)}" />
     <meta name="twitter:image" content="${image.url}" />
     <meta name="twitter:image:alt" content="${esc(image.alt)}" />${markdownAlternate}
-${page.article ? `    <meta property="article:published_time" content="2026-09-14" />
-    <meta property="article:modified_time" content="2026-09-14" />
-    <meta property="article:section" content="echoAI" />` : ""}
+${page.datePublished ? `    <meta property="article:published_time" content="${page.datePublished}" />
+    <meta property="article:modified_time" content="${page.dateModified || page.datePublished}" />
+    <meta property="article:section" content="${esc(page.section || "echoAI")}" />` : ""}
 `;
 
   html = html
@@ -125,9 +127,13 @@ function staticBody(page) {
   let body = "";
   if (file && fs.existsSync(file)) {
     body = marked.parse(fs.readFileSync(file, "utf8"));
+  } else if (page.product) {
+    body = productBody(productFor(page.product), language);
+  } else if (contentPath(page) === "/contact") {
+    body = `<h1>${language === "en" ? "Contact" : language === "ca" ? "Contacte" : "Contacto"}</h1><p><a href="mailto:${SITE.email}">${SITE.email}</a></p><p><a href="${SITE.discord}">discord.gg/rxlabs</a></p>`;
   } else if (page.path.replace(/^\/(?:en|ca)(?=\/|$)/, "") === "/about") {
     const copy = ABOUT_COPY[language];
-    body = `<h1>RxLabs®</h1><p>${esc(copy.intro)}</p><p>${esc(copy.lines)}</p><p><strong>echOS</strong> — ${esc(copy.echos)}</p><p><strong>PRISMA</strong> — ${esc(copy.prisma)}</p><p><strong>echoAI</strong> — ${esc(copy.echoai)}</p><p>knightsys@proton.me</p>`;
+    body = `<h1>RxLabs®</h1><p>${esc(copy.intro)}</p><p>${esc(copy.status)}</p><p>${esc(copy.lines)}</p><p><strong>echOS</strong> — ${esc(copy.echos)}</p><p><strong>PRISMA</strong> — ${esc(copy.prisma)}</p><p><strong>echoAI</strong> — ${esc(copy.echoai)}</p><p>knightsys@proton.me</p>`;
   } else if (page.path.replace(/^\/(?:en|ca)(?=\/|$)/, "") === "/docs") {
     const docs = PAGES.filter((entry) => entry.lang === language && entry.path.includes("/docs/") && !entry.noindex);
     body = `<h1>${language === "en" ? "Documentation" : language === "ca" ? "Documentació" : "Documentación"}</h1><ul>${docs.map((entry) => `<li><a href="${entry.path}">${esc(entry.title)}</a><p>${esc(entry.description)}</p></li>`).join("")}</ul>`;
@@ -141,6 +147,46 @@ function staticBody(page) {
   return `<main class="page static-page"><div class="docs is-side-hidden"><article class="docs-body static-doc-body">${body}</article></div></main>`;
 }
 
+function productBody(product, language) {
+  const copy = product.copy[language];
+  const hero = product.media[0];
+  const docs = docCatalog(language).filter((doc) => product.docs.includes(doc.id));
+  return [
+    `<p>${esc(copy.kicker)}</p>`,
+    `<h1>${esc(product.name)}</h1>`,
+    `<p>${esc(copy.lead)}</p>`,
+    `<figure><img src="${hero.src}" width="${hero.width}" height="${hero.height}" alt="${esc(hero.alt[language])}" /><figcaption>${esc(hero.caption[language])}</figcaption></figure>`,
+    `<ul>${copy.facts.map(([value, label]) => `<li><strong>${esc(value)}</strong> — ${esc(label)}</li>`).join("")}</ul>`,
+    ...copy.sections.map((section) => `<h2>${esc(section.title)}</h2>${section.body.map((line) => `<p>${esc(line)}</p>`).join("")}`),
+    `<ul>${copy.limits.map((line) => `<li>${esc(line)}</li>`).join("")}</ul>`,
+    `<ul>${docs.map((doc) => `<li><a href="${localizedPath(`/docs/${doc.id}`, language)}">${esc(doc.title)}</a></li>`).join("")}</ul>`,
+  ].join("");
+}
+
+// Width and height are declared by hand in the page data; read the real file
+// so a replaced image cannot ship with stale og:image dimensions.
+function imageSize(file) {
+  const data = fs.readFileSync(file);
+  if (data.subarray(1, 4).toString("latin1") === "PNG") {
+    return { width: data.readUInt32BE(16), height: data.readUInt32BE(20) };
+  }
+  if (data.subarray(0, 3).toString("latin1") === "GIF") {
+    return { width: data.readUInt16LE(6), height: data.readUInt16LE(8) };
+  }
+  if (data[0] === 0xff && data[1] === 0xd8) {
+    let i = 2;
+    while (i < data.length) {
+      if (data[i] !== 0xff) { i += 1; continue; }
+      const marker = data[i + 1];
+      if (marker >= 0xc0 && marker <= 0xc3) {
+        return { width: data.readUInt16BE(i + 7), height: data.readUInt16BE(i + 5) };
+      }
+      i += 2 + data.readUInt16BE(i + 2);
+    }
+  }
+  return null;
+}
+
 function esc(s) {
   return String(s)
     .replaceAll("&", "&amp;")
@@ -150,10 +196,14 @@ function esc(s) {
 }
 
 for (const page of PAGES) {
-  const imageUrl = new URL(imageFor(page).url);
-  const imagePath = path.join(root, "public", imageUrl.pathname.replace(/^\//, ""));
+  const image = imageFor(page);
+  const imagePath = path.join(root, "public", new URL(image.url).pathname.replace(/^\//, ""));
   if (!fs.existsSync(imagePath)) {
     throw new Error(`Missing Open Graph image for ${page.path}: ${imagePath}`);
+  }
+  const size = imageSize(imagePath);
+  if (!size || size.width !== image.width || size.height !== image.height) {
+    throw new Error(`Open Graph image size mismatch for ${page.path}: declared ${image.width}x${image.height}, file ${size ? `${size.width}x${size.height}` : "unreadable"}`);
   }
   const html = inject(template, page);
   if (page.path === "/") {
@@ -165,9 +215,6 @@ for (const page of PAGES) {
   fs.writeFileSync(path.join(dir, "index.html"), html);
 }
 
-const notFound = PAGES.find((p) => p.path === "/echos");
-if (notFound) {
-  fs.writeFileSync(path.join(dist, "404.html"), inject(template, notFound));
-}
+fs.writeFileSync(path.join(dist, "404.html"), inject(template, NOT_FOUND));
 
 console.log(`og: wrote ${PAGES.length} html shells`);

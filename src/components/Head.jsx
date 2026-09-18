@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { SITE, abs, imageFor, pageFor, jsonLd } from "../site.js";
+import { SITE, abs, imageFor, ogType, pageFor, jsonLd } from "../site.js";
 import { alternatePaths, docsPagePath } from "../i18n.js";
 
 function upsert(selector, attrs) {
@@ -41,6 +41,22 @@ function replaceOgLocaleAlternates(language) {
     const el = document.createElement("meta");
     el.setAttribute("property", "og:locale:alternate");
     el.setAttribute("content", locale);
+    document.head.appendChild(el);
+  }
+}
+
+function replaceArticleMeta(page) {
+  document.head.querySelectorAll('meta[property^="article:"]').forEach((el) => el.remove());
+  if (!page.datePublished) return;
+  const meta = {
+    "article:published_time": page.datePublished,
+    "article:modified_time": page.dateModified || page.datePublished,
+    "article:section": page.section || "echoAI",
+  };
+  for (const [property, content] of Object.entries(meta)) {
+    const el = document.createElement("meta");
+    el.setAttribute("property", property);
+    el.setAttribute("content", content);
     document.head.appendChild(el);
   }
 }
@@ -92,7 +108,7 @@ export default function Head() {
     upsert('meta[name="citation_author"]', { name: "citation_author", content: SITE.author });
 
     const og = {
-      "og:type": page.path.includes("/docs/") || page.article ? "article" : "website",
+      "og:type": ogType(page),
       "og:site_name": SITE.name,
       "og:locale": locales[language],
       "og:title": page.title,
@@ -112,6 +128,7 @@ export default function Head() {
     replaceOgLocaleAlternates(language);
     document.head.querySelectorAll('meta[property^="og:video"]').forEach((el) => el.remove());
     replaceMarkdownAlternate(page, language);
+    replaceArticleMeta(page);
 
     upsert('meta[name="twitter:card"]', { name: "twitter:card", content: "summary_large_image" });
     upsert('meta[name="twitter:title"]', { name: "twitter:title", content: page.title });

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
-export default function Carousel({ slides = [], gif, label }) {
+export default function Carousel({ slides = [], gif, label, to }) {
   const [i, setI] = useState(0);
   const still = Boolean(gif);
   const frames = still ? [gif] : slides;
@@ -12,7 +13,7 @@ export default function Carousel({ slides = [], gif, label }) {
   }, [still, frames.length]);
 
   return (
-    <section className="panel" aria-label={label}>
+    <Link to={to} className="panel" aria-label={label}>
       {frames.map((src, n) => (
         <img
           key={src}
@@ -22,10 +23,8 @@ export default function Carousel({ slides = [], gif, label }) {
           draggable="false"
         />
       ))}
-      <div className="veil" />
-      <button type="button" className="ghost" disabled aria-disabled="true">
-        {label}
-      </button>
-    </section>
+      <span className="veil" />
+      <span className="ghost">{label}</span>
+    </Link>
   );
 }

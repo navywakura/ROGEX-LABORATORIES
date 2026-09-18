@@ -8,9 +8,10 @@ Allow: /docs
 Allow: /raw/
 Allow: /data/
 Allow: /media/echoai/
-Disallow: /echos
-Disallow: /prisma
-Disallow: /echoai
+Allow: /echos
+Allow: /prisma
+Allow: /echoai
+Allow: /media/
 
 User-agent: GPTBot
 Allow: /

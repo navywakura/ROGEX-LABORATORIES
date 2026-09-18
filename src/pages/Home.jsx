@@ -1,4 +1,5 @@
 import Carousel from "../components/Carousel.jsx";
+import { localizedPath } from "../i18n.js";
 
 const ECHOS = [
   "/media/echos3/00-chooser.png",
@@ -12,12 +13,12 @@ const PRISMA = [
   "/media/prisma/03.png",
 ];
 
-export default function Home() {
+export default function Home({ language = "es" }) {
   return (
     <main className="home">
-      <Carousel slides={ECHOS} label="echOS" />
-      <Carousel slides={PRISMA} label="PRISMA" />
-      <Carousel gif="/media/echoai/board.gif" label="echoAI" />
+      <Carousel slides={ECHOS} label="echOS" to={localizedPath("/echos", language)} />
+      <Carousel slides={PRISMA} label="PRISMA" to={localizedPath("/prisma", language)} />
+      <Carousel gif="/media/echoai/board.gif" label="echoAI" to={localizedPath("/echoai", language)} />
     </main>
   );
 }

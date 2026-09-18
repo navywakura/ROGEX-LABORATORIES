@@ -14,6 +14,9 @@
     }
   ],
   "redirects": [
+    { "source": "/echo", "destination": "/echos", "permanent": false },
+    { "source": "/en/echo", "destination": "/en/echos", "permanent": false },
+    { "source": "/ca/echo", "destination": "/ca/echos", "permanent": false },
     {
       "source": "/",
       "has": [{ "type": "host", "value": "rogexlaboratories.com" }],

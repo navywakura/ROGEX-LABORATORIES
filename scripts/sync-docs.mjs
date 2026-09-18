@@ -136,13 +136,14 @@ const indexable = PAGES.filter((page) => !page.noindex);
 const urls = indexable.map((page) => {
   const base = page.path.replace(/^\/(?:en|ca)(?=\/|$)/, "") || "/";
   const priority = base === "/" ? "1.0"
-    : base === "/docs" || base === "/docs/echoai/que-es" ? "0.9"
+    : base === "/docs" || base === "/docs/echoai/que-es" || page.product ? "0.9"
       : base.startsWith("/docs/") ? "0.8" : "0.7";
   const loc = `${SITE.url}${page.path === "/" ? "/" : page.path}`;
+  const modified = page.dateModified || lastmod;
   if (page.path.includes("/docs/echoai/echo2")) {
     return `  <url><loc>${loc}</loc><lastmod>${lastmod}</lastmod><priority>${priority}</priority><video:video><video:thumbnail_loc>${SITE.url}${ECHO2_OG.image}</video:thumbnail_loc><video:title>${xml(page.title)}</video:title><video:description>${xml(page.description)}</video:description><video:content_loc>${SITE.url}/media/echoai/echo2-neural-viz-demo.mp4</video:content_loc><video:duration>123</video:duration><video:publication_date>2026-09-09T21:10:07Z</video:publication_date></video:video></url>`;
   }
-  return `  <url><loc>${loc}</loc><lastmod>${lastmod}</lastmod><priority>${priority}</priority></url>`;
+  return `  <url><loc>${loc}</loc><lastmod>${modified}</lastmod><priority>${priority}</priority></url>`;
 });
 
 for (const [slug] of docs) {
