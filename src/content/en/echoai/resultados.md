@@ -4,6 +4,22 @@ ECHO-1 and ECHO-2 are closed. This page separates their results to show the
 evolution without combining different benches into an intelligence score.
 Every figure retains its control, denominator and source report.
 
+## ECHO-3 · current state
+
+ECHO-3 has **13 of 15 milestones with green certificates within their software scope**. ECHO-1 and ECHO-2 are closed; the robotics programme remains open. Components have been tested with controls and audits, but adding certificates does not demonstrate an integrated mission in a physical robot.
+
+- **CAUSE-1** — B/C: 16/16 correct attributions versus temporal control's 8/16 per stage. Planar wall, experimental intentions and nominal prediction.
+- **PX4-1** — B/C: 4/4 flights per stage, 48/48 invalid attempts blocked and four failsafe landings. One-metre north/south goals, one supervised transaction.
+- **POWER-1** — Per B/C stage, 128/128 feasible goals versus fixed percentage's 64/128, and 320/320 episodes retaining reserve. Simulated energy; instrumented battery remains pending.
+- **SAFE-1 v2** — Per B/C stage, 6/6 flights and 512/512 functional episodes. Ten native PX4 fault landings; maximum veto delay 288 ms. Containment within the bench, not universal safety.
+- **HOST-1** — Per B/C stage, 1536/1536 useful choices versus control's 768/1536. Authority updated by consequences; supervised calibration on machine tape, not general human trust.
+
+**TRANSFER-3** must demonstrate useful improvement from learning in A on new environments, against the same agent without that experience, without carrying a map or solution. It is red with no candidate. The gain school learns exactly, but the latest safe B3 pilot reaches 51/72 against nominal's 52/72 and costs more including school. It did not advance to prospective confirmation or open real B/C.
+
+**DRONE-3** must integrate the complete mission with causal traceability in SITL, HIL and a cage. Link, energy and safety certificates do not replace that joint closure. Instrumented battery, latency under load and combined faults must be checked during integration. The laboratory has no robotics hardware or Akida; HIL and cage work require that platform.
+
+[Roadmap](/en/docs/echoai/ruta) · [TRANSFER-3 research](/en/docs/echoai/transfer) · [Data and source reports](/data/echo3-status.json)
+
 ## ECHO-1 · memory, action and transfer
 
 | Measure | Result |

@@ -11,7 +11,7 @@ afirmación de hardware que no esté en la mesa.
 |---|---|---|
 | **echOS** | Unikernel para robótica al edge | 3.0 cerrado; x86_64 BIOS/UEFI y AArch64 UEFI |
 | **PRISMA Engine** | EEG a eventos, Rust y análisis reproducible | Engine 0.1.0 medido; no es producto sanitario |
-| **echoAI** | Agente situado de dos relojes | ECHO-1 y ECHO-2 cerrados; ECHO-3 en diseño |
+| **echoAI** | Agente situado de dos relojes | ECHO-1 y ECHO-2 cerrados; ECHO-3 13/15 certificados software |
 
 ## Dónde se tocan
 
@@ -33,8 +33,9 @@ documentado y ganancias de transferencia de `+56` y `+72`.
 ECHO-2 añade supervivencia entre vidas, patrones perceptivos, streaming,
 consolidación, herencia y regulación conjunta de energía y temperatura. Su
 monitor neuronal seleccionado contiene 512 LIF + 128 Adaptive-LIF. ECHO-3
-trasladará esas capacidades a tres mundos 3D y robótica al edge: primero
-simulación y HIL; después cámara, LiDAR y un dron controlado por PX4/Pixhawk.
+ya cuenta con 13/15 certificados software en simulación funcional, replay y
+PX4 SITL. TRANSFER-3 sigue rojo; la integración completa, HIL y jaula están
+pendientes. No hay hardware robótico en el laboratorio.
 
 ## Hardware
 

@@ -1,5 +1,7 @@
 # ECHO-3 ha passat la meitat
 
+> Arxiu del 14/09/2026. Estat actual: 13/15 certificats de programari; TRANSFER-3 continua vermell. [Actualització del 18/09](/ca/articulos/echo3-trece-fases-verdes).
+
 > 8 de 15 fases de programari tancades · 14 de setembre de 2026
 
 ECHO-3 ja no és una llista de peces imaginades. És un banc de decisió per a un cos simulat: rep senyals amb font i temps, conserva allò observat, prova un pas següent, comprova què ha passat i deixa una traça que es pot recalcular.

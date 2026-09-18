@@ -131,7 +131,8 @@ button { font-family: inherit; }
   text-decoration: none;
 }
 .article-card:hover { border-color: #f4f4f4; }
-.article-card span, .article-card small { color: #aaa; font-size: .78rem; }
+.article-card span, .article-card time, .article-card small { color: #aaa; font-size: .78rem; }
+.article-card p { margin: .25rem 0; font-size: .9rem; }
 .article-card strong { font-size: 1.08rem; }
 
 /* —— Home split —— */

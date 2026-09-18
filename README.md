@@ -7,7 +7,11 @@ Landing de [rxlabs.org](https://rxlabs.org).
 - `/docs` (también `docs.rxlabs.org`) — echOS, PRISMA y echoAI, en castellano
 - echoAI documenta arquitectura, cierre y benchmark visual de ECHO-1, proceso experimental,
   roadmap ECHO-3, hardware previsto, siguiente frontera y artículos de laboratorio
-- `/articulos/echo3-a-mitad` — estado verificable de ECHO-3: 8 de 15 fases de software cerradas
+- `/articulos/echo3-trece-fases-verdes` — 13/15 certificados software, alcance por fase e integración pendiente
+- `/articulos/transfer3-aprender-no-basta` — TRANSFER-3 rojo: escuela exacta sin ventaja útil en B2/B3
+- `/docs/echoai/transfer` — contrato, controles y puertas para la confirmación
+- `/data/echo3-status.json` y `/evidence/echo3/` — instantánea de cifras, informes de origen y hashes
+- `/articulos/echo3-a-mitad` — archivo histórico del 14/09/2026, con enlace al estado actual
 - `/echos` `/prisma` → 404 (productos aún no lanzados)
 
 ```

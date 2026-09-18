@@ -2,6 +2,18 @@
 
 La política del laboratori és separar resultats, plans i hipòtesis.
 
+
+## ECHO-3 · 18/09/2026
+
+Verd significa que una versió respon la pregunta del seu banc, amb controls i un auditor capaç de rebutjar-la. Les versions vermelles anteriors es conserven. Els B/C de cada component són particions pròpies: no tanquen l'examen segellat de TRANSFER-3. Proves funcionals, replay i vols SITL tenen denominadors diferents i es publiquen per separat.
+
+**TRANSFER-3** ha de demostrar una millora útil de l'après a A en entorns nous davant del mateix agent sense aquella experiència, sense transportar mapa ni solució. Continua vermell i sense candidat. L'escola de guany aprèn exactament, però l'últim pilot segur B3 arriba 51/72 davant 52/72 nominal i costa més, escola inclosa. No va passar a confirmació prospectiva ni va obrir B/C real.
+
+**DRONE-3** ha d'integrar la missió completa amb traçabilitat causal en SITL, HIL i gàbia. Els certificats d'enllaç, energia o seguretat no substitueixen aquest tancament conjunt. Bateria instrumentada, latència sota càrrega i fallades combinades s'hauran de comprovar en integrar-ho. No hi ha maquinari robòtic ni Akida al laboratori; HIL i gàbia necessiten aquella plataforma.
+
+[Full de ruta](/ca/docs/echoai/ruta) · [Recerca TRANSFER-3](/ca/docs/echoai/transfer)
+
+
 ## El que ECHO-2 no demostra
 
 - No és intel·ligència general ni una persona artificial.

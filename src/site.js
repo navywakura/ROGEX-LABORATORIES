@@ -1,3 +1,5 @@
+import { ARTICLES } from "./articles.js";
+
 export const SITE = {
   name: "RxLabs®",
   // Vercel serves the apex through a permanent redirect to this hostname.
@@ -140,7 +142,7 @@ const ES_PAGES = [
     path: "/docs/echoai/que-es",
     title: "echoAI — RxLabs®",
     description:
-      "Agente situado de dos relojes. ECHO-1 y ECHO-2 cerrados; ECHO-3 lleva 8 de 15 fases software: evidencia, identidad, fusión, dinámica, búsqueda y PX4 SITL.",
+      "Agente situado de dos relojes. ECHO-1 y ECHO-2 cerrados; ECHO-3 tiene 13 de 15 certificados software: causa, enlace PX4, energía, contención y autoridad de fuentes. TRANSFER-3 rojo; integración y hardware pendientes.",
   },
   {
     path: "/docs/echoai/piezas",
@@ -164,7 +166,7 @@ const ES_PAGES = [
     path: "/docs/echoai/resultados",
     title: "ECHO-AI — resultados ECHO-1 frente a ECHO-2",
     description:
-      "Evolución medida de ECHO-1 a ECHO-2: memoria y transferencia frente a supervivencia, patrones, consolidación, homeostasis y 640 neuronas.",
+      "Resultados ECHO-1/ECHO-2 y estado ECHO-3: 13/15 certificados software. TRANSFER-3 sigue rojo con 51/72 frente a 52/72 nominal; alcance y fuentes publicados.",
   },
   {
     path: "/docs/echoai/proceso",
@@ -176,7 +178,7 @@ const ES_PAGES = [
     path: "/docs/echoai/ruta",
     title: "echoAI — hoja de ruta ECHO-3",
     description:
-      "ECHO-3: 8 de 15 fases software cerradas. A/B/C, sensores con procedencia, PX4 SITL, fusión y composición ya corren; CAUSE-1 abre el siguiente bloque.",
+      "ECHO-3: 13/15 certificados software en bancos acotados. TRANSFER-3 sin candidato; DRONE-3, HIL y jaula pendientes. Estado, controles y límites por fase.",
   },
   {
     path: "/docs/echoai/hardware",
@@ -188,18 +190,25 @@ const ES_PAGES = [
     path: "/docs/echoai/limites",
     title: "echoAI — siguiente frontera",
     description:
-      "Lo que abre ECHO-3 después del cierre actual: causa, energía, seguridad, transferencia, HIL, jaula y un mundo 3D de mayor fidelidad.",
+      "Límites de ECHO-3: trece certificados software no cierran transferencia útil ni misión integrada. Hardware, batería instrumentada, HIL y jaula pendientes.",
   },
   {
     path: "/articulos",
     title: "Artículos — RxLabs®",
     description: "Notas de laboratorio sobre echOS, PRISMA y echoAI: lo que ya corre, cómo se prueba y lo que sigue.",
   },
-  {
-    path: "/articulos/echo3-a-mitad",
-    title: "ECHO-3 ya ha llegado a la mitad — RxLabs®",
-    description: "ECHO-3 tiene 8 de 15 fases software cerradas: tres mundos A/B/C, sensores con procedencia, PX4 SITL, dinámica, identidad, fusión y composición. Ante una meta bloqueada no recibe una receta: conserva evidencia, compara accesos, pasa el siguiente paso por el gate y comprueba la consecuencia. COMPOSE-1 conserva 6.144 misiones B/C y 32 vuelos PX4 SITL; CAUSE-1 es el siguiente experimento.",
+  ...ARTICLES.map((entry) => ({
+    path: `/articulos/${entry.slug}`,
+    title: `${entry.title.es} — RxLabs®`,
+    description: entry.summary.es,
+    datePublished: entry.date,
+    dateModified: entry.date,
     article: true,
+  })),
+  {
+    path: "/docs/echoai/transfer",
+    title: "TRANSFER-3 — contrato, resultados y estado",
+    description: "TRANSFER-3 sigue rojo: escuela exacta, pilotos B2/B3 sin utilidad frente al nominal, 261 tests y auditorías reproducibles. Sin hardware ni B/C final abierto.",
   },
   {
     path: "/echos",
@@ -278,7 +287,7 @@ const EN_META = {
   ],
   "/docs/echoai/que-es": [
     "echoAI — RxLabs®",
-    "A two-clock situated agent. ECHO-1 and ECHO-2 are closed; ECHO-3 has 8 of 15 software phases: evidence, identity, fusion, dynamics, search and PX4 SITL.",
+    "A two-clock situated agent. ECHO-1 and ECHO-2 are closed; ECHO-3 has 13 of 15 software certificates: causality, PX4 link, energy, containment and source authority. TRANSFER-3 is red; integration and hardware remain pending.",
   ],
   "/docs/echoai/piezas": [
     "echoAI — architecture",
@@ -302,7 +311,7 @@ const EN_META = {
   ],
   "/docs/echoai/ruta": [
     "echoAI — ECHO-3 roadmap",
-    "ECHO-3 roadmap: 8 of 15 software phases closed. A/B/C, sourced sensors, PX4 SITL, fusion and composition run now; CAUSE-1 opens the next block.",
+    "ECHO-3: 13/15 software certificates in bounded benches. TRANSFER-3 has no candidate; DRONE-3, HIL and cage remain pending. Per-phase state, controls and limits.",
   ],
   "/docs/echoai/hardware": [
     "echoAI — planned hardware",
@@ -310,7 +319,7 @@ const EN_META = {
   ],
   "/docs/echoai/limites": [
     "echoAI — next frontier",
-    "What ECHO-3 opens after the current closure: cause, energy, safety, transfer, HIL, a cage and a higher-fidelity 3D world.",
+    "ECHO-3 limits: thirteen software certificates do not close useful transfer or integrated missions. Hardware, instrumented battery, HIL and cage remain pending.",
   ],
   "/articulos": ["Articles — RxLabs®", "Laboratory notes on echOS, PRISMA and echoAI: what runs now, how it is tested and what follows."],
   "/articulos/echo3-a-mitad": ["ECHO-3 has reached the halfway point — RxLabs®", "ECHO-3 has 8 of 15 software phases closed: A/B/C worlds, sourced sensors, PX4 SITL, dynamics, identity, fusion and composition. With a blocked goal it keeps evidence, compares accesses, passes a next step through the gate and checks the consequence. COMPOSE-1 keeps 6,144 B/C missions and 32 PX4 SITL flights; CAUSE-1 is next."],
@@ -376,7 +385,7 @@ const CA_META = {
   ],
   "/docs/echoai/que-es": [
     "echoAI — RxLabs®",
-    "Agent situat de dos rellotges. ECHO-1 i ECHO-2 estan tancats; ECHO-3 té 8 de 15 fases: evidència, identitat, fusió, dinàmica, cerca i PX4 SITL.",
+    "Agent situat de dos rellotges. ECHO-1 i ECHO-2 estan tancats; ECHO-3 té 13 de 15 certificats de programari: causa, enllaç PX4, energia, contenció i autoritat de fonts. TRANSFER-3 vermell; integració i maquinari pendents.",
   ],
   "/docs/echoai/piezas": [
     "echoAI — arquitectura",
@@ -400,7 +409,7 @@ const CA_META = {
   ],
   "/docs/echoai/ruta": [
     "echoAI — full de ruta ECHO-3",
-    "ECHO-3: 8 de 15 fases de programari tancades. A/B/C, sensors amb procedència, PX4 SITL, fusió i composició ja s'executen; CAUSE-1 obre el bloc següent.",
+    "ECHO-3: 13/15 certificats de programari en bancs acotats. TRANSFER-3 sense candidat; DRONE-3, HIL i gàbia pendents. Estat, controls i límits per fase.",
   ],
   "/docs/echoai/hardware": [
     "echoAI — maquinari previst",
@@ -408,7 +417,7 @@ const CA_META = {
   ],
   "/docs/echoai/limites": [
     "echoAI — frontera següent",
-    "El que obre ECHO-3 després del tancament actual: causa, energia, seguretat, transferència, HIL, gàbia i un món 3D de més fidelitat.",
+    "Límits d'ECHO-3: tretze certificats de programari no tanquen transferència útil ni missió integrada. Maquinari, bateria instrumentada, HIL i gàbia pendents.",
   ],
   "/articulos": ["Articles — RxLabs®", "Notes de laboratori sobre echOS, PRISMA i echoAI: què funciona ara, com es prova i què ve després."],
   "/articulos/echo3-a-mitad": ["ECHO-3 ja ha arribat a la meitat — RxLabs®", "ECHO-3 té 8 de 15 fases de programari tancades: mons A/B/C, sensors amb procedència, PX4 SITL, dinàmica, identitat, fusió i composició. Davant una meta bloquejada conserva evidència, compara accessos, passa un pas pel gate i comprova la conseqüència. COMPOSE-1 conserva 6.144 missions B/C i 32 vols PX4 SITL; CAUSE-1 és el següent."],
@@ -416,6 +425,13 @@ const CA_META = {
   "/prisma": ["404 — RxLabs®", "No trobat."],
   "/echoai": ["404 — RxLabs®", "No trobat."],
 };
+
+for (const entry of ARTICLES) {
+  EN_META[`/articulos/${entry.slug}`] = [`${entry.title.en} — RxLabs®`, entry.summary.en];
+  CA_META[`/articulos/${entry.slug}`] = [`${entry.title.ca} — RxLabs®`, entry.summary.ca];
+}
+EN_META["/docs/echoai/transfer"] = ["TRANSFER-3 — contract, results and state", "TRANSFER-3 remains red: exact school learning, B2/B3 pilots without useful gains over nominal, 261 tests and reproducible audits. No hardware or final B/C opening."];
+CA_META["/docs/echoai/transfer"] = ["TRANSFER-3 — contracte, resultats i estat", "TRANSFER-3 continua vermell: escola exacta, pilots B2/B3 sense utilitat davant nominal, 261 tests i auditories reproduïbles. Sense maquinari ni B/C final obert."];
 
 const spanishPages = ES_PAGES.map((page) => ({ ...page, lang: "es" }));
 const englishPages = ES_PAGES.map((page) => {
@@ -566,8 +582,8 @@ export function jsonLd(page) {
       description: page.description,
       mainEntityOfPage: abs(page.path),
       image: socialImage.url,
-      datePublished: "2026-09-14",
-      dateModified: "2026-09-14",
+      datePublished: page.datePublished,
+      dateModified: page.dateModified,
       author: { "@type": "Organization", name: SITE.name },
       publisher: { "@type": "Organization", name: SITE.name, logo: abs(SITE.image) },
     });

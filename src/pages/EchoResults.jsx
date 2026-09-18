@@ -10,24 +10,30 @@ const ACTIONS = {
 const GATES = ["OK", "MODIFY", "BLOCK"];
 
 const ECHO3_NOW = {
-  es: {
-    kicker: "Estado actual · 14 septiembre 2026", title: "ECHO-3 · 8 de 15 fases software cerradas",
-    text: "ECHO-1 y ECHO-2 siguen aquí como cierres históricos. El trabajo actual ya ejecuta tres mundos A/B/C, sensores con procedencia, PX4 SITL, dinámica, identidad, fusión y composición de alternativas.",
-    detail: "COMPOSE-1: 6.144 misiones funcionales B/C; seis metas físicas simuladas 6/6 con composición y 0/6 sin horizonte; 32 vuelos PX4 SITL nuevos.",
-    link: "Ver artículo y hoja de ruta", href: "/articulos/echo3-a-mitad",
+  "es": {
+    "kicker": "Estado actual · 18 septiembre 2026",
+    "title": "ECHO-3 · 13 de 15 certificados software",
+    "text": "Causa, enlace PX4, energía, contención y autoridad de fuentes se añaden a los ocho cierres anteriores. Cada certificado conserva su banco y sus límites; la misión integrada, HIL y jaula siguen pendientes.",
+    "detail": "TRANSFER-3 sigue rojo: B3 seguro llega 51/72 frente a 52/72 nominal; escuela+examen 7100 frente a 6936 unidades simuladas. No hay candidato ni hardware robótico.",
+    "link": "Leer las trece fases y lo que falta",
+    "href": "/articulos/echo3-trece-fases-verdes"
   },
-  en: {
-    kicker: "Current state · 14 September 2026", title: "ECHO-3 · 8 of 15 software phases closed",
-    text: "ECHO-1 and ECHO-2 remain here as historical closures. Current work already runs three A/B/C worlds, sourced sensors, PX4 SITL, dynamics, identity, fusion and alternative composition.",
-    detail: "COMPOSE-1: 6,144 functional B/C missions; six simulated physical goals 6/6 with composition and 0/6 without a horizon; 32 new PX4 SITL flights.",
-    link: "Read the article and roadmap", href: "/en/articulos/echo3-a-mitad",
+  "en": {
+    "kicker": "Current state · 18 September 2026",
+    "title": "ECHO-3 · 13 of 15 software certificates",
+    "text": "Causality, PX4 link, energy, containment and source authority join the previous eight closures. Each certificate retains its bench and limits; integrated missions, HIL and cage work remain pending.",
+    "detail": "TRANSFER-3 remains red: safe B3 scores 51/72 versus nominal's 52/72; school+exam costs 7100 versus 6936 simulated units. No candidate or robotics hardware.",
+    "link": "Read the thirteen phases and remaining work",
+    "href": "/en/articulos/echo3-trece-fases-verdes"
   },
-  ca: {
-    kicker: "Estat actual · 14 setembre 2026", title: "ECHO-3 · 8 de 15 fases de programari tancades",
-    text: "ECHO-1 i ECHO-2 es mantenen aquí com a tancaments històrics. El treball actual ja executa tres mons A/B/C, sensors amb procedència, PX4 SITL, dinàmica, identitat, fusió i composició d'alternatives.",
-    detail: "COMPOSE-1: 6.144 missions funcionals B/C; sis metes físiques simulades 6/6 amb composició i 0/6 sense horitzó; 32 vols PX4 SITL nous.",
-    link: "Veure l'article i el full de ruta", href: "/ca/articulos/echo3-a-mitad",
-  },
+  "ca": {
+    "kicker": "Estat actual · 18 setembre 2026",
+    "title": "ECHO-3 · 13 de 15 certificats de programari",
+    "text": "Causa, enllaç PX4, energia, contenció i autoritat de fonts s'afegeixen als vuit tancaments anteriors. Cada certificat conserva banc i límits; missió integrada, HIL i gàbia continuen pendents.",
+    "detail": "TRANSFER-3 continua vermell: B3 segur arriba 51/72 davant 52/72 nominal; escola+examen 7100 davant 6936 unitats simulades. Sense candidat ni maquinari robòtic.",
+    "link": "Llegir les tretze fases i el que falta",
+    "href": "/ca/articulos/echo3-trece-fases-verdes"
+  }
 };
 
 function Echo3Now({ language }) {

@@ -11,11 +11,15 @@ Text complet: https://rxlabs.org/ca/llms-full.txt
 
 - **echOS 3.0** — unikernel per a robòtica a l'edge amb pipeline sensor→intenció, safety gate i pont PX4. [Docs](https://rxlabs.org/ca/docs/echos/que-es)
 - **PRISMA** — anàlisi d'EEG per a recerca amb motor Rust orientat a esdeveniments. [Docs](https://rxlabs.org/ca/docs/prisma/resumen)
-- **echoAI** — agent situat de dos rellotges amb WSP de 16 bytes, CAM, T, Q i gate. ECHO-1 i ECHO-2 estan tancats; ECHO-3 té 8 de 15 fases de programari tancades. [Docs](https://rxlabs.org/ca/docs/echoai/que-es)
+- **echoAI** — agent situat de dos rellotges amb WSP de 16 bytes, CAM, T, Q i gate. ECHO-1 i ECHO-2 estan tancats; ECHO-3 té 13 de 15 certificats de programari; TRANSFER-3 vermell i DRONE-3 pendent. [Docs](https://rxlabs.org/ca/docs/echoai/que-es)
 
 ## ECHO-3 ara
 
-SIM-3, FLIGHT-1S, SENSOR-1S, GROUND-1, DYNAMIC-1, PATTERN-1R, FUSION-1 i COMPOSE-1 estan tancats. L'agent executa mons A/B/C declaratius, rep evidència amb procedència, conserva el desacord entre sensors i compon accés a una meta bloquejada. COMPOSE-1 conserva 6.144 missions funcionals B/C i 32 vols PX4 SITL.
+ECHO-3 té **13 de 15 fites amb certificat verd dins del seu abast de programari**. ECHO-1 i ECHO-2 estan tancats; el programa robòtic continua obert. S'han provat components amb controls i auditories, però sumar certificats no demostra una missió integrada en un robot físic.
+
+**TRANSFER-3** ha de demostrar una millora útil de l'après a A en entorns nous davant del mateix agent sense aquella experiència, sense transportar mapa ni solució. Continua vermell i sense candidat. L'escola de guany aprèn exactament, però l'últim pilot segur B3 arriba 51/72 davant 52/72 nominal i costa més, escola inclosa. No va passar a confirmació prospectiva ni va obrir B/C real.
+
+**DRONE-3** ha d'integrar la missió completa amb traçabilitat causal en SITL, HIL i gàbia. Els certificats d'enllaç, energia o seguretat no substitueixen aquest tancament conjunt. Bateria instrumentada, latència sota càrrega i fallades combinades s'hauran de comprovar en integrar-ho. No hi ha maquinari robòtic ni Akida al laboratori; HIL i gàbia necessiten aquella plataforma.
 
 - [Article: ECHO-3 ha passat la meitat](https://rxlabs.org/ca/articulos/echo3-a-mitad)
 - [Full de ruta](https://rxlabs.org/ca/docs/echoai/ruta)
@@ -23,3 +27,7 @@ SIM-3, FLIGHT-1S, SENSOR-1S, GROUND-1, DYNAMIC-1, PATTERN-1R, FUSION-1 i COMPOSE
 - [Arquitectura](https://rxlabs.org/ca/docs/echoai/piezas)
 
 Els resultats descriuen bancs definits. No atribueixis autonomia general, maquinari físic ni un LLM al bucle ràpid d'echoAI.
+
+- [Recerca TRANSFER-3](https://www.rxlabs.org/ca/docs/echoai/transfer)
+- [ECHO-3: tretze fases verdes i dues preguntes obertes](https://www.rxlabs.org/ca/articulos/echo3-trece-fases-verdes)
+- [Dades i informes d'origen](https://www.rxlabs.org/data/echo3-status.json)

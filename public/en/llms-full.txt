@@ -20,7 +20,7 @@ claim for equipment that is not on the bench.
 |---|---|---|
 | **echOS** | Robotic edge unikernel | 3.0 closed; x86_64 BIOS/UEFI and AArch64 UEFI |
 | **PRISMA Engine** | EEG to events, Rust and reproducible analysis | Engine 0.1.0 measured; not a medical device |
-| **echoAI** | Two-clock situated agent | ECHO-1 and ECHO-2 closed; ECHO-3 in design |
+| **echoAI** | Two-clock situated agent | ECHO-1 and ECHO-2 closed; ECHO-3 13/15 software certificates |
 
 ## Where they meet
 
@@ -42,8 +42,9 @@ failure, and transfer gains of `+56` and `+72`.
 ECHO-2 adds survival across lives, perceptual patterns, streaming,
 consolidation, inheritance and joint energy/temperature regulation. Its
 selected neural monitor contains 512 LIF + 128 Adaptive-LIF neurons. ECHO-3
-will move those capabilities into three 3D worlds and edge robotics:
-simulation and HIL first, then cameras, LiDAR and a PX4/Pixhawk drone.
+has 13/15 software certificates in functional simulation, replay and PX4 SITL.
+TRANSFER-3 remains red; complete integration, HIL and cage work are pending.
+The laboratory has no robotics hardware.
 
 ## Hardware
 
@@ -71,7 +72,7 @@ It is not a chatbot connected to motors. WSP is the only shared packet; CAM, Q a
 
 ECHO-1 closed the base cycle: episodic memory, consequences, prediction, patterns, transfer and post-hoc narration. ECHO-2 closed survival, distribution shift, streaming, consolidation, bounded inheritance, energy, temperature and a 512 LIF + 128 Adaptive-LIF monitor.
 
-ECHO-3 has 8 of 15 software phases closed. It already runs three A/B/C rooms, an X500 body in PX4 SITL, camera/LiDAR/IMU signals with provenance, held-out identity, short dynamics, evidence fusion and alternative composition for a blocked goal.
+ECHO-3 has 13 of 15 green certificates in bounded software benches. Causality, PX4 link, energy, containment and source authority join evidence, identity, dynamics, fusion and composition. Tests combine functional simulation, replay and PX4 SITL flights; the laboratory has no robotics hardware.
 
 The demonstration does not depend on a convincing sentence. Every phase keeps inputs, seeds, controls, a report and an auditor that recalculates its result. The [results](./resultados) page keeps ECHO-1/ECHO-2 closures and adds ECHO-3’s current state.
 
@@ -79,7 +80,7 @@ The demonstration does not depend on a convincing sentence. Every phase keeps in
 
 An observation may say “there is a station there”, but it does not say that there is a route. ECHO-3 keeps source, age and certainty; searches for a possible access, budgets a next step and compares it with the consequence. When two sensors disagree, it retains disagreement instead of fabricating a single answer.
 
-CAUSE-1 is next: paired scenes will measure whether a transition is caused by its own action or an external change. The complete roadmap is in [ECHO-3](./ruta).
+Current research is [TRANSFER-3](./transfer): the school learns, but useful improvement in other environments remains unproven. It is red with no candidate; DRONE-3 retains complete mission integration in SITL, HIL and a cage as pending work. See [ECHO-3](./ruta) for the roadmap.
 
 ---
 
@@ -401,6 +402,22 @@ ECHO-1 and ECHO-2 are closed. This page separates their results to show the
 evolution without combining different benches into an intelligence score.
 Every figure retains its control, denominator and source report.
 
+## ECHO-3 · current state
+
+ECHO-3 has **13 of 15 milestones with green certificates within their software scope**. ECHO-1 and ECHO-2 are closed; the robotics programme remains open. Components have been tested with controls and audits, but adding certificates does not demonstrate an integrated mission in a physical robot.
+
+- **CAUSE-1** — B/C: 16/16 correct attributions versus temporal control's 8/16 per stage. Planar wall, experimental intentions and nominal prediction.
+- **PX4-1** — B/C: 4/4 flights per stage, 48/48 invalid attempts blocked and four failsafe landings. One-metre north/south goals, one supervised transaction.
+- **POWER-1** — Per B/C stage, 128/128 feasible goals versus fixed percentage's 64/128, and 320/320 episodes retaining reserve. Simulated energy; instrumented battery remains pending.
+- **SAFE-1 v2** — Per B/C stage, 6/6 flights and 512/512 functional episodes. Ten native PX4 fault landings; maximum veto delay 288 ms. Containment within the bench, not universal safety.
+- **HOST-1** — Per B/C stage, 1536/1536 useful choices versus control's 768/1536. Authority updated by consequences; supervised calibration on machine tape, not general human trust.
+
+**TRANSFER-3** must demonstrate useful improvement from learning in A on new environments, against the same agent without that experience, without carrying a map or solution. It is red with no candidate. The gain school learns exactly, but the latest safe B3 pilot reaches 51/72 against nominal's 52/72 and costs more including school. It did not advance to prospective confirmation or open real B/C.
+
+**DRONE-3** must integrate the complete mission with causal traceability in SITL, HIL and a cage. Link, energy and safety certificates do not replace that joint closure. Instrumented battery, latency under load and combined faults must be checked during integration. The laboratory has no robotics hardware or Akida; HIL and cage work require that platform.
+
+[Roadmap](/en/docs/echoai/ruta) · [TRANSFER-3 research](/en/docs/echoai/transfer) · [Data and source reports](/data/echo3-status.json)
+
 ## ECHO-1 · memory, action and transfer
 
 | Measure | Result |
@@ -555,44 +572,81 @@ summary includes SHA-256 fingerprints for those reports and the video demo.
 
 # ECHO-3 — roadmap
 
-ECHO-1 and ECHO-2 are closed. ECHO-3 has crossed its midpoint: **8 of 15 software phases** have a test bank, controls, report and reproducible certificate.
+State: 18 September 2026. **13/15 software certificates; TRANSFER-3 red; DRONE-3 pending.**
 
-Its thesis is specific: a local decision layer for a robot that keeps evidence with source and age, recomposes a next step when an assumption fails and leaves an auditable decision trace.
+ECHO-3 has **13 of 15 milestones with green certificates within their software scope**. ECHO-1 and ECHO-2 are closed; the robotics programme remains open. Components have been tested with controls and audits, but adding certificates does not demonstrate an integrated mission in a physical robot.
 
 ```text
 sensor → WSP → CAM/evidence → T/PATTERN → search/Q → gate → PX4 → consequence
 ```
 
-WSP remains the only bus. CAM records facts; T and Pattern predict; Q orders alternatives; the gate accepts, modifies or blocks. PX4 stabilises, executes the setpoint and keeps its failsafes. No LLM writes facts, memories, accepted setpoints or motors.
+WSP retains 16 bytes and remains the only cognitive bus. CAM records observed episodes; T/PATTERN support predictions; Q prioritises actions; the gate accepts, modifies or blocks. PX4 retains stabilisation and failsafes. The cortex is off in these benches; an LLM neither writes facts nor commands motors.
 
-## Closed
+## What each green demonstrates
 
-- [x] **SIM-3** — A, B and C come from declarative manifests; the agent receives no map, seed, room id or solution.
-- [x] **FLIGHT-1S v6** — the X500 in SITL takes off, holds and recovers stability after a measured disturbance.
-- [x] **SENSOR-1S v3** — camera, LiDAR and IMU publish time, noise, latency, loss and provenance.
-- [x] **GROUND-1 v2** — an adapter brings these observations into WSP and memory without oracle coordinates or a second bus.
-- [x] **DYNAMIC-1 v2** — separates external change from a stable scene and keeps short predictions.
-- [x] **PATTERN-1R v4** — retains object identity across held-out views.
-- [x] **FUSION-1** — keeps independent evidence on disagreement, lowers certainty and does not complete the fact.
-- [x] **COMPOSE-1 v4** — composes known accesses for a blocked goal and verifies each step before continuing.
+| Phase and version | Result and limit |
+|---|---|
+| [SIM-3](/evidence/echo3/SIM3-RESULTS.md) | Three declarative worlds, with evaluator and agent separated. No map, seed or solution is delivered to the consumer. |
+| [FLIGHT-1S v6](/evidence/echo3/FLIGHT1S-V6-RESULTS.md) | X500 flight in PX4 SITL under measured disturbances. PX4 provides stabilisation; this does not demonstrate echoAI flight decisions. |
+| [SENSOR-1S v3](/evidence/echo3/SENSOR1S-V3-RESULTS.md) | Simulated camera, LiDAR and IMU with timestamps, provenance, noise, latency and loss. Some LiDAR geometries are excluded from bias evaluation. |
+| [GROUND-1 v2](/evidence/echo3/GROUND1-V2-RESULTS.md) | Translation of simulated physical observations into WSP and memory, with temporal integrity. Memory is structural; vertical ambiguity has declared limits. |
+| [DYNAMIC-1 v2](/evidence/echo3/DYNAMIC1-V2-RESULTS.md) | 29 flights; tracking a face normal from hover and short prediction. No general compensation for self-motion. |
+| [PATTERN-1R v4](/evidence/echo3/PATTERN1R-V4-RESULTS.md) | 4591/4866 correct identities, 45 confusions and 230 unknowns. Two LiDAR families; learning and exam by replay. |
+| [FUSION-1](/evidence/echo3/FUSION1-RESULTS.md) | 864 functional episodes and 240 reduced replay windows. Preserves provenance, expiry and conflict; it does not itself grant flight permission. |
+| [COMPOSE-1 v4](/evidence/echo3/COMPOSE1-V4-RESULTS.md) | 6144 functional missions and 32 new SITL flights; full agent reaches 6/6 feasible goals, reactive Q 0/6. Extruded rooms, fixed altitude and abstract energy; ties conventional planning in physical movements. |
+| [CAUSE-1](/evidence/echo3/CAUSE1-RESULTS.md) | B/C: 16/16 correct attributions versus temporal control's 8/16 per stage. Planar wall, experimental intentions and nominal prediction. |
+| [PX4-1](/evidence/echo3/PX41-RESULTS.md) | B/C: 4/4 flights per stage, 48/48 invalid attempts blocked and four failsafe landings. One-metre north/south goals, one supervised transaction. |
+| [POWER-1](/evidence/echo3/POWER1-RESULTS.md) | Per B/C stage, 128/128 feasible goals versus fixed percentage's 64/128, and 320/320 episodes retaining reserve. Simulated energy; instrumented battery remains pending. |
+| [SAFE-1 v2](/evidence/echo3/SAFE1-V2-RESULTS.md) | Per B/C stage, 6/6 flights and 512/512 functional episodes. Ten native PX4 fault landings; maximum veto delay 288 ms. Containment within the bench, not universal safety. |
+| [HOST-1](/evidence/echo3/HOST1-RESULTS.md) | Per B/C stage, 1536/1536 useful choices versus control's 768/1536. Authority updated by consequences; supervised calibration on machine tape, not general human trust. |
 
-COMPOSE-1 closed 6,144 functional B/C missions. In the physical branch there are six reachable goals: composition closed 6/6 and the one-action control 0/6; the bank also includes 32 PX4 SITL flights. A conventional planner tied the physical distance in that scenario, so it remains a control rather than a claimed advantage.
+Green means one version answers its bench's question, with controls and an auditor able to reject it. Earlier red versions remain preserved. Each component's B/C belongs to its own partition: it does not close TRANSFER-3's sealed exam. Functional tests, replay and SITL flights have different denominators and are reported separately.
 
-## Next block
+## The two remaining milestones
 
-- [ ] **CAUSE-1** — pair scenes to distinguish “it changed because I acted” from “it changed outside me”.
-- [ ] **PX4-1** — deliver bounded goals to PX4 without touching PID, attitude control or failsafes.
-- [ ] **POWER-1** — choose return or abort from predicted cost, reserve and uncertainty.
-- [ ] **SAFE-1** — sustain frozen sensors, disconnection and wrong proposals without accepting an inadmissible step.
-- [ ] **HOST-1** — learn a sign’s value from observed source, context and signal consequences.
-- [ ] **TRANSFER-3** — freeze what was learned in A and measure improvement in B/C over scratch, without a map or room name.
-- [ ] **DRONE-3** — close the same mission through SITL, HIL and a cage with causal traceability.
+**TRANSFER-3** must demonstrate useful improvement from learning in A on new environments, against the same agent without that experience, without carrying a map or solution. It is red with no candidate. The gain school learns exactly, but the latest safe B3 pilot reaches 51/72 against nominal's 52/72 and costs more including school. It did not advance to prospective confirmation or open real B/C.
 
-## After closure
+**DRONE-3** must integrate the complete mission with causal traceability in SITL, HIL and a cage. Link, energy and safety certificates do not replace that joint closure. Instrumented battery, latency under load and combined faults must be checked during integration. The laboratory has no robotics hardware or Akida; HIL and cage work require that platform.
 
-ECHO-3 prepares **METAVERSE-1**: three richer 3D maps, Blender geometry, new routes, fixed and moving obstacles, more voxels and headings, IMU, motors, PID/PX4, aerodynamics, wind and user orders such as landing or going to a coordinate. The same contract will tell a visual demo from a behaviour that passed a test bank.
+## What we are researching
 
-AKD1500 M.2 enters when the card is present in the lab. It will be a perception coprocessor compared with CPU on the same task. WSP, CAM, VERIFY, T, Q and gate remain on CPU.
+The Plan B gain branch stopped after its red screen. Other primitives and delays remain untested; Plan C's perceptual calibration has not started. Each new hypothesis needs a testable mechanism, controls with the same information and a prior stopping rule. Thirteen greens support more precise questions; the remaining two still need their own evidence.
+
+Richer 3D worlds and any neuromorphic coprocessor are future work. Useful transfer and integration of the current contract must close first. Absent hardware remains declared absent.
+
+[TRANSFER-3 research](/en/docs/echoai/transfer) · [ECHO-3: thirteen green phases and two open questions](/en/articulos/echo3-trece-fases-verdes) · [Data and source reports](/data/echo3-status.json)
+
+---
+
+<!-- src/content/en/echoai/transfer.md · /en/docs/echoai/transfer -->
+
+# TRANSFER-3 — contract and state
+
+Updated: 18 September 2026. **Red, no candidate.**
+
+Demonstrate that learning in A improves behaviour in other environments against the same agent without that experience, without carrying a map or solution. Budget, sensors, actuators and constraints are matched between arms. The exam freezes learning while perception and tracking remain active.
+
+## Current evidence
+
+| Branch | State |
+|---|---|
+| Q, coverage and representation | Repairs and public trials; no robust advantage |
+| Plan A: cost | Failed confirmations; a programmed prior matched learned behaviour |
+| Plan B: gain | Exact learning in eight actions per condition; B2/B3 fail screening |
+| Plan B: delay and other primitives | Untested |
+| Plan C: perceptual calibration | Not started |
+
+B3: 24 public shapes, three conditions per shape; 51/72 arrivals versus nominal's 52/72. School+exam energy 7100 versus 6936, simulated units. Zero observed safety violations in every arm; five nominal arrivals are lost. All three B2/B3 audits reproduce their hashes; 261 tests pass. The global suite remains unverified because of memory limits.
+
+## Gates for green
+
+1. Public screening must show usefulness, respect constraints and beat appropriate controls including programmed priors.
+2. A candidate must pass prospective confirmation with sample size, criteria and rules frozen before viewing fresh rooms.
+3. The final campaign requires commitments published before training, external custody and a single opening of B, followed by C only if B passes. Failure remains recorded.
+
+No fresh B2/B3 confirmation ran; no real B/C was generated or opened. Custody is prepared once a candidate exists. There is no hardware: this demonstrates neither physical transfer nor an instrumented battery.
+
+[Article and reasoning](/en/articulos/transfer3-aprender-no-basta) · [B2 report](/evidence/echo3/TRANSFER3-PLAN-B2-RESULTS.md) · [B3 report](/evidence/echo3/TRANSFER3-PLAN-B3-RESULTS.md) · [Data and hashes](/data/echo3-status.json)
 
 ---
 
@@ -690,6 +744,18 @@ authorised outdoor environment.
 # echoAI — limitations
 
 The laboratory's policy is to separate results, plans and hypotheses.
+
+
+## ECHO-3 · 18/09/2026
+
+Green means one version answers its bench's question, with controls and an auditor able to reject it. Earlier red versions remain preserved. Each component's B/C belongs to its own partition: it does not close TRANSFER-3's sealed exam. Functional tests, replay and SITL flights have different denominators and are reported separately.
+
+**TRANSFER-3** must demonstrate useful improvement from learning in A on new environments, against the same agent without that experience, without carrying a map or solution. It is red with no candidate. The gain school learns exactly, but the latest safe B3 pilot reaches 51/72 against nominal's 52/72 and costs more including school. It did not advance to prospective confirmation or open real B/C.
+
+**DRONE-3** must integrate the complete mission with causal traceability in SITL, HIL and a cage. Link, energy and safety certificates do not replace that joint closure. Instrumented battery, latency under load and combined faults must be checked during integration. The laboratory has no robotics hardware or Akida; HIL and cage work require that platform.
+
+[Roadmap](/en/docs/echoai/ruta) · [TRANSFER-3 research](/en/docs/echoai/transfer)
+
 
 ## What ECHO-2 does not demonstrate
 
@@ -1610,9 +1676,112 @@ headset and seeing it analysed live, without a bridge script in the middle.
 
 ---
 
+<!-- src/content/en/articles/transfer3-aprender-no-basta.md · /en/articulos/transfer3-aprender-no-basta -->
+
+# TRANSFER-3: learning is not enough
+
+18 September 2026 · RxLabs® · State: red, no candidate
+
+**TRANSFER-3 must demonstrate that learning in one environment helps solve others, without carrying the map or solution, against the same agent without that experience.**
+
+Saving a table is only part of that question. The learned parameter must change behaviour and improve outcomes with the same sensors, budget and constraints. We have not demonstrated that advantage under the ECHO-3 contract. This is software research: the laboratory has no physical drone, sensors or Akida board.
+
+## From transferred Q values to body calibration
+
+Early trials transferred action values. We found duplicate ingestion, coverage and representation problems, as well as a planner that used Q only as a late tie-breaker. Repairs did not produce a robust advantage. Learning can change a table without changing mission decisions enough.
+
+We then tested reusable body properties. Plan A calibrated movement and turning costs. Its confirmations failed; in 256 rooms, a programmed prior produced the same behaviour as the learned value. Numerical precision did not improve the decision.
+
+Plan B tested actuation gain: how far a burst moves per command. An initial filter confused room rotation with the parameter's effect. Aligned geometry showed an apparent improvement. We also tested whether keeping multi-step plans explained it: commitment was behaviourally inert. We withdrew that architectural explanation.
+
+## The school works; the exam decides
+
+B2 learns exact gain from odometry and observations before and after **eight moves per condition**. It receives no simulator gain value. Four gains and their counts are transferred to an isolated consumer, without a map, coordinates or school episodes. The exam freezes the model.
+
+The first pilot reproduced the filter's goal counts: at gain 2, 21/24 against nominal's 17/24; at gain 3, 20/24 against 19/24. The independent judge found **38 and 48 reserve violations** in those learned arms. The return estimate discounted the maximum gain even though only one direction was accelerated. That improvement breached the contract.
+
+Repairing reserve estimation removed observed violations and left 51/72 learned arrivals against 52/72 nominal. The last variant, B3, added braking at already observed walls: free-space gain alone does not describe a burst near an obstacle.
+
+| Latest B3 pilot | Learned | Nominal |
+|---|---:|---:|
+| Arrivals | 51/72 | 52/72 |
+| Simulated exam energy | 7004 | 6936 |
+| School + exam | 7100 | 6936 |
+| Observed safety violations | 0 | 0 |
+
+On jointly successful missions, the learned arm consumed 120 more units. It recovered four arrivals and lost five achieved by nominal. It beat both fixed priors in aggregate arrivals, but not the main control.
+
+These are **24 public shapes with three conditions each**, not 72 independent samples or a prospective exam. Gym resets have no modelled cost; this is not a physical calibration budget.
+
+## What remains open
+
+All three B2/B3 audits reproduce their hashes in fresh processes, and all 261 TRANSFER-3 tests pass. This supports the implementation and its figures; the usefulness criterion still fails. The global suite retains a memory limitation in another bench and remains unverified.
+
+The red screen stopped confirmation on 256 fresh shapes. **No real TRANSFER-3 B/C partition was generated or opened.** A prospective candidate must come first, followed by a campaign with prior commitments, freezing and external custody.
+
+The bounded gain branch is red. Delay and other Plan B primitives remain untested. Plan C, reusable perceptual calibration, has not started. The next hypothesis must explain why the learned information changes a useful decision and distinguish that from a generic controller improvement.
+
+Publishing the red result prevents exact learning from becoming a claim of transfer that the controls do not support.
+
+[TRANSFER-3 documentation](/en/docs/echoai/transfer) · [Thirteen phases](/en/articulos/echo3-trece-fases-verdes) · [B2 report](/evidence/echo3/TRANSFER3-PLAN-B2-RESULTS.md) · [B3 report](/evidence/echo3/TRANSFER3-PLAN-B3-RESULTS.md) · [Data and source hashes](/data/echo3-status.json)
+
+---
+
+<!-- src/content/en/articles/echo3-trece-fases-verdes.md · /en/articulos/echo3-trece-fases-verdes -->
+
+# ECHO-3: thirteen green phases and two open questions
+
+18 September 2026 · RxLabs®
+
+ECHO-3 has **13 of 15 milestones with green certificates within their software scope**. ECHO-1 and ECHO-2 are closed; the robotics programme remains open. Components have been tested with controls and audits, but adding certificates does not demonstrate an integrated mission in a physical robot.
+
+## What each green demonstrates
+
+| Phase and version | Result and limit |
+|---|---|
+| [SIM-3](/evidence/echo3/SIM3-RESULTS.md) | Three declarative worlds, with evaluator and agent separated. No map, seed or solution is delivered to the consumer. |
+| [FLIGHT-1S v6](/evidence/echo3/FLIGHT1S-V6-RESULTS.md) | X500 flight in PX4 SITL under measured disturbances. PX4 provides stabilisation; this does not demonstrate echoAI flight decisions. |
+| [SENSOR-1S v3](/evidence/echo3/SENSOR1S-V3-RESULTS.md) | Simulated camera, LiDAR and IMU with timestamps, provenance, noise, latency and loss. Some LiDAR geometries are excluded from bias evaluation. |
+| [GROUND-1 v2](/evidence/echo3/GROUND1-V2-RESULTS.md) | Translation of simulated physical observations into WSP and memory, with temporal integrity. Memory is structural; vertical ambiguity has declared limits. |
+| [DYNAMIC-1 v2](/evidence/echo3/DYNAMIC1-V2-RESULTS.md) | 29 flights; tracking a face normal from hover and short prediction. No general compensation for self-motion. |
+| [PATTERN-1R v4](/evidence/echo3/PATTERN1R-V4-RESULTS.md) | 4591/4866 correct identities, 45 confusions and 230 unknowns. Two LiDAR families; learning and exam by replay. |
+| [FUSION-1](/evidence/echo3/FUSION1-RESULTS.md) | 864 functional episodes and 240 reduced replay windows. Preserves provenance, expiry and conflict; it does not itself grant flight permission. |
+| [COMPOSE-1 v4](/evidence/echo3/COMPOSE1-V4-RESULTS.md) | 6144 functional missions and 32 new SITL flights; full agent reaches 6/6 feasible goals, reactive Q 0/6. Extruded rooms, fixed altitude and abstract energy; ties conventional planning in physical movements. |
+| [CAUSE-1](/evidence/echo3/CAUSE1-RESULTS.md) | B/C: 16/16 correct attributions versus temporal control's 8/16 per stage. Planar wall, experimental intentions and nominal prediction. |
+| [PX4-1](/evidence/echo3/PX41-RESULTS.md) | B/C: 4/4 flights per stage, 48/48 invalid attempts blocked and four failsafe landings. One-metre north/south goals, one supervised transaction. |
+| [POWER-1](/evidence/echo3/POWER1-RESULTS.md) | Per B/C stage, 128/128 feasible goals versus fixed percentage's 64/128, and 320/320 episodes retaining reserve. Simulated energy; instrumented battery remains pending. |
+| [SAFE-1 v2](/evidence/echo3/SAFE1-V2-RESULTS.md) | Per B/C stage, 6/6 flights and 512/512 functional episodes. Ten native PX4 fault landings; maximum veto delay 288 ms. Containment within the bench, not universal safety. |
+| [HOST-1](/evidence/echo3/HOST1-RESULTS.md) | Per B/C stage, 1536/1536 useful choices versus control's 768/1536. Authority updated by consequences; supervised calibration on machine tape, not general human trust. |
+
+## How to read the results
+
+Green means one version answers its bench's question, with controls and an auditor able to reject it. Earlier red versions remain preserved. Each component's B/C belongs to its own partition: it does not close TRANSFER-3's sealed exam. Functional tests, replay and SITL flights have different denominators and are reported separately.
+
+## The two remaining milestones
+
+**TRANSFER-3** must demonstrate useful improvement from learning in A on new environments, against the same agent without that experience, without carrying a map or solution. It is red with no candidate. The gain school learns exactly, but the latest safe B3 pilot reaches 51/72 against nominal's 52/72 and costs more including school. It did not advance to prospective confirmation or open real B/C.
+
+**DRONE-3** must integrate the complete mission with causal traceability in SITL, HIL and a cage. Link, energy and safety certificates do not replace that joint closure. Instrumented battery, latency under load and combined faults must be checked during integration. The laboratory has no robotics hardware or Akida; HIL and cage work require that platform.
+
+## What we are researching
+
+The current question is which reusable knowledge improves a decision. Q, cost and gain trials separated learning, influence over the planner and usefulness. They also withdrew explanations rejected by controls, such as keeping longer plans being enough to solve transfer.
+
+The Plan B gain branch stopped after its red screen. Other primitives and delays remain untested; Plan C's perceptual calibration has not started. Each new hypothesis needs a testable mechanism, controls with the same information and a prior stopping rule. Thirteen greens support more precise questions; the remaining two still need their own evidence.
+
+## Sources and verifiable state
+
+The roadmap and downloadable reports preserve each phase's scope. The data snapshot identifies source files and hashes. All 261 TRANSFER-3 regression tests pass; the global suite remains unverified because of its historical memory limitation.
+
+[Roadmap](/en/docs/echoai/ruta) · [TRANSFER-3 research](/en/articulos/transfer3-aprender-no-basta) · [Data and source reports](/data/echo3-status.json)
+
+---
+
 <!-- src/content/en/articles/echo3-a-mitad.md · /en/articulos/echo3-a-mitad -->
 
 # ECHO-3 has passed the halfway point
+
+> Archive from 14/09/2026. Current state: 13/15 software certificates; TRANSFER-3 remains red. [18/09 update](/en/articulos/echo3-trece-fases-verdes).
 
 > 8 of 15 software phases closed · 14 September 2026
 

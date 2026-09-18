@@ -11,7 +11,7 @@ claim for equipment that is not on the bench.
 |---|---|---|
 | **echOS** | Robotic edge unikernel | 3.0 closed; x86_64 BIOS/UEFI and AArch64 UEFI |
 | **PRISMA Engine** | EEG to events, Rust and reproducible analysis | Engine 0.1.0 measured; not a medical device |
-| **echoAI** | Two-clock situated agent | ECHO-1 and ECHO-2 closed; ECHO-3 in design |
+| **echoAI** | Two-clock situated agent | ECHO-1 and ECHO-2 closed; ECHO-3 13/15 software certificates |
 
 ## Where they meet
 
@@ -33,8 +33,9 @@ failure, and transfer gains of `+56` and `+72`.
 ECHO-2 adds survival across lives, perceptual patterns, streaming,
 consolidation, inheritance and joint energy/temperature regulation. Its
 selected neural monitor contains 512 LIF + 128 Adaptive-LIF neurons. ECHO-3
-will move those capabilities into three 3D worlds and edge robotics:
-simulation and HIL first, then cameras, LiDAR and a PX4/Pixhawk drone.
+has 13/15 software certificates in functional simulation, replay and PX4 SITL.
+TRANSFER-3 remains red; complete integration, HIL and cage work are pending.
+The laboratory has no robotics hardware.
 
 ## Hardware
 

@@ -1,5 +1,7 @@
 # ECHO-3 ha pasado la mitad
 
+> Archivo del 14/09/2026. El estado actual es 13/15 certificados software; TRANSFER-3 sigue rojo. [Actualización del 18/09](/articulos/echo3-trece-fases-verdes).
+
 > 8 de 15 fases de software cerradas · 14 de septiembre de 2026
 
 ECHO-3 ya no es una lista de piezas imaginadas. Es un banco de decisión para un cuerpo simulado: percibe señales con fuente y tiempo, conserva lo observado, prueba un siguiente paso, comprueba qué ocurrió y deja una traza que se puede recalcular.

@@ -11,7 +11,7 @@ afirmació de maquinari que no sigui sobre la taula.
 |---|---|---|
 | **echOS** | Unikernel per a robòtica a l'edge | 3.0 tancat; x86_64 BIOS/UEFI i AArch64 UEFI |
 | **PRISMA Engine** | EEG a esdeveniments, Rust i anàlisi reproduïble | Engine 0.1.0 mesurat; no és un producte sanitari |
-| **echoAI** | Agent situat de dos rellotges | ECHO-1 i ECHO-2 tancats; ECHO-3 en disseny |
+| **echoAI** | Agent situat de dos rellotges | ECHO-1 i ECHO-2 tancats; ECHO-3 13/15 certificats de programari |
 
 ## On es toquen
 
@@ -32,9 +32,10 @@ esperada documentada i guanys de transferència de `+56` i `+72`.
 
 ECHO-2 afegeix supervivència entre vides, patrons perceptius, streaming,
 consolidació, herència i regulació conjunta d'energia i temperatura. El seu
-monitor neuronal seleccionat conté 512 LIF + 128 Adaptive-LIF. ECHO-3 portarà
-aquestes capacitats a tres mons 3D i a la robòtica a l'edge: primer simulació
-i HIL; després càmera, LiDAR i un dron controlat per PX4/Pixhawk.
+monitor neuronal seleccionat conté 512 LIF + 128 Adaptive-LIF. ECHO-3 té
+13/15 certificats de programari en simulació funcional, replay i PX4 SITL.
+TRANSFER-3 continua vermell; integració completa, HIL i gàbia pendents.
+No hi ha maquinari robòtic al laboratori.
 
 ## Maquinari
 

@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { PAGES, SITE, ECHO2_OG } from "../src/site.js";
+import { ARTICLES } from "../src/articles.js";
 
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 const publicDir = path.join(root, "public");
@@ -18,6 +19,7 @@ const docs = [
   ["echoai/resultados", "echoai/resultados.md"],
   ["echoai/proceso", "echoai/proceso.md"],
   ["echoai/ruta", "echoai/ruta.md"],
+  ["echoai/transfer", "echoai/transfer.md"],
   ["echoai/hardware", "echoai/hardware.md"],
   ["echoai/limites", "echoai/limites.md"],
   ["echos/que-es", "echos/que-es.md"],
@@ -32,9 +34,7 @@ const docs = [
   ["prisma/tecnico", "prisma/tecnico.md"],
 ];
 
-const articles = [
-  ["articulos/echo3-a-mitad", "articles/echo3-a-mitad.md"],
-];
+const articles = ARTICLES.map(({ slug }) => [`articulos/${slug}`, `articles/${slug}.md`]);
 
 const full = [
   "# RxLabs® — texto completo para modelos",

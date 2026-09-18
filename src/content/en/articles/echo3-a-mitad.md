@@ -1,5 +1,7 @@
 # ECHO-3 has passed the halfway point
 
+> Archive from 14/09/2026. Current state: 13/15 software certificates; TRANSFER-3 remains red. [18/09 update](/en/articulos/echo3-trece-fases-verdes).
+
 > 8 of 15 software phases closed · 14 September 2026
 
 ECHO-3 is no longer a list of imagined parts. It is a decision bank for a simulated body: it receives signals with source and time, keeps what it has observed, tests a next step, checks what happened and leaves a trace that can be recalculated.

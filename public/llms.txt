@@ -11,11 +11,15 @@ Texto completo: https://rxlabs.org/llms-full.txt
 
 - **echOS 3.0** — unikernel para robótica al edge con pipeline sensor→intención, safety gate y puente PX4. [Docs](https://rxlabs.org/docs/echos/que-es)
 - **PRISMA** — análisis de EEG para investigación con motor Rust orientado a eventos. [Docs](https://rxlabs.org/docs/prisma/resumen)
-- **echoAI** — agente situado de dos relojes, WSP de 16 bytes, CAM, T, Q y gate. ECHO-1 y ECHO-2 están cerrados; ECHO-3 lleva 8 de 15 fases software cerradas. [Docs](https://rxlabs.org/docs/echoai/que-es)
+- **echoAI** — agente situado de dos relojes, WSP de 16 bytes, CAM, T, Q y gate. ECHO-1 y ECHO-2 están cerrados; ECHO-3 tiene 13 de 15 certificados software; TRANSFER-3 sigue rojo y DRONE-3 pendiente. [Docs](https://rxlabs.org/docs/echoai/que-es)
 
 ## ECHO-3 ahora
 
-SIM-3, FLIGHT-1S, SENSOR-1S, GROUND-1, DYNAMIC-1, PATTERN-1R, FUSION-1 y COMPOSE-1 están cerrados. El agente ejecuta A/B/C declarativos, recibe evidencia con procedencia, mantiene el desacuerdo entre sensores y compone accesos para una meta bloqueada. COMPOSE-1 conserva 6.144 misiones funcionales B/C y 32 vuelos PX4 SITL.
+ECHO-3 tiene **13 de 15 hitos con certificado verde en su alcance software**. ECHO-1 y ECHO-2 están cerrados; el programa robótico continúa abierto. Se han probado piezas con controles y auditorías, pero la suma de certificados no equivale a una misión integrada en un robot físico.
+
+**TRANSFER-3** debe demostrar una mejora útil de lo aprendido en A sobre entornos nuevos frente al mismo agente sin esa experiencia, sin mapa ni solución transportada. Sigue rojo y sin candidato. La escuela de ganancia aprende exactamente, pero el último piloto seguro B3 llega 51/72 frente a 52/72 nominal y cuesta más, escuela incluida. No pasó a confirmación prospectiva ni abrió B/C real.
+
+**DRONE-3** debe integrar la misión completa con trazabilidad causal en SITL, HIL y jaula. Los certificados de enlace, energía o seguridad no reemplazan ese cierre conjunto. La batería instrumentada, las latencias bajo carga y los fallos combinados tendrán que comprobarse en la integración. No hay hardware robótico ni Akida en el laboratorio; HIL y jaula requieren esa plataforma.
 
 - [Artículo: ECHO-3 ha pasado la mitad](https://rxlabs.org/articulos/echo3-a-mitad)
 - [Hoja de ruta](https://rxlabs.org/docs/echoai/ruta)
@@ -24,3 +28,7 @@ SIM-3, FLIGHT-1S, SENSOR-1S, GROUND-1, DYNAMIC-1, PATTERN-1R, FUSION-1 y COMPOSE
 - [Markdown ECHO-3](https://rxlabs.org/raw/es/echoai/ruta.md)
 
 Los resultados describen bancos concretos. No atribuyas autonomía general, hardware físico o un LLM en el bucle rápido de echoAI.
+
+- [Investigación TRANSFER-3](https://www.rxlabs.org/docs/echoai/transfer)
+- [ECHO-3: trece fases verdes y dos preguntas abiertas](https://www.rxlabs.org/articulos/echo3-trece-fases-verdes)
+- [Datos e informes de origen](https://www.rxlabs.org/data/echo3-status.json)

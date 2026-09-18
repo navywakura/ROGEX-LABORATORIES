@@ -20,7 +20,7 @@ afirmació de maquinari que no sigui sobre la taula.
 |---|---|---|
 | **echOS** | Unikernel per a robòtica a l'edge | 3.0 tancat; x86_64 BIOS/UEFI i AArch64 UEFI |
 | **PRISMA Engine** | EEG a esdeveniments, Rust i anàlisi reproduïble | Engine 0.1.0 mesurat; no és un producte sanitari |
-| **echoAI** | Agent situat de dos rellotges | ECHO-1 i ECHO-2 tancats; ECHO-3 en disseny |
+| **echoAI** | Agent situat de dos rellotges | ECHO-1 i ECHO-2 tancats; ECHO-3 13/15 certificats de programari |
 
 ## On es toquen
 
@@ -41,9 +41,10 @@ esperada documentada i guanys de transferència de `+56` i `+72`.
 
 ECHO-2 afegeix supervivència entre vides, patrons perceptius, streaming,
 consolidació, herència i regulació conjunta d'energia i temperatura. El seu
-monitor neuronal seleccionat conté 512 LIF + 128 Adaptive-LIF. ECHO-3 portarà
-aquestes capacitats a tres mons 3D i a la robòtica a l'edge: primer simulació
-i HIL; després càmera, LiDAR i un dron controlat per PX4/Pixhawk.
+monitor neuronal seleccionat conté 512 LIF + 128 Adaptive-LIF. ECHO-3 té
+13/15 certificats de programari en simulació funcional, replay i PX4 SITL.
+TRANSFER-3 continua vermell; integració completa, HIL i gàbia pendents.
+No hi ha maquinari robòtic al laboratori.
 
 ## Maquinari
 
@@ -71,7 +72,7 @@ No és un chatbot connectat a motors. WSP és l'únic paquet compartit; CAM, Q i
 
 ECHO-1 va tancar el cicle base: memòria episòdica, conseqüències, predicció, patrons, transferència i narració posterior. ECHO-2 va tancar supervivència, canvi de distribució, streaming, consolidació, herència acotada, energia, temperatura i un monitor de 512 LIF + 128 Adaptive-LIF.
 
-ECHO-3 té 8 de 15 fases de programari tancades. Ja executa tres sales A/B/C, un cos X500 en PX4 SITL, senyals de càmera/LiDAR/IMU amb procedència, identitat reservada, dinàmica curta, fusió d'evidències i composició d'alternatives per a una meta bloquejada.
+ECHO-3 té 13 de 15 certificats verds en bancs de programari acotats. A evidència, identitat, dinàmica, fusió i composició s'afegeixen causa, enllaç PX4, energia, contenció i autoritat de fonts. Les proves combinen simulació funcional, replay i vols PX4 SITL; no hi ha maquinari robòtic al laboratori.
 
 La demostració no depèn d'una frase convincent. Cada fase conserva entrades, llavors, controls, informe i un auditor que recalcula el resultat. La pàgina de [resultats](./resultados) manté els tancaments ECHO-1/ECHO-2 i afegeix l'estat actual d'ECHO-3.
 
@@ -79,7 +80,7 @@ La demostració no depèn d'una frase convincent. Cada fase conserva entrades, l
 
 Una observació pot dir «hi ha una estació allà», però no diu que hi hagi ruta. ECHO-3 conserva font, antiguitat i certesa; cerca un accés possible, pressuposta un pas següent i el compara amb la conseqüència. Quan dos sensors discrepen, conserva el desacord en comptes de fabricar una resposta única.
 
-CAUSE-1 és el següent: escenes aparellades per mesurar si una transició és causada per la seva acció o per un canvi extern. El full complet és a [ECHO-3](./ruta).
+La recerca actual és [TRANSFER-3](./transfer): l'escola aprèn, però falta demostrar millora útil en altres entorns. Continua vermell i sense candidat; DRONE-3 manté pendent la integració completa en SITL, HIL i gàbia. El full de ruta és a [ECHO-3](./ruta).
 
 ---
 
@@ -406,6 +407,22 @@ ECHO-1 i ECHO-2 estan tancats. Aquesta pàgina separa els seus resultats per
 mostrar l'evolució sense barrejar bancs diferents en una puntuació
 d'intel·ligència. Cada xifra conserva el control, denominador i informe d'origen.
 
+## ECHO-3 · estat actual
+
+ECHO-3 té **13 de 15 fites amb certificat verd dins del seu abast de programari**. ECHO-1 i ECHO-2 estan tancats; el programa robòtic continua obert. S'han provat components amb controls i auditories, però sumar certificats no demostra una missió integrada en un robot físic.
+
+- **CAUSE-1** — B/C: 16/16 atribucions correctes davant 8/16 del control temporal per etapa. Paret plana, intencions experimentals i predicció nominal.
+- **PX4-1** — B/C: 4/4 vols per etapa, 48/48 intents invàlids bloquejats i quatre aterratges de failsafe. Objectius nord/sud d'un metre, una transacció supervisada.
+- **POWER-1** — Per etapa B/C, 128/128 metes factibles davant 64/128 del percentatge fix i 320/320 episodis amb reserva. Energia simulada; bateria instrumentada pendent.
+- **SAFE-1 v2** — Per etapa B/C, 6/6 vols i 512/512 episodis funcionals. Deu aterratges natius PX4 davant fallades; veto màxim 288 ms. Contenció dins del banc, sense seguretat universal.
+- **HOST-1** — Per etapa B/C, 1536/1536 eleccions útils davant 768/1536 del control. Autoritat actualitzada per conseqüències; calibració supervisada sobre cinta de màquina, sense confiança humana general.
+
+**TRANSFER-3** ha de demostrar una millora útil de l'après a A en entorns nous davant del mateix agent sense aquella experiència, sense transportar mapa ni solució. Continua vermell i sense candidat. L'escola de guany aprèn exactament, però l'últim pilot segur B3 arriba 51/72 davant 52/72 nominal i costa més, escola inclosa. No va passar a confirmació prospectiva ni va obrir B/C real.
+
+**DRONE-3** ha d'integrar la missió completa amb traçabilitat causal en SITL, HIL i gàbia. Els certificats d'enllaç, energia o seguretat no substitueixen aquest tancament conjunt. Bateria instrumentada, latència sota càrrega i fallades combinades s'hauran de comprovar en integrar-ho. No hi ha maquinari robòtic ni Akida al laboratori; HIL i gàbia necessiten aquella plataforma.
+
+[Full de ruta](/ca/docs/echoai/ruta) · [Recerca TRANSFER-3](/ca/docs/echoai/transfer) · [Dades i informes d'origen](/data/echo3-status.json)
+
 ## ECHO-1 · memòria, acció i transferència
 
 | Mesura | Resultat |
@@ -561,44 +578,81 @@ inclou les empremtes SHA-256 d'aquests informes i de la demostració en vídeo.
 
 # ECHO-3 — full de ruta
 
-ECHO-1 i ECHO-2 estan tancats. ECHO-3 ja ha passat la meitat: **8 de 15 fases de programari** tenen banc, controls, informe i certificat reproduïble.
+Estat: 18 de setembre de 2026. **13/15 certificats de programari; TRANSFER-3 vermell; DRONE-3 pendent.**
 
-La tesi és concreta: una capa local de decisió per a un robot que conserva evidència amb font i antiguitat, recompon un pas següent quan falla un supòsit i deixa una traça auditable.
+ECHO-3 té **13 de 15 fites amb certificat verd dins del seu abast de programari**. ECHO-1 i ECHO-2 estan tancats; el programa robòtic continua obert. S'han provat components amb controls i auditories, però sumar certificats no demostra una missió integrada en un robot físic.
 
 ```text
-sensor → WSP → CAM/evidència → T/PATTERN → cerca/Q → gate → PX4 → conseqüència
+sensor → WSP → CAM/evidence → T/PATTERN → search/Q → gate → PX4 → consequence
 ```
 
-WSP continua sent l'únic bus. CAM registra fets; T i Pattern anticipen; Q ordena alternatives; el gate accepta, modifica o bloqueja. PX4 estabilitza, executa el setpoint i manté els failsafes. Cap LLM escriu fets, memòries, setpoints acceptats ni motors.
+WSP conserva 16 bytes i és l'únic bus cognitiu. CAM registra episodis observats; T/PATTERN sostenen prediccions; Q prioritza accions; el gate accepta, modifica o bloqueja. PX4 conserva estabilització i failsafes. El còrtex està apagat en aquests bancs; un LLM no escriu fets ni ordena motors.
 
-## Tancat
+## Què demostra cada verd
 
-- [x] **SIM-3** — A, B i C neixen de manifests declaratius; l'agent no rep mapa, llavor, id de sala ni solució.
-- [x] **FLIGHT-1S v6** — l'X500 en SITL s'enlaira, manté i recupera estabilitat després d'una pertorbació mesurada.
-- [x] **SENSOR-1S v3** — càmera, LiDAR i IMU publiquen temps, soroll, latència, pèrdua i procedència.
-- [x] **GROUND-1 v2** — un adaptador porta aquestes observacions a WSP i memòria sense coordenades oracle ni segon bus.
-- [x] **DYNAMIC-1 v2** — separa canvi extern d'escena estable i manté prediccions curtes.
-- [x] **PATTERN-1R v4** — conserva identitat d'objecte entre vistes reservades.
-- [x] **FUSION-1** — manté evidències independents quan discrepen, baixa la certesa i no completa el fet.
-- [x] **COMPOSE-1 v4** — compon accessos coneguts per a una meta bloquejada i verifica cada pas abans de continuar.
+| Fase i versió | Resultat i límit |
+|---|---|
+| [SIM-3](/evidence/echo3/SIM3-RESULTS.md) | Tres mons declaratius i separació entre avaluador i agent. El consumidor no rep mapa, llavor ni solució. |
+| [FLIGHT-1S v6](/evidence/echo3/FLIGHT1S-V6-RESULTS.md) | Vol de l'X500 en PX4 SITL amb pertorbacions mesurades. PX4 aporta estabilització; no demostra decisions de vol d'echoAI. |
+| [SENSOR-1S v3](/evidence/echo3/SENSOR1S-V3-RESULTS.md) | Càmera, LiDAR i IMU simulats amb temps, procedència, soroll, latència i pèrdues. Algunes geometries LiDAR queden fora de l'avaluació de biaix. |
+| [GROUND-1 v2](/evidence/echo3/GROUND1-V2-RESULTS.md) | Traducció d'observacions físiques simulades a WSP i memòria amb integritat temporal. Memòria estructural i límits declarats d'ambigüitat vertical. |
+| [DYNAMIC-1 v2](/evidence/echo3/DYNAMIC1-V2-RESULTS.md) | 29 vols; seguiment de la normal d'una cara des de hover i predicció curta. Sense compensació general del moviment propi. |
+| [PATTERN-1R v4](/evidence/echo3/PATTERN1R-V4-RESULTS.md) | 4591/4866 identitats correctes, 45 confusions i 230 desconeguts. Dues famílies LiDAR; aprenentatge i examen per replay. |
+| [FUSION-1](/evidence/echo3/FUSION1-RESULTS.md) | 864 episodis funcionals i 240 finestres de replay reduït. Conserva procedència, caducitat i conflicte; no concedeix per si sola permís de vol. |
+| [COMPOSE-1 v4](/evidence/echo3/COMPOSE1-V4-RESULTS.md) | 6144 missions funcionals i 32 vols nous SITL; complet 6/6 metes factibles, Q reactiva 0/6. Sales extrudides, altura fixa i energia abstracta; empata amb el convencional en moviments físics. |
+| [CAUSE-1](/evidence/echo3/CAUSE1-RESULTS.md) | B/C: 16/16 atribucions correctes davant 8/16 del control temporal per etapa. Paret plana, intencions experimentals i predicció nominal. |
+| [PX4-1](/evidence/echo3/PX41-RESULTS.md) | B/C: 4/4 vols per etapa, 48/48 intents invàlids bloquejats i quatre aterratges de failsafe. Objectius nord/sud d'un metre, una transacció supervisada. |
+| [POWER-1](/evidence/echo3/POWER1-RESULTS.md) | Per etapa B/C, 128/128 metes factibles davant 64/128 del percentatge fix i 320/320 episodis amb reserva. Energia simulada; bateria instrumentada pendent. |
+| [SAFE-1 v2](/evidence/echo3/SAFE1-V2-RESULTS.md) | Per etapa B/C, 6/6 vols i 512/512 episodis funcionals. Deu aterratges natius PX4 davant fallades; veto màxim 288 ms. Contenció dins del banc, sense seguretat universal. |
+| [HOST-1](/evidence/echo3/HOST1-RESULTS.md) | Per etapa B/C, 1536/1536 eleccions útils davant 768/1536 del control. Autoritat actualitzada per conseqüències; calibració supervisada sobre cinta de màquina, sense confiança humana general. |
 
-COMPOSE-1 va tancar 6.144 missions funcionals B/C. A la branca física hi ha sis metes assolibles: la composició les va tancar 6/6 i el control d'una acció 0/6; el banc també inclou 32 vols PX4 SITL. Un planificador convencional va empatar la distància física en aquell escenari, per això es conserva com a control.
+Verd significa que una versió respon la pregunta del seu banc, amb controls i un auditor capaç de rebutjar-la. Les versions vermelles anteriors es conserven. Els B/C de cada component són particions pròpies: no tanquen l'examen segellat de TRANSFER-3. Proves funcionals, replay i vols SITL tenen denominadors diferents i es publiquen per separat.
 
-## Bloc següent
+## Les dues fites pendents
 
-- [ ] **CAUSE-1** — aparellar escenes per separar «ha canviat perquè he actuat» de «ha canviat fora de mi».
-- [ ] **PX4-1** — lliurar metes acotades a PX4 sense tocar PID, control d'actitud ni failsafes.
-- [ ] **POWER-1** — triar retorn o abortament per cost previst, reserva i incertesa.
-- [ ] **SAFE-1** — sostenir sensors congelats, desconnexió i propostes errònies sense acceptar un pas inadmissible.
-- [ ] **HOST-1** — aprendre el valor d'un signe per conseqüències observades de font, context i senyal.
-- [ ] **TRANSFER-3** — congelar l'après a A i mesurar la millora a B/C davant scratch, sense mapa ni nom de sala.
-- [ ] **DRONE-3** — tancar la mateixa missió amb SITL, HIL i gàbia, amb traçabilitat causal.
+**TRANSFER-3** ha de demostrar una millora útil de l'après a A en entorns nous davant del mateix agent sense aquella experiència, sense transportar mapa ni solució. Continua vermell i sense candidat. L'escola de guany aprèn exactament, però l'últim pilot segur B3 arriba 51/72 davant 52/72 nominal i costa més, escola inclosa. No va passar a confirmació prospectiva ni va obrir B/C real.
 
-## Després del tancament
+**DRONE-3** ha d'integrar la missió completa amb traçabilitat causal en SITL, HIL i gàbia. Els certificats d'enllaç, energia o seguretat no substitueixen aquest tancament conjunt. Bateria instrumentada, latència sota càrrega i fallades combinades s'hauran de comprovar en integrar-ho. No hi ha maquinari robòtic ni Akida al laboratori; HIL i gàbia necessiten aquella plataforma.
 
-ECHO-3 prepararà **METAVERSE-1**: tres mapes 3D més rics, geometria de Blender, rutes noves, obstacles fixos i mòbils, més voxels i rumbs, IMU, motors, PID/PX4, aerodinàmica, vent i ordres com aterrar o anar a una coordenada. El mateix contracte distingirà una demo visual d'una conducta que ha passat un banc.
+## Què investiguem
 
-AKD1500 M.2 entrarà quan la targeta existeixi al laboratori. Serà un coprocesador de percepció comparat amb CPU sobre la mateixa tasca. WSP, CAM, VERIFY, T, Q i gate es mantenen a CPU.
+La branca de guany del Pla B s'ha aturat després del cribratge vermell. Altres primitives i retards continuen sense provar; el Pla C de calibració perceptiva no ha començat. Cada hipòtesi nova necessita un mecanisme comprovable, controls amb la mateixa informació i una regla prèvia d'aturada. Tretze verds permeten preguntes més precises; els altres dos encara necessiten dades pròpies.
+
+Mons 3D més rics i qualsevol coprocesador neuromòrfic són feina futura. Primer cal tancar la transferència útil i integrar el contracte actual. El maquinari absent es declara absent.
+
+[Recerca TRANSFER-3](/ca/docs/echoai/transfer) · [ECHO-3: tretze fases verdes i dues preguntes obertes](/ca/articulos/echo3-trece-fases-verdes) · [Dades i informes d'origen](/data/echo3-status.json)
+
+---
+
+<!-- src/content/ca/echoai/transfer.md · /ca/docs/echoai/transfer -->
+
+# TRANSFER-3 — contracte i estat
+
+Actualitzat: 18 de setembre de 2026. **Vermell, sense candidat.**
+
+Demostrar que l'après a A millora la conducta en altres entorns davant del mateix agent sense aquella experiència, sense transportar mapa ni solució. Pressupost, sensors, actuadors i restriccions són aparellats entre braços. L'examen congela l'aprenentatge, però manté percepció i seguiment.
+
+## Evidència actual
+
+| Branca | Estat |
+|---|---|
+| Q, cobertura i representació | Correccions i assajos públics; sense avantatge robust |
+| Pla A: cost | Confirmacions fallides; un prior programat igualava la conducta apresa |
+| Pla B: guany | Aprèn exactament amb vuit actuacions per condició; B2/B3 fallen el cribratge |
+| Pla B: retard i altres primitives | Sense provar |
+| Pla C: calibració perceptiva | Sense començar |
+
+B3: 24 formes públiques, tres condicions per forma; 51/72 arribades davant 52/72 nominal. Energia escola+examen 7100 davant 6936, unitats simulades. Zero infraccions de seguretat observades a tots els braços; es perden cinc arribades del nominal. Les tres auditories B2/B3 reprodueixen els hashes; passen 261 tests. La suite global queda sense verificar per memòria.
+
+## Portes per al verd
+
+1. El cribratge públic ha de demostrar utilitat, respectar restriccions i superar controls adequats, incloent-hi priors programats.
+2. Un candidat ha de passar confirmació prospectiva amb mida, criteris i regles congelats abans de veure sales noves.
+3. La campanya final necessita compromisos publicats abans d'entrenar, custòdia externa i obertura única de B, seguida de C només si B passa. El fracàs queda registrat.
+
+No s'ha executat confirmació nova B2/B3 ni s'ha generat o obert B/C real. La custòdia es prepara quan existeixi un candidat. No hi ha maquinari: no demostra transferència física ni bateria instrumentada.
+
+[Article i raonament](/ca/articulos/transfer3-aprender-no-basta) · [Informe B2](/evidence/echo3/TRANSFER3-PLAN-B2-RESULTS.md) · [Informe B3](/evidence/echo3/TRANSFER3-PLAN-B3-RESULTS.md) · [Dades i hashes](/data/echo3-status.json)
 
 ---
 
@@ -696,6 +750,18 @@ finalment un entorn exterior autoritzat.
 # echoAI — límits
 
 La política del laboratori és separar resultats, plans i hipòtesis.
+
+
+## ECHO-3 · 18/09/2026
+
+Verd significa que una versió respon la pregunta del seu banc, amb controls i un auditor capaç de rebutjar-la. Les versions vermelles anteriors es conserven. Els B/C de cada component són particions pròpies: no tanquen l'examen segellat de TRANSFER-3. Proves funcionals, replay i vols SITL tenen denominadors diferents i es publiquen per separat.
+
+**TRANSFER-3** ha de demostrar una millora útil de l'après a A en entorns nous davant del mateix agent sense aquella experiència, sense transportar mapa ni solució. Continua vermell i sense candidat. L'escola de guany aprèn exactament, però l'últim pilot segur B3 arriba 51/72 davant 52/72 nominal i costa més, escola inclosa. No va passar a confirmació prospectiva ni va obrir B/C real.
+
+**DRONE-3** ha d'integrar la missió completa amb traçabilitat causal en SITL, HIL i gàbia. Els certificats d'enllaç, energia o seguretat no substitueixen aquest tancament conjunt. Bateria instrumentada, latència sota càrrega i fallades combinades s'hauran de comprovar en integrar-ho. No hi ha maquinari robòtic ni Akida al laboratori; HIL i gàbia necessiten aquella plataforma.
+
+[Full de ruta](/ca/docs/echoai/ruta) · [Recerca TRANSFER-3](/ca/docs/echoai/transfer)
+
 
 ## El que ECHO-2 no demostra
 
@@ -1623,9 +1689,112 @@ casc i veure'l analitzat en directe, sense un script pont pel mig.
 
 ---
 
+<!-- src/content/ca/articles/transfer3-aprender-no-basta.md · /ca/articulos/transfer3-aprender-no-basta -->
+
+# TRANSFER-3: aprendre no és suficient
+
+18 de setembre de 2026 · RxLabs® · Estat: vermell, sense candidat
+
+**TRANSFER-3 ha de demostrar que aprendre en un entorn ajuda a resoldre'n d'altres, sense transportar el mapa ni la solució, davant del mateix agent sense aquesta experiència.**
+
+Desar una taula és només una part de la pregunta. El paràmetre après ha de canviar la conducta i millorar el resultat amb els mateixos sensors, pressupost i restriccions. Encara no hem demostrat aquest avantatge dins del contracte d'ECHO-3. La recerca és programari: no tenim dron, sensors físics ni placa Akida al laboratori.
+
+## De transferir Q a calibrar el cos
+
+Els primers assajos transferien valors d'accions. Vam trobar problemes de doble ingesta, cobertura i representació, i un planificador que feia servir Q només com a desempat tardà. Les correccions no van produir un avantatge robust. Una taula pot canviar sense influir prou en la missió.
+
+Vam passar a propietats reutilitzables del cos. El Pla A calibrava el cost de moure's i girar. Les confirmacions van fallar; en 256 sales, un prior programat va produir la mateixa conducta que el valor après. La precisió numèrica no millorava la decisió.
+
+El Pla B va provar el guany d'actuació: quantes cel·les avança una ràfega per ordre. Un filtre inicial confonia la rotació de les sales amb l'efecte del paràmetre. En alinear la geometria va aparèixer una millora aparent. També vam provar si mantenir plans de diversos passos l'explicava: el compromís era conductualment inert. Vam retirar aquella explicació arquitectònica.
+
+## L'escola funciona; l'examen decideix
+
+B2 aprèn el guany exacte amb odometria i observacions abans i després de **vuit moviments per condició**. No rep el paràmetre privat del simulador. Transfereix quatre guanys i els recomptes a un consumidor aïllat, sense mapa, coordenades ni episodis escolars. El model queda congelat durant l'examen.
+
+El primer pilot reproduïa les arribades del filtre: amb guany 2, 21/24 davant 17/24 nominal; amb guany 3, 20/24 davant 19/24. El jutge independent va trobar **38 i 48 violacions de reserva** als braços apresos. El càlcul de retorn descomptava el guany màxim encara que només una direcció estava accelerada. Aquella millora incomplia el contracte.
+
+Reparar la reserva va deixar zero infraccions observades i 51/72 arribades apreses davant 52/72 nominals. L'última variant, B3, incorporava el frenat davant parets ja observades: el guany en espai lliure no descriu tota una ràfega prop d'un obstacle.
+
+| Últim pilot B3 | Après | Nominal |
+|---|---:|---:|
+| Arribades | 51/72 | 52/72 |
+| Energia simulada d'examen | 7004 | 6936 |
+| Escola + examen | 7100 | 6936 |
+| Violacions de seguretat observades | 0 | 0 |
+
+Entre èxits conjunts, l'après consumia 120 unitats més. Recuperava quatre arribades i en perdia cinc que el nominal aconseguia. Superava els dos priors fixos en arribades agregades, però no el control principal.
+
+Són **24 formes públiques amb tres condicions cadascuna**, no 72 mostres independents ni un examen prospectiu. Els reinicis del gimnàs no tenen cost modelat; no és un pressupost de calibració física.
+
+## Què continua obert
+
+Les tres auditories B2/B3 reprodueixen els hashes en processos nous i passen els 261 tests de TRANSFER-3. Això sosté la implementació i les xifres; el criteri d'utilitat continua fallant. La suite global conserva una limitació de memòria en un altre banc i no es declara verificada.
+
+El cribratge vermell va aturar la confirmació de 256 formes noves. **No s'ha generat ni obert B/C real de TRANSFER-3.** Primer cal un candidat prospectiu; després, una campanya amb compromisos previs, congelació i custòdia externa.
+
+La branca acotada de guany és vermella. Retard i altres primitives del Pla B continuen sense provar. El Pla C, calibració perceptiva reutilitzable, no ha començat. La hipòtesi següent haurà d'explicar per què la dada apresa canvia una decisió útil i separar-ho d'una millora genèrica del controlador.
+
+Publicar el vermell evita convertir aprenentatge exacte en una afirmació de transferència que els controls no sostenen.
+
+[Documentació de TRANSFER-3](/ca/docs/echoai/transfer) · [Les tretze fases](/ca/articulos/echo3-trece-fases-verdes) · [Informe B2](/evidence/echo3/TRANSFER3-PLAN-B2-RESULTS.md) · [Informe B3](/evidence/echo3/TRANSFER3-PLAN-B3-RESULTS.md) · [Dades i hashes d'origen](/data/echo3-status.json)
+
+---
+
+<!-- src/content/ca/articles/echo3-trece-fases-verdes.md · /ca/articulos/echo3-trece-fases-verdes -->
+
+# ECHO-3: tretze fases verdes i dues preguntes obertes
+
+18 de setembre de 2026 · RxLabs®
+
+ECHO-3 té **13 de 15 fites amb certificat verd dins del seu abast de programari**. ECHO-1 i ECHO-2 estan tancats; el programa robòtic continua obert. S'han provat components amb controls i auditories, però sumar certificats no demostra una missió integrada en un robot físic.
+
+## Què demostra cada verd
+
+| Fase i versió | Resultat i límit |
+|---|---|
+| [SIM-3](/evidence/echo3/SIM3-RESULTS.md) | Tres mons declaratius i separació entre avaluador i agent. El consumidor no rep mapa, llavor ni solució. |
+| [FLIGHT-1S v6](/evidence/echo3/FLIGHT1S-V6-RESULTS.md) | Vol de l'X500 en PX4 SITL amb pertorbacions mesurades. PX4 aporta estabilització; no demostra decisions de vol d'echoAI. |
+| [SENSOR-1S v3](/evidence/echo3/SENSOR1S-V3-RESULTS.md) | Càmera, LiDAR i IMU simulats amb temps, procedència, soroll, latència i pèrdues. Algunes geometries LiDAR queden fora de l'avaluació de biaix. |
+| [GROUND-1 v2](/evidence/echo3/GROUND1-V2-RESULTS.md) | Traducció d'observacions físiques simulades a WSP i memòria amb integritat temporal. Memòria estructural i límits declarats d'ambigüitat vertical. |
+| [DYNAMIC-1 v2](/evidence/echo3/DYNAMIC1-V2-RESULTS.md) | 29 vols; seguiment de la normal d'una cara des de hover i predicció curta. Sense compensació general del moviment propi. |
+| [PATTERN-1R v4](/evidence/echo3/PATTERN1R-V4-RESULTS.md) | 4591/4866 identitats correctes, 45 confusions i 230 desconeguts. Dues famílies LiDAR; aprenentatge i examen per replay. |
+| [FUSION-1](/evidence/echo3/FUSION1-RESULTS.md) | 864 episodis funcionals i 240 finestres de replay reduït. Conserva procedència, caducitat i conflicte; no concedeix per si sola permís de vol. |
+| [COMPOSE-1 v4](/evidence/echo3/COMPOSE1-V4-RESULTS.md) | 6144 missions funcionals i 32 vols nous SITL; complet 6/6 metes factibles, Q reactiva 0/6. Sales extrudides, altura fixa i energia abstracta; empata amb el convencional en moviments físics. |
+| [CAUSE-1](/evidence/echo3/CAUSE1-RESULTS.md) | B/C: 16/16 atribucions correctes davant 8/16 del control temporal per etapa. Paret plana, intencions experimentals i predicció nominal. |
+| [PX4-1](/evidence/echo3/PX41-RESULTS.md) | B/C: 4/4 vols per etapa, 48/48 intents invàlids bloquejats i quatre aterratges de failsafe. Objectius nord/sud d'un metre, una transacció supervisada. |
+| [POWER-1](/evidence/echo3/POWER1-RESULTS.md) | Per etapa B/C, 128/128 metes factibles davant 64/128 del percentatge fix i 320/320 episodis amb reserva. Energia simulada; bateria instrumentada pendent. |
+| [SAFE-1 v2](/evidence/echo3/SAFE1-V2-RESULTS.md) | Per etapa B/C, 6/6 vols i 512/512 episodis funcionals. Deu aterratges natius PX4 davant fallades; veto màxim 288 ms. Contenció dins del banc, sense seguretat universal. |
+| [HOST-1](/evidence/echo3/HOST1-RESULTS.md) | Per etapa B/C, 1536/1536 eleccions útils davant 768/1536 del control. Autoritat actualitzada per conseqüències; calibració supervisada sobre cinta de màquina, sense confiança humana general. |
+
+## Com llegir els resultats
+
+Verd significa que una versió respon la pregunta del seu banc, amb controls i un auditor capaç de rebutjar-la. Les versions vermelles anteriors es conserven. Els B/C de cada component són particions pròpies: no tanquen l'examen segellat de TRANSFER-3. Proves funcionals, replay i vols SITL tenen denominadors diferents i es publiquen per separat.
+
+## Les dues fites pendents
+
+**TRANSFER-3** ha de demostrar una millora útil de l'après a A en entorns nous davant del mateix agent sense aquella experiència, sense transportar mapa ni solució. Continua vermell i sense candidat. L'escola de guany aprèn exactament, però l'últim pilot segur B3 arriba 51/72 davant 52/72 nominal i costa més, escola inclosa. No va passar a confirmació prospectiva ni va obrir B/C real.
+
+**DRONE-3** ha d'integrar la missió completa amb traçabilitat causal en SITL, HIL i gàbia. Els certificats d'enllaç, energia o seguretat no substitueixen aquest tancament conjunt. Bateria instrumentada, latència sota càrrega i fallades combinades s'hauran de comprovar en integrar-ho. No hi ha maquinari robòtic ni Akida al laboratori; HIL i gàbia necessiten aquella plataforma.
+
+## Què investiguem
+
+La pregunta actual és quin coneixement reutilitzable millora una decisió. Els assajos de Q, cost i guany han separat aprenentatge, influència sobre el planificador i utilitat. També han retirat explicacions refutades pels controls, com que mantenir plans llargs resolgués per si sol la transferència.
+
+La branca de guany del Pla B s'ha aturat després del cribratge vermell. Altres primitives i retards continuen sense provar; el Pla C de calibració perceptiva no ha començat. Cada hipòtesi nova necessita un mecanisme comprovable, controls amb la mateixa informació i una regla prèvia d'aturada. Tretze verds permeten preguntes més precises; els altres dos encara necessiten dades pròpies.
+
+## Fonts i estat verificable
+
+El full de ruta i els informes descarregables conserven l'abast de cada fase. La instantània de dades identifica fonts i hashes. Passen els 261 tests de regressió TRANSFER-3; la suite global no es declara verificada per la seva limitació històrica de memòria.
+
+[Full de ruta](/ca/docs/echoai/ruta) · [Recerca TRANSFER-3](/ca/articulos/transfer3-aprender-no-basta) · [Dades i informes d'origen](/data/echo3-status.json)
+
+---
+
 <!-- src/content/ca/articles/echo3-a-mitad.md · /ca/articulos/echo3-a-mitad -->
 
 # ECHO-3 ha passat la meitat
+
+> Arxiu del 14/09/2026. Estat actual: 13/15 certificats de programari; TRANSFER-3 continua vermell. [Actualització del 18/09](/ca/articulos/echo3-trece-fases-verdes).
 
 > 8 de 15 fases de programari tancades · 14 de setembre de 2026
 

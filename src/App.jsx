@@ -51,11 +51,11 @@ export default function App() {
         <Route path="/en/contact" element={<Contact language="en" />} />
         <Route path="/ca/contact" element={<Contact language="ca" />} />
         <Route path="/articulos" element={<Articles language="es" />} />
-        <Route path="/articulos/echo3-a-mitad" element={<Articles language="es" />} />
+        <Route path="/articulos/:slug" element={<Articles language="es" />} />
         <Route path="/en/articulos" element={<Articles language="en" />} />
-        <Route path="/en/articulos/echo3-a-mitad" element={<Articles language="en" />} />
+        <Route path="/en/articulos/:slug" element={<Articles language="en" />} />
         <Route path="/ca/articulos" element={<Articles language="ca" />} />
-        <Route path="/ca/articulos/echo3-a-mitad" element={<Articles language="ca" />} />
+        <Route path="/ca/articulos/:slug" element={<Articles language="ca" />} />
         <Route path="/docs/prisma/social" element={<Navigate to="/docs/prisma/resumen" replace />} />
         <Route path="/docs/prisma/overview" element={<Navigate to="/docs/prisma/resumen" replace />} />
         <Route path="/docs/prisma/technical" element={<Navigate to="/docs/prisma/tecnico" replace />} />

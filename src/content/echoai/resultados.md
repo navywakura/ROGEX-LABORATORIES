@@ -6,21 +6,19 @@ Cada cifra conserva su control, denominador e informe de origen.
 
 ## ECHO-3 · estado actual
 
-ECHO-3 lleva 8 de 15 fases software cerradas: SIM-3, FLIGHT-1S v6,
-SENSOR-1S v3, GROUND-1 v2, DYNAMIC-1 v2, PATTERN-1R v4, FUSION-1 y
-COMPOSE-1 v4. Estos bancos usan otro cuerpo, otros sensores y otros
-denominadores, por lo que no se mezclan con las cifras históricas de abajo.
+ECHO-3 tiene **13 de 15 hitos con certificado verde en su alcance software**. ECHO-1 y ECHO-2 están cerrados; el programa robótico continúa abierto. Se han probado piezas con controles y auditorías, pero la suma de certificados no equivale a una misión integrada en un robot físico.
 
-| Banco actual | Resultado publicado |
-|---|---:|
-| COMPOSE-1 funcional B/C | 6.144 misiones |
-| Metas físicas simuladas · composición | 6/6 |
-| Metas físicas simuladas · horizonte único | 0/6 |
-| Vuelos nuevos PX4 SITL | 32 |
+- **CAUSE-1** — B/C: 16/16 atribuciones correctas frente a 8/16 del control temporal por etapa. Pared plana, intenciones experimentales y predicción nominal.
+- **PX4-1** — B/C: 4/4 vuelos por etapa, 48/48 intentos inválidos bloqueados y cuatro aterrizajes de failsafe. Objetivos norte/sur de un metro, una transacción supervisada.
+- **POWER-1** — Por etapa B/C, 128/128 metas factibles frente a 64/128 del porcentaje fijo, y 320/320 episodios con reserva. Energía simulada; batería instrumentada pendiente.
+- **SAFE-1 v2** — Por etapa B/C, 6/6 vuelos y 512/512 episodios funcionales. Diez aterrizajes nativos PX4 ante fallos; veto máximo 288 ms. Contención dentro del banco, sin seguridad universal.
+- **HOST-1** — Por etapa B/C, 1536/1536 elecciones útiles frente a 768/1536 del control. Autoridad actualizada por consecuencias; calibración supervisada sobre cinta de máquina, sin confianza humana general.
 
-El planificador convencional empató la distancia física en este escenario. El
-resultado se conserva como control: la evidencia explica qué pasó sin fabricar
-una clasificación general.
+**TRANSFER-3** debe demostrar una mejora útil de lo aprendido en A sobre entornos nuevos frente al mismo agente sin esa experiencia, sin mapa ni solución transportada. Sigue rojo y sin candidato. La escuela de ganancia aprende exactamente, pero el último piloto seguro B3 llega 51/72 frente a 52/72 nominal y cuesta más, escuela incluida. No pasó a confirmación prospectiva ni abrió B/C real.
+
+**DRONE-3** debe integrar la misión completa con trazabilidad causal en SITL, HIL y jaula. Los certificados de enlace, energía o seguridad no reemplazan ese cierre conjunto. La batería instrumentada, las latencias bajo carga y los fallos combinados tendrán que comprobarse en la integración. No hay hardware robótico ni Akida en el laboratorio; HIL y jaula requieren esa plataforma.
+
+[Hoja de ruta](/docs/echoai/ruta) · [Investigación TRANSFER-3](/docs/echoai/transfer) · [Datos e informes de origen](/data/echo3-status.json)
 
 ## ECHO-1 · memoria, acción y transferencia
 

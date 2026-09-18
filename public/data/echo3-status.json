@@ -1,0 +1,225 @@
+{
+  "schema": "rxlabs-echo3-status-v1",
+  "updated": "2026-09-18",
+  "scope": "Software, functional simulation, replay and PX4 SITL. No robotics hardware, HIL or cage validation.",
+  "milestones_green": 13,
+  "milestones_total": 15,
+  "echo3_closed": false,
+  "transfer3_green": false,
+  "campaign_C_opened": false,
+  "robotics_hardware_present": false,
+  "akida_present": false,
+  "phases": [
+    {
+      "phase": "SIM-3",
+      "status": "green_within_declared_software_scope",
+      "scope_es": "Tres mundos declarativos y separación entre evaluador y agente. No entrega mapa, semilla ni solución al consumidor.",
+      "report": {
+        "sha256": "55c9ab40109a6cce5181c011f4107c6d3f630e0e2e8bffc79c0ba3288b766e6f",
+        "file": "docs/SIM3-RESULTS.md",
+        "url": "/evidence/echo3/SIM3-RESULTS.md"
+      }
+    },
+    {
+      "phase": "FLIGHT-1S v6",
+      "status": "green_within_declared_software_scope",
+      "scope_es": "Vuelo del X500 en PX4 SITL ante perturbaciones medidas. La estabilización corresponde a PX4; no demuestra decisiones de vuelo de echoAI.",
+      "report": {
+        "sha256": "4d3dd765125fd5b297e100eaea49ab6c7fb01c774d7752e873c70c401d6a0b56",
+        "file": "docs/FLIGHT1S-V6-RESULTS.md",
+        "url": "/evidence/echo3/FLIGHT1S-V6-RESULTS.md"
+      }
+    },
+    {
+      "phase": "SENSOR-1S v3",
+      "status": "green_within_declared_software_scope",
+      "scope_es": "Cámara, LiDAR e IMU simulados con tiempo, procedencia, ruido, latencia y pérdidas. Algunas geometrías LiDAR quedan fuera de la evaluación de sesgo.",
+      "report": {
+        "sha256": "a517f22f8453a85a19f3e15d6a3f89ce0d3edefb6200fcbc9cf71fa3eda4d9ec",
+        "file": "docs/SENSOR1S-V3-RESULTS.md",
+        "url": "/evidence/echo3/SENSOR1S-V3-RESULTS.md"
+      }
+    },
+    {
+      "phase": "GROUND-1 v2",
+      "status": "green_within_declared_software_scope",
+      "scope_es": "Traducción de observaciones físicas simuladas a WSP y memoria, con integridad temporal. La memoria es estructural y la ambigüedad vertical tiene límites declarados.",
+      "report": {
+        "sha256": "df273b6bc1ea3a6b16e2d99ccd2ab1a75f61ee7ba13a042d3838e94cbe1decf7",
+        "file": "docs/GROUND1-V2-RESULTS.md",
+        "url": "/evidence/echo3/GROUND1-V2-RESULTS.md"
+      }
+    },
+    {
+      "phase": "DYNAMIC-1 v2",
+      "status": "green_within_declared_software_scope",
+      "scope_es": "29 vuelos; seguimiento de la normal de una cara desde hover y predicción corta. No compensación general del movimiento propio.",
+      "report": {
+        "sha256": "be0493699019afaf8bdb432101186a9314042b883a130fd9c2fd384429808e01",
+        "file": "docs/DYNAMIC1-V2-RESULTS.md",
+        "url": "/evidence/echo3/DYNAMIC1-V2-RESULTS.md"
+      }
+    },
+    {
+      "phase": "PATTERN-1R v4",
+      "status": "green_within_declared_software_scope",
+      "scope_es": "4591/4866 identidades correctas en banco, 45 confusiones y 230 desconocidos. Dos familias LiDAR; aprendizaje y examen por replay.",
+      "report": {
+        "sha256": "84d38afa73870cfeec1b7de8c897d4a567d46faa3aac5b2d9dfa31d0364e182c",
+        "file": "docs/PATTERN1R-V4-RESULTS.md",
+        "url": "/evidence/echo3/PATTERN1R-V4-RESULTS.md"
+      }
+    },
+    {
+      "phase": "FUSION-1",
+      "status": "green_within_declared_software_scope",
+      "scope_es": "864 episodios funcionales y 240 ventanas de replay reducido. Conserva procedencia, caducidad y conflicto; no concede permiso de vuelo por sí sola.",
+      "report": {
+        "sha256": "ccebd3825615dd0ddee961822eb9d1993106057e1fc6f11dfe8d45ddd0369b93",
+        "file": "docs/FUSION1-RESULTS.md",
+        "url": "/evidence/echo3/FUSION1-RESULTS.md"
+      }
+    },
+    {
+      "phase": "COMPOSE-1 v4",
+      "status": "green_within_declared_software_scope",
+      "scope_es": "6144 misiones funcionales y 32 vuelos nuevos SITL; completo 6/6 metas accesibles, Q reactiva 0/6. Salas extruidas, altura fija y energía abstracta; empata con el convencional en movimientos físicos.",
+      "report": {
+        "sha256": "fa8d460476d13c1a94be09191a68613c5688908f28a5dec2ec26d275fae47b56",
+        "file": "docs/COMPOSE1-V4-RESULTS.md",
+        "url": "/evidence/echo3/COMPOSE1-V4-RESULTS.md"
+      }
+    },
+    {
+      "phase": "CAUSE-1",
+      "status": "green_within_declared_software_scope",
+      "scope_es": "B/C: 16/16 atribuciones correctas frente a 8/16 del control temporal por etapa. Pared plana, intenciones experimentales y predicción nominal.",
+      "report": {
+        "sha256": "0ffed56394bffc9f91485d795c32b52caab970d66d0450794c507372973100ca",
+        "file": "docs/CAUSE1-RESULTS.md",
+        "url": "/evidence/echo3/CAUSE1-RESULTS.md"
+      }
+    },
+    {
+      "phase": "PX4-1",
+      "status": "green_within_declared_software_scope",
+      "scope_es": "B/C: 4/4 vuelos por etapa, 48/48 intentos inválidos bloqueados y cuatro aterrizajes de failsafe. Objetivos norte/sur de un metro, una transacción supervisada.",
+      "report": {
+        "sha256": "8c99aeb462610bfb2e4ef4b3846c66399b7e7adfce82f2b302edc69d550e8395",
+        "file": "docs/PX41-RESULTS.md",
+        "url": "/evidence/echo3/PX41-RESULTS.md"
+      }
+    },
+    {
+      "phase": "POWER-1",
+      "status": "green_within_declared_software_scope",
+      "scope_es": "Por etapa B/C, 128/128 metas factibles frente a 64/128 del porcentaje fijo, y 320/320 episodios con reserva. Energía simulada; batería instrumentada pendiente.",
+      "report": {
+        "sha256": "089429e4a22cacde2eed6cf0be4d3e1d587cc2e57b76f50359a86514359ac7c8",
+        "file": "docs/POWER1-RESULTS.md",
+        "url": "/evidence/echo3/POWER1-RESULTS.md"
+      }
+    },
+    {
+      "phase": "SAFE-1 v2",
+      "status": "green_within_declared_software_scope",
+      "scope_es": "Por etapa B/C, 6/6 vuelos y 512/512 episodios funcionales. Diez aterrizajes nativos PX4 ante fallos; veto máximo 288 ms. Contención dentro del banco, sin seguridad universal.",
+      "report": {
+        "sha256": "61490f86e399a70f9e03e6bfdda6f10a7f01e7e1781bcfc31d83051c78e99f63",
+        "file": "docs/SAFE1-V2-RESULTS.md",
+        "url": "/evidence/echo3/SAFE1-V2-RESULTS.md"
+      }
+    },
+    {
+      "phase": "HOST-1",
+      "status": "green_within_declared_software_scope",
+      "scope_es": "Por etapa B/C, 1536/1536 elecciones útiles frente a 768/1536 del control. Autoridad actualizada por consecuencias; calibración supervisada sobre cinta de máquina, sin confianza humana general.",
+      "report": {
+        "sha256": "e749d515bafbf3ea99f9b6b879da57f276c71fae5cc2da7fd58466f7c7452dbb",
+        "file": "docs/HOST1-RESULTS.md",
+        "url": "/evidence/echo3/HOST1-RESULTS.md"
+      }
+    }
+  ],
+  "pending": [
+    "TRANSFER-3",
+    "DRONE-3"
+  ],
+  "transfer": {
+    "status": "red",
+    "candidate": false,
+    "plan_a": "failed_confirmations",
+    "plan_b_gain": "public_pilots_failed",
+    "plan_b_other_primitives": "untested",
+    "plan_c": "not_started",
+    "fresh_b2_b3_confirmation_executed": false,
+    "final_campaign_B_C_generated_or_opened": false,
+    "school": {
+      "moves_per_condition": 8,
+      "conditions": 3,
+      "energy_per_condition": 32,
+      "total_energy": 96,
+      "reset_energy_modelled": false
+    },
+    "b3": {
+      "public_shapes": 24,
+      "conditions_per_shape": 3,
+      "independent_room_blocks": 24,
+      "unique_consumer_missions": 216,
+      "arm_rows": 288,
+      "learned_arrivals": 51,
+      "nominal_arrivals": 52,
+      "exam_cases_per_arm": 72,
+      "learned_exam_energy": 7004,
+      "nominal_exam_energy": 6936,
+      "learned_school_and_exam_energy": 7100,
+      "nominal_total_energy": 6936,
+      "joint_success_extra_energy_learned": 120,
+      "arrivals_gained": 4,
+      "arrivals_lost": 5,
+      "all_arms_observed_safety_violations": 0
+    },
+    "audits": [
+      {
+        "artifact": "plan-b2-legacy-pilot.json",
+        "canonical_sha256": "55ad0d77f8c8e35e0092892adc80d13fa05988bc3c44284b4754ecc3ee369ec6",
+        "replay_valid": true
+      },
+      {
+        "artifact": "plan-b2-safe-pilot.json",
+        "canonical_sha256": "bcc5263887febeae5b7bf830b2c671eb872d6f5e1d348fe0be1efb5dcbf1e319",
+        "replay_valid": true
+      },
+      {
+        "artifact": "plan-b3-pilot.json",
+        "canonical_sha256": "d88b966675d97a31ceaf15b380983e347560a92ce6b32d767c1cd20883d8f7c0",
+        "replay_valid": true
+      }
+    ],
+    "regression_tests_passed": 261,
+    "global_suite_verified": false,
+    "global_suite_limit": "Historical memory exhaustion in tests/test_dynamic1.py",
+    "sources": [
+      {
+        "sha256": "523140431e6d24ebb3bae6fcd3f42d83ff07b8bfaebfa310498656efb9650f10",
+        "file": "docs/TRANSFER3-PLAN-B2-DESIGN.md",
+        "url": "/evidence/echo3/TRANSFER3-PLAN-B2-DESIGN.md"
+      },
+      {
+        "sha256": "8596c56099eec1a0dc4fb2d4a4a03397e5e0090ca75962641c60882622fce8cb",
+        "file": "docs/TRANSFER3-PLAN-B2-RESULTS.md",
+        "url": "/evidence/echo3/TRANSFER3-PLAN-B2-RESULTS.md"
+      },
+      {
+        "sha256": "86a179ad3ecc92b1328baa4ab3892a82d5a1bf791a0c22359ea0948d8e373ffa",
+        "file": "docs/TRANSFER3-PLAN-B3-DESIGN.md",
+        "url": "/evidence/echo3/TRANSFER3-PLAN-B3-DESIGN.md"
+      },
+      {
+        "sha256": "e9feaeb23d3ff8dc909bfe069475c463925f9688211442ece269f3662d058a6e",
+        "file": "docs/TRANSFER3-PLAN-B3-RESULTS.md",
+        "url": "/evidence/echo3/TRANSFER3-PLAN-B3-RESULTS.md"
+      }
+    ]
+  }
+}

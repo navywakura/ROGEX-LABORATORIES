@@ -2,6 +2,18 @@
 
 The laboratory's policy is to separate results, plans and hypotheses.
 
+
+## ECHO-3 · 18/09/2026
+
+Green means one version answers its bench's question, with controls and an auditor able to reject it. Earlier red versions remain preserved. Each component's B/C belongs to its own partition: it does not close TRANSFER-3's sealed exam. Functional tests, replay and SITL flights have different denominators and are reported separately.
+
+**TRANSFER-3** must demonstrate useful improvement from learning in A on new environments, against the same agent without that experience, without carrying a map or solution. It is red with no candidate. The gain school learns exactly, but the latest safe B3 pilot reaches 51/72 against nominal's 52/72 and costs more including school. It did not advance to prospective confirmation or open real B/C.
+
+**DRONE-3** must integrate the complete mission with causal traceability in SITL, HIL and a cage. Link, energy and safety certificates do not replace that joint closure. Instrumented battery, latency under load and combined faults must be checked during integration. The laboratory has no robotics hardware or Akida; HIL and cage work require that platform.
+
+[Roadmap](/en/docs/echoai/ruta) · [TRANSFER-3 research](/en/docs/echoai/transfer)
+
+
 ## What ECHO-2 does not demonstrate
 
 - It is not general intelligence or an artificial person.
