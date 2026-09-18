@@ -157,6 +157,9 @@ function productBody(product, language) {
     `<p>${esc(copy.lead)}</p>`,
     `<figure><img src="${hero.src}" width="${hero.width}" height="${hero.height}" alt="${esc(hero.alt[language])}" /><figcaption>${esc(hero.caption[language])}</figcaption></figure>`,
     `<ul>${copy.facts.map(([value, label]) => `<li><strong>${esc(value)}</strong> — ${esc(label)}</li>`).join("")}</ul>`,
+    copy.campaign
+      ? `<h2>${esc(copy.campaign.title)}</h2>${copy.campaign.body.map((line) => `<p>${esc(line)}</p>`).join("")}<p><a href="${localizedPath(`/docs/${copy.campaign.doc}`, language)}">${esc(copy.campaign.link)}</a></p>`
+      : "",
     ...copy.sections.map((section) => `<h2>${esc(section.title)}</h2>${section.body.map((line) => `<p>${esc(line)}</p>`).join("")}`),
     `<ul>${copy.limits.map((line) => `<li>${esc(line)}</li>`).join("")}</ul>`,
     `<ul>${docs.map((doc) => `<li><a href="${localizedPath(`/docs/${doc.id}`, language)}">${esc(doc.title)}</a></li>`).join("")}</ul>`,

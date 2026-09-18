@@ -29,6 +29,7 @@ export const DOC_CATALOG = [
   { id: "echos/comandos", title: { es: "Comandos", en: "Commands", ca: "Ordres" } },
   { id: "prisma/resumen", title: { es: "Resumen", en: "Overview", ca: "Resum" } },
   { id: "prisma/tecnico", title: { es: "Técnico", en: "Technical", ca: "Tècnic" } },
+  { id: "prisma/eeg-dron", title: { es: "Campaña EEG → dron", en: "EEG → drone campaign", ca: "Campanya EEG → dron" } },
 ];
 
 export function docGroupKey(id) {

@@ -144,6 +144,15 @@ const ES_PAGES = [
       "PRISMA Engine 0.1.0: delta modulation → LIF AVX2 → STDP. Hot-path sin heap. Cifras de bench en máquina, no de folleto. Investigación.",
   },
   {
+    path: "/docs/prisma/eeg-dron",
+    title: "PRISMA — campaña EEG → dron",
+    description:
+      "Campaña abierta: ¿puede PRISMA guiar un dron con EEG? Lo demostrado (1,16 bits/min en vuelo real), lo que no («pensar en subir»), la arquitectura con echoAI y echOS, fases y controles.",
+    section: "PRISMA",
+    datePublished: "2026-09-18",
+    dateModified: "2026-09-18",
+  },
+  {
     path: "/docs/lab/ecosistema",
     title: "El laboratorio — RxLabs®",
     description:
@@ -423,6 +432,14 @@ const CA_META = {
   "/articulos/echo3-a-mitad": ["ECHO-3 ja ha arribat a la meitat — RxLabs®", "ECHO-3 té 8 de 15 fases de programari tancades: mons A/B/C, sensors amb procedència, PX4 SITL, dinàmica, identitat, fusió i composició. Davant una meta bloquejada conserva evidència, compara accessos, passa un pas pel gate i comprova la conseqüència. COMPOSE-1 conserva 6.144 missions B/C i 32 vols PX4 SITL; CAUSE-1 és el següent."],
 };
 
+EN_META["/docs/prisma/eeg-dron"] = [
+  "PRISMA — EEG → drone campaign",
+  "Open campaign: can PRISMA guide a drone with EEG? What has been shown (1.16 bits/min in real flight), what has not (\"thinking up\"), the architecture with echoAI and echOS, phases and controls.",
+];
+CA_META["/docs/prisma/eeg-dron"] = [
+  "PRISMA — campanya EEG → dron",
+  "Campanya oberta: pot PRISMA guiar un dron amb EEG? El que s'ha demostrat (1,16 bits/min en vol real), el que no («pensar a pujar»), l'arquitectura amb echoAI i echOS, fases i controls.",
+];
 for (const product of PRODUCTS) {
   EN_META[`/${product.slug}`] = [product.copy.en.title, product.copy.en.description];
   CA_META[`/${product.slug}`] = [product.copy.ca.title, product.copy.ca.description];

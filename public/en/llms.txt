@@ -14,6 +14,7 @@ Complete text: https://rxlabs.org/en/llms-full.txt
 
 - **echOS 3.0** — edge robotics unikernel with a sensor→intent pipeline, safety gate and PX4 bridge. [Page](https://www.rxlabs.org/en/echos) · [Docs](https://rxlabs.org/en/docs/echos/que-es)
 - **PRISMA** — EEG analysis for research with an event-driven Rust engine. [Page](https://www.rxlabs.org/en/prisma) · [Docs](https://rxlabs.org/en/docs/prisma/resumen)
+  - Open EEG → drone campaign: whether PRISMA can propose a few discrete intents that echoAI and echOS filter through the gate. No results of our own, no headset, no drone; it does not read thoughts. [Campaign](https://www.rxlabs.org/en/docs/prisma/eeg-dron)
 - **echoAI** — two-clock situated agent with a 16-byte WSP, CAM, T, Q and gate. ECHO-1 and ECHO-2 are closed; ECHO-3 has 13 of 15 software certificates; TRANSFER-3 is red and DRONE-3 is pending. [Page](https://www.rxlabs.org/en/echoai) · [Docs](https://rxlabs.org/en/docs/echoai/que-es)
 
 ## ECHO-3 now

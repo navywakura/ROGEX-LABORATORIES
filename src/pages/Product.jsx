@@ -97,6 +97,18 @@ export default function Product({ slug, language = "es" }) {
           ))}
         </dl>
 
+        {copy.campaign && (
+          <aside className="product-campaign" aria-labelledby={`${slug}-campaign`}>
+            <span className="bench-kicker">{copy.campaign.kicker}</span>
+            <h2 id={`${slug}-campaign`}>{copy.campaign.title}</h2>
+            {copy.campaign.body.map((line) => <p key={line}>{line}</p>)}
+            <p className="product-campaign-status">{copy.campaign.status}</p>
+            <Link className="product-campaign-link" to={localizedPath(`/docs/${copy.campaign.doc}`, language)}>
+              {copy.campaign.link} →
+            </Link>
+          </aside>
+        )}
+
         {copy.flow && (
           <pre className="product-flow"><code>{copy.flow}</code></pre>
         )}

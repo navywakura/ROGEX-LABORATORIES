@@ -270,7 +270,7 @@ export const PRODUCTS = [
     slug: "prisma",
     name: "PRISMA",
     section: "PRISMA",
-    docs: ["prisma/resumen", "prisma/tecnico"],
+    docs: ["prisma/resumen", "prisma/tecnico", "prisma/eeg-dron"],
     articles: [],
     media: [
       {
@@ -331,6 +331,17 @@ export const PRODUCTS = [
         lead:
           "Software de análisis de EEG para investigación. Abre una grabación, la limpia, la analiza y te dice si lo que encontraste aguanta un examen serio o no.",
         status: "Engine 0.1.0 medido · no es un producto sanitario",
+        campaign: {
+          kicker: "Campaña abierta · EEG → dron",
+          title: "¿Puede PRISMA guiar un dron con EEG?",
+          body: [
+            "Estamos investigando si PRISMA puede traducir el EEG en unas pocas intenciones que echoAI y echOS acepten como propuestas —subir, mantenerse, aterrizar—, siempre filtradas por el gate y con PX4 al mando del vuelo.",
+            "Lo que ya se sabe: con imaginación motora se ha volado un dron real, pero a 1,16 bits por minuto y tras meses de entrenamiento; «pensar en subir» no se decodifica hoy con fiabilidad. Todavía no hay resultados propios, ni casco ni dron en el laboratorio: la campaña empieza con datos públicos y simulación, y publicará también los resultados negativos.",
+          ],
+          status: "Fase actual: EEG-0, contrato y controles. Ningún dato analizado todavía.",
+          link: "Leer la campaña completa",
+          doc: "prisma/eeg-dron",
+        },
         facts: [
           ["1,81 µs", "latencia media del motor en el camino caliente, 32 canales"],
           ["0", "reservas de memoria en el camino crítico, por construcción"],
@@ -384,6 +395,17 @@ export const PRODUCTS = [
         lead:
           "EEG analysis software for research. It opens a recording, cleans it, analyses it and tells you whether what you found would survive a serious review.",
         status: "Engine 0.1.0 measured · not a medical device",
+        campaign: {
+          kicker: "Open campaign · EEG → drone",
+          title: "Can PRISMA guide a drone with EEG?",
+          body: [
+            "We are researching whether PRISMA can turn EEG into a few intents that echoAI and echOS accept as proposals — climb, hold, land — always filtered by the gate and with PX4 in charge of flight.",
+            "What is already known: a real drone has been flown with motor imagery, but at 1.16 bits per minute and after months of training; “thinking up” cannot be reliably decoded today. There are no results of our own yet, and no headset or drone in the laboratory: the campaign starts with public data and simulation, and will publish negative results too.",
+          ],
+          status: "Current phase: EEG-0, contract and controls. No data analysed yet.",
+          link: "Read the full campaign",
+          doc: "prisma/eeg-dron",
+        },
         facts: [
           ["1.81 µs", "mean engine latency on the hot path, 32 channels"],
           ["0", "memory allocations on the critical path, by construction"],
@@ -437,6 +459,17 @@ export const PRODUCTS = [
         lead:
           "Programari d'anàlisi d'EEG per a recerca. Obre un enregistrament, el neteja, l'analitza i et diu si el que has trobat aguanta un examen seriós o no.",
         status: "Engine 0.1.0 mesurat · no és un producte sanitari",
+        campaign: {
+          kicker: "Campanya oberta · EEG → dron",
+          title: "Pot PRISMA guiar un dron amb EEG?",
+          body: [
+            "Estem investigant si PRISMA pot traduir l'EEG en unes poques intencions que echoAI i echOS acceptin com a propostes —pujar, mantenir-se, aterrar—, sempre filtrades pel gate i amb PX4 al comandament del vol.",
+            "El que ja se sap: amb imaginació motora s'ha fet volar un dron real, però a 1,16 bits per minut i després de mesos d'entrenament; «pensar a pujar» avui no es pot descodificar amb fiabilitat. Encara no hi ha resultats propis, ni casc ni dron al laboratori: la campanya comença amb dades públiques i simulació, i també publicarà els resultats negatius.",
+          ],
+          status: "Fase actual: EEG-0, contracte i controls. Encara cap dada analitzada.",
+          link: "Llegeix la campanya completa",
+          doc: "prisma/eeg-dron",
+        },
         facts: [
           ["1,81 µs", "latència mitjana del motor al camí calent, 32 canals"],
           ["0", "reserves de memòria al camí crític, per construcció"],

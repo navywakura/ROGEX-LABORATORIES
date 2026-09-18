@@ -32,6 +32,7 @@ const docs = [
   ["echos/comandos", "echos/comandos.md"],
   ["prisma/resumen", "prisma/overview.md"],
   ["prisma/tecnico", "prisma/tecnico.md"],
+  ["prisma/eeg-dron", "prisma/eeg-dron.md"],
 ];
 
 const articles = ARTICLES.map(({ slug }) => [`articulos/${slug}`, `articles/${slug}.md`]);
