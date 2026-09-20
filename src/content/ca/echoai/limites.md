@@ -3,15 +3,17 @@
 La política del laboratori és separar resultats, plans i hipòtesis.
 
 
-## ECHO-3 · 18/09/2026
+## ECHO-3 · 20/09/2026
 
 Verd significa que una versió respon la pregunta del seu banc, amb controls i un auditor capaç de rebutjar-la. Les versions vermelles anteriors es conserven. Els B/C de cada component són particions pròpies: no tanquen l'examen segellat de TRANSFER-3. Proves funcionals, replay i vols SITL tenen denominadors diferents i es publiquen per separat.
 
-**TRANSFER-3** ha de demostrar una millora útil de l'après a A en entorns nous davant del mateix agent sense aquella experiència, sense transportar mapa ni solució. Continua vermell i sense candidat. L'escola de guany aprèn exactament, però l'últim pilot segur B3 arriba 51/72 davant 52/72 nominal i costa més, escola inclosa. No va passar a confirmació prospectiva ni va obrir B/C real.
+**TRANSFER-3** va tancar en verd amb campanya segellada: l'après a A millora B i C davant del mateix agent sense aquella experiència. És simulació estàtica de dues parets; no acredita maquinari ni vol real.
 
-**DRONE-3** ha d'integrar la missió completa amb traçabilitat causal en SITL, HIL i gàbia. Els certificats d'enllaç, energia o seguretat no substitueixen aquest tancament conjunt. Bateria instrumentada, latència sota càrrega i fallades combinades s'hauran de comprovar en integrar-ho. No hi ha maquinari robòtic ni Akida al laboratori; HIL i gàbia necessiten aquella plataforma.
+**DRONE-3** ha tancat el seu tram SITL: la missió completa en una sola sessió PX4/Gazebo, 12/12 en validació i 12/12 en confirmació. La fita exigeix a més hardware-in-the-loop i gàbia, i això continua pendent: `drone3_green` és `false` i ECHO-3 es queda a 14/15. La bateria instrumentada, les latències sobre maquinari real i les fallades combinades en vol físic no estan mesurades.
 
-[Full de ruta](/ca/docs/echoai/ruta) · [Recerca TRANSFER-3](/ca/docs/echoai/transfer)
+El domini certificat fa servir cel·les de tres metres i sales de 21 × 15 m. Una gàbia domèstica no admet aquesta escala: abans de volar en gàbia cal declarar una versió a escala i validar-la en simulació.
+
+[Full de ruta](/ca/docs/echoai/ruta) · [DRONE-3](/ca/docs/echoai/drone3) · [TRANSFER-3](/ca/docs/echoai/transfer)
 
 
 ## El que ECHO-2 no demostra
@@ -58,10 +60,13 @@ L'autopilot i els mecanismes de seguretat continuen separats.
 
 ## Akida
 
-No hi ha cap AKD1500 M.2 al laboratori. Les xifres de consum o aprenentatge del
-fabricant no són resultats de RxLabs. Si arriba una placa, es publicaran la
-compatibilitat, el model exacte, la toolchain, la potència mesurada i la
-comparació amb CPU/Jetson abans de parlar d'avantatge.
+No hi ha cap AKD1500 M.2 al laboratori. La placa M.2 està prevista per a
+l'octubre de 2026 i figura a la llista de compra de
+[maquinari previst](/ca/docs/echoai/hardware); mentre no sigui a la taula,
+continua sent una absència. Les xifres de consum o aprenentatge del fabricant no
+són resultats de RxLabs. Quan arribi una placa, es publicaran la compatibilitat,
+el model exacte, la toolchain, la potència mesurada i la comparació amb
+CPU/Jetson abans de parlar d'avantatge.
 
 ## Estat de les paraules
 

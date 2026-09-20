@@ -25,7 +25,7 @@ claim for equipment that is not on the bench.
 |---|---|---|
 | **echOS** | Robotic edge unikernel | 3.0 closed; x86_64 BIOS/UEFI and AArch64 UEFI |
 | **PRISMA Engine** | EEG to events, Rust and reproducible analysis | Engine 0.1.0 measured; not a medical device |
-| **echoAI** | Two-clock situated agent | ECHO-1 and ECHO-2 closed; ECHO-3 13/15 software certificates |
+| **echoAI** | Two-clock situated agent | ECHO-1 and ECHO-2 closed; ECHO-3 14/15 and DRONE-3 closed in SITL |
 
 ## Where they meet
 
@@ -47,9 +47,9 @@ failure, and transfer gains of `+56` and `+72`.
 ECHO-2 adds survival across lives, perceptual patterns, streaming,
 consolidation, inheritance and joint energy/temperature regulation. Its
 selected neural monitor contains 512 LIF + 128 Adaptive-LIF neurons. ECHO-3
-has 13/15 software certificates in functional simulation, replay and PX4 SITL.
-TRANSFER-3 remains red; complete integration, HIL and cage work are pending.
-The laboratory has no robotics hardware.
+already has 14/15 software certificates in functional simulation, replay and
+PX4 SITL, and DRONE-3 has closed the integrated mission in SITL. HIL and cage
+remain pending. The laboratory has no robotics hardware.
 
 ## Hardware
 
@@ -77,7 +77,7 @@ It is not a chatbot connected to motors. WSP is the only shared packet; CAM, Q a
 
 ECHO-1 closed the base cycle: episodic memory, consequences, prediction, patterns, transfer and post-hoc narration. ECHO-2 closed survival, distribution shift, streaming, consolidation, bounded inheritance, energy, temperature and a 512 LIF + 128 Adaptive-LIF monitor.
 
-ECHO-3 has 13 of 15 green certificates in bounded software benches. Causality, PX4 link, energy, containment and source authority join evidence, identity, dynamics, fusion and composition. Tests combine functional simulation, replay and PX4 SITL flights; the laboratory has no robotics hardware.
+ECHO-3 has 14 of 15 green certificates in bounded software benches and DRONE-3 has closed its SITL leg. Causality, PX4 link, energy, containment and source authority join evidence, identity, dynamics, fusion and composition. Tests combine functional simulation, replay and PX4 SITL flights; the laboratory has no robotics hardware.
 
 The demonstration does not depend on a convincing sentence. Every phase keeps inputs, seeds, controls, a report and an auditor that recalculates its result. The [results](./resultados) page keeps ECHO-1/ECHO-2 closures and adds ECHO-3’s current state.
 
@@ -85,7 +85,7 @@ The demonstration does not depend on a convincing sentence. Every phase keeps in
 
 An observation may say “there is a station there”, but it does not say that there is a route. ECHO-3 keeps source, age and certainty; searches for a possible access, budgets a next step and compares it with the consequence. When two sensors disagree, it retains disagreement instead of fabricating a single answer.
 
-Current research is [TRANSFER-3](./transfer): the school learns, but useful improvement in other environments remains unproven. It is red with no candidate; DRONE-3 retains complete mission integration in SITL, HIL and a cage as pending work. See [ECHO-3](./ruta) for the roadmap.
+[TRANSFER-3](./transfer) closed green with a sealed campaign under human custody, and [DRONE-3](./drone3) closed the integrated mission in SITL. What remains is physical: hardware-in-the-loop and a cage. The roadmap is in [ECHO-3](./ruta) and the planned material, with costs, in [hardware](./hardware).
 
 ---
 
@@ -409,7 +409,7 @@ Every figure retains its control, denominator and source report.
 
 ## ECHO-3 · current state
 
-ECHO-3 has **13 of 15 milestones with green certificates within their software scope**. ECHO-1 and ECHO-2 are closed; the robotics programme remains open. Components have been tested with controls and audits, but adding certificates does not demonstrate an integrated mission in a physical robot.
+ECHO-3 has **14 of 15 milestones with green certificates within their software scope** and DRONE-3 has closed its SITL leg. ECHO-1 and ECHO-2 are closed; the robotics programme remains open. Components have been tested with controls and audits, but adding certificates does not demonstrate an integrated mission in a physical robot.
 
 - **CAUSE-1** — B/C: 16/16 correct attributions versus temporal control's 8/16 per stage. Planar wall, experimental intentions and nominal prediction.
 - **PX4-1** — B/C: 4/4 flights per stage, 48/48 invalid attempts blocked and four failsafe landings. One-metre north/south goals, one supervised transaction.
@@ -417,11 +417,11 @@ ECHO-3 has **13 of 15 milestones with green certificates within their software s
 - **SAFE-1 v2** — Per B/C stage, 6/6 flights and 512/512 functional episodes. Ten native PX4 fault landings; maximum veto delay 288 ms. Containment within the bench, not universal safety.
 - **HOST-1** — Per B/C stage, 1536/1536 useful choices versus control's 768/1536. Authority updated by consequences; supervised calibration on machine tape, not general human trust.
 
-**TRANSFER-3** must demonstrate useful improvement from learning in A on new environments, against the same agent without that experience, without carrying a map or solution. It is red with no candidate. The gain school learns exactly, but the latest safe B3 pilot reaches 51/72 against nominal's 52/72 and costs more including school. It did not advance to prospective confirmation or open real B/C.
+**TRANSFER-3** closed green on 19 September with a sealed campaign under human custody: B 38/0 blocks and C 48/1, zero losses attributable to the calibration. **DRONE-3** closed its SITL leg on the 20th with 12/12 in validation and 12/12 in confirmation; HIL and cage still await hardware, so the milestone is not closed.
 
 **DRONE-3** must integrate the complete mission with causal traceability in SITL, HIL and a cage. Link, energy and safety certificates do not replace that joint closure. Instrumented battery, latency under load and combined faults must be checked during integration. The laboratory has no robotics hardware or Akida; HIL and cage work require that platform.
 
-[Roadmap](/en/docs/echoai/ruta) · [TRANSFER-3 research](/en/docs/echoai/transfer) · [Data and source reports](/data/echo3-status.json)
+[Roadmap](/en/docs/echoai/ruta) · [DRONE-3](/en/docs/echoai/drone3) · [TRANSFER-3](/en/docs/echoai/transfer) · [Data and source reports](/data/echo3-status.json)
 
 ## ECHO-1 · memory, action and transfer
 
@@ -577,9 +577,9 @@ summary includes SHA-256 fingerprints for those reports and the video demo.
 
 # ECHO-3 — roadmap
 
-State: 18 September 2026. **13/15 software certificates; TRANSFER-3 red; DRONE-3 pending.**
+State: 20 September 2026. **14/15 software certificates; TRANSFER-3 green; DRONE-3 with its SITL leg closed and HIL and cage pending.**
 
-ECHO-3 has **13 of 15 milestones with green certificates within their software scope**. ECHO-1 and ECHO-2 are closed; the robotics programme remains open. Components have been tested with controls and audits, but adding certificates does not demonstrate an integrated mission in a physical robot.
+ECHO-3 has **14 of 15 milestones with green certificates within their software scope**, and the fifteenth, DRONE-3, has closed only its simulation leg. ECHO-1 and ECHO-2 are closed; the robotics programme remains open. Adding certificates does not amount to a mission on a physical robot: there is no hardware in the laboratory.
 
 ```text
 sensor → WSP → CAM/evidence → T/PATTERN → search/Q → gate → PX4 → consequence
@@ -604,22 +604,23 @@ WSP retains 16 bytes and remains the only cognitive bus. CAM records observed ep
 | [POWER-1](/evidence/echo3/POWER1-RESULTS.md) | Per B/C stage, 128/128 feasible goals versus fixed percentage's 64/128, and 320/320 episodes retaining reserve. Simulated energy; instrumented battery remains pending. |
 | [SAFE-1 v2](/evidence/echo3/SAFE1-V2-RESULTS.md) | Per B/C stage, 6/6 flights and 512/512 functional episodes. Ten native PX4 fault landings; maximum veto delay 288 ms. Containment within the bench, not universal safety. |
 | [HOST-1](/evidence/echo3/HOST1-RESULTS.md) | Per B/C stage, 1536/1536 useful choices versus control's 768/1536. Authority updated by consequences; supervised calibration on machine tape, not general human trust. |
+| [TRANSFER-3](/evidence/echo3/TRANSFER3-PLAN-C1-RESULTS.md) | Sealed campaign under human custody: B 38/0 blocks and C 48/1, zero losses attributable to the calibration. Static two-wall rooms; no hardware and no flight. |
 
 Green means one version answers its bench's question, with controls and an auditor able to reject it. Earlier red versions remain preserved. Each component's B/C belongs to its own partition: it does not close TRANSFER-3's sealed exam. Functional tests, replay and SITL flights have different denominators and are reported separately.
 
-## The two remaining milestones
+## DRONE-3: SITL closed, physical pending
 
-**TRANSFER-3** must demonstrate useful improvement from learning in A on new environments, against the same agent without that experience, without carrying a map or solution. It is red with no candidate. The gain school learns exactly, but the latest safe B3 pilot reaches 51/72 against nominal's 52/72 and costs more including school. It did not advance to prospective confirmation or open real B/C.
+[DRONE-3](/en/docs/echoai/drone3) integrates the complete mission in a single PX4/Gazebo session per flight: perception, evidence with TRANSFER-3's transferred calibration, composition, epistemic gate, energy gate, SAFE supervisor, a bounded-goal gateway and PX4 keeping its failsafes. Validation and confirmation score 12/12 in fresh rooms, with zero collisions and zero hard-constraint violations; eleven mutants detected and eight manipulations rejected.
 
-**DRONE-3** must integrate the complete mission with causal traceability in SITL, HIL and a cage. Link, energy and safety certificates do not replace that joint closure. Instrumented battery, latency under load and combined faults must be checked during integration. The laboratory has no robotics hardware or Akida; HIL and cage work require that platform.
+That closes the SITL leg and **nothing more**. Milestone 15 also demands hardware-in-the-loop and a cage, and there `drone3_green` remains `false`. The instrumented battery, latencies on real hardware and combined faults in physical flight are still unmeasured.
 
-## What we are researching
+## What comes next
 
-The Plan B gain branch stopped after its red screen. Other primitives and delays remain untested; Plan C's perceptual calibration has not started. Each new hypothesis needs a testable mechanism, controls with the same information and a prior stopping rule. Thirteen greens support more precise questions; the remaining two still need their own evidence.
+The work stops being software. The shopping list with prices, the assembly, the safety checklist and the planned demonstrations are in [planned hardware](/en/docs/echoai/hardware): FLIGHT-1H, SENSOR-1H, PX4-1H, POWER-1H and then DRONE-3H, each with its own contract. The AKD1500 M.2 is planned for October and its first bench will be a measured comparison against CPU and Jetson.
 
-Richer 3D worlds and any neuromorphic coprocessor are future work. Useful transfer and integration of the current contract must close first. Absent hardware remains declared absent.
+One warning that is already published: the certified domain uses three-metre cells and 21 × 15 m rooms, which do not fit in a home cage. The scaled version will have to be validated in simulation first.
 
-[TRANSFER-3 research](/en/docs/echoai/transfer) · [ECHO-3: thirteen green phases and two open questions](/en/articulos/echo3-trece-fases-verdes) · [Data and source reports](/data/echo3-status.json)
+[DRONE-3](/en/docs/echoai/drone3) · [TRANSFER-3](/en/docs/echoai/transfer) · [DRONE-3: the whole mission, in simulation](/en/articulos/drone3-mision-integrada-sitl) · [Data and source reports](/data/echo3-status.json)
 
 ---
 
@@ -627,31 +628,149 @@ Richer 3D worlds and any neuromorphic coprocessor are future work. Useful transf
 
 # TRANSFER-3 — contract and state
 
-Updated: 18 September 2026. **Red, no candidate.**
+Updated: 20 September 2026. **Green within its software scope, with a sealed campaign and human custody.**
 
-Demonstrate that learning in A improves behaviour in other environments against the same agent without that experience, without carrying a map or solution. Budget, sensors, actuators and constraints are matched between arms. The exam freezes learning while perception and tracking remain active.
+Demonstrate that what was learned in A improves behaviour in other environments against the same agent without that experience, without carrying a map or a solution. Budget, sensors, actuators and constraints are matched across arms. The exam freezes learning but keeps perception and tracking alive.
 
-## Current evidence
+## What is transferred
 
-| Branch | State |
-|---|---|
-| Q, coverage and representation | Repairs and public trials; no robust advantage |
-| Plan A: cost | Failed confirmations; a programmed prior matched learned behaviour |
-| Plan B: gain | Exact learning in eight actions per condition; B2/B3 fail screening |
-| Plan B: delay and other primitives | Untested |
-| Plan C: perceptual calibration | Not started |
+The **camera mount offset**: two integers learned in A by watching where camera and LiDAR agree and where they do not. No map travels, no episodes, no Q. In the exam the agent re-registers the camera before fusing; fusion still demands two independent families to admit a cell, so the calibration never weakens VERIFY.
 
-B3: 24 public shapes, three conditions per shape; 51/72 arrivals versus nominal's 52/72. School+exam energy 7100 versus 6936, simulated units. Zero observed safety violations in every arm; five nominal arrivals are lost. All three B2/B3 audits reproduce their hashes; 261 tests pass. The global suite remains unverified because of memory limits.
+## Sealed campaign result
 
-## Gates for green
+| Split | Learned | Uncalibrated | Blocks | Attributable losses |
+|---|---:|---:|---:|---:|
+| B | 342/576 | 44/576 | 38/0 | 0 |
+| C | 432/576 | 65/576 | 48/1 | 0 |
 
-1. Public screening must show usefulness, respect constraints and beat appropriate controls including programmed priors.
-2. A candidate must pass prospective confirmation with sample size, criteria and rules frozen before viewing fresh rooms.
-3. The final campaign requires commitments published before training, external custody and a single opening of B, followed by C only if B passes. Failure remains recorded.
+The learned arm matches, mission by mission, an agent with perfect calibration. Certificate `8c77aead…` carries `transfer3_green=true`; both exams were audited in fresh processes with identical hashes.
 
-No fresh B2/B3 confirmation ran; no real B/C was generated or opened. Custody is prepared once a candidate exists. There is no hardware: this demonstrates neither physical transfer nor an instrumented battery.
+## How self-deception was avoided
 
-[Article and reasoning](/en/articulos/transfer3-aprender-no-basta) · [B2 report](/evidence/echo3/TRANSFER3-PLAN-B2-RESULTS.md) · [B3 report](/evidence/echo3/TRANSFER3-PLAN-B3-RESULTS.md) · [Data and hashes](/data/echo3-status.json)
+1. A public screen with controls, including hand-set priors: a fixed prior matched the learned behaviour in earlier plans, which is why they were discarded.
+2. Prospective confirmation with size, criteria and rules frozen before looking at new rooms.
+3. A final campaign with commitments published before training, custody out of reach of the agents, a single opening of B and C only after a green B.
+
+The first real attempt was consumed without evaluating a single room because of an infrastructure failure; it is kept on record, and the retry used an independent protocol excluding the rooms already revealed. Plans A and B stayed red and are preserved.
+
+## Limits
+
+Static two-wall simulation, noiseless sensors, and one cell of offset equals three metres. It does not certify hardware, HIL or real flight. The transferred calibration is then used in [DRONE-3](/en/docs/echoai/drone3), where for that body it is the identity: that the channel is live is shown by control, not by a non-zero offset.
+
+[Article and reasoning](/en/articulos/transfer3-aprender-no-basta) · [C1 report](/evidence/echo3/TRANSFER3-PLAN-C1-RESULTS.md) · [B2 report](/evidence/echo3/TRANSFER3-PLAN-B2-RESULTS.md) · [B3 report](/evidence/echo3/TRANSFER3-PLAN-B3-RESULTS.md) · [Data and hashes](/data/echo3-status.json)
+
+---
+
+<!-- src/content/en/echoai/drone3.md · /en/docs/echoai/drone3 -->
+
+# DRONE-3 — the whole mission, in SITL
+
+State: 20 September 2026. **SITL leg green. HIL and cage wait for hardware, so
+the milestone stays open.**
+
+DRONE-3 is ECHO-3's final question: can the integrated system fly a blocked
+charging-station mission end to end, using public sensors only, and leave a
+causal chain that can be rebuilt, with no hidden map and without bypassing the
+autopilot's failsafes?
+
+The measured answer is **yes in simulation**, with the detail and limits below.
+It is not yes on a real drone: the laboratory has no flight controller, drone,
+sensors or cage.
+
+## What happens in a flight
+
+One PX4 v1.15.4 + Gazebo session per flight. Nothing restarts between
+capabilities: take-off, perception, decision, detour, arrival or abort, return,
+landing and disarm all happen in sequence.
+
+```text
+settled observation (LiDAR, 4 depth views, RGB, PX4 estimate, battery)
+  → perception → FUSION evidence with the transferred C1 calibration
+  → POWER decides continue, return or land → COMPOSE composes the route
+  → 16-byte WSP + prediction published before acting
+  → epistemic gate → energy gate → SAFE supervisor → PX4 gateway
+  → ACK is not arrival: three settled samples
+  → next observation → attribution → replanning
+```
+
+The agent runs caged, with no network, no repository and no world. It receives
+public observations and returns one WSP; nothing else crosses into execution.
+PX4 keeps its PID, estimator, modes and failsafes.
+
+## Result
+
+Twelve validation flights and twelve confirmation flights, in fresh rooms and
+seeds whose geometry had never been flown in this bench.
+
+| Measure | Validation | Confirmation |
+|---|---|---|
+| Correct flights | 12/12 | 12/12 |
+| Feasible missions reached | 6/6 | 6/6 |
+| Correct low-reserve aborts | 3/3 | 3/3 |
+| Contained faults | 3/3 | 3/3 |
+| Collisions | 0 | 0 |
+| Minimum obstacle clearance | 1,247 mm | 1,259 mm |
+| True arrival error p50/p99 | 200 / 357 mm | 186 / 360 mm |
+| Veto after the fault | 207–1,009 ms | 167–1,017 ms |
+| Disarm after the veto | 21.1–23.1 s | 19.9–30.7 s |
+| Refusal probes blocked | 228/228 | 228/228 |
+| Hard constraints | all 0 | all 0 |
+
+Four conditions per room: reachable mission, insufficient reserve, traversability
+contradiction and an integrated fault. The contradiction is triggered by
+evidence, not by a clock: the gap closes at the first observation in which the
+agent has seen it open from the home side, and the decision taken on that world
+is discarded unexecuted.
+
+## Controls
+
+No control is ever flown. All of them are computed on the observations, battery
+and health already recorded:
+
+- a link that took the ACK for arrival would have claimed arrival in 147 of 147
+  validation transactions while the body was still about 3 m away;
+- a planner without evidence would have sent 51 goals into truly occupied cells;
+  the epistemic gate blocks every one of them;
+- the fixed battery percentage disagrees with predicted cost in 13 decisions;
+- SAFE without agent liveness would not veto the hang, and without the latch it
+  would accept both recovery probes after the veto;
+- in the functional twin of the same rooms, reactive Q reaches no goal at all.
+
+Eleven code mutants detected and eight trace manipulations rejected by the audit
+itself, including a substituted proposal with a consistent target and prediction.
+
+## How it is checked
+
+- Contract written before validation opened, with criteria, seeds and mutants
+  fixed.
+- Lock hashing the code, the energy table, COMPOSE's model and the provenance of
+  the C1 calibration.
+- An audit that rebuilds the agent, the supervisor, the gates, the gateway, the
+  lease and the probes from the traces, and cross-checks them against PX4's own
+  ULog and the simulator's private pose.
+- A second audit in a new process: it reproduces the same certificate.
+
+Certificate `c44402df…`, lock `094bc35f…`.
+
+## What it does not demonstrate
+
+- There is no hardware: `drone3_hil_green`, `drone3_cage_green` and
+  `drone3_green` are `false`. ECHO-3 stays at 14/15.
+- Energy is simulated charge falling with armed time: the pinned PX4 publishes
+  no current. These are not measured joules.
+- Static world except for the declared intervention, noiseless sensors, 3 m
+  cells and fixed altitude.
+- The station coordinate is handed over as an exact hypothesis; searching with a
+  wrong hypothesis is not tested.
+- HOST-1 does not take part; DYNAMIC-1 and PATTERN-1R are not declared
+  integrated.
+- Three flights per condition and stage: the intervals describe this bench, not
+  production reliability.
+
+[Full report](/evidence/echo3/DRONE3-RESULTS.md) ·
+[Prospective contract](/evidence/echo3/DRONE3-DESIGN.md) ·
+[Hardware handoff](/evidence/echo3/DRONE3-HARDWARE-HANDOFF.md) ·
+[Roadmap](/en/docs/echoai/ruta) · [Planned hardware](/en/docs/echoai/hardware)
 
 ---
 
@@ -659,86 +778,154 @@ No fresh B2/B3 confirmation ran; no real B/C was generated or opened. Custody is
 
 # Planned hardware
 
-This is the proposed development platform for moving towards ECHO-3. It is not
-an inventory of the laboratory: unless stated otherwise, these are candidate
-purchases.
+Updated: 20 September 2026. echoAI currently closes software and PX4 SITL:
+[DRONE-3](/en/docs/echoai/drone3) has demonstrated the whole mission in
+simulation. What is missing is physical. This page lists what has to be bought,
+what it costs, how it is assembled and which demonstrations are planned.
+**None of it is operational hardware yet: these are candidate purchases.**
 
-## Test ladder
+## What exactly is missing
 
-### 1. Bench and small drone
+Milestone 15 asks for three legs: simulation, hardware-in-the-loop and a cage.
+The first is closed. The other two need a real flight controller, a body,
+sensors, measured energy and external ground truth, so the judge never has to
+believe the agent.
 
-- [**Crazyflie 2.1 Brushless**](https://store.bitcraze.io/products/crazyflie-2-1-brushless)
-  with a [Flow Deck](https://store.bitcraze.io/products/flow-deck-v2) for low-risk
-  indoor experiments and basic position control.
-- Propellers, batteries, charger, spares and a safety cage or net.
-- USB-C power meter and independent logger.
+Three differences force new work, and they are worth stating before spending:
 
-Its job is to validate messages, latency, watchdog and link loss. It is not
-expected to carry the final sensor stack.
+1. **Scale.** The certified domain uses 3 m cells and 21 × 15 m rooms. A home
+   cage cannot host that scale, and the perception constants are frozen. A
+   re-scaled version, 1 m for instance, must be validated in simulation first,
+   with fresh seeds.
+2. **Sensors.** The agent expects a 360° 2D LiDAR, four depth views and RGB with
+   capture and delivery stamps. A different real kit means repeating SENSOR-1
+   and GROUND-1 on the real sensor.
+3. **Energy.** In simulation energy is simulated charge, because the pinned PX4
+   publishes −1 A. On hardware, POWER must be measured with a power module and
+   recalibrated.
 
-### 2. Integration platform
+## Cost
 
-- [**Holybro X500 V2**](https://holybro.com/products/px4-development-kit-x500-v2)
-  with **Pixhawk 6C** and M10 GPS as an open body for PX4 development.
-- **RadioMaster TX16S** and an ELRS receiver for manual control and aborts.
-- Physical kill switch, independent telemetry, batteries and balanced charger.
+Store prices checked on 20 September 2026, in US dollars, **excluding tax and
+shipping**. Items marked as estimates are unverified and only give an order of
+magnitude.
 
-Pixhawk stabilises the aircraft and retains the failsafes. echoAI runs as
-high-level logic on a companion computer and never replaces hard flight control.
+### Leg 1 · Hardware-in-the-loop
 
-### 3. Compute and vision
+| Item | What for | Price |
+|---|---|---|
+| [Holybro PX4 Development Kit X500 v2](https://holybro.com/products/px4-development-kit-x500-v2) with Pixhawk 6C, M10 GPS and telemetry | body and flight controller, the same airframe as the simulator | from $533 |
+| [RadioMaster TX16S](https://radiomasterrc.com/collections/tx16s) with an ELRS receiver | manual control and the **human kill switch** | ~$250 |
+| 3 × 4S/6S batteries, balance charger and fire-safe bags | repeatable flights and comparable margins | $200–300 (estimate) |
+| Power module with current sensing (PM02D or equivalent) | POWER on real charge, not simulated | $50–70 (estimate) |
+| [Jetson Orin Nano Super Developer Kit](https://www.nvidia.com/en-us/autonomous-machines/embedded-systems/jetson-orin/nano-super-developer-kit/) | companion computer: caged agent, supervisor and gates | $399 |
+| Cabling, DC converters, NVMe and spares | assembly and logging | ~$200 (estimate) |
+| **Subtotal** | | **≈ $1,630–1,750** |
 
-- [**Jetson Orin Nano Super Developer Kit**](https://developer.nvidia.com/embedded/jetson-orin-nano-super-developer-kit)
-  for fusion, development models, logs and ROS 2/PX4.
-- [**Luxonis OAK-D Pro with OV9782 and fixed focus**](https://shop.luxonis.com/products/oak-d-pro)
-  for RGB, stereo, depth and IMU; global shutter is preferable under motion and
-  vibration.
-- NVMe storage, cooling, regulated DC converters and short cables.
+The Jetson launched at $249 in December 2024; NVIDIA raised the range in July
+2026 and it now lists at $399.
 
-The Jetson kit is for development; it is not automatically assumed to be
-production hardware.
+### Leg 2 · Cage
 
-### 4. Range and geometry
+| Item | What for | Price |
+|---|---|---|
+| [Luxonis OAK-D Pro](https://shop.luxonis.com/products/oak-d-pro) | RGB, stereo, depth and IMU with global shutter | $399 |
+| 360° 2D LiDAR (LD19 or RPLIDAR class) | geometry, a family independent from the camera | $100–350 (estimate) |
+| Closed net or cage and anchors | physical enclosure, on top of PX4's geofence | $300–600 (estimate) |
+| Ground truth: overhead camera with markers, or motion capture | the private judge needs real pose; the agent never sees it | $150–300 with markers; thousands with mocap |
+| **Subtotal** | | **≈ $950–1,650** |
 
-- **Benewake TFmini-S** as an economical rangefinder for early altitude or
-  forward-distance tests.
-- [**Livox Mid-360**](https://www.livoxtech.com/mid-360/specs) for ECHO-3: a 3D
-  point cloud, 360° horizontal field of view and integrated IMU.
+### Optional and future
 
-LiDAR does not replace the camera: geometry and appearance must be able to fail
-independently and contradict one another.
+| Item | What for | Price |
+|---|---|---|
+| [BrainChip AKD1500 M.2 B+M Key](https://shop.brainchipinc.com/collections/all) | neuromorphic coprocessor for a small perception head | **$129**, in stock; **planned for October 2026** |
+| [Livox Mid-360](https://www.livoxtech.com/mid-360) | 360° 3D cloud for richer worlds | ~$734 at resellers; Livox announces the Mid-360S as its replacement |
+| [Crazyflie 2.1 Brushless](https://store.bitcraze.io/products/crazyflie-2-1-brushless) with Flow Deck | low-risk indoor bench for link and watchdog | ~$400 (estimate) |
 
-### 5. Optional neuromorphic hardware
+**Reaching the cage costs on the order of $2,600–3,400**, excluding tax and
+shipping, plus the AKD1500 if bought in October.
 
-- [**BrainChip AKD1500 M.2**](https://brainchip.com/dev-tools/),
-  only if the hardware, a compatible driver and a reproducible toolchain are
-  available.
+## How it is assembled
 
-Its first bench would compare always-on perception against CPU/Jetson on the
-same dataset: accuracy, P99 latency, real power and degradation when removed.
-Brochure TOPS will not substitute for those measurements.
+```text
+[sensors] ──USB/UART──> [companion computer]
+                          ├─ bwrap cage: agent (WSP + prediction)
+                          ├─ SAFE supervisor + epistemic and energy gates
+                          └─ cell gateway ──MAVLink serial──> [Pixhawk PX4 v1.15.4]
+                                                               └─ ESCs and motors (PX4 only)
+[RC with kill switch] ───────────────────────────────────────> [Pixhawk]
+[operator telemetry] <── read-only ── [Pixhawk]
+[ground truth] ──> private judge, outside the companion computer
+```
+
+Assembly rules that are not negotiable:
+
+- The firmware must be **PX4 v1.15.4**, the simulator's version. Another version
+  means repeating PX4-1.
+- The agent never runs on the flight controller, and never touches motors,
+  modes, parameters or arming.
+- PX4's geofence strictly inside the cage, with clearance to the ceiling.
+- Order of authority: **human with the kill switch > PX4 and its failsafes >
+  SAFE supervisor > agent**. The kill switch depends on no echoAI software.
+- After a supervisor veto the operator sends no rescue command: if they do, the
+  flight is recorded as human intervention and does not count as native
+  containment.
+
+The X500 kit assembles in about half an hour without soldering. The real work is
+the companion wiring, sensor calibration and clock synchronisation with ground
+truth.
+
+## Planned demonstrations
+
+These are plans, not results. Each will have a prior contract, controls, an
+audit and published limits, exactly like the previous ones.
+
+1. **HIL-1 · the same mission with the real controller in the loop.** Simulated
+   sensors, physical Pixhawk. Same criteria as the SITL leg and its own
+   denominator. It separates "the code works" from "the link and the timings
+   work on hardware".
+2. **POWER-1H · measured energy.** With the power module, recalibrate the cost
+   per step, return and landing on real charge and repeat the reserve bench.
+   This is where energy stops being simulated.
+3. **CAGE-1 · the scaled mission, actually flying.** A re-scaled domain
+   validated in simulation first, external ground truth and the four conditions:
+   reachable mission, insufficient reserve, world contradiction and an
+   integrated fault. Zero net contacts is a criterion; any human kill makes the
+   flight red with its cause on record.
+4. **AKIDA-1 · the coprocessor, measured.** With the AKD1500 M.2 planned for
+   October: a small perception head compared against CPU and Jetson on the same
+   dataset, publishing accuracy, P99 latency, measured power and what happens
+   when it is unplugged. It will not enter VERIFY, the WSP or the safety chain.
+   Manufacturer figures are not our results.
+5. **Public video and logs for each**, with the same hashes and raw files
+   already published from the simulator. Video illustrates; JSON, ULog and
+   hashes are the evidence.
 
 ## Recommended purchase order
 
-1. Safety equipment, radio, batteries and Crazyflie.
-2. Jetson and OAK-D to build the pipeline on a bench.
-3. X500/Pixhawk for SITL, HIL and cage testing.
-4. TFmini-S for early range integration.
-5. Mid-360 once SENSOR-1 and SAFE-1 have a bench.
-6. AKD1500 M.2 when a small perceptual task exists that can be compared against a
-   baseline and does not block the roadmap.
+1. Safety first: radio with kill switch, batteries, charger and bags.
+2. X500 with Pixhawk 6C and the power module, for HIL-1 and POWER-1H.
+3. Companion computer and camera, to build the pipeline on the bench.
+4. Cage, net and ground truth, before the first autonomous flight.
+5. AKD1500 M.2 once the small perception task to compare exists. $129 does not
+   justify jumping the queue without a bench.
+6. 3D LiDAR only once the scaled domain is closed.
 
 ## Condition of use
 
-No new component connects directly to motors. The route is always:
+No new component feeds motors directly. The route is always:
 
 ```text
 sensor → adapter → WSP state → memory/prediction → gate
        → high-level command → autopilot → actuators
 ```
 
-Simulation first, then hardware-in-the-loop, then a cage, and only finally an
-authorised outdoor environment.
+Simulation first, then hardware-in-the-loop, then the cage, and only finally an
+authorised outdoor environment, with applicable regulation met and human
+emergency operation available.
+
+[DRONE-3](/en/docs/echoai/drone3) · [Full hardware handoff](/evidence/echo3/DRONE3-HARDWARE-HANDOFF.md) · [Limits](/en/docs/echoai/limites)
 
 — R.N.
 
@@ -751,15 +938,17 @@ authorised outdoor environment.
 The laboratory's policy is to separate results, plans and hypotheses.
 
 
-## ECHO-3 · 18/09/2026
+## ECHO-3 · 20/09/2026
 
 Green means one version answers its bench's question, with controls and an auditor able to reject it. Earlier red versions remain preserved. Each component's B/C belongs to its own partition: it does not close TRANSFER-3's sealed exam. Functional tests, replay and SITL flights have different denominators and are reported separately.
 
-**TRANSFER-3** must demonstrate useful improvement from learning in A on new environments, against the same agent without that experience, without carrying a map or solution. It is red with no candidate. The gain school learns exactly, but the latest safe B3 pilot reaches 51/72 against nominal's 52/72 and costs more including school. It did not advance to prospective confirmation or open real B/C.
+**TRANSFER-3** closed green with a sealed campaign: what was learned in A improves B and C against the same agent without that experience. It is static two-wall simulation; it certifies neither hardware nor real flight.
 
-**DRONE-3** must integrate the complete mission with causal traceability in SITL, HIL and a cage. Link, energy and safety certificates do not replace that joint closure. Instrumented battery, latency under load and combined faults must be checked during integration. The laboratory has no robotics hardware or Akida; HIL and cage work require that platform.
+**DRONE-3** has closed its SITL leg: the complete mission in a single PX4/Gazebo session, 12/12 in validation and 12/12 in confirmation. The milestone also demands hardware-in-the-loop and a cage, and that remains pending: `drone3_green` is `false` and ECHO-3 stays at 14/15. The instrumented battery, latencies on real hardware and combined faults in physical flight are unmeasured.
 
-[Roadmap](/en/docs/echoai/ruta) · [TRANSFER-3 research](/en/docs/echoai/transfer)
+The certified domain uses three-metre cells and 21 × 15 m rooms. A home cage does not admit that scale: before flying in a cage a scaled version must be declared and validated in simulation.
+
+[Roadmap](/en/docs/echoai/ruta) · [DRONE-3](/en/docs/echoai/drone3) · [TRANSFER-3](/en/docs/echoai/transfer)
 
 
 ## What ECHO-2 does not demonstrate
@@ -804,8 +993,10 @@ collision. The autopilot and safety mechanisms remain separate.
 
 ## Akida
 
-There is no AKD1500 M.2 in the laboratory. Manufacturer power or learning figures
-are not RxLabs results. If a board arrives, compatibility, exact model,
+There is no AKD1500 M.2 in the laboratory. The M.2 board is planned for October
+2026 and appears in the purchase list at [planned hardware](/en/docs/echoai/hardware);
+until it is on the bench it remains an absence. Manufacturer power or learning
+figures are not RxLabs results. When a board arrives, compatibility, exact model,
 toolchain, measured power and a comparison against CPU/Jetson will be published
 before any advantage is claimed.
 
@@ -1892,11 +2083,107 @@ A well-measured negative result also answers the question.
 
 ---
 
+<!-- src/content/en/articles/drone3-mision-integrada-sitl.md · /en/articulos/drone3-mision-integrada-sitl -->
+
+# DRONE-3: the whole mission, in simulation
+
+20 September 2026 · RxLabs®
+
+In two days the two remaining ECHO-3 milestones have fallen, and it is worth
+saying exactly what each one means. **TRANSFER-3 closed green on 19 September**,
+with a sealed campaign and human custody. **DRONE-3 closed its SITL leg on the
+20th.** ECHO-3 is **not** complete: milestone 15 asks for simulation,
+hardware-in-the-loop and a cage, and the laboratory has neither a flight
+controller nor a drone.
+
+## What was measured
+
+A DRONE-3 flight is a single PX4 v1.15.4 session with Gazebo. Inside it the
+agent perceives, remembers, decides, asks for a bounded goal, waits for PX4 to
+confirm it physically and observes again. There are no restarts between
+capabilities and no stitched replays: the experimental unit is the whole mission.
+
+Twelve validation flights and twelve confirmation flights, in new rooms whose
+geometry had never been flown:
+
+- **12/12 and 12/12** correct flights;
+- 6/6 feasible missions reached per stage;
+- 3/3 correct aborts when the reserve did not allow the trip;
+- 3/3 contained faults, with PX4 landing by its own link failsafe;
+- zero collisions, minimum clearance 1,247 mm;
+- zero hard-constraint violations: false facts, imagined writes, oracle leaks,
+  gate bypasses, failsafe bypasses and unsafe setpoints accepted.
+
+Certificate `c44402df…`, with `drone3_sitl_green=true` and a second audit in a
+fresh process that reproduces it.
+
+## Why the controls matter more than the result
+
+A system that declares itself correct demonstrates nothing. These are the
+contrasts, computed on the same recorded observations:
+
+A link that confused the MAVLink ACK with arrival would have claimed arrival in
+**147 of 147** transactions while the body was still about three metres away. A
+planner ignoring evidence would have sent **51 goals** into truly occupied
+cells; the epistemic gate blocks all of them. The classic "come back when the
+battery drops below 20 %" disagrees with predicted cost in 13 decisions. And a
+supervisor without an agent-liveness check simply would not veto a hung agent.
+
+On top of that, eleven code mutants and eight trace manipulations: all detected,
+all rejected by the audit.
+
+## What went wrong along the way
+
+An independent reviewer, read-only and before the freeze, found seven rigour
+defects. The worst: the validation split included a geometry already used by the
+pilots, so **B was not entirely blind**. Also that the world contradiction was
+triggered by a clock without checking that the agent had seen the gap open, that
+the manipulation test could not fail by construction, and that the audit did not
+bind every submitted proposal to the agent's intention.
+
+All of it was fixed before flying B. We tell it because a review that finds
+nothing usually has not looked.
+
+There were corrections born from the simulator too: PX4's heartbeat had to be
+judged on the simulated clock — the simulation runs at 0.48–0.89 of real time
+and the inherited rule rejected live heartbeats — and the reserve at touchdown is
+the minimum of the landing window, because PX4 refills its simulated battery on
+disarm.
+
+## What this certificate does not say
+
+It says nothing about real flight. Energy is simulated charge falling with armed
+time, not measured joules: the pinned PX4 publishes −1 A. The world is static
+except for the declared intervention, cells are 3 m wide and altitude is fixed.
+The station coordinate is handed over as an exact hypothesis.
+
+`drone3_hil_green`, `drone3_cage_green` and `drone3_green` remain `false`.
+
+## What comes next is physical
+
+The shopping list, the assembly, the safety checklist and the exam procedure are
+published. The order is FLIGHT-1H, SENSOR-1H, PX4-1H, POWER-1H and then
+DRONE-3H. BrainChip's **AKD1500 M.2 is planned for October**, and its first test
+will be a small perception head compared against CPU and Jetson on the same
+dataset: accuracy, P99 latency, measured power and what happens when it is
+unplugged. No brochure TOPS.
+
+One uncomfortable detail is also published: the certified domain uses 3 m cells
+and 21 × 15 m rooms, and that does not fit in a home cage. Before flying in a
+cage we will have to declare a scaled version and validate it in simulation
+first.
+
+[DRONE-3 in detail](/en/docs/echoai/drone3) · [Planned hardware and costs](/en/docs/echoai/hardware) · [TRANSFER-3](/en/docs/echoai/transfer) · [Report](/evidence/echo3/DRONE3-RESULTS.md)
+
+---
+
 <!-- src/content/en/articles/transfer3-aprender-no-basta.md · /en/articulos/transfer3-aprender-no-basta -->
 
 # TRANSFER-3: learning is not enough
 
 18 September 2026 · RxLabs® · State: red, no candidate
+
+> Archive from 18/09/2026. TRANSFER-3 closed green on 19/09 with Plan C: transferred perceptual calibration, sealed campaign and human custody. [TRANSFER-3](/en/docs/echoai/transfer) · [20/09 update](/en/articulos/drone3-mision-integrada-sitl).
 
 **TRANSFER-3 must demonstrate that learning in one environment helps solve others, without carrying the map or solution, against the same agent without that experience.**
 
@@ -1949,6 +2236,8 @@ Publishing the red result prevents exact learning from becoming a claim of trans
 
 18 September 2026 · RxLabs®
 
+> Archive from 18/09/2026. Current state: 14/15 software certificates, TRANSFER-3 green and DRONE-3 with its SITL leg closed. [20/09 update](/en/articulos/drone3-mision-integrada-sitl).
+
 ECHO-3 has **13 of 15 milestones with green certificates within their software scope**. ECHO-1 and ECHO-2 are closed; the robotics programme remains open. Components have been tested with controls and audits, but adding certificates does not demonstrate an integrated mission in a physical robot.
 
 ## What each green demonstrates
@@ -1997,7 +2286,7 @@ The roadmap and downloadable reports preserve each phase's scope. The data snaps
 
 # ECHO-3 has passed the halfway point
 
-> Archive from 14/09/2026. Current state: 13/15 software certificates; TRANSFER-3 remains red. [18/09 update](/en/articulos/echo3-trece-fases-verdes).
+> Archive from 14/09/2026. Current state: 14/15 software certificates, TRANSFER-3 green and DRONE-3 closed in SITL. [20/09 update](/en/articulos/drone3-mision-integrada-sitl).
 
 > 8 of 15 software phases closed · 14 September 2026
 

@@ -1,6 +1,6 @@
 # ECHO-3 has passed the halfway point
 
-> Archive from 14/09/2026. Current state: 13/15 software certificates; TRANSFER-3 remains red. [18/09 update](/en/articulos/echo3-trece-fases-verdes).
+> Archive from 14/09/2026. Current state: 14/15 software certificates, TRANSFER-3 green and DRONE-3 closed in SITL. [20/09 update](/en/articulos/drone3-mision-integrada-sitl).
 
 > 8 of 15 software phases closed · 14 September 2026
 

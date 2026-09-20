@@ -20,6 +20,7 @@ const docs = [
   ["echoai/proceso", "echoai/proceso.md"],
   ["echoai/ruta", "echoai/ruta.md"],
   ["echoai/transfer", "echoai/transfer.md"],
+  ["echoai/drone3", "echoai/drone3.md"],
   ["echoai/hardware", "echoai/hardware.md"],
   ["echoai/limites", "echoai/limites.md"],
   ["echos/que-es", "echos/que-es.md"],
@@ -132,7 +133,7 @@ for (const language of ["es", "en", "ca"]) {
   }
 }
 
-const lastmod = "2026-09-14";
+const lastmod = "2026-09-20";
 const indexable = PAGES.filter((page) => !page.noindex);
 const urls = indexable.map((page) => {
   const base = page.path.replace(/^\/(?:en|ca)(?=\/|$)/, "") || "/";

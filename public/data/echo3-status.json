@@ -1,12 +1,12 @@
 {
   "schema": "rxlabs-echo3-status-v1",
-  "updated": "2026-09-18",
-  "scope": "Software, functional simulation, replay and PX4 SITL. No robotics hardware, HIL or cage validation.",
-  "milestones_green": 13,
+  "updated": "2026-09-20",
+  "scope": "Software, functional simulation, replay and PX4 SITL, including the complete DRONE-3 mission in SITL. No robotics hardware, HIL or cage validation.",
+  "milestones_green": 14,
   "milestones_total": 15,
   "echo3_closed": false,
-  "transfer3_green": false,
-  "campaign_C_opened": false,
+  "transfer3_green": true,
+  "campaign_C_opened": true,
   "robotics_hardware_present": false,
   "akida_present": false,
   "phases": [
@@ -139,86 +139,131 @@
         "file": "docs/HOST1-RESULTS.md",
         "url": "/evidence/echo3/HOST1-RESULTS.md"
       }
+    },
+    {
+      "phase": "TRANSFER-3",
+      "status": "green_within_declared_software_scope",
+      "scope_es": "Campaña sellada con custodia humana: B 342/576 misiones frente a 44/576 nominal y 38/0 bloques; C 432/576 frente a 65/576 y 48/1 bloques, con cero pérdidas atribuibles a la calibración. Salas estáticas de dos paredes; sin hardware ni vuelo.",
+      "report": {
+        "sha256": "180cc1bffc58c5cc525f92d30ce49a30f3e1643eae29a2bbc20cda01164e0450",
+        "file": "docs/TRANSFER3-PLAN-C1-RESULTS.md",
+        "url": "/evidence/echo3/TRANSFER3-PLAN-C1-RESULTS.md"
+      }
+    },
+    {
+      "phase": "DRONE-3 (SITL)",
+      "status": "green_within_declared_sitl_scope",
+      "scope_es": "Misión completa en una sola sesión PX4 v1.15.4 y Gazebo por vuelo: 12/12 vuelos en validación y 12/12 en confirmación, cero colisiones y 228/228 sondas bloqueadas por etapa. Energía simulada, mundo estático salvo la intervención declarada, celdas de 3 m y altura fija. HIL y jaula pendientes de hardware.",
+      "report": {
+        "sha256": "d8a3e14f46de3aacbff856dad797fd2ea342fbae5c8acc7c703e8e1dc5b3298f",
+        "file": "docs/DRONE3-RESULTS.md",
+        "url": "/evidence/echo3/DRONE3-RESULTS.md"
+      }
     }
   ],
   "pending": [
-    "TRANSFER-3",
-    "DRONE-3"
+    "DRONE-3 (HIL)",
+    "DRONE-3 (cage)"
   ],
   "transfer": {
-    "status": "red",
-    "candidate": false,
+    "status": "green",
+    "closed": "2026-09-19",
+    "plan": "C1 v2 — transferred perceptual calibration",
     "plan_a": "failed_confirmations",
     "plan_b_gain": "public_pilots_failed",
-    "plan_b_other_primitives": "untested",
-    "plan_c": "not_started",
-    "fresh_b2_b3_confirmation_executed": false,
-    "final_campaign_B_C_generated_or_opened": false,
-    "school": {
-      "moves_per_condition": 8,
-      "conditions": 3,
-      "energy_per_condition": 32,
-      "total_energy": 96,
-      "reset_energy_modelled": false
-    },
-    "b3": {
-      "public_shapes": 24,
-      "conditions_per_shape": 3,
-      "independent_room_blocks": 24,
-      "unique_consumer_missions": 216,
-      "arm_rows": 288,
-      "learned_arrivals": 51,
-      "nominal_arrivals": 52,
-      "exam_cases_per_arm": 72,
-      "learned_exam_energy": 7004,
-      "nominal_exam_energy": 6936,
-      "learned_school_and_exam_energy": 7100,
-      "nominal_total_energy": 6936,
-      "joint_success_extra_energy_learned": 120,
-      "arrivals_gained": 4,
-      "arrivals_lost": 5,
-      "all_arms_observed_safety_violations": 0
-    },
-    "audits": [
-      {
-        "artifact": "plan-b2-legacy-pilot.json",
-        "canonical_sha256": "55ad0d77f8c8e35e0092892adc80d13fa05988bc3c44284b4754ecc3ee369ec6",
-        "replay_valid": true
+    "plan_c": "green",
+    "sealed_campaign": true,
+    "human_custody": true,
+    "certificate_sha256": "8c77aead2ccdfcc846f39cb2151364f67699988d422df4812786af7eedc39cd2",
+    "stages": {
+      "B": {
+        "missions": 576,
+        "calibrated_arrivals": 342,
+        "nominal_arrivals": 44,
+        "blocks_won": 38,
+        "blocks_lost": 0,
+        "strict_losses": 0
       },
-      {
-        "artifact": "plan-b2-safe-pilot.json",
-        "canonical_sha256": "bcc5263887febeae5b7bf830b2c671eb872d6f5e1d348fe0be1efb5dcbf1e319",
-        "replay_valid": true
-      },
-      {
-        "artifact": "plan-b3-pilot.json",
-        "canonical_sha256": "d88b966675d97a31ceaf15b380983e347560a92ce6b32d767c1cd20883d8f7c0",
-        "replay_valid": true
+      "C": {
+        "missions": 576,
+        "calibrated_arrivals": 432,
+        "nominal_arrivals": 65,
+        "blocks_won": 48,
+        "blocks_lost": 1,
+        "strict_losses": 1,
+        "losses_attributable_to_calibration": 0
       }
-    ],
-    "regression_tests_passed": 261,
-    "global_suite_verified": false,
-    "global_suite_limit": "Historical memory exhaustion in tests/test_dynamic1.py",
+    },
+    "limits": "Static two-wall rooms in functional simulation. No hardware, no flight, no real sensor noise.",
     "sources": [
       {
-        "sha256": "523140431e6d24ebb3bae6fcd3f42d83ff07b8bfaebfa310498656efb9650f10",
-        "file": "docs/TRANSFER3-PLAN-B2-DESIGN.md",
-        "url": "/evidence/echo3/TRANSFER3-PLAN-B2-DESIGN.md"
+        "sha256": "039f6b4bd0ffd7606e6d85ec4014a2ac425fe2208b8c99bbfd4e37ede77697e3",
+        "file": "docs/TRANSFER3-PLAN-C1-DESIGN.md",
+        "url": "/evidence/echo3/TRANSFER3-PLAN-C1-DESIGN.md"
       },
       {
-        "sha256": "8596c56099eec1a0dc4fb2d4a4a03397e5e0090ca75962641c60882622fce8cb",
-        "file": "docs/TRANSFER3-PLAN-B2-RESULTS.md",
-        "url": "/evidence/echo3/TRANSFER3-PLAN-B2-RESULTS.md"
+        "sha256": "180cc1bffc58c5cc525f92d30ce49a30f3e1643eae29a2bbc20cda01164e0450",
+        "file": "docs/TRANSFER3-PLAN-C1-RESULTS.md",
+        "url": "/evidence/echo3/TRANSFER3-PLAN-C1-RESULTS.md"
+      }
+    ]
+  },
+  "drone3_sitl_green": true,
+  "drone3_hil_green": false,
+  "drone3_cage_green": false,
+  "drone3_green": false,
+  "drone3": {
+    "status": "sitl_green",
+    "closed": "2026-09-20",
+    "scope": "One continuous PX4 v1.15.4 + Gazebo Harmonic session per flight. Perception, evidence with the transferred C1 calibration, composition, epistemic gate, energy gate, SAFE supervisor, bounded cell gateway; PX4 keeps its own failsafes.",
+    "certificate_sha256": "c44402dffce9f3809b0a6ed3145d9e6e6f7c8c9b7451fe1cf0811e02a7cd2e03",
+    "lock_sha256": "094bc35fe2a16c7a3410208ac0cc3c44dfd981896c1b397286ab66d51a38a10c",
+    "stages": {
+      "validation": {
+        "flights": 12,
+        "passed": 12,
+        "missions_reached": "6/6",
+        "correct_aborts": "3/3",
+        "faults_contained": "3/3",
+        "collisions": 0,
+        "min_clearance_mm": 1247,
+        "arrival_true_error_mm_p50": 200,
+        "arrival_true_error_mm_p99": 357,
+        "refusal_probes_blocked": "228/228"
+      },
+      "confirmation": {
+        "flights": 12,
+        "passed": 12,
+        "missions_reached": "6/6",
+        "correct_aborts": "3/3",
+        "faults_contained": "3/3",
+        "collisions": 0,
+        "min_clearance_mm": 1259,
+        "arrival_true_error_mm_p50": 186,
+        "arrival_true_error_mm_p99": 360,
+        "refusal_probes_blocked": "228/228"
+      }
+    },
+    "hard_constraints_zero": true,
+    "mutants_detected": 11,
+    "manipulations_rejected": 8,
+    "second_audit_reproduced": true,
+    "limits": "Simulated energy: the pinned PX4 publishes -1 A, so these are not measured joules. Static world except the declared intervention, 3 m cells, fixed altitude, station coordinate handed over as an exact hypothesis. HIL and cage need hardware that the laboratory does not have.",
+    "sources": [
+      {
+        "sha256": "c1545066ffea94d11cee4852d84c9ec52c95a55352ca2247c902d4b7d0ca0524",
+        "file": "docs/DRONE3-DESIGN.md",
+        "url": "/evidence/echo3/DRONE3-DESIGN.md"
       },
       {
-        "sha256": "86a179ad3ecc92b1328baa4ab3892a82d5a1bf791a0c22359ea0948d8e373ffa",
-        "file": "docs/TRANSFER3-PLAN-B3-DESIGN.md",
-        "url": "/evidence/echo3/TRANSFER3-PLAN-B3-DESIGN.md"
+        "sha256": "d8a3e14f46de3aacbff856dad797fd2ea342fbae5c8acc7c703e8e1dc5b3298f",
+        "file": "docs/DRONE3-RESULTS.md",
+        "url": "/evidence/echo3/DRONE3-RESULTS.md"
       },
       {
-        "sha256": "e9feaeb23d3ff8dc909bfe069475c463925f9688211442ece269f3662d058a6e",
-        "file": "docs/TRANSFER3-PLAN-B3-RESULTS.md",
-        "url": "/evidence/echo3/TRANSFER3-PLAN-B3-RESULTS.md"
+        "sha256": "f436ab74ba8a017d77bc8b557bb39b0d16017d5474b4515e20d9b11583819381",
+        "file": "docs/DRONE3-HARDWARE-HANDOFF.md",
+        "url": "/evidence/echo3/DRONE3-HARDWARE-HANDOFF.md"
       }
     ]
   }

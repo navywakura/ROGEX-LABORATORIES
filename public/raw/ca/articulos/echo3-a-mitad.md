@@ -1,6 +1,6 @@
 # ECHO-3 ha passat la meitat
 
-> Arxiu del 14/09/2026. Estat actual: 13/15 certificats de programari; TRANSFER-3 continua vermell. [Actualització del 18/09](/ca/articulos/echo3-trece-fases-verdes).
+> Arxiu del 14/09/2026. Estat actual: 14/15 certificats de programari, TRANSFER-3 verd i DRONE-3 tancat en SITL. [Actualització del 20/09](/ca/articulos/drone3-mision-integrada-sitl).
 
 > 8 de 15 fases de programari tancades · 14 de setembre de 2026
 

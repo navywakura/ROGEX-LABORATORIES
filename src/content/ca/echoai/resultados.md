@@ -6,7 +6,7 @@ d'intel·ligència. Cada xifra conserva el control, denominador i informe d'orig
 
 ## ECHO-3 · estat actual
 
-ECHO-3 té **13 de 15 fites amb certificat verd dins del seu abast de programari**. ECHO-1 i ECHO-2 estan tancats; el programa robòtic continua obert. S'han provat components amb controls i auditories, però sumar certificats no demostra una missió integrada en un robot físic.
+ECHO-3 té **14 de 15 fites amb certificat verd dins del seu abast de programari** i DRONE-3 ha tancat el seu tram SITL. ECHO-1 i ECHO-2 estan tancats; el programa robòtic continua obert. S'han provat components amb controls i auditories, però sumar certificats no demostra una missió integrada en un robot físic.
 
 - **CAUSE-1** — B/C: 16/16 atribucions correctes davant 8/16 del control temporal per etapa. Paret plana, intencions experimentals i predicció nominal.
 - **PX4-1** — B/C: 4/4 vols per etapa, 48/48 intents invàlids bloquejats i quatre aterratges de failsafe. Objectius nord/sud d'un metre, una transacció supervisada.
@@ -14,11 +14,11 @@ ECHO-3 té **13 de 15 fites amb certificat verd dins del seu abast de programari
 - **SAFE-1 v2** — Per etapa B/C, 6/6 vols i 512/512 episodis funcionals. Deu aterratges natius PX4 davant fallades; veto màxim 288 ms. Contenció dins del banc, sense seguretat universal.
 - **HOST-1** — Per etapa B/C, 1536/1536 eleccions útils davant 768/1536 del control. Autoritat actualitzada per conseqüències; calibració supervisada sobre cinta de màquina, sense confiança humana general.
 
-**TRANSFER-3** ha de demostrar una millora útil de l'après a A en entorns nous davant del mateix agent sense aquella experiència, sense transportar mapa ni solució. Continua vermell i sense candidat. L'escola de guany aprèn exactament, però l'últim pilot segur B3 arriba 51/72 davant 52/72 nominal i costa més, escola inclosa. No va passar a confirmació prospectiva ni va obrir B/C real.
+**TRANSFER-3** va tancar en verd el 19 de setembre amb campanya segellada i custòdia humana: B 38/0 blocs i C 48/1, zero pèrdues atribuïbles a la calibració. **DRONE-3** va tancar el seu tram SITL el dia 20 amb 12/12 en validació i 12/12 en confirmació; HIL i gàbia continuen pendents de maquinari, així que la fita no està tancada.
 
 **DRONE-3** ha d'integrar la missió completa amb traçabilitat causal en SITL, HIL i gàbia. Els certificats d'enllaç, energia o seguretat no substitueixen aquest tancament conjunt. Bateria instrumentada, latència sota càrrega i fallades combinades s'hauran de comprovar en integrar-ho. No hi ha maquinari robòtic ni Akida al laboratori; HIL i gàbia necessiten aquella plataforma.
 
-[Full de ruta](/ca/docs/echoai/ruta) · [Recerca TRANSFER-3](/ca/docs/echoai/transfer) · [Dades i informes d'origen](/data/echo3-status.json)
+[Full de ruta](/ca/docs/echoai/ruta) · [DRONE-3](/ca/docs/echoai/drone3) · [TRANSFER-3](/ca/docs/echoai/transfer) · [Dades i informes d'origen](/data/echo3-status.json)
 
 ## ECHO-1 · memòria, acció i transferència
 

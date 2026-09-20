@@ -2,6 +2,8 @@
 
 18 September 2026 · RxLabs® · State: red, no candidate
 
+> Archive from 18/09/2026. TRANSFER-3 closed green on 19/09 with Plan C: transferred perceptual calibration, sealed campaign and human custody. [TRANSFER-3](/en/docs/echoai/transfer) · [20/09 update](/en/articulos/drone3-mision-integrada-sitl).
+
 **TRANSFER-3 must demonstrate that learning in one environment helps solve others, without carrying the map or solution, against the same agent without that experience.**
 
 Saving a table is only part of that question. The learned parameter must change behaviour and improve outcomes with the same sensors, budget and constraints. We have not demonstrated that advantage under the ECHO-3 contract. This is software research: the laboratory has no physical drone, sensors or Akida board.

@@ -1,27 +1,32 @@
 # TRANSFER-3 — contracte i estat
 
-Actualitzat: 18 de setembre de 2026. **Vermell, sense candidat.**
+Actualitzat: 20 de setembre de 2026. **Verd dins del seu abast de programari, amb campanya segellada i custòdia humana.**
 
-Demostrar que l'après a A millora la conducta en altres entorns davant del mateix agent sense aquella experiència, sense transportar mapa ni solució. Pressupost, sensors, actuadors i restriccions són aparellats entre braços. L'examen congela l'aprenentatge, però manté percepció i seguiment.
+Demostrar que allò après a A millora la conducta en altres entorns davant del mateix agent sense aquella experiència, sense transportar mapa ni solució. Pressupost, sensors, actuadors i restriccions s'emparellen entre braços. L'examen congela l'aprenentatge, però manté percepció i seguiment.
 
-## Evidència actual
+## Què es transfereix
 
-| Branca | Estat |
-|---|---|
-| Q, cobertura i representació | Correccions i assajos públics; sense avantatge robust |
-| Pla A: cost | Confirmacions fallides; un prior programat igualava la conducta apresa |
-| Pla B: guany | Aprèn exactament amb vuit actuacions per condició; B2/B3 fallen el cribratge |
-| Pla B: retard i altres primitives | Sense provar |
-| Pla C: calibració perceptiva | Sense començar |
+El **desplaçament de muntatge de la càmera**: dos enters apresos a A observant on coincideixen i on no coincideixen càmera i LiDAR. No hi viatja mapa, ni episodis, ni Q. A l'examen l'agent torna a registrar la càmera abans de fusionar; la fusió continua exigint dues famílies independents per admetre una cel·la, de manera que la calibració no afebleix VERIFY.
 
-B3: 24 formes públiques, tres condicions per forma; 51/72 arribades davant 52/72 nominal. Energia escola+examen 7100 davant 6936, unitats simulades. Zero infraccions de seguretat observades a tots els braços; es perden cinc arribades del nominal. Les tres auditories B2/B3 reprodueixen els hashes; passen 261 tests. La suite global queda sense verificar per memòria.
+## Resultat de la campanya segellada
 
-## Portes per al verd
+| Partició | Après | Sense calibrar | Blocs | Pèrdues atribuïbles |
+|---|---:|---:|---:|---:|
+| B | 342/576 | 44/576 | 38/0 | 0 |
+| C | 432/576 | 65/576 | 48/1 | 0 |
 
-1. El cribratge públic ha de demostrar utilitat, respectar restriccions i superar controls adequats, incloent-hi priors programats.
-2. Un candidat ha de passar confirmació prospectiva amb mida, criteris i regles congelats abans de veure sales noves.
-3. La campanya final necessita compromisos publicats abans d'entrenar, custòdia externa i obertura única de B, seguida de C només si B passa. El fracàs queda registrat.
+El braç après iguala missió a missió l'agent amb calibració perfecta. Certificat `8c77aead…` amb `transfer3_green=true`; els dos exàmens es van auditar en processos nous amb hash idèntic.
 
-No s'ha executat confirmació nova B2/B3 ni s'ha generat o obert B/C real. La custòdia es prepara quan existeixi un candidat. No hi ha maquinari: no demostra transferència física ni bateria instrumentada.
+## Com es va evitar l'autoengany
 
-[Article i raonament](/ca/articulos/transfer3-aprender-no-basta) · [Informe B2](/evidence/echo3/TRANSFER3-PLAN-B2-RESULTS.md) · [Informe B3](/evidence/echo3/TRANSFER3-PLAN-B3-RESULTS.md) · [Dades i hashes](/data/echo3-status.json)
+1. Cribratge públic amb controls, inclosos priors programats: un prior fix igualava la conducta apresa als plans anteriors, i per això es van descartar.
+2. Confirmació prospectiva amb mida, criteris i regles congelats abans de mirar sales noves.
+3. Campanya final amb compromisos publicats abans d'entrenar, custòdia fora de l'abast dels agents, obertura única de B i C només després d'un B verd.
+
+El primer intent real es va consumir sense avaluar cap sala per una fallada d'infraestructura; queda registrat, i el segon intent va fer servir un protocol independent que excloïa les sales ja revelades. Els plans A i B van quedar vermells i es conserven.
+
+## Límits
+
+Simulació estàtica de dues parets, sensors sense soroll, i un desplaçament d'una cel·la equival a tres metres. No acredita maquinari, HIL ni vol real. La calibració transferida es fa servir després a [DRONE-3](/ca/docs/echoai/drone3), on per a aquell cos val la identitat: que el canal és viu es demostra per control, no per un desplaçament diferent de zero.
+
+[Article i raonament](/ca/articulos/transfer3-aprender-no-basta) · [Informe C1](/evidence/echo3/TRANSFER3-PLAN-C1-RESULTS.md) · [Informe B2](/evidence/echo3/TRANSFER3-PLAN-B2-RESULTS.md) · [Informe B3](/evidence/echo3/TRANSFER3-PLAN-B3-RESULTS.md) · [Dades i hashes](/data/echo3-status.json)

@@ -3,15 +3,17 @@
 The laboratory's policy is to separate results, plans and hypotheses.
 
 
-## ECHO-3 · 18/09/2026
+## ECHO-3 · 20/09/2026
 
 Green means one version answers its bench's question, with controls and an auditor able to reject it. Earlier red versions remain preserved. Each component's B/C belongs to its own partition: it does not close TRANSFER-3's sealed exam. Functional tests, replay and SITL flights have different denominators and are reported separately.
 
-**TRANSFER-3** must demonstrate useful improvement from learning in A on new environments, against the same agent without that experience, without carrying a map or solution. It is red with no candidate. The gain school learns exactly, but the latest safe B3 pilot reaches 51/72 against nominal's 52/72 and costs more including school. It did not advance to prospective confirmation or open real B/C.
+**TRANSFER-3** closed green with a sealed campaign: what was learned in A improves B and C against the same agent without that experience. It is static two-wall simulation; it certifies neither hardware nor real flight.
 
-**DRONE-3** must integrate the complete mission with causal traceability in SITL, HIL and a cage. Link, energy and safety certificates do not replace that joint closure. Instrumented battery, latency under load and combined faults must be checked during integration. The laboratory has no robotics hardware or Akida; HIL and cage work require that platform.
+**DRONE-3** has closed its SITL leg: the complete mission in a single PX4/Gazebo session, 12/12 in validation and 12/12 in confirmation. The milestone also demands hardware-in-the-loop and a cage, and that remains pending: `drone3_green` is `false` and ECHO-3 stays at 14/15. The instrumented battery, latencies on real hardware and combined faults in physical flight are unmeasured.
 
-[Roadmap](/en/docs/echoai/ruta) · [TRANSFER-3 research](/en/docs/echoai/transfer)
+The certified domain uses three-metre cells and 21 × 15 m rooms. A home cage does not admit that scale: before flying in a cage a scaled version must be declared and validated in simulation.
+
+[Roadmap](/en/docs/echoai/ruta) · [DRONE-3](/en/docs/echoai/drone3) · [TRANSFER-3](/en/docs/echoai/transfer)
 
 
 ## What ECHO-2 does not demonstrate
@@ -56,8 +58,10 @@ collision. The autopilot and safety mechanisms remain separate.
 
 ## Akida
 
-There is no AKD1500 M.2 in the laboratory. Manufacturer power or learning figures
-are not RxLabs results. If a board arrives, compatibility, exact model,
+There is no AKD1500 M.2 in the laboratory. The M.2 board is planned for October
+2026 and appears in the purchase list at [planned hardware](/en/docs/echoai/hardware);
+until it is on the bench it remains an absence. Manufacturer power or learning
+figures are not RxLabs results. When a board arrives, compatibility, exact model,
 toolchain, measured power and a comparison against CPU/Jetson will be published
 before any advantage is claimed.
 

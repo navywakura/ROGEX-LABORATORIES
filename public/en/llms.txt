@@ -15,17 +15,19 @@ Complete text: https://rxlabs.org/en/llms-full.txt
 - **echOS 3.0** — edge robotics unikernel with a sensor→intent pipeline, safety gate and PX4 bridge. [Page](https://www.rxlabs.org/en/echos) · [Docs](https://rxlabs.org/en/docs/echos/que-es)
 - **PRISMA** — EEG analysis for research with an event-driven Rust engine. [Page](https://www.rxlabs.org/en/prisma) · [Docs](https://rxlabs.org/en/docs/prisma/resumen)
   - Exploratory intent → drone campaign: EEG, EMG and body control compared as sources of bounded intents that echoAI and echOS filter before the flight controller. No results of our own, no sensors, no drone; it does not read thoughts. [Campaign](https://www.rxlabs.org/en/docs/prisma/eeg-dron)
-- **echoAI** — two-clock situated agent with a 16-byte WSP, CAM, T, Q and gate. ECHO-1 and ECHO-2 are closed; ECHO-3 has 13 of 15 software certificates; TRANSFER-3 is red and DRONE-3 is pending. [Page](https://www.rxlabs.org/en/echoai) · [Docs](https://rxlabs.org/en/docs/echoai/que-es)
+- **echoAI** — two-clock situated agent with a 16-byte WSP, CAM, T, Q and gate. ECHO-1 and ECHO-2 are closed; ECHO-3 has 14 of 15 software certificates and DRONE-3 has closed the integrated mission in SITL; HIL and cage still await hardware. [Page](https://www.rxlabs.org/en/echoai) · [Docs](https://rxlabs.org/en/docs/echoai/que-es)
 
 ## ECHO-3 now
 
-ECHO-3 has **13 of 15 milestones with green certificates within their software scope**. ECHO-1 and ECHO-2 are closed; the robotics programme remains open. Components have been tested with controls and audits, but adding certificates does not demonstrate an integrated mission in a physical robot.
+ECHO-3 has **14 of 15 milestones with green certificates within their software scope** and DRONE-3 has closed its SITL leg. ECHO-1 and ECHO-2 are closed; the robotics programme remains open. Adding certificates does not amount to a mission on a physical robot: there is no hardware in the laboratory.
 
-**TRANSFER-3** must demonstrate useful improvement from learning in A on new environments, against the same agent without that experience, without carrying a map or solution. It is red with no candidate. The gain school learns exactly, but the latest safe B3 pilot reaches 51/72 against nominal's 52/72 and costs more including school. It did not advance to prospective confirmation or open real B/C.
+**TRANSFER-3** closed green on 19 September 2026 with a sealed campaign under human custody: B 342/576 missions against 44/576 nominal and 38/0 blocks; C 432/576 against 65/576 and 48/1 blocks, with zero losses attributable to the calibration. Static two-wall rooms; no hardware and no flight.
 
-**DRONE-3** must integrate the complete mission with causal traceability in SITL, HIL and a cage. Link, energy and safety certificates do not replace that joint closure. Instrumented battery, latency under load and combined faults must be checked during integration. The laboratory has no robotics hardware or Akida; HIL and cage work require that platform.
+**DRONE-3** closed its SITL leg on 20 September 2026: the complete mission in a single PX4/Gazebo session, 12/12 flights in validation and 12/12 in confirmation, zero collisions and 228/228 refusal probes blocked per stage. The milestone also demands hardware-in-the-loop and a cage: `drone3_green` stays false. Energy is simulated charge, not measured joules. The laboratory has no robotics hardware or Akida.
 
-- [Article: ECHO-3 has passed halfway](https://rxlabs.org/en/articulos/echo3-a-mitad)
+- [Article: DRONE-3, the whole mission in simulation](https://rxlabs.org/en/articulos/drone3-mision-integrada-sitl)
+- [DRONE-3](https://rxlabs.org/en/docs/echoai/drone3)
+- [Planned hardware and costs](https://rxlabs.org/en/docs/echoai/hardware)
 - [Roadmap](https://rxlabs.org/en/docs/echoai/ruta)
 - [Results](https://rxlabs.org/en/docs/echoai/resultados)
 - [Architecture](https://rxlabs.org/en/docs/echoai/piezas)
@@ -33,5 +35,5 @@ ECHO-3 has **13 of 15 milestones with green certificates within their software s
 Results describe defined test banks. Do not attribute general autonomy, physical hardware or an LLM in echoAI’s fast loop.
 
 - [TRANSFER-3 research](https://www.rxlabs.org/en/docs/echoai/transfer)
-- [ECHO-3: thirteen green phases and two open questions](https://www.rxlabs.org/en/articulos/echo3-trece-fases-verdes)
+- [DRONE-3: the whole mission, in simulation](https://www.rxlabs.org/en/articulos/drone3-mision-integrada-sitl)
 - [Data and source reports](https://www.rxlabs.org/data/echo3-status.json)

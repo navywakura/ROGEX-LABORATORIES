@@ -2,6 +2,8 @@
 
 18 de setembre de 2026 · RxLabs®
 
+> Arxiu del 18/09/2026. L'estat actual és 14/15 certificats de programari, TRANSFER-3 verd i DRONE-3 amb el tram SITL tancat. [Actualització del 20/09](/ca/articulos/drone3-mision-integrada-sitl).
+
 ECHO-3 té **13 de 15 fites amb certificat verd dins del seu abast de programari**. ECHO-1 i ECHO-2 estan tancats; el programa robòtic continua obert. S'han provat components amb controls i auditories, però sumar certificats no demostra una missió integrada en un robot físic.
 
 ## Què demostra cada verd

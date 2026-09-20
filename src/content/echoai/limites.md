@@ -3,15 +3,17 @@
 La política del laboratorio es separar resultados, planes e hipótesis.
 
 
-## ECHO-3 · 18/09/2026
+## ECHO-3 · 20/09/2026
 
 Verde significa que una versión cumple la pregunta de su banco, con controles y un auditor que puede rechazarla. Las versiones rojas anteriores se conservan. Los B/C de cada componente son sus propias particiones: no cierran el examen sellado de TRANSFER-3. Las pruebas funcionales, los replay y los vuelos SITL tienen denominadores distintos y se publican por separado.
 
-**TRANSFER-3** debe demostrar una mejora útil de lo aprendido en A sobre entornos nuevos frente al mismo agente sin esa experiencia, sin mapa ni solución transportada. Sigue rojo y sin candidato. La escuela de ganancia aprende exactamente, pero el último piloto seguro B3 llega 51/72 frente a 52/72 nominal y cuesta más, escuela incluida. No pasó a confirmación prospectiva ni abrió B/C real.
+**TRANSFER-3** cerró en verde con campaña sellada: lo aprendido en A mejora B y C frente al mismo agente sin esa experiencia. Es simulación estática de dos paredes; no acredita hardware ni vuelo real.
 
-**DRONE-3** debe integrar la misión completa con trazabilidad causal en SITL, HIL y jaula. Los certificados de enlace, energía o seguridad no reemplazan ese cierre conjunto. La batería instrumentada, las latencias bajo carga y los fallos combinados tendrán que comprobarse en la integración. No hay hardware robótico ni Akida en el laboratorio; HIL y jaula requieren esa plataforma.
+**DRONE-3** ha cerrado su tramo SITL: la misión completa en una sola sesión PX4/Gazebo, 12/12 en validación y 12/12 en confirmación. El hito exige además hardware-in-the-loop y jaula, y eso sigue pendiente: `drone3_green` es `false` y ECHO-3 queda en 14/15. La batería instrumentada, las latencias sobre hardware real y los fallos combinados en vuelo físico están sin medir.
 
-[Hoja de ruta](/docs/echoai/ruta) · [Investigación TRANSFER-3](/docs/echoai/transfer)
+El dominio certificado usa celdas de tres metros y salas de 21 × 15 m. Una jaula doméstica no admite esa escala: antes de volar en jaula hay que declarar una versión a escala y validarla en simulación.
+
+[Hoja de ruta](/docs/echoai/ruta) · [DRONE-3](/docs/echoai/drone3) · [TRANSFER-3](/docs/echoai/transfer)
 
 
 ## Lo que ECHO-2 no demuestra
@@ -57,10 +59,12 @@ colisión. El autopiloto y los mecanismos de seguridad permanecen separados.
 
 ## Akida
 
-No hay AKD1500 M.2 en el laboratorio. Las cifras de consumo o aprendizaje del
-fabricante no son resultados de RxLabs. Si llega una placa, se publicarán
-compatibilidad, modelo exacto, toolchain, potencia medida y comparación contra
-CPU/Jetson antes de hablar de ventaja.
+No hay AKD1500 M.2 en el laboratorio. **Está previsto para octubre de 2026**,
+pero previsto no es presente. Las cifras de consumo o aprendizaje del fabricante
+no son resultados de RxLabs. Cuando llegue la placa se publicarán compatibilidad,
+modelo exacto, toolchain, potencia medida y comparación contra CPU/Jetson antes
+de hablar de ventaja. El coprocesador nunca entrará en VERIFY, en el WSP ni en
+la cadena de seguridad.
 
 ## Estado de las palabras
 

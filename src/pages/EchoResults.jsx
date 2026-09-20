@@ -11,28 +11,28 @@ const GATES = ["OK", "MODIFY", "BLOCK"];
 
 const ECHO3_NOW = {
   "es": {
-    "kicker": "Estado actual · 18 septiembre 2026",
-    "title": "ECHO-3 · 13 de 15 certificados software",
-    "text": "Causa, enlace PX4, energía, contención y autoridad de fuentes se añaden a los ocho cierres anteriores. Cada certificado conserva su banco y sus límites; la misión integrada, HIL y jaula siguen pendientes.",
-    "detail": "TRANSFER-3 sigue rojo: B3 seguro llega 51/72 frente a 52/72 nominal; escuela+examen 7100 frente a 6936 unidades simuladas. No hay candidato ni hardware robótico.",
-    "link": "Leer las trece fases y lo que falta",
-    "href": "/articulos/echo3-trece-fases-verdes"
+    "kicker": "Estado actual · 20 septiembre 2026",
+    "title": "ECHO-3 · 14 de 15 certificados software y la misión integrada en SITL",
+    "text": "TRANSFER-3 cerró en verde con campaña sellada y custodia humana. DRONE-3 cerró la misión completa en una sola sesión PX4/Gazebo: 12/12 vuelos en validación y 12/12 en confirmación, cero colisiones y 228/228 sondas de rechazo bloqueadas por etapa.",
+    "detail": "El hito 15 exige también hardware-in-the-loop y jaula: `drone3_green` sigue en false. La energía es carga simulada, no julios medidos, y no hay hardware robótico en el laboratorio.",
+    "link": "Leer qué se midió y qué no demuestra",
+    "href": "/articulos/drone3-mision-integrada-sitl"
   },
   "en": {
-    "kicker": "Current state · 18 September 2026",
-    "title": "ECHO-3 · 13 of 15 software certificates",
-    "text": "Causality, PX4 link, energy, containment and source authority join the previous eight closures. Each certificate retains its bench and limits; integrated missions, HIL and cage work remain pending.",
-    "detail": "TRANSFER-3 remains red: safe B3 scores 51/72 versus nominal's 52/72; school+exam costs 7100 versus 6936 simulated units. No candidate or robotics hardware.",
-    "link": "Read the thirteen phases and remaining work",
-    "href": "/en/articulos/echo3-trece-fases-verdes"
+    "kicker": "Current state · 20 September 2026",
+    "title": "ECHO-3 · 14 of 15 software certificates and the integrated mission in SITL",
+    "text": "TRANSFER-3 closed green with a sealed campaign under human custody. DRONE-3 closed the complete mission in a single PX4/Gazebo session: 12/12 flights in validation and 12/12 in confirmation, zero collisions and 228/228 refusal probes blocked per stage.",
+    "detail": "Milestone 15 also demands hardware-in-the-loop and a cage: `drone3_green` stays false. Energy is simulated charge, not measured joules, and the laboratory has no robotics hardware.",
+    "link": "Read what was measured and what it does not show",
+    "href": "/en/articulos/drone3-mision-integrada-sitl"
   },
   "ca": {
-    "kicker": "Estat actual · 18 setembre 2026",
-    "title": "ECHO-3 · 13 de 15 certificats de programari",
-    "text": "Causa, enllaç PX4, energia, contenció i autoritat de fonts s'afegeixen als vuit tancaments anteriors. Cada certificat conserva banc i límits; missió integrada, HIL i gàbia continuen pendents.",
-    "detail": "TRANSFER-3 continua vermell: B3 segur arriba 51/72 davant 52/72 nominal; escola+examen 7100 davant 6936 unitats simulades. Sense candidat ni maquinari robòtic.",
-    "link": "Llegir les tretze fases i el que falta",
-    "href": "/ca/articulos/echo3-trece-fases-verdes"
+    "kicker": "Estat actual · 20 setembre 2026",
+    "title": "ECHO-3 · 14 de 15 certificats de programari i la missió integrada en SITL",
+    "text": "TRANSFER-3 va tancar en verd amb campanya segellada i custòdia humana. DRONE-3 va tancar la missió completa en una sola sessió PX4/Gazebo: 12/12 vols en validació i 12/12 en confirmació, zero col·lisions i 228/228 sondes de rebuig bloquejades per etapa.",
+    "detail": "La fita 15 exigeix també hardware-in-the-loop i gàbia: `drone3_green` continua a false. L'energia és càrrega simulada, no joules mesurats, i no hi ha maquinari robòtic al laboratori.",
+    "link": "Llegir què s'ha mesurat i què no demostra",
+    "href": "/ca/articulos/drone3-mision-integrada-sitl"
   }
 };
 

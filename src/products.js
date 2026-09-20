@@ -530,10 +530,11 @@ export const PRODUCTS = [
       "echoai/proceso",
       "echoai/ruta",
       "echoai/transfer",
+      "echoai/drone3",
       "echoai/hardware",
       "echoai/limites",
     ],
-    articles: ["transfer3-aprender-no-basta", "echo3-trece-fases-verdes", "echo3-a-mitad"],
+    articles: ["drone3-mision-integrada-sitl", "transfer3-aprender-no-basta", "echo3-trece-fases-verdes", "echo3-a-mitad"],
     media: [
       {
         src: "/media/echoai/opengraph/echo2.png",
@@ -597,16 +598,16 @@ export const PRODUCTS = [
       es: {
         title: "echoAI — agente situado de dos relojes · RxLabs®",
         description:
-          "echoAI: agente situado de dos relojes con un monitor de 512 LIF + 128 Adaptive-LIF. ECHO-1 y ECHO-2 cerrados; ECHO-3 tiene 13/15 certificados software camino de drones autónomos.",
+          "echoAI: agente situado de dos relojes con un monitor de 512 LIF + 128 Adaptive-LIF. ECHO-1 y ECHO-2 cerrados; ECHO-3 tiene 14/15 certificados software y la misión integrada cerrada en SITL.",
         kicker: "Inteligencia artificial · línea 03",
         lead:
           "Un agente situado de dos relojes. El rápido representa, recuerda, anticipa, decide y aprende con estructuras discretas; el lento sólo puede proponer. No es un chatbot conectado a motores.",
-        status: "ECHO-1 y ECHO-2 cerrados · ECHO-3 13/15",
+        status: "ECHO-1 y ECHO-2 cerrados · ECHO-3 14/15 · DRONE-3 cerrado en SITL",
         facts: [
-          ["13 / 15", "certificados software de ECHO-3 en bancos acotados"],
+          ["14 / 15", "certificados software de ECHO-3 en bancos acotados"],
           ["512 + 128", "neuronas LIF y Adaptive-LIF en el monitor de ECHO-2"],
           ["16 B", "WSP: el único paquete que comparte todo el agente"],
-          ["488", "pruebas correctas en el cierre de ECHO-1"],
+          ["12 / 12", "vuelos correctos de DRONE-3 en validación y en confirmación"],
         ],
         flow: "percibir → WSP → CAM → T / Pattern / Q → gate → acción → consecuencia → aprendizaje",
         sections: [
@@ -627,14 +628,14 @@ export const PRODUCTS = [
           {
             title: "ECHO-3, hacia el edge robótico",
             body: [
-              "ECHO-3 tiene 13 de 15 certificados verdes en simulación funcional, replay y vuelos PX4 SITL: evidencia, identidad, dinámica, fusión, composición, causa, enlace PX4, energía, contención y autoridad de fuentes.",
-              "Quedan dos preguntas abiertas. TRANSFER-3 sigue rojo: el último piloto seguro llega a 51/72 frente a 52/72 nominal. DRONE-3 debe integrar la misión completa en SITL, HIL y jaula. No hay hardware robótico en el laboratorio.",
+              "ECHO-3 tiene 14 de 15 certificados verdes en simulación funcional, replay y vuelos PX4 SITL: evidencia, identidad, dinámica, fusión, composición, causa, enlace PX4, energía, contención, autoridad de fuentes y transferencia útil.",
+              "DRONE-3 cerró la misión completa en SITL: 12/12 vuelos en validación y 12/12 en confirmación, cero colisiones y 228/228 sondas de rechazo bloqueadas. El hito exige además hardware-in-the-loop y jaula, y no hay hardware robótico en el laboratorio.",
             ],
           },
           {
             title: "Hacia dónde va",
             body: [
-              "echoAI es la mente prevista de los drones autónomos de RxLabs® y echOS, su cuerpo. Antes de volar un dron físico deben cerrarse la transferencia útil y la integración completa, con las mismas reglas: controles, auditores y límites publicados.",
+              "echoAI es la mente prevista de los drones autónomos de RxLabs® y echOS, su cuerpo. Lo que queda es físico: comprar la plataforma, repetir los bancos sobre hardware real y volar en jaula, con las mismas reglas de siempre —controles, auditores y límites publicados—. La lista de compra con precios y las demostraciones previstas están en hardware previsto.",
             ],
           },
         ],
@@ -642,23 +643,23 @@ export const PRODUCTS = [
           "No es inteligencia general ni una persona artificial.",
           "Reconoce familias simbólicas reservadas; no reconoce objetos en imágenes reales.",
           "No hace SLAM, control de vuelo ni navegación certificada.",
-          "Trece certificados software no equivalen a una misión integrada en un robot físico.",
+          "Catorce certificados software y una misión integrada en simulación no equivalen a un robot físico volando.",
           "No hay hardware robótico ni NPU físico (Akida) en el laboratorio.",
         ],
       },
       en: {
         title: "echoAI — two-clock situated agent · RxLabs®",
         description:
-          "echoAI: a two-clock situated agent with a 512 LIF + 128 Adaptive-LIF monitor. ECHO-1 and ECHO-2 are closed; ECHO-3 has 13/15 software certificates on the way to autonomous drones.",
+          "echoAI: a two-clock situated agent with a 512 LIF + 128 Adaptive-LIF monitor. ECHO-1 and ECHO-2 are closed; ECHO-3 has 14/15 software certificates and the integrated mission closed in SITL.",
         kicker: "Artificial intelligence · line 03",
         lead:
           "A two-clock situated agent. The fast clock represents, remembers, anticipates, decides and learns with discrete structures; the slow one can only propose. It is not a chatbot wired to motors.",
-        status: "ECHO-1 and ECHO-2 closed · ECHO-3 13/15",
+        status: "ECHO-1 and ECHO-2 closed · ECHO-3 14/15 · DRONE-3 closed in SITL",
         facts: [
-          ["13 / 15", "ECHO-3 software certificates in bounded benches"],
+          ["14 / 15", "ECHO-3 software certificates in bounded benches"],
           ["512 + 128", "LIF and Adaptive-LIF neurons in the ECHO-2 monitor"],
           ["16 B", "WSP: the only packet shared across the agent"],
-          ["488", "passing tests in the ECHO-1 closure"],
+          ["12 / 12", "correct DRONE-3 flights in validation and in confirmation"],
         ],
         flow: "perceive → WSP → CAM → T / Pattern / Q → gate → action → consequence → learning",
         sections: [
@@ -679,14 +680,14 @@ export const PRODUCTS = [
           {
             title: "ECHO-3, towards edge robotics",
             body: [
-              "ECHO-3 has 13 of 15 green certificates across functional simulation, replay and PX4 SITL flights: evidence, identity, dynamics, fusion, composition, causality, PX4 link, energy, containment and source authority.",
-              "Two questions remain open. TRANSFER-3 is still red: the latest safe pilot scores 51/72 against 52/72 nominal. DRONE-3 must integrate the full mission in SITL, HIL and a cage. The laboratory has no robotics hardware.",
+              "ECHO-3 has 14 of 15 green certificates across functional simulation, replay and PX4 SITL flights: evidence, identity, dynamics, fusion, composition, causality, PX4 link, energy, containment, source authority and useful transfer.",
+              "DRONE-3 closed the complete mission in SITL: 12/12 flights in validation and 12/12 in confirmation, zero collisions and 228/228 refusal probes blocked. The milestone also demands hardware-in-the-loop and a cage, and the laboratory has no robotics hardware.",
             ],
           },
           {
             title: "Where it is heading",
             body: [
-              "echoAI is the intended mind of the RxLabs® autonomous drones, and echOS their body. Before a physical drone flies, useful transfer and full integration must close under the same rules: controls, auditors and published limits.",
+              "echoAI is the intended mind of the RxLabs® autonomous drones, and echOS their body. What remains is physical: buy the platform, repeat the benches on real hardware and fly in a cage, under the same rules as always — controls, auditors and published limits. The shopping list with prices and the planned demonstrations are in planned hardware.",
             ],
           },
         ],
@@ -694,23 +695,23 @@ export const PRODUCTS = [
           "It is not general intelligence or an artificial person.",
           "It recognises held-out symbolic families; it does not recognise objects in real images.",
           "It does no SLAM, flight control or certified navigation.",
-          "Thirteen software certificates are not an integrated mission on a physical robot.",
+          "Fourteen software certificates and an integrated mission in simulation are not a physical robot flying.",
           "There is no robotics hardware or physical NPU (Akida) in the laboratory.",
         ],
       },
       ca: {
         title: "echoAI — agent situat de dos rellotges · RxLabs®",
         description:
-          "echoAI: agent situat de dos rellotges amb un monitor de 512 LIF + 128 Adaptive-LIF. ECHO-1 i ECHO-2 tancats; ECHO-3 té 13/15 certificats de programari camí dels drons autònoms.",
+          "echoAI: agent situat de dos rellotges amb un monitor de 512 LIF + 128 Adaptive-LIF. ECHO-1 i ECHO-2 tancats; ECHO-3 té 14/15 certificats de programari i la missió integrada tancada en SITL.",
         kicker: "Intel·ligència artificial · línia 03",
         lead:
           "Un agent situat de dos rellotges. El ràpid representa, recorda, anticipa, decideix i aprèn amb estructures discretes; el lent només pot proposar. No és un chatbot connectat a motors.",
-        status: "ECHO-1 i ECHO-2 tancats · ECHO-3 13/15",
+        status: "ECHO-1 i ECHO-2 tancats · ECHO-3 14/15 · DRONE-3 tancat en SITL",
         facts: [
-          ["13 / 15", "certificats de programari d'ECHO-3 en bancs acotats"],
+          ["14 / 15", "certificats de programari d'ECHO-3 en bancs acotats"],
           ["512 + 128", "neurones LIF i Adaptive-LIF al monitor d'ECHO-2"],
           ["16 B", "WSP: l'únic paquet que comparteix tot l'agent"],
-          ["488", "proves correctes al tancament d'ECHO-1"],
+          ["12 / 12", "vols correctes de DRONE-3 en validació i en confirmació"],
         ],
         flow: "percebre → WSP → CAM → T / Pattern / Q → gate → acció → conseqüència → aprenentatge",
         sections: [
@@ -731,14 +732,14 @@ export const PRODUCTS = [
           {
             title: "ECHO-3, cap a la robòtica a l'edge",
             body: [
-              "ECHO-3 té 13 de 15 certificats verds en simulació funcional, replay i vols PX4 SITL: evidència, identitat, dinàmica, fusió, composició, causa, enllaç PX4, energia, contenció i autoritat de fonts.",
-              "Queden dues preguntes obertes. TRANSFER-3 continua vermell: l'últim pilot segur arriba a 51/72 davant 52/72 nominal. DRONE-3 ha d'integrar la missió completa en SITL, HIL i gàbia. No hi ha maquinari robòtic al laboratori.",
+              "ECHO-3 té 14 de 15 certificats verds en simulació funcional, replay i vols PX4 SITL: evidència, identitat, dinàmica, fusió, composició, causa, enllaç PX4, energia, contenció, autoritat de fonts i transferència útil.",
+              "DRONE-3 va tancar la missió completa en SITL: 12/12 vols en validació i 12/12 en confirmació, zero col·lisions i 228/228 sondes de rebuig bloquejades. La fita exigeix a més hardware-in-the-loop i gàbia, i no hi ha maquinari robòtic al laboratori.",
             ],
           },
           {
             title: "Cap a on va",
             body: [
-              "echoAI és la ment prevista dels drons autònoms de RxLabs® i echOS, el seu cos. Abans de fer volar un dron físic s'han de tancar la transferència útil i la integració completa, amb les mateixes regles: controls, auditors i límits publicats.",
+              "echoAI és la ment prevista dels drons autònoms de RxLabs® i echOS, el seu cos. El que queda és físic: comprar la plataforma, repetir els bancs sobre maquinari real i volar en gàbia, amb les mateixes regles de sempre: controls, auditors i límits publicats. La llista de compra amb preus i les demostracions previstes són a maquinari previst.",
             ],
           },
         ],
@@ -746,7 +747,7 @@ export const PRODUCTS = [
           "No és intel·ligència general ni una persona artificial.",
           "Reconeix famílies simbòliques reservades; no reconeix objectes en imatges reals.",
           "No fa SLAM, control de vol ni navegació certificada.",
-          "Tretze certificats de programari no equivalen a una missió integrada en un robot físic.",
+          "Catorze certificats de programari i una missió integrada en simulació no equivalen a un robot físic volant.",
           "No hi ha maquinari robòtic ni NPU físic (Akida) al laboratori.",
         ],
       },

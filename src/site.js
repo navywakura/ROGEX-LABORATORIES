@@ -198,19 +198,19 @@ const ES_PAGES = [
     path: "/docs/echoai/ruta",
     title: "echoAI — hoja de ruta ECHO-3",
     description:
-      "ECHO-3: 13/15 certificados software en bancos acotados. TRANSFER-3 sin candidato; DRONE-3, HIL y jaula pendientes. Estado, controles y límites por fase.",
+      "ECHO-3: 14/15 certificados software en bancos acotados. TRANSFER-3 verde y DRONE-3 con su tramo SITL cerrado; HIL y jaula pendientes de hardware.",
   },
   {
     path: "/docs/echoai/hardware",
     title: "echoAI — hardware previsto",
     description:
-      "Plataforma candidata hacia ECHO-3: Crazyflie, X500/Pixhawk, Jetson, OAK-D, TFmini-S, Livox Mid-360 y Akida opcional.",
+      "Qué falta comprar para el traspaso a físico, con precios de tienda, montaje y demostraciones previstas: X500/Pixhawk, Jetson, OAK-D, LiDAR, jaula y el AKD1500 M.2 previsto para octubre.",
   },
   {
     path: "/docs/echoai/limites",
     title: "echoAI — siguiente frontera",
     description:
-      "Límites de ECHO-3: trece certificados software no cierran transferencia útil ni misión integrada. Hardware, batería instrumentada, HIL y jaula pendientes.",
+      "Límites de ECHO-3: catorce certificados software y la misión integrada en SITL no cierran el hito. Hardware, batería instrumentada, HIL y jaula pendientes.",
   },
   {
     path: "/articulos",
@@ -228,7 +228,12 @@ const ES_PAGES = [
   {
     path: "/docs/echoai/transfer",
     title: "TRANSFER-3 — contrato, resultados y estado",
-    description: "TRANSFER-3 sigue rojo: escuela exacta, pilotos B2/B3 sin utilidad frente al nominal, 261 tests y auditorías reproducibles. Sin hardware ni B/C final abierto.",
+    description: "TRANSFER-3 en verde: calibración perceptiva transferida, campaña sellada con custodia humana, B 38/0 y C 48/1. Salas estáticas; sin hardware ni vuelo.",
+  },
+  {
+    path: "/docs/echoai/drone3",
+    title: "DRONE-3 — la misión completa en SITL",
+    description: "La misión entera en una sesión PX4/Gazebo: 12/12 en validación y 12/12 en confirmación, cero colisiones, 228/228 sondas bloqueadas. HIL y jaula pendientes de hardware.",
   },
   ...PRODUCTS.map((product) => ({
     path: `/${product.slug}`,
@@ -299,7 +304,7 @@ const EN_META = {
   ],
   "/docs/echoai/que-es": [
     "echoAI — RxLabs®",
-    "A two-clock situated agent. ECHO-1 and ECHO-2 are closed; ECHO-3 has 13 of 15 software certificates: causality, PX4 link, energy, containment and source authority. TRANSFER-3 is red; integration and hardware remain pending.",
+    "A two-clock situated agent. ECHO-1 and ECHO-2 are closed; ECHO-3 has 14 of 15 software certificates and DRONE-3 has closed its SITL leg: causality, PX4 link, energy, containment and source authority. HIL, cage and hardware remain pending.",
   ],
   "/docs/echoai/piezas": [
     "echoAI — architecture",
@@ -323,15 +328,19 @@ const EN_META = {
   ],
   "/docs/echoai/ruta": [
     "echoAI — ECHO-3 roadmap",
-    "ECHO-3: 13/15 software certificates in bounded benches. TRANSFER-3 has no candidate; DRONE-3, HIL and cage remain pending. Per-phase state, controls and limits.",
+    "ECHO-3: 14/15 software certificates in bounded benches. TRANSFER-3 green and DRONE-3 with its SITL leg closed; HIL and cage await hardware.",
   ],
   "/docs/echoai/hardware": [
     "echoAI — planned hardware",
-    "Candidate ECHO-3 platform: Crazyflie, X500/Pixhawk, Jetson, OAK-D, TFmini-S, Livox Mid-360 and optional Akida.",
+    "What must be bought for the handover to physical, with store prices, assembly and planned demonstrations: X500/Pixhawk, Jetson, OAK-D, LiDAR, cage and the AKD1500 M.2 planned for October.",
   ],
   "/docs/echoai/limites": [
     "echoAI — next frontier",
-    "ECHO-3 limits: thirteen software certificates do not close useful transfer or integrated missions. Hardware, instrumented battery, HIL and cage remain pending.",
+    "ECHO-3 limits: fourteen software certificates and the integrated SITL mission do not close the milestone. Hardware, instrumented battery, HIL and cage remain pending.",
+  ],
+  "/docs/echoai/drone3": [
+    "DRONE-3 — the complete mission in SITL",
+    "The whole mission in one PX4/Gazebo session: 12/12 in validation and 12/12 in confirmation, zero collisions, 228/228 probes blocked. HIL and cage await hardware.",
   ],
   "/articulos": ["Articles — RxLabs®", "Laboratory notes on echOS, PRISMA and echoAI: what runs now, how it is tested and what follows."],
   "/articulos/echo3-a-mitad": ["ECHO-3 has reached the halfway point — RxLabs®", "ECHO-3 has 8 of 15 software phases closed: A/B/C worlds, sourced sensors, PX4 SITL, dynamics, identity, fusion and composition. With a blocked goal it keeps evidence, compares accesses, passes a next step through the gate and checks the consequence. COMPOSE-1 keeps 6,144 B/C missions and 32 PX4 SITL flights; CAUSE-1 is next."],
@@ -394,7 +403,7 @@ const CA_META = {
   ],
   "/docs/echoai/que-es": [
     "echoAI — RxLabs®",
-    "Agent situat de dos rellotges. ECHO-1 i ECHO-2 estan tancats; ECHO-3 té 13 de 15 certificats de programari: causa, enllaç PX4, energia, contenció i autoritat de fonts. TRANSFER-3 vermell; integració i maquinari pendents.",
+    "Agent situat de dos rellotges. ECHO-1 i ECHO-2 estan tancats; ECHO-3 té 14 de 15 certificats de programari i DRONE-3 ha tancat el tram SITL: causa, enllaç PX4, energia, contenció i autoritat de fonts. HIL, gàbia i maquinari pendents.",
   ],
   "/docs/echoai/piezas": [
     "echoAI — arquitectura",
@@ -418,15 +427,19 @@ const CA_META = {
   ],
   "/docs/echoai/ruta": [
     "echoAI — full de ruta ECHO-3",
-    "ECHO-3: 13/15 certificats de programari en bancs acotats. TRANSFER-3 sense candidat; DRONE-3, HIL i gàbia pendents. Estat, controls i límits per fase.",
+    "ECHO-3: 14/15 certificats de programari en bancs acotats. TRANSFER-3 verd i DRONE-3 amb el tram SITL tancat; HIL i gàbia pendents de maquinari.",
   ],
   "/docs/echoai/hardware": [
     "echoAI — maquinari previst",
-    "Plataforma candidata per a ECHO-3: Crazyflie, X500/Pixhawk, Jetson, OAK-D, TFmini-S, Livox Mid-360 i Akida opcional.",
+    "Què cal comprar per al traspàs a físic, amb preus de botiga, muntatge i demostracions previstes: X500/Pixhawk, Jetson, OAK-D, LiDAR, gàbia i l'AKD1500 M.2 previst per a l'octubre.",
   ],
   "/docs/echoai/limites": [
     "echoAI — frontera següent",
-    "Límits d'ECHO-3: tretze certificats de programari no tanquen transferència útil ni missió integrada. Maquinari, bateria instrumentada, HIL i gàbia pendents.",
+    "Límits d'ECHO-3: catorze certificats de programari i la missió integrada en SITL no tanquen la fita. Maquinari, bateria instrumentada, HIL i gàbia pendents.",
+  ],
+  "/docs/echoai/drone3": [
+    "DRONE-3 — la missió completa en SITL",
+    "La missió sencera en una sessió PX4/Gazebo: 12/12 en validació i 12/12 en confirmació, zero col·lisions, 228/228 sondes bloquejades. HIL i gàbia pendents de maquinari.",
   ],
   "/articulos": ["Articles — RxLabs®", "Notes de laboratori sobre echOS, PRISMA i echoAI: què funciona ara, com es prova i què ve després."],
   "/articulos/echo3-a-mitad": ["ECHO-3 ja ha arribat a la meitat — RxLabs®", "ECHO-3 té 8 de 15 fases de programari tancades: mons A/B/C, sensors amb procedència, PX4 SITL, dinàmica, identitat, fusió i composició. Davant una meta bloquejada conserva evidència, compara accessos, passa un pas pel gate i comprova la conseqüència. COMPOSE-1 conserva 6.144 missions B/C i 32 vols PX4 SITL; CAUSE-1 és el següent."],
@@ -448,8 +461,8 @@ for (const entry of ARTICLES) {
   EN_META[`/articulos/${entry.slug}`] = [`${entry.title.en} — RxLabs®`, entry.summary.en];
   CA_META[`/articulos/${entry.slug}`] = [`${entry.title.ca} — RxLabs®`, entry.summary.ca];
 }
-EN_META["/docs/echoai/transfer"] = ["TRANSFER-3 — contract, results and state", "TRANSFER-3 remains red: exact school learning, B2/B3 pilots without useful gains over nominal, 261 tests and reproducible audits. No hardware or final B/C opening."];
-CA_META["/docs/echoai/transfer"] = ["TRANSFER-3 — contracte, resultats i estat", "TRANSFER-3 continua vermell: escola exacta, pilots B2/B3 sense utilitat davant nominal, 261 tests i auditories reproduïbles. Sense maquinari ni B/C final obert."];
+EN_META["/docs/echoai/transfer"] = ["TRANSFER-3 — contract, results and state", "TRANSFER-3 is green: transferred perceptual calibration, sealed campaign under human custody, B 38/0 and C 48/1. Static rooms; no hardware and no flight."];
+CA_META["/docs/echoai/transfer"] = ["TRANSFER-3 — contracte, resultats i estat", "TRANSFER-3 és verd: calibració perceptiva transferida, campanya segellada amb custòdia humana, B 38/0 i C 48/1. Sales estàtiques; sense maquinari ni vol."];
 
 const spanishPages = ES_PAGES.map((page) => ({ ...page, lang: "es" }));
 const englishPages = ES_PAGES.map((page) => {

@@ -1,8 +1,8 @@
 # ECHO-3 — full de ruta
 
-Estat: 18 de setembre de 2026. **13/15 certificats de programari; TRANSFER-3 vermell; DRONE-3 pendent.**
+Estat: 20 de setembre de 2026. **14/15 certificats de programari; TRANSFER-3 verd; DRONE-3 amb el tram SITL tancat i HIL i gàbia pendents.**
 
-ECHO-3 té **13 de 15 fites amb certificat verd dins del seu abast de programari**. ECHO-1 i ECHO-2 estan tancats; el programa robòtic continua obert. S'han provat components amb controls i auditories, però sumar certificats no demostra una missió integrada en un robot físic.
+ECHO-3 té **14 de 15 fites amb certificat verd dins del seu abast de programari**, i la quinzena, DRONE-3, només ha tancat el tram de simulació. ECHO-1 i ECHO-2 estan tancats; el programa robòtic continua obert. Sumar certificats no equival a una missió en un robot físic: no hi ha maquinari al laboratori.
 
 ```text
 sensor → WSP → CAM/evidence → T/PATTERN → search/Q → gate → PX4 → consequence
@@ -27,19 +27,20 @@ WSP conserva 16 bytes i és l'únic bus cognitiu. CAM registra episodis observat
 | [POWER-1](/evidence/echo3/POWER1-RESULTS.md) | Per etapa B/C, 128/128 metes factibles davant 64/128 del percentatge fix i 320/320 episodis amb reserva. Energia simulada; bateria instrumentada pendent. |
 | [SAFE-1 v2](/evidence/echo3/SAFE1-V2-RESULTS.md) | Per etapa B/C, 6/6 vols i 512/512 episodis funcionals. Deu aterratges natius PX4 davant fallades; veto màxim 288 ms. Contenció dins del banc, sense seguretat universal. |
 | [HOST-1](/evidence/echo3/HOST1-RESULTS.md) | Per etapa B/C, 1536/1536 eleccions útils davant 768/1536 del control. Autoritat actualitzada per conseqüències; calibració supervisada sobre cinta de màquina, sense confiança humana general. |
+| [TRANSFER-3](/evidence/echo3/TRANSFER3-PLAN-C1-RESULTS.md) | Campanya segellada amb custòdia humana: B 38/0 blocs i C 48/1, zero pèrdues atribuïbles a la calibració. Sales estàtiques de dues parets; sense maquinari ni vol. |
 
 Verd significa que una versió respon la pregunta del seu banc, amb controls i un auditor capaç de rebutjar-la. Les versions vermelles anteriors es conserven. Els B/C de cada component són particions pròpies: no tanquen l'examen segellat de TRANSFER-3. Proves funcionals, replay i vols SITL tenen denominadors diferents i es publiquen per separat.
 
-## Les dues fites pendents
+## DRONE-3: SITL tancat, físic pendent
 
-**TRANSFER-3** ha de demostrar una millora útil de l'après a A en entorns nous davant del mateix agent sense aquella experiència, sense transportar mapa ni solució. Continua vermell i sense candidat. L'escola de guany aprèn exactament, però l'últim pilot segur B3 arriba 51/72 davant 52/72 nominal i costa més, escola inclosa. No va passar a confirmació prospectiva ni va obrir B/C real.
+[DRONE-3](/ca/docs/echoai/drone3) integra la missió completa en una sola sessió PX4/Gazebo per vol: percepció, evidència amb la calibració transferida de TRANSFER-3, composició, gate epistèmic, gate energètic, supervisor SAFE, passarel·la d'objectius acotats i PX4 amb els seus failsafes. Validació i confirmació surten 12/12 en sales fresques, amb zero col·lisions i zero restriccions dures violades; onze mutants detectats i vuit manipulacions rebutjades.
 
-**DRONE-3** ha d'integrar la missió completa amb traçabilitat causal en SITL, HIL i gàbia. Els certificats d'enllaç, energia o seguretat no substitueixen aquest tancament conjunt. Bateria instrumentada, latència sota càrrega i fallades combinades s'hauran de comprovar en integrar-ho. No hi ha maquinari robòtic ni Akida al laboratori; HIL i gàbia necessiten aquella plataforma.
+Això tanca el tram SITL i **res més**. La fita 15 exigeix també hardware-in-the-loop i gàbia, i allà `drone3_green` continua a `false`. La bateria instrumentada, les latències sobre maquinari real i les fallades combinades en vol físic estan per mesurar.
 
-## Què investiguem
+## Què ve ara
 
-La branca de guany del Pla B s'ha aturat després del cribratge vermell. Altres primitives i retards continuen sense provar; el Pla C de calibració perceptiva no ha començat. Cada hipòtesi nova necessita un mecanisme comprovable, controls amb la mateixa informació i una regla prèvia d'aturada. Tretze verds permeten preguntes més precises; els altres dos encara necessiten dades pròpies.
+La feina deixa de ser programari. La llista de compra amb preus, el muntatge, la llista prèvia de seguretat i les demostracions previstes són a [maquinari previst](/ca/docs/echoai/hardware): FLIGHT-1H, SENSOR-1H, PX4-1H, POWER-1H i després DRONE-3H, cadascun amb el seu contracte. L'AKD1500 M.2 està previst per a l'octubre i el seu primer banc serà una comparació mesurada contra CPU i Jetson.
 
-Mons 3D més rics i qualsevol coprocesador neuromòrfic són feina futura. Primer cal tancar la transferència útil i integrar el contracte actual. El maquinari absent es declara absent.
+Un avís que ja està publicat: el domini certificat fa servir cel·les de tres metres i sales de 21 × 15 m, que no caben en una gàbia domèstica. La versió a escala s'haurà de validar abans en simulació.
 
-[Recerca TRANSFER-3](/ca/docs/echoai/transfer) · [ECHO-3: tretze fases verdes i dues preguntes obertes](/ca/articulos/echo3-trece-fases-verdes) · [Dades i informes d'origen](/data/echo3-status.json)
+[DRONE-3](/ca/docs/echoai/drone3) · [TRANSFER-3](/ca/docs/echoai/transfer) · [DRONE-3: la missió sencera, en simulació](/ca/articulos/drone3-mision-integrada-sitl) · [Dades i informes d'origen](/data/echo3-status.json)

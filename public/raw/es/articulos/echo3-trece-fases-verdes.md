@@ -2,6 +2,8 @@
 
 18 de septiembre de 2026 · RxLabs®
 
+> Archivo del 18/09/2026. El estado actual es 14/15 certificados software, TRANSFER-3 verde y DRONE-3 con su tramo SITL cerrado. [Actualización del 20/09](/articulos/drone3-mision-integrada-sitl).
+
 ECHO-3 tiene **13 de 15 hitos con certificado verde en su alcance software**. ECHO-1 y ECHO-2 están cerrados; el programa robótico continúa abierto. Se han probado piezas con controles y auditorías, pero la suma de certificados no equivale a una misión integrada en un robot físico.
 
 ## Qué demuestra cada verde

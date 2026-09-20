@@ -2,6 +2,8 @@
 
 18 de setembre de 2026 · RxLabs® · Estat: vermell, sense candidat
 
+> Arxiu del 18/09/2026. TRANSFER-3 va tancar en verd el 19/09 amb el Pla C: calibració perceptiva transferida, campanya segellada i custòdia humana. [TRANSFER-3](/ca/docs/echoai/transfer) · [Actualització del 20/09](/ca/articulos/drone3-mision-integrada-sitl).
+
 **TRANSFER-3 ha de demostrar que aprendre en un entorn ajuda a resoldre'n d'altres, sense transportar el mapa ni la solució, davant del mateix agent sense aquesta experiència.**
 
 Desar una taula és només una part de la pregunta. El paràmetre après ha de canviar la conducta i millorar el resultat amb els mateixos sensors, pressupost i restriccions. Encara no hem demostrat aquest avantatge dins del contracte d'ECHO-3. La recerca és programari: no tenim dron, sensors físics ni placa Akida al laboratori.

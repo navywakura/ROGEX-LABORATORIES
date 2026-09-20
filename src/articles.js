@@ -1,6 +1,15 @@
 // Shared by routing, article cards, metadata and Markdown export.
 export const ARTICLES = [
   {
+    slug: "drone3-mision-integrada-sitl", date: "2026-09-20",
+    title: { es: "DRONE-3: la misión entera, en simulación", en: "DRONE-3: the whole mission, in simulation", ca: "DRONE-3: la missió sencera, en simulació" },
+    summary: {
+      es: "TRANSFER-3 en verde y DRONE-3 cerrando su tramo SITL: 12/12 y 12/12, controles, lo que falló por el camino y por qué el hito sigue abierto.",
+      en: "TRANSFER-3 green and DRONE-3 closing its SITL leg: 12/12 and 12/12, controls, what went wrong along the way and why the milestone stays open.",
+      ca: "TRANSFER-3 en verd i DRONE-3 tancant el tram SITL: 12/12 i 12/12, controls, què va fallar pel camí i per què la fita continua oberta.",
+    },
+  },
+  {
     slug: "transfer3-aprender-no-basta", date: "2026-09-18",
     title: { es: "TRANSFER-3: aprender no basta", en: "TRANSFER-3: learning is not enough", ca: "TRANSFER-3: aprendre no és suficient" },
     summary: {

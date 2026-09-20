@@ -1,72 +1,138 @@
 # Hardware previsto
 
-Esta es la plataforma propuesta para avanzar hacia ECHO-3. Hoy echoAI cierra
-software y PX4 SITL: los elementos de esta página son compras candidatas, no
-hardware operativo del agente.
+Actualizado: 20 de septiembre de 2026. Hoy echoAI cierra software y PX4 SITL:
+[DRONE-3](./drone3) ha demostrado la misión completa en simulación. Lo que falta
+es físico. Esta página lista lo que hay que comprar, cuánto cuesta, cómo se monta
+y qué demostraciones están previstas. **Nada de esto es hardware operativo
+todavía: son compras candidatas.**
 
-## Escalera de pruebas
+## Qué falta exactamente
 
-### 1. Banco y dron pequeño
+El hito 15 exige tres tramos: simulación, hardware-in-the-loop y jaula. El
+primero está cerrado. Los otros dos necesitan un controlador de vuelo real, un
+cuerpo, sensores, energía medida y verdad de terreno externa para juzgar sin
+creerle al propio agente.
 
-- [**Crazyflie 2.1 Brushless**](https://store.bitcraze.io/products/crazyflie-2-1-brushless)
-  con [Flow Deck](https://store.bitcraze.io/products/flow-deck-v2) para
-  experimentar en interior con poco riesgo y control de posición básico.
-- Hélices, baterías, cargador, repuestos y una jaula o red de seguridad.
-- Medidor de potencia USB-C y registrador independiente.
+Tres diferencias obligan a trabajo nuevo, y conviene decirlas antes de gastar:
 
-Su función es validar mensajes, latencia, watchdog y pérdida de enlace. No debe
-cargar el stack final de sensores.
+1. **Escala.** El dominio certificado usa celdas de 3 m y salas de 21 × 15 m.
+   Una jaula doméstica no admite esa escala, y las constantes de percepción están
+   congeladas. Hará falta una versión a escala, por ejemplo de 1 m, validada
+   primero en simulación con semillas nuevas.
+2. **Sensores.** El agente espera LiDAR 2D de 360°, cuatro vistas de profundidad
+   y RGB con sellos de captura y entrega. Un kit real distinto exige repetir
+   SENSOR-1 y GROUND-1 sobre el sensor real.
+3. **Energía.** En simulación la energía es carga simulada, porque el PX4 fijado
+   publica corriente −1 A. Con hardware, POWER debe medirse en carga real con un
+   módulo de potencia, y recalibrarse.
 
-### 2. Plataforma de integración
+## Coste
 
-- [**Holybro X500 V2**](https://holybro.com/products/px4-development-kit-x500-v2)
-  con **Pixhawk 6C** y GPS M10 como cuerpo abierto para desarrollo PX4.
-- **RadioMaster TX16S** y receptor ELRS para control manual y abortos.
-- Kill switch físico, telemetría independiente, baterías y cargador balanceado.
+Precios de tienda consultados el 20 de septiembre de 2026, en dólares, **sin
+impuestos ni envío**. Los marcados como estimación no están verificados y sirven
+sólo de orden de magnitud.
 
-Pixhawk estabiliza y conserva los failsafes. echoAI corre como lógica de alto
-nivel en un companion computer y nunca sustituye el control de vuelo duro.
+### Tramo 1 · Hardware-in-the-loop
 
-### 3. Computación y visión
+| Elemento | Para qué | Precio |
+|---|---|---|
+| [Holybro PX4 Development Kit X500 v2](https://holybro.com/products/px4-development-kit-x500-v2) con Pixhawk 6C, GPS M10 y telemetría | cuerpo y controlador de vuelo, el mismo airframe del simulador | desde 533 $ |
+| [RadioMaster TX16S](https://radiomasterrc.com/collections/tx16s) con receptor ELRS | control manual y **parada de emergencia humana** | ~250 $ |
+| Baterías 4S/6S ×3, cargador balanceador y bolsas ignífugas | vuelos repetibles y márgenes comparables | 200–300 $ (estimación) |
+| Módulo de potencia con medida de corriente (PM02D o equivalente) | POWER en carga real, no simulada | 50–70 $ (estimación) |
+| [Jetson Orin Nano Super Developer Kit](https://www.nvidia.com/en-us/autonomous-machines/embedded-systems/jetson-orin/nano-super-developer-kit/) | ordenador de a bordo: agente enjaulado, supervisor y puertas | 399 $ |
+| Cableado, convertidores DC, NVMe y repuestos | montaje y registro | ~200 $ (estimación) |
+| **Subtotal** | | **≈ 1.630–1.750 $** |
 
-- [**Jetson Orin Nano Super Developer Kit**](https://developer.nvidia.com/embedded/jetson-orin-nano-super-developer-kit)
-  para fusión, modelos de desarrollo, registros y ROS 2/PX4.
-- [**Luxonis OAK-D Pro con OV9782 y foco fijo**](https://shop.luxonis.com/products/oak-d-pro)
-  para RGB, estéreo, profundidad e IMU; el global shutter es preferible para
-  movimiento y vibración.
-- Almacenamiento NVMe, ventilación, convertidores DC regulados y cableado corto.
+El Jetson salió a 249 $ en diciembre de 2024; NVIDIA subió los precios de la
+gama en julio de 2026 y hoy figura a 399 $.
 
-El kit Jetson sirve para desarrollo, no se asume automáticamente como hardware
-de producción.
+### Tramo 2 · Jaula
 
-### 4. Distancia y geometría
+| Elemento | Para qué | Precio |
+|---|---|---|
+| [Luxonis OAK-D Pro](https://shop.luxonis.com/products/oak-d-pro) | RGB, estéreo, profundidad e IMU con obturador global | 399 $ |
+| LiDAR 2D de 360° (clase LD19 o RPLIDAR) | geometría, familia independiente de la cámara | 100–350 $ (estimación) |
+| Red o jaula cerrada y anclajes | recinto físico, además de la geocerca de PX4 | 300–600 $ (estimación) |
+| Verdad de terreno: cámara cenital con marcadores o captura de movimiento | el juez privado necesita pose real; el agente nunca la ve | 150–300 $ con marcadores; miles con mocap |
+| **Subtotal** | | **≈ 950–1.650 $** |
 
-- **Benewake TFmini-S** como telémetro económico para primeras pruebas de altura
-  o distancia frontal.
-- [**Livox Mid-360**](https://www.livoxtech.com/mid-360/specs) para ECHO-3:
-  nube de puntos 3D, campo horizontal de 360° e IMU integrada.
+### Opcionales y futuros
 
-El LiDAR no reemplaza la cámara: geometría y apariencia deben fallar de forma
-independiente y poder contradecirse.
+| Elemento | Para qué | Precio |
+|---|---|---|
+| [BrainChip AKD1500 M.2 B+M Key](https://shop.brainchipinc.com/collections/all) | coprocesador neuromórfico para una cabeza perceptiva pequeña | **129 $**, en stock; **previsto para octubre de 2026** |
+| [Livox Mid-360](https://www.livoxtech.com/mid-360) | nube 3D de 360° para mundos más ricos | ~734 $ en distribuidor; Livox anuncia el Mid-360S como sustituto |
+| [Crazyflie 2.1 Brushless](https://store.bitcraze.io/products/crazyflie-2-1-brushless) con Flow Deck | banco interior de bajo riesgo para enlace y watchdog | ~400 $ (estimación) |
 
-### 5. Neuromórfico opcional
+**Total para llegar a la jaula: del orden de 2.600 a 3.400 $**, sin impuestos ni
+envío, más el AKD1500 si se compra en octubre.
 
-- [**BrainChip AKD1500 M.2**](https://brainchip.com/dev-tools/), sólo si
-  se dispone de hardware, driver compatible y toolchain reproducible.
+## Cómo se monta
 
-Su primer banco sería percepción siempre activa frente a CPU/Jetson sobre el
-mismo dataset: exactitud, latencia P99, potencia real y degradación al
-desconectarlo. No se aceptarán TOPS de folleto como sustituto de esa medida.
+```text
+[sensores] ──USB/UART──> [ordenador de a bordo]
+                           ├─ jaula bwrap: agente (WSP + predicción)
+                           ├─ supervisor SAFE + gates epistémico y energético
+                           └─ pasarela de celdas ──MAVLink serie──> [Pixhawk PX4 v1.15.4]
+                                                                     └─ ESC y motores (sólo PX4)
+[emisora con kill] ──────────────────────────────────────────────────> [Pixhawk]
+[telemetría del operador] <── sólo lectura ── [Pixhawk]
+[verdad de terreno] ──> juez privado, fuera del ordenador de a bordo
+```
 
-## Orden recomendado de compra
+Reglas de montaje que no se negocian:
 
-1. Seguridad, radio, baterías y Crazyflie.
-2. Jetson y OAK-D para construir el pipeline en mesa.
-3. X500/Pixhawk para SITL, HIL y jaula.
-4. TFmini-S para integración temprana de distancia.
-5. Mid-360 cuando SENSOR-1 y SAFE-1 ya tengan banco.
-6. AKD1500 M.2 cuando exista una tarea perceptiva pequeña que pueda compararse con
-   un baseline y no bloquee el roadmap.
+- El firmware debe ser **PX4 v1.15.4**, la misma versión del simulador. Otra
+  versión obliga a repetir PX4-1.
+- El agente nunca corre en el controlador de vuelo, y nunca toca motores,
+  modos, parámetros ni armado.
+- Geocerca de PX4 estrictamente dentro de la jaula, y con margen al techo.
+- Orden de autoridad: **humano con kill > PX4 y sus failsafes > supervisor SAFE
+  > agente**. El kill no depende de ningún software de echoAI.
+- Tras un veto del supervisor, el operador no envía órdenes de rescate: si lo
+  hace, el vuelo se registra como intervención humana y no cuenta como
+  contención nativa.
+
+El kit X500 se monta en torno a media hora y sin soldar. El trabajo real está en
+el cableado del ordenador de a bordo, la calibración de sensores y la
+sincronización de relojes con la verdad de terreno.
+
+## Demostraciones previstas
+
+Son planes, no resultados. Cada una tendrá contrato previo, controles, auditoría
+y límites publicados, igual que las anteriores.
+
+1. **HIL-1 · la misma misión con el controlador real en el bucle.** Sensores
+   simulados, Pixhawk físico. Mismos criterios que el tramo SITL y denominador
+   propio. Sirve para separar «el código funciona» de «el enlace y los tiempos
+   funcionan sobre hardware».
+2. **POWER-1H · energía medida.** Con el módulo de potencia, recalibrar los
+   costes por paso, retorno y aterrizaje en carga real y repetir el banco de
+   reserva. Aquí es donde la energía deja de ser simulada.
+3. **JAULA-1 · la misión a escala, volando de verdad.** Dominio a escala
+   validado antes en simulación, verdad de terreno externa y las cuatro
+   condiciones: misión accesible, reserva insuficiente, contradicción del mundo
+   y fallo integrado. Cero contactos con la red es criterio; cualquier kill
+   humano hace el vuelo rojo con su causa registrada.
+4. **AKIDA-1 · el coprocesador, medido.** Con el AKD1500 M.2 previsto para
+   octubre: una cabeza perceptiva pequeña comparada contra CPU y Jetson sobre el
+   mismo conjunto de datos, publicando exactitud, latencia P99, potencia medida
+   y degradación al desconectarlo. No entrará en VERIFY, ni en el WSP, ni en la
+   cadena de seguridad. Las cifras del fabricante no son resultados nuestros.
+5. **Vídeo y registros públicos de cada una**, con los mismos hashes y ficheros
+   crudos que ya se publican del simulador. El vídeo ilustra; el JSON, el ULog y
+   los hashes son la evidencia.
+
+## Orden de compra recomendado
+
+1. Seguridad primero: emisora con kill, baterías, cargador y bolsas.
+2. X500 con Pixhawk 6C y el módulo de potencia, para HIL-1 y POWER-1H.
+3. Ordenador de a bordo y cámara, para montar el pipeline en mesa.
+4. Jaula, red y verdad de terreno, antes del primer vuelo autónomo.
+5. AKD1500 M.2 cuando exista la tarea perceptiva pequeña que comparar. 129 $ no
+   justifican adelantar el orden si no hay banco.
+6. LiDAR 3D sólo cuando el dominio a escala esté cerrado.
 
 ## Condición de uso
 
@@ -78,6 +144,9 @@ sensor → adaptador → estado WSP → memoria/predicción → gate
 ```
 
 Primero simulación, después hardware-in-the-loop, luego jaula y sólo finalmente
-un entorno exterior autorizado.
+un entorno exterior autorizado, con la normativa aplicable cumplida y operación
+humana de emergencia.
+
+[DRONE-3](./drone3) · [Traspaso completo a hardware](/evidence/echo3/DRONE3-HARDWARE-HANDOFF.md) · [Límites](./limites)
 
 — R.N.
