@@ -224,6 +224,8 @@ const ES_PAGES = [
     datePublished: entry.date,
     dateModified: entry.date,
     article: true,
+    // An article may carry its own card; the rest share the laboratory one.
+    ...(entry.image ? { image: entry.image } : {}),
   })),
   {
     path: "/docs/echoai/transfer",

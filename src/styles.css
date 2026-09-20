@@ -1284,6 +1284,26 @@ button { font-family: inherit; }
   line-height: 1.5;
 }
 
+.article-video {
+  margin: 1.8rem 0 2.4rem;
+}
+
+.article-video video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #050505;
+  border: 1px solid #303030;
+  box-shadow: 0 18px 55px rgba(0, 0, 0, 0.45);
+}
+
+.article-video figcaption {
+  margin-top: 9px;
+  color: #858585;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
 .release-chart {
   margin: 1.2rem 0 2rem;
   padding: 17px;

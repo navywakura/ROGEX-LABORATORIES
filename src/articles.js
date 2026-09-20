@@ -1,6 +1,24 @@
 // Shared by routing, article cards, metadata and Markdown export.
 export const ARTICLES = [
   {
+    slug: "gui4-como-visualizar-las-grabaciones", date: "2026-09-20",
+    title: { es: "GUI-4: cómo visualizar las grabaciones", en: "GUI-4: how to read the recordings", ca: "GUI-4: com llegir els enregistraments" },
+    summary: {
+      es: "Tres grabaciones de la aplicación real, pestaña por pestaña: el raster de spikes, el catálogo de casos, los bancos en vivo y el grafo orbitable. Y qué no hay que deducir de ellas.",
+      en: "Three recordings of the real application, tab by tab: the spike raster, the case catalogue, the live benches and the orbitable graph. And what not to conclude from them.",
+      ca: "Tres enregistraments de l'aplicació real, pestanya per pestanya: el raster de spikes, el catàleg de casos, els bancs en directe i el graf orbitable. I què no se'n pot deduir.",
+    },
+    image: {
+      src: "/media/gui4/opengraph/gui4-card.jpg",
+      width: 1200, height: 630, type: "image/jpeg",
+      alt: {
+        es: "GUI-4 · grafo orbitable de la red neuronal con actividad en vivo",
+        en: "GUI-4 · orbitable neural network graph with live activity",
+        ca: "GUI-4 · graf orbitable de la xarxa neuronal amb activitat en directe",
+      },
+    },
+  },
+  {
     slug: "drone3-mision-integrada-sitl", date: "2026-09-20",
     title: { es: "DRONE-3: la misión entera, en simulación", en: "DRONE-3: the whole mission, in simulation", ca: "DRONE-3: la missió sencera, en simulació" },
     summary: {
