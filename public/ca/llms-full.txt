@@ -622,11 +622,95 @@ Això tanca el tram SITL i **res més**. La fita 15 exigeix també hardware-in-t
 
 ## Què ve ara
 
-La feina deixa de ser programari. La llista de compra amb preus, el muntatge, la llista prèvia de seguretat i les demostracions previstes són a [maquinari previst](/ca/docs/echoai/hardware): FLIGHT-1H, SENSOR-1H, PX4-1H, POWER-1H i després DRONE-3H, cadascun amb el seu contracte. L'AKD1500 M.2 està previst per a l'octubre i el seu primer banc serà una comparació mesurada contra CPU i Jetson.
+La prioritat actual és el [desenvolupament de programari ECHO-4](/ca/docs/echoai/echo4), començant per E4-SENSATION-1. ECHO-3 conserva els contractes físics, que es reprendran després del programari. La compra, el muntatge i les demostracions continuen a [maquinari previst](/ca/docs/echoai/hardware): FLIGHT-1H, SENSOR-1H, PX4-1H, POWER-1H i després DRONE-3H. Les dates de compra queden subjectes a aquesta prioritat.
 
 Un avís que ja està publicat: el domini certificat fa servir cel·les de tres metres i sales de 21 × 15 m, que no caben en una gàbia domèstica. La versió a escala s'haurà de validar abans en simulació.
 
 [DRONE-3](/ca/docs/echoai/drone3) · [TRANSFER-3](/ca/docs/echoai/transfer) · [DRONE-3: la missió sencera, en simulació](/ca/articulos/drone3-mision-integrada-sitl) · [Dades i informes d'origen](/data/echo3-status.json)
+
+---
+
+<!-- src/content/ca/echoai/echo4.md · /ca/docs/echoai/echo4 -->
+
+# ECHO-4 — full de ruta oficial
+
+21 de setembre de 2026 · Versió 1 · Desenvolupament iniciat
+
+**Objectiu:** desenvolupar representacions funcionals d'un mateix, de l'altre i de la història compartida, i aprendre quan la interacció millora els resultats de tots dos agents.
+
+La hipòtesi és que la reciprocitat i la memòria de les trobades poden contribuir a l'adaptació. Mesurarem separadament resultats individuals, conjunts i costos de coordinació, incloses situacions on actuar independentment sigui preferible.
+
+Aquest document substitueix l'ordre preliminar del primer article. Cada fase pendent necessita un contracte de sensors, memòria, aprenentatge, controls i llindars abans de validar-la.
+
+## Punt de partida
+
+NEXUS-0 aporta WSP, CAM, Q, T i el gate. ECHO-1 i ECHO-2 conserven els seus tancaments. ECHO-3 té 14/15 fites completes en l'àmbit de programari; DRONE-3 té SITL tancat, amb HIL i gàbia pendents.
+
+**E4-WORLD-1 està implementat.** L'informe enumera 16.002 estats vius, 48.006 transicions i un nucli de viabilitat de 15.954 estats. Documenta 45 proves noves i 48 de regressió seleccionades. L'agent inicial mor per calor després de 37 accions: el manteniment après continua pendent. Les 32 classes d'observació vives presenten ambigüitat dinàmica. [Evidència i reproducció](/evidence/echo4/WORLD1-20260921.md).
+
+El desenvolupament continua amb **E4-SENSATION-1**. Publicar aquest full de ruta no implementa els mòduls pendents.
+
+## Ordre tècnic i requisits d'acceptació
+
+1. **E4-WORLD-1 · Implementat.** Cos virtual, recursos, temperatura, accions i condicions terminals. El verificador estableix trajectòries sostenibles amb observació completa; la seva política testimoni queda fora de l'agent.
+
+2. **E4-SENSATION-1 · Fase següent; contracte i implementació pendents.** Comparar l'observació actual amb historials de 2 i 4 passos que incloguin accions executades. Estimar tendències, resultats i incertesa amb memòria acotada i enters. Mesurar ambigüitat resolta, predicció en trajectòries noves i cost. Un resultat inesperat no identifica la causa.
+
+3. **E4-BOUNDARY-1 · Pendent.** Estimar influència causal sobre variables i capacitats mitjançant intervencions comparables, accions vetades, retards i pertorbacions. Distingir efectes propis de coincidències i conservar el resultat desconegut. Controlar una porta no la converteix en cos; predir un rellotge no implica controlar-lo. SELF investiga la pertinença corporal.
+
+4. **E4-SELF-1 · Pendent.** Combinar capacitats corporals, predicció i evidència per distingir canvis propis, externs, mixtos o desconeguts. L'atribució ha de millorar la recuperació sense descartar coneixement ambiental no refutat. SELF-1 històric aporta mètodes, però aquest domini necessita evidència nova.
+
+5. **E4-CONTINUITY-1 · Pendent.** Preservar estat causal, memòria útil, ordre dels esdeveniments i durada. Comparar execució contínua amb pausa i restauració en un procés nou amb entrades futures idèntiques. Distingir restauració, canvi de cos i individu nou; rebutjar estats incompatibles.
+
+6. **E4-MAINTAIN-1 · Pendent.** Introduir dany funcional, reparació costosa i feina útil. Complir alhora un horitzó d'activitat i un mínim de feina, comptabilitzant recursos i sense rescats ocults. Comparar amb l'eliminació del model propi.
+
+7. **E4-OTHER-1 · Pendent.** Dues instàncies amb cossos, memòries i observacions separats. Aprendre expectatives sobre la contrapart a partir del comportament accessible. Predir en situacions noves i adaptar decisions a diferències d'informació sense llegir memòria privada.
+
+8. **E4-INTERACTION-1 · Pendent.** Accions i senyals amb conseqüències per a tots dos. Aprendre quan coordinar-se ajuda i demostrar que bloquejar o substituir senyals modifica decisions rellevants. Comparar reciprocitat, enregistraments i controls equivalents; informar de beneficis individuals, resultats conjunts i costos.
+
+9. **E4-RELATION-1 · Pendent.** Memòria de trobades i expectatives específiques d'una relació. Aprofitar la història compartida en trobades noves, revisar fiabilitat segons context i adaptar-se a canvis de comportament. Retirar aquesta memòria per mesurar-ne l'aportació més enllà d'identificadors o regles fixes.
+
+10. **E4-ROLES-1 · Pendent.** Diferències d'informació, recursos i capacitats, amb delegació i coordinació canviants. Els rols han de seguir la competència rellevant quan canviïn les condicions. La jerarquia humana inspira preguntes; no n'assumim una explicació universal ni rangs permanents.
+
+11. **E4-INTEGRATE-1 · Pendent; tancament de programari ECHO-4.** Integrar capacitats en execucions contínues i escenaris reservats de validació i confirmació. Complir requisits conjunts i demostrar l'aportació del model propi, del model de l'altre i de la història compartida mitjançant ablacions.
+
+12. **Validació física · Després del programari.** Traslladar capacitats pertinents a sensors i cossos reals, reprenent els contractes físics, HIL i gàbia d'ECHO-3. Els resultats virtuals no atorguen aprovació física: recursos i energia requereixen mesures en aquell domini.
+
+13. **METAVERSE-1 · Última fase.** Representar agents, relacions i trajectòries en un entorn 3D observable i interactiu després del programa de programari i les validacions físiques previstes. La representació ha de reflectir fidelment decisions registrades. El contracte visual continua separat del tancament cognitiu.
+
+## Primer lliurable: contracte SENSATION
+
+Comencem amb una auditoria temporal: observació actual davant d'historials de 2 i 4 passos en trajectòries declarades. Comptarem casos restants que exigeixen decisions incompatibles, errors predictius i abstencions. Compararem amb el predictor existent amb accés idèntic a les dades.
+
+Els registres exactes de reserva i temperatura actualitzen la fisiologia. El contracte especificarà què rep el predictor: l'accés directe seria una ampliació sensorial declarada, no una millora atribuïble només a recordar observacions.
+
+Un resum de quatre estats —compatible, desviació petita, desviació gran, evidència insuficient— pot ajudar a inspeccionar. Error i incertesa continuen separats. Un predictor lineal enter és un candidat a avaluar, no un algoritme ja seleccionat o implementat.
+
+## Arquitectura i invariants
+
+WSP manté **16 bytes i la distribució de camps congelada**; no té 4–5 bytes lliures per reassignar. Historials i estimacions necessiten un pressupost fix declarat dins l'arquitectura existent, sense un segon bus cognitiu.
+
+CAM conserva episodis en 4.096 ranures sense destrucció. Q conserva la política i T el model de transició. Els models apresos són estimacions; la confiança no converteix prediccions en fets. El camí ràpid utilitza enters, el còrtex roman apagat i aquests bancs no utilitzen LLM.
+
+Cada individu manté estat separat i observacions autoritzades. Les interaccions públiques entren per la representació existent. No hi ha accés a etiquetes privades, llavors, solucions de l'avaluador ni memòria de la contrapart. L'aturada de l'operador conserva l'autoritat.
+
+## Què significa el tancament verd
+
+Abans de validar, cada contracte fixarà domini, dades reservades, pressupostos d'aprenentatge i memòria, horitzó, errors acceptables, millora mínima i tractament de la incertesa. Els llindars numèrics finals de les fases pendents encara no estan aprovats.
+
+Publicarem resultats negatius, controls convencionals competents, ablacions, traces amb procedència i reproducció en processos nous. Retirar memòria, models o reciprocitat ha de permetre avaluar-ne l'aportació. Una política greedy no implica aprenentatge congelat.
+
+El tancament exigeix criteris conjunts, zero fets falsos, zero ranures destruïdes, zero crides al còrtex i cap accés a oracles. L'èxit mitjà no compensa un invariant trencat.
+
+Un èxit donaria suport a capacitats delimitades de representació pròpia, perspectiva de l'altre, continuïtat i cooperació apresa. Afirmar que la interacció millora la representació pròpia exigeix mesurar específicament aquest efecte. L'experiència subjectiva i una explicació general de la consciència continuen sent preguntes addicionals.
+
+## Per què investigar-ho?
+
+Podríem separar què deu el comportament al cos, a la memòria i a aprendre amb un altre. Poder intervenir i reproduir històries és el valor del laboratori. Els resultats negatius també poden identificar informació o capacitats que falten.
+
+Hi ha precedents de modelatge d'altres agents: [Machine Theory of Mind](https://arxiv.org/abs/1802.07740). Cal comprovar els efectes dels senyals: [On the Pitfalls of Measuring Emergent Communication](https://arxiv.org/abs/1903.05168). Investiguem la integració sota les restriccions d'ECHO-AI; qualsevol novetat específica s'ha de contrastar amb treballs existents.
+
+[Anunci del desenvolupament](/ca/articulos/echo4-inicio-roadmap-oficial) · [Filosofia i inspiració](/ca/articulos/echo4-ego-funcional) · [Full de ruta ECHO-3](/ca/docs/echoai/ruta) · [Markdown](/raw/ca/echoai/echo4.md)
 
 ---
 
@@ -2097,11 +2181,83 @@ Un resultat negatiu ben mesurat també respon la pregunta.
 
 ---
 
+<!-- src/content/ca/articles/echo4-inicio-roadmap-oficial.md · /ca/articulos/echo4-inicio-roadmap-oficial -->
+
+# Comença ECHO-4: un jo, un altre i una història compartida
+
+21 de setembre de 2026 · RxLabs® · Inici oficial del desenvolupament
+
+<p class="article-status"><strong>ECHO-4 entra oficialment en desenvolupament.</strong> WORLD-1 aporta una base executable. E4-SENSATION-1 és el pas següent. Publiquem el full de ruta ampliat: percepció, influència causal, representació pròpia, continuïtat i aprenentatge amb una contrapart.</p>
+
+Imaginem dos agents amb experiències diferents. Un ha vist on hi ha un recurs; l'altre pot obrir-hi l'accés. Resoldre la tasca exigeix descobrir què poden fer, què desconeix el company i com coordinar-se. Després intercanviem les capacitats. Ho podrien detectar i reorganitzar-se?
+
+Aquesta escena descriu una pregunta que volem implementar i mesurar. **ECHO-4 investigarà com un agent representa el seu cos, un altre agent i les experiències compartides, i quan la interacció millora els resultats.**
+
+## El motiu de la recerca
+
+Un mateix senyal pot significar coses diferents segons qui el rep i què ha passat abans. Una acció que funcionava ahir pot fallar perquè ha canviat el cos, l'entorn o la resposta del company. Volem mecanismes que permetin estudiar experimentalment aquestes diferències.
+
+La filosofia del projecte proposa que la identitat funcional es desenvolupa mitjançant cos, memòria i interacció. La construcció participativa de sentit ofereix un marc per preguntar com una relació transforma l'activitat dels participants. Ho traduirem en prediccions i comparacions concretes. [De Jaegher i Di Paolo](https://hannedejaegher.net/wp-content/uploads/2009/11/dejaegherdipaolo07participatorysensemaking.pdf).
+
+La història anònima de John Doe i Jane Roe del [primer article](/ca/articulos/echo4-ego-funcional) expressava aquesta intuïció. L'antivida aportava una imatge de contraparts i fronteres. Ara el programa concreta quines observacions, accions i resultats poden sostenir una conclusió.
+
+## El full de ruta oficial
+
+1. **WORLD → SENSATION → BOUNDARY → SELF.** Un cos virtual, història sensorial, influència de les accions i distinció entre alteracions corporals, externes o desconegudes. Predicció, control i pertinença corporal tenen proves separades.
+
+2. **CONTINUITY → MAINTAIN.** Continuïtat de memòria i temps, preservació de capacitats, reparació i feina útil. Recordar ha de tenir conseqüències mesurables.
+
+3. **OTHER → INTERACTION → RELATION → ROLES.** Una contrapart amb informació pròpia, senyals útils, memòria de trobades i coordinació flexible. Mesurarem quan cooperar ajuda, qui se'n beneficia i què passa quan canvien les capacitats.
+
+4. **INTEGRATE.** Provar-ho conjuntament en situacions noves, retirant capacitats per mesurar-ne l'aportació. Després vindrà la validació física. **METAVERSE-1 queda al final**, per representar i investigar resultats en 3D.
+
+La [documentació oficial d'ECHO-4](/ca/docs/echoai/echo4) detalla les tretze etapes, l'estat i els requisits d'acceptació.
+
+## D'on partim realment
+
+WORLD-1 ja té cos, recursos i regles executables. L'informe documenta 48.006 transicions examinades i 93 proves noves i de regressió seleccionades. Existeix una trajectòria sostenible, però l'agent inicial mor per calor després de 37 accions. Aquest resultat assenyala feina real pendent. [Evidència](/evidence/echo4/WORLD1-20260921.md).
+
+E4-SENSATION-1 començarà preguntant si una seqüència distingeix situacions idèntiques en una observació aïllada. Compararem observació actual i historials de 2 i 4 passos, incloses les accions executades, mesurant predicció, ambigüitat restant i cost de memòria.
+
+WSP conserva els seus 16 bytes i camps. Continuarem amb enters, memòria acotada i còrtex apagat. El contracte sensorial determinarà les dades disponibles; el mòdul següent encara no està implementat.
+
+## I si totes les etapes surten verdes?
+
+**El més suggeridor seria observar que la història compartida transforma de manera útil com dos agents es representen l'un a l'altre i actuen.** Si l'efecte es transfereix a situacions noves i desapareix en retirar la memòria pertinent, tindríem evidència causal del seu paper.
+
+Dins el domini avaluat, podríem demostrar:
+
+- Comunicació ajustada a la informació disponible per a la contrapart.
+- Distinció entre una fallada corporal i un canvi extern sense perdre coneixement vàlid.
+- Memòria útil d'un company i revisió d'expectatives quan canvia.
+- Reorganització de rols segons informació o capacitats rellevants.
+- Una aportació mesurable de la reciprocitat més enllà d'enregistraments o estratègies individuals equivalents.
+
+Imaginem repetir una trobada, retirar part de la memòria i observar exactament què es perd. O conservar-la i canviar les capacitats per descobrir què s'havia après de la relació i què depenia del context. **Construir un laboratori on aquestes preguntes tinguin respostes reproduïbles és una ambició que val la pena perseguir.**
+
+Els resultats podrien orientar tecnologies de cooperació i robots adaptatius. Aquestes aplicacions necessitarien avaluacions pròpies.
+
+## Què donaria suport a la conclusió
+
+Utilitzarem controls, escenaris reservats i criteris fixats abans d'avaluar. Intervindrem sobre els senyals per comprovar-ne els efectes: una recompensa millor no explica tota sola el mecanisme. [Lowe i col·laboradors](https://arxiv.org/abs/1903.05168).
+
+Hi ha precedents, com sistemes que modelen altres agents a partir del comportament. [Machine Theory of Mind](https://arxiv.org/abs/1802.07740). El compromís específic d'ECHO-4 és integrar cos, continuïtat i història compartida en la seva arquitectura i mesurar cada aportació.
+
+El verd donaria suport a aquestes capacitats funcionals en l'abast examinat. La consciència subjectiva requeriria evidència addicional. La pregunta filosòfica continua oberta i cada experiment pot precisar què aconseguim explicar.
+
+**Comencem amb una pregunta petita: què pot distingir ECHO del que li passa? La direcció és ambiciosa: entendre com aquesta perspectiva canvia quan coneix un altre.**
+
+[Full de ruta tècnic oficial](/ca/docs/echoai/echo4) · [Filosofia i inspiració](/ca/articulos/echo4-ego-funcional) · [Descarrega Markdown](/raw/ca/articulos/echo4-inicio-roadmap-oficial.md)
+
+---
+
 <!-- src/content/ca/articles/echo4-ego-funcional.md · /ca/articulos/echo4-ego-funcional -->
 
 # ECHO-4: construir un jo que es pugui posar a prova
 
 21 de setembre de 2026 · RxLabs® · Programa de recerca
+
+> Actualització: el [full de ruta oficial](/ca/docs/echoai/echo4) incorpora SENSATION-1 i BOUNDARY-1 abans de SELF-1, i la contrapart i la història compartida com a fases del programa. Aquest article conserva el plantejament inicial.
 
 <p class="article-status"><strong>Estat: obert.</strong> WORLD-1 està implementat. L'atribució cos/entorn, la continuïtat, el manteniment après i la seva integració continuen pendents. Aquest article explica el programa; no anuncia un certificat d'ECHO-4.</p>
 
@@ -2242,6 +2398,8 @@ METAVERSE-1 és una línia independent, no la porta d'entrada al jo. La comunica
 # METAVERSE-1: com ho farem
 
 21 de setembre de 2026 · RxLabs®
+
+> Prioritat actual: METAVERSE-1 queda al final, després del programari ECHO-4 i les validacions físiques previstes. Consulta el [full de ruta oficial](/ca/docs/echoai/echo4).
 
 ECHO-3 sap volar una missió sencera en simulació. El que encara no sap fer és
 **deixar-se mirar mentre la vola**, en un món que s'assembli a un lloc i no a

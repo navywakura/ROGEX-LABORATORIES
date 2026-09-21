@@ -529,6 +529,7 @@ export const PRODUCTS = [
       "echoai/resultados",
       "echoai/proceso",
       "echoai/ruta",
+      "echoai/echo4",
       "echoai/transfer",
       "echoai/drone3",
       "echoai/hardware",

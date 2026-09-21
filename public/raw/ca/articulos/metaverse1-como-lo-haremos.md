@@ -2,6 +2,8 @@
 
 21 de setembre de 2026 · RxLabs®
 
+> Prioritat actual: METAVERSE-1 queda al final, després del programari ECHO-4 i les validacions físiques previstes. Consulta el [full de ruta oficial](/ca/docs/echoai/echo4).
+
 ECHO-3 sap volar una missió sencera en simulació. El que encara no sap fer és
 **deixar-se mirar mentre la vola**, en un món que s'assembli a un lloc i no a
 una quadrícula de 7 × 7 cel·les.

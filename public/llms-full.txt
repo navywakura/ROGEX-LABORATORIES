@@ -625,11 +625,95 @@ Eso cierra el tramo SITL y **nada más**. El hito 15 exige también hardware-in-
 
 ## Qué viene ahora
 
-El trabajo deja de ser software. La lista de compra con precios, el montaje, la lista previa de seguridad y las demostraciones previstas están en [hardware previsto](/docs/echoai/hardware): FLIGHT-1H, SENSOR-1H, PX4-1H, POWER-1H y después DRONE-3H, cada uno con su contrato. El AKD1500 M.2 está previsto para octubre y su primer banco será una comparación medida contra CPU y Jetson.
+La prioridad actual es el [desarrollo software de ECHO-4](/docs/echoai/echo4), comenzando por E4-SENSATION-1. El tramo físico de ECHO-3 conserva sus contratos y se retoma después del software. La lista de compra, el montaje y las demostraciones previstas siguen en [hardware previsto](/docs/echoai/hardware): FLIGHT-1H, SENSOR-1H, PX4-1H, POWER-1H y después DRONE-3H. Las fechas de compra quedan sujetas a esta prioridad.
 
 Un aviso que ya está publicado: el dominio certificado usa celdas de tres metros y salas de 21 × 15 m, que no caben en una jaula doméstica. La versión a escala deberá validarse antes en simulación.
 
 [DRONE-3](/docs/echoai/drone3) · [TRANSFER-3](/docs/echoai/transfer) · [DRONE-3: la misión entera, en simulación](/articulos/drone3-mision-integrada-sitl) · [Datos e informes de origen](/data/echo3-status.json)
+
+---
+
+<!-- src/content/echoai/echo4.md · /docs/echoai/echo4 -->
+
+# ECHO-4 — roadmap oficial
+
+21 de septiembre de 2026 · Versión 1 · Desarrollo iniciado
+
+**Objetivo:** desarrollar una representación funcional de sí mismo, del otro y de su historia compartida, y aprender cuándo una interacción mejora los resultados de ambos.
+
+La hipótesis central es que la reciprocidad y la memoria de encuentros pueden contribuir a la adaptación de cada agente. Mediremos por separado el resultado individual, el conjunto y los costes de coordinarse. Habrá casos donde cooperar ayude y otros donde actuar por separado sea preferible.
+
+Este documento fija el orden oficial del programa ampliado. Sustituye la secuencia preliminar del primer artículo de ECHO-4. Cada fase pendiente necesita todavía su contrato de sensores, memoria, aprendizaje, controles y umbrales antes del examen.
+
+## Punto de partida
+
+NEXUS-0 aporta WSP, CAM, Q, T y gate. ECHO-1 y ECHO-2 conservan sus cierres. ECHO-3 tiene 14/15 hitos completos en su alcance software; DRONE-3 ha cerrado SITL y mantiene HIL y jaula pendientes.
+
+**E4-WORLD-1 está implementado.** El informe enumera 16.002 estados vivos, 48.006 transiciones y un núcleo de viabilidad de 15.954 estados. Documenta 45 pruebas nuevas y 48 de regresión seleccionadas. El agente inicial muere por calor tras 37 acciones; el mantenimiento aprendido sigue pendiente. Las 32 clases de observación viva presentan ambigüedad dinámica. [Evidencia y reproducción](/evidence/echo4/WORLD1-20260921.md).
+
+El desarrollo continúa con **E4-SENSATION-1**. Publicar este roadmap no significa que sus módulos pendientes estén implementados.
+
+## Orden técnico y criterios de avance
+
+1. **E4-WORLD-1 · Implementado.** Cuerpo virtual, recursos, temperatura, acciones y terminalidad. El verificador demuestra que existen trayectorias sostenibles con observación completa. Su política testigo permanece fuera del agente.
+
+2. **E4-SENSATION-1 · Siguiente fase; contrato e implementación pendientes.** Comparar la observación actual con historias de 2 y 4 pasos que incluyan acciones ejecutadas. Estimar tendencias, consecuencias e incertidumbre con memoria acotada y aritmética entera. Para avanzar, medir qué ambigüedades se resuelven, qué mejora predictiva generaliza y cuánto cuesta. Un error indica una consecuencia inesperada; su causa sigue abierta. La duración de la historia es una variable experimental.
+
+3. **E4-BOUNDARY-1 · Pendiente.** Estimar influencia causal sobre variables y capacidades mediante intervenciones comparables, acciones vetadas, retardos y perturbaciones. Para avanzar, distinguir efectos propios de coincidencias y conservar una salida desconocida. Controlar una puerta no la convierte en cuerpo; predecir un reloj no significa controlarlo. La pertenencia corporal se investigará en SELF.
+
+4. **E4-SELF-1 · Pendiente.** Integrar capacidades corporales, predicción y evidencia para distinguir cambio propio, externo, mixto o desconocido. Para avanzar, la atribución debe mejorar la recuperación conductual y preservar conocimiento del entorno que no haya sido refutado. El SELF-1 histórico aporta métodos; este dominio exige evidencia nueva.
+
+5. **E4-CONTINUITY-1 · Pendiente.** Conservar estado causal, memoria útil, orden temporal y duración de acontecimientos. Para avanzar, comparar ejecución continua con pausa/reanudación en un proceso nuevo bajo idénticas entradas futuras; distinguir restauración, cambio de cuerpo y nuevo individuo, y rechazar estados incompatibles.
+
+6. **E4-MAINTAIN-1 · Pendiente.** Incorporar daño funcional, reparación con coste y trabajo útil. Para avanzar, cumplir simultáneamente un horizonte de actividad y un mínimo de trabajo, con balance de recursos y sin rescates ocultos. La comparación sin modelo propio debe medir su contribución.
+
+7. **E4-OTHER-1 · Pendiente.** Dos instancias con cuerpo, memoria y observaciones separados. Aprender expectativas sobre la contraparte a partir de conducta accesible. Para avanzar, predecir en situaciones nuevas y ajustar decisiones a diferencias de información, sin consultar la memoria privada del otro.
+
+8. **E4-INTERACTION-1 · Pendiente.** Acciones y señales con consecuencias para ambos agentes. Para avanzar, aprender cuándo coordinarse resulta útil y demostrar que bloquear o sustituir las señales cambia las decisiones pertinentes. Comparar interacción recíproca con grabaciones y controles equiparados; registrar beneficio de cada agente, resultado conjunto y coste.
+
+9. **E4-RELATION-1 · Pendiente.** Memoria de encuentros y expectativas específicas de una relación. Para avanzar, utilizar historia compartida en encuentros nuevos, revisar la fiabilidad por contexto y adaptarse a cambios de conducta. Retirar esa memoria debe permitir medir qué aporta frente al identificador o a una regla fija.
+
+10. **E4-ROLES-1 · Pendiente.** Diferencias de información, recursos y capacidades, con tareas que permitan delegar y cambiar la coordinación. Para avanzar, los roles deben ajustarse a la competencia relevante cuando cambie la situación. La jerarquía humana inspira preguntas; no se presupone una explicación universal de ella ni se impone un rango permanente.
+
+11. **E4-INTEGRATE-1 · Pendiente; cierre software de ECHO-4.** Reunir las capacidades en ejecuciones continuas y escenarios reservados para validación y confirmación. Para avanzar, satisfacer los criterios conjuntos y demostrar las contribuciones del modelo propio, del otro y de la historia compartida mediante ablaciones.
+
+12. **Validación física · Después del software.** Trasladar las capacidades pertinentes a sensores y cuerpos reales. Retomar los contratos físicos de ECHO-3, HIL y jaula. Los resultados virtuales no conceden automáticamente aprobación física; los recursos y la energía deberán medirse en ese dominio.
+
+13. **METAVERSE-1 · Última fase.** Representar agentes, relaciones y trayectorias en un entorno 3D observable e interactivo, después del programa software y de las validaciones físicas previstas. El renderer debe reflejar fielmente las decisiones registradas. Su contrato de visualización sigue siendo independiente del cierre cognitivo.
+
+## Primer trabajo: contrato de SENSATION
+
+El primer entregable será una auditoría temporal: observación actual frente a historias de 2 y 4 pasos sobre trayectorias declaradas. Contaremos los casos que siguen requiriendo decisiones incompatibles, los errores de predicción y las abstenciones, y compararemos con el predictor existente bajo el mismo acceso a datos.
+
+Los valores exactos de reserva y temperatura existen para actualizar la fisiología; el contrato debe especificar qué recibe el predictor. Acceder a esos registros exactos sería una ampliación sensorial que habrá que declarar, no una mejora obtenida únicamente recordando observaciones.
+
+Un resumen de cuatro estados —compatible, desviación pequeña, desviación grande, evidencia insuficiente— puede ayudar a inspeccionar resultados. Error e incertidumbre se conservarán por separado. Un predictor lineal entero es un candidato por evaluar; todavía no está elegido ni implementado.
+
+## Arquitectura e invariantes
+
+WSP mantiene **16 bytes y su layout congelado**: no dispone de 4–5 bytes libres para reasignar. La historia y las estimaciones tendrán un presupuesto fijo definido en su contrato, usando la arquitectura existente y sin un segundo bus cognitivo.
+
+CAM conserva episodios en 4.096 ranuras sin destrucción; Q conserva la política y T el modelo de transiciones. Los modelos aprendidos son estimaciones: una predicción no se convierte en hecho por tener confianza alta. El camino rápido utiliza enteros, el córtex permanece apagado y no hay LLM en estos bancos.
+
+Cada individuo tendrá su estado separado y observaciones autorizadas. El protocolo público de interacción debe desembocar en la representación existente; no concede acceso a etiquetas privadas, semillas, solución del evaluador o memoria ajena. Las paradas del operador conservan su autoridad.
+
+## Qué significa cerrar en verde
+
+Cada contrato fijará antes de validar dominio, datos reservados, presupuesto de aprendizaje y memoria, horizonte, errores aceptables, mejora mínima y tratamiento de incertidumbre. Aún no hay umbrales numéricos finales aprobados para las fases pendientes.
+
+Se publicarán resultados negativos, controles convencionales competentes, ablaciones, trazas con procedencia y reproducción en procesos nuevos. Quitar memoria, modelo propio, modelo ajeno o reciprocidad debe permitir evaluar su contribución. Greedy no equivale a aprendizaje congelado.
+
+El cierre software exige los criterios juntos, cero hechos falsos, cero ranuras destruidas, cero llamadas al córtex y ausencia de acceso al oráculo. Una media de éxitos no compensa romper un invariante.
+
+Si todo pasa, podremos respaldar capacidades acotadas de autorrepresentación, perspectiva ajena, continuidad y cooperación aprendida. Para sostener que la interacción favorece la representación propia habrá que mostrar ese efecto específico frente a controles. La experiencia subjetiva y una explicación general de la conciencia seguirán siendo preguntas adicionales.
+
+## Por qué merece la pena
+
+Un resultado positivo permitiría preguntar cuánto de una conducta depende del cuerpo, cuánto de la memoria y cuánto de haber aprendido con otro. Esa posibilidad de intervenir y reproducir la historia es el valor del laboratorio. Un resultado negativo también puede localizar qué información o capacidad falta.
+
+Hay precedentes de modelos de otros agentes: [Machine Theory of Mind](https://arxiv.org/abs/1802.07740). La evaluación de señales exige comprobar su efecto: [On the Pitfalls of Measuring Emergent Communication](https://arxiv.org/abs/1903.05168). Nuestra apuesta es investigar la integración bajo las restricciones de ECHO-AI; la novedad concreta deberá contrastarse con esos trabajos.
+
+[Anuncio del inicio de desarrollo](/articulos/echo4-inicio-roadmap-oficial) · [Filosofía e inspiración](/articulos/echo4-ego-funcional) · [Roadmap ECHO-3](/docs/echoai/ruta) · [Markdown](/raw/es/echoai/echo4.md)
 
 ---
 
@@ -2116,11 +2200,83 @@ Un resultado negativo bien medido también responde a la pregunta.
 
 ---
 
+<!-- src/content/articles/echo4-inicio-roadmap-oficial.md · /articulos/echo4-inicio-roadmap-oficial -->
+
+# Empieza ECHO-4: un yo, un otro y una historia compartida
+
+21 de septiembre de 2026 · RxLabs® · Inicio oficial del desarrollo
+
+<p class="article-status"><strong>ECHO-4 entra oficialmente en desarrollo.</strong> WORLD-1 aporta la base ejecutable. El siguiente trabajo es E4-SENSATION-1. Publicamos el roadmap ampliado: percepción, influencia causal, representación propia, continuidad y aprendizaje con una contraparte.</p>
+
+Imagina dos agentes que han vivido experiencias diferentes. Uno ha visto dónde está un recurso; el otro puede abrir el acceso. Para resolver la tarea necesitan averiguar qué pueden hacer, qué información le falta al compañero y cómo coordinarse. Después intercambiamos sus capacidades. ¿Podrían darse cuenta y reorganizarse?
+
+Esa escena describe una de las preguntas que queremos convertir en software y medir. **ECHO-4 investigará cómo un agente representa su cuerpo, al otro y lo que han vivido juntos, y cuándo esa interacción mejora los resultados.**
+
+## El motivo de la investigación
+
+Una misma señal puede significar algo distinto según quién la recibe y qué ha ocurrido antes. Una acción que ayer funcionaba puede fallar porque cambió el cuerpo, cambió el entorno o el compañero dejó de responder como esperábamos. Queremos construir mecanismos que permitan investigar esas diferencias.
+
+La filosofía del proyecto propone que la identidad funcional se desarrolla mediante cuerpo, memoria e interacción. La idea de construcción participativa de sentido aporta un marco para preguntar cómo una relación transforma la actividad de sus participantes. Lo traduciremos a predicciones y comparaciones concretas. [De Jaegher y Di Paolo](https://hannedejaegher.net/wp-content/uploads/2009/11/dejaegherdipaolo07participatorysensemaking.pdf).
+
+El relato anónimo de John Doe y Jane Roe, presentado en el [artículo anterior](/articulos/echo4-ego-funcional), puso palabras a esa intuición. La referencia a la antivida sirvió para imaginar contrapartes y fronteras. Ahora el programa define qué observaciones, acciones y resultados pueden sostener una conclusión.
+
+## El roadmap oficial, explicado
+
+1. **WORLD → SENSATION → BOUNDARY → SELF.** Partimos de un cuerpo virtual. Estudiaremos qué revela la historia sensorial, qué cambios causa una acción y cómo distinguir alteración propia, externa o desconocida. Predecir, controlar y pertenecer al cuerpo se examinarán por separado.
+
+2. **CONTINUITY → MAINTAIN.** Incorporaremos continuidad de memoria y tiempo, conservación de capacidades, reparación y trabajo útil. Queremos que recordar tenga consecuencias comprobables sobre lo que el agente puede hacer después.
+
+3. **OTHER → INTERACTION → RELATION → ROLES.** Añadiremos una contraparte con información propia, señales útiles, memoria de encuentros y coordinación flexible. Mediremos cuándo colaborar ayuda, a quién beneficia y qué ocurre cuando cambian las capacidades.
+
+4. **INTEGRATE.** Examinaremos todo junto en escenarios nuevos, retirando capacidades para comprobar qué aporta cada una. Después vendrá la validación física. **METAVERSE-1 queda al final de todo**, para representar e investigar los resultados en 3D.
+
+La [documentación oficial de ECHO-4](/docs/echoai/echo4) detalla las trece etapas, su estado y los criterios de avance.
+
+## Por dónde empezamos de verdad
+
+WORLD-1 ya tiene cuerpo, recursos y reglas ejecutables. Su informe documenta 48.006 transiciones examinadas y 93 pruebas nuevas y de regresión seleccionada. Existe una trayectoria sostenible, pero el agente inicial termina por calor tras 37 acciones. Ese resultado señala trabajo real por hacer. [Evidencia](/evidence/echo4/WORLD1-20260921.md).
+
+E4-SENSATION-1 comienza preguntando si observar una secuencia permite distinguir situaciones que parecen iguales en una sola instantánea. Compararemos la observación actual con historias de 2 y 4 pasos, incluyendo acciones ejecutadas. Mediremos predicción, ambigüedad restante y coste de memoria.
+
+WSP conserva sus 16 bytes y su distribución de campos. La implementación seguirá usando aritmética entera, memoria acotada y córtex apagado. El contrato sensorial determinará qué datos están disponibles; el siguiente módulo todavía no está implementado.
+
+## Si todo sale verde, ¿qué sería lo más emocionante?
+
+**Poder observar que una historia compartida cambia de forma útil cómo dos agentes se entienden y actúan.** Si ese efecto se mantiene en situaciones nuevas y desaparece al retirar la memoria relevante, tendríamos evidencia causal sobre el papel de esa historia.
+
+Podríamos demostrar, dentro del dominio evaluado:
+
+- Que un agente adapta lo que comunica a la información disponible para su contraparte.
+- Que distingue un fallo propio de un cambio externo y conserva conocimiento que sigue siendo válido.
+- Que recuerda a un compañero de manera útil y revisa sus expectativas cuando cambia su conducta.
+- Que aprende a reorganizar roles cuando otro dispone de mejor información o capacidad.
+- Que la interacción recíproca aporta algo medible frente a una grabación o una estrategia individual comparable.
+
+Imagina poder repetir un encuentro, retirar una parte de la memoria y observar exactamente qué se pierde. O conservar esa memoria, cambiar las capacidades de ambos y descubrir qué han aprendido de la relación y qué dependía del contexto. **Construir un laboratorio donde esas preguntas tengan respuestas reproducibles es una ambición que merece perseguirse.**
+
+Los resultados podrían orientar futuras tecnologías de cooperación entre agentes y robots adaptativos. Esas aplicaciones necesitarían pruebas propias.
+
+## Qué sostendría esa conclusión
+
+Habrá controles, escenarios reservados y criterios fijados antes del examen. La comunicación se evaluará interviniendo sobre las señales y comprobando sus efectos; las ganancias de puntuación por sí solas no bastan para explicar el mecanismo. [Lowe y colaboradores](https://arxiv.org/abs/1903.05168).
+
+Esta línea tiene antecedentes, incluidos sistemas que modelan a otros agentes observando su conducta. [Machine Theory of Mind](https://arxiv.org/abs/1802.07740). La apuesta específica de ECHO-4 es integrar cuerpo, continuidad e historia compartida en su arquitectura y hacer medible la aportación de cada parte.
+
+Un cierre verde respaldaría esas capacidades funcionales en el alcance examinado. La conciencia subjetiva seguiría requiriendo evidencia adicional. La pregunta filosófica sigue abierta, y cada experimento podrá precisar qué estamos consiguiendo explicar.
+
+**El desarrollo empieza con una pregunta pequeña: qué puede distinguir ECHO a partir de lo que le ocurre. La dirección es ambiciosa: entender cómo esa perspectiva cambia al encontrarse con otra.**
+
+[Roadmap técnico oficial](/docs/echoai/echo4) · [Filosofía e inspiración](/articulos/echo4-ego-funcional) · [Descargar en Markdown](/raw/es/articulos/echo4-inicio-roadmap-oficial.md)
+
+---
+
 <!-- src/content/articles/echo4-ego-funcional.md · /articulos/echo4-ego-funcional -->
 
 # ECHO-4: construir un yo que se pueda poner a prueba
 
 21 de septiembre de 2026 · RxLabs® · Programa de investigación
+
+> Actualización: el [roadmap oficial](/docs/echoai/echo4) incorpora SENSATION-1 y BOUNDARY-1 antes de SELF-1, y la contraparte y la historia compartida como fases del programa. Este artículo conserva el planteamiento inicial.
 
 <p class="article-status"><strong>Estado: abierto.</strong> WORLD-1 está implementado. La atribución cuerpo/entorno, la continuidad, el mantenimiento aprendido y su integración siguen pendientes. Este artículo explica el programa; no anuncia un certificado de ECHO-4.</p>
 
@@ -2261,6 +2417,8 @@ METAVERSE-1 queda como línea independiente, no como puerta de entrada al ego. L
 # METAVERSE-1: cómo lo haremos
 
 21 de septiembre de 2026 · RxLabs®
+
+> Prioridad actual: METAVERSE-1 queda al final, después del software ECHO-4 y las validaciones físicas previstas. Consulta el [roadmap oficial](/docs/echoai/echo4).
 
 ECHO-3 sabe volar una misión entera en simulación. Lo que todavía no sabe
 hacer es **dejarse mirar mientras la vuela**, en un mundo que se parezca a un

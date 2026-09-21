@@ -17,6 +17,12 @@ Text complet: https://rxlabs.org/ca/llms-full.txt
   - Campanya exploratòria intenció → dron: EEG, EMG i control corporal comparats com a fonts d'intencions acotades que echoAI i echOS filtren abans del controlador de vol. Sense resultats propis, sensors ni dron; no llegeix el pensament. [Campanya](https://www.rxlabs.org/ca/docs/prisma/eeg-dron)
 - **echoAI** — agent situat de dos rellotges amb WSP de 16 bytes, CAM, T, Q i gate. ECHO-1 i ECHO-2 estan tancats; ECHO-3 té 14 de 15 certificats de programari i DRONE-3 ha tancat la missió integrada en SITL; HIL i gàbia continuen pendents de maquinari. [Pàgina](https://www.rxlabs.org/ca/echoai) · [Docs](https://rxlabs.org/ca/docs/echoai/que-es)
 
+## ECHO-4
+
+Desenvolupament iniciat el 21 de setembre de 2026. WORLD-1 està implementat; SENSATION-1 és el pas següent, seguit de BOUNDARY-1 i SELF-1. Continuen continuïtat, manteniment, contrapart, interacció, relacions, rols i integració. Maquinari després del programari; METAVERSE-1 al final.
+
+[Roadmap](https://www.rxlabs.org/ca/docs/echoai/echo4) · [ECHO-4](https://www.rxlabs.org/ca/articulos/echo4-inicio-roadmap-oficial)
+
 ## ECHO-3 ara
 
 ECHO-3 té **14 de 15 fites amb certificat verd dins del seu abast de programari** i DRONE-3 ha tancat el seu tram SITL. ECHO-1 i ECHO-2 estan tancats; el programa robòtic continua obert. Sumar certificats no equival a una missió en un robot físic: no hi ha maquinari al laboratori.

@@ -39,7 +39,7 @@ Això tanca el tram SITL i **res més**. La fita 15 exigeix també hardware-in-t
 
 ## Què ve ara
 
-La feina deixa de ser programari. La llista de compra amb preus, el muntatge, la llista prèvia de seguretat i les demostracions previstes són a [maquinari previst](/ca/docs/echoai/hardware): FLIGHT-1H, SENSOR-1H, PX4-1H, POWER-1H i després DRONE-3H, cadascun amb el seu contracte. L'AKD1500 M.2 està previst per a l'octubre i el seu primer banc serà una comparació mesurada contra CPU i Jetson.
+La prioritat actual és el [desenvolupament de programari ECHO-4](/ca/docs/echoai/echo4), començant per E4-SENSATION-1. ECHO-3 conserva els contractes físics, que es reprendran després del programari. La compra, el muntatge i les demostracions continuen a [maquinari previst](/ca/docs/echoai/hardware): FLIGHT-1H, SENSOR-1H, PX4-1H, POWER-1H i després DRONE-3H. Les dates de compra queden subjectes a aquesta prioritat.
 
 Un avís que ja està publicat: el domini certificat fa servir cel·les de tres metres i sales de 21 × 15 m, que no caben en una gàbia domèstica. La versió a escala s'haurà de validar abans en simulació.
 

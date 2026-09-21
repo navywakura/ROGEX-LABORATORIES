@@ -2,6 +2,8 @@
 
 21 September 2026 · RxLabs® · Research programme
 
+> Programme update: the [official roadmap](/en/docs/echoai/echo4) inserts SENSATION-1 and BOUNDARY-1 before SELF-1 and includes counterpart and shared-history phases. This article preserves the initial proposal.
+
 <p class="article-status"><strong>Status: open.</strong> WORLD-1 is implemented. Body/environment attribution, continuity, learned maintenance and their integration remain pending. This article describes the programme; it does not announce an ECHO-4 certificate.</p>
 
 What would have to change in a machine for “I” to become a useful distinction rather than a word?

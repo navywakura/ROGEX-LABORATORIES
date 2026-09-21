@@ -2,6 +2,8 @@
 
 21 de setembre de 2026 · RxLabs® · Programa de recerca
 
+> Actualització: el [full de ruta oficial](/ca/docs/echoai/echo4) incorpora SENSATION-1 i BOUNDARY-1 abans de SELF-1, i la contrapart i la història compartida com a fases del programa. Aquest article conserva el plantejament inicial.
+
 <p class="article-status"><strong>Estat: obert.</strong> WORLD-1 està implementat. L'atribució cos/entorn, la continuïtat, el manteniment après i la seva integració continuen pendents. Aquest article explica el programa; no anuncia un certificat d'ECHO-4.</p>
 
 Què hauria de canviar en una màquina perquè «jo» deixés de ser una paraula i es convertís en una distinció útil?

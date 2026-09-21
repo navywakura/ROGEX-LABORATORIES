@@ -39,7 +39,7 @@ That closes the SITL leg and **nothing more**. Milestone 15 also demands hardwar
 
 ## What comes next
 
-The work stops being software. The shopping list with prices, the assembly, the safety checklist and the planned demonstrations are in [planned hardware](/en/docs/echoai/hardware): FLIGHT-1H, SENSOR-1H, PX4-1H, POWER-1H and then DRONE-3H, each with its own contract. The AKD1500 M.2 is planned for October and its first bench will be a measured comparison against CPU and Jetson.
+The current priority is [ECHO-4 software development](/en/docs/echoai/echo4), starting with E4-SENSATION-1. ECHO-3 retains its physical contracts, to resume after software. The shopping list, assembly and planned demonstrations remain in [planned hardware](/en/docs/echoai/hardware): FLIGHT-1H, SENSOR-1H, PX4-1H, POWER-1H and then DRONE-3H. Purchase dates remain subject to this priority.
 
 One warning that is already published: the certified domain uses three-metre cells and 21 × 15 m rooms, which do not fit in a home cage. The scaled version will have to be validated in simulation first.
 

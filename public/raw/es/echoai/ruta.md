@@ -39,7 +39,7 @@ Eso cierra el tramo SITL y **nada más**. El hito 15 exige también hardware-in-
 
 ## Qué viene ahora
 
-El trabajo deja de ser software. La lista de compra con precios, el montaje, la lista previa de seguridad y las demostraciones previstas están en [hardware previsto](/docs/echoai/hardware): FLIGHT-1H, SENSOR-1H, PX4-1H, POWER-1H y después DRONE-3H, cada uno con su contrato. El AKD1500 M.2 está previsto para octubre y su primer banco será una comparación medida contra CPU y Jetson.
+La prioridad actual es el [desarrollo software de ECHO-4](/docs/echoai/echo4), comenzando por E4-SENSATION-1. El tramo físico de ECHO-3 conserva sus contratos y se retoma después del software. La lista de compra, el montaje y las demostraciones previstas siguen en [hardware previsto](/docs/echoai/hardware): FLIGHT-1H, SENSOR-1H, PX4-1H, POWER-1H y después DRONE-3H. Las fechas de compra quedan sujetas a esta prioridad.
 
 Un aviso que ya está publicado: el dominio certificado usa celdas de tres metros y salas de 21 × 15 m, que no caben en una jaula doméstica. La versión a escala deberá validarse antes en simulación.
 

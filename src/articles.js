@@ -1,7 +1,17 @@
 // Shared by routing, article cards, metadata and Markdown export.
 export const ARTICLES = [
   {
-    slug: "echo4-ego-funcional", date: "2026-09-21", featured: true,
+    slug: "echo4-inicio-roadmap-oficial", date: "2026-09-21", featured: true,
+    title: { es: "Empieza ECHO-4: un yo, un otro y una historia compartida", en: "ECHO-4 begins: a self, another and a shared history", ca: "Comença ECHO-4: un jo, un altre i una història compartida" },
+    summary: {
+      es: "Abrimos oficialmente el desarrollo: de la percepción del cuerpo a la cooperación aprendida. El roadmap, el primer experimento y lo que podríamos demostrar si funciona.",
+      en: "Development officially begins: from bodily perception to learned cooperation. The roadmap, the first experiment and what success could demonstrate.",
+      ca: "Obrim oficialment el desenvolupament: de la percepció del cos a la cooperació apresa. El full de ruta, el primer experiment i què podríem demostrar si funciona.",
+    },
+    status: { es: "Desarrollo iniciado · ECHO-4", en: "Development started · ECHO-4", ca: "Desenvolupament iniciat · ECHO-4" },
+  },
+  {
+    slug: "echo4-ego-funcional", date: "2026-09-21",
     title: { es: "ECHO-4: construir un yo que se pueda poner a prueba", en: "ECHO-4: building a self we can put to the test", ca: "ECHO-4: construir un jo que es pugui posar a prova" },
     summary: {
       es: "Del relato de John Doe a un ego funcional: filosofía, software y las pruebas necesarias para un cierre verde. WORLD-1 ya corre; ECHO-4 sigue abierto.",

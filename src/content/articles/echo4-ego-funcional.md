@@ -2,6 +2,8 @@
 
 21 de septiembre de 2026 · RxLabs® · Programa de investigación
 
+> Actualización: el [roadmap oficial](/docs/echoai/echo4) incorpora SENSATION-1 y BOUNDARY-1 antes de SELF-1, y la contraparte y la historia compartida como fases del programa. Este artículo conserva el planteamiento inicial.
+
 <p class="article-status"><strong>Estado: abierto.</strong> WORLD-1 está implementado. La atribución cuerpo/entorno, la continuidad, el mantenimiento aprendido y su integración siguen pendientes. Este artículo explica el programa; no anuncia un certificado de ECHO-4.</p>
 
 ¿Qué tendría que cambiar en una máquina para que «yo» dejase de ser una palabra y se convirtiera en una distinción útil?

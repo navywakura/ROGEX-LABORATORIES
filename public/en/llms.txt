@@ -17,6 +17,12 @@ Complete text: https://rxlabs.org/en/llms-full.txt
   - Exploratory intent → drone campaign: EEG, EMG and body control compared as sources of bounded intents that echoAI and echOS filter before the flight controller. No results of our own, no sensors, no drone; it does not read thoughts. [Campaign](https://www.rxlabs.org/en/docs/prisma/eeg-dron)
 - **echoAI** — two-clock situated agent with a 16-byte WSP, CAM, T, Q and gate. ECHO-1 and ECHO-2 are closed; ECHO-3 has 14 of 15 software certificates and DRONE-3 has closed the integrated mission in SITL; HIL and cage still await hardware. [Page](https://www.rxlabs.org/en/echoai) · [Docs](https://rxlabs.org/en/docs/echoai/que-es)
 
+## ECHO-4
+
+Development started on 21 September 2026. WORLD-1 is implemented; SENSATION-1 is next, followed by BOUNDARY-1 and SELF-1. Continuity, maintenance, counterpart, interaction, relationships, roles and integration follow. Hardware after software; METAVERSE-1 last.
+
+[Roadmap](https://www.rxlabs.org/en/docs/echoai/echo4) · [ECHO-4](https://www.rxlabs.org/en/articulos/echo4-inicio-roadmap-oficial)
+
 ## ECHO-3 now
 
 ECHO-3 has **14 of 15 milestones with green certificates within their software scope** and DRONE-3 has closed its SITL leg. ECHO-1 and ECHO-2 are closed; the robotics programme remains open. Adding certificates does not amount to a mission on a physical robot: there is no hardware in the laboratory.
