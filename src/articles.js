@@ -1,6 +1,15 @@
 // Shared by routing, article cards, metadata and Markdown export.
 export const ARTICLES = [
   {
+    slug: "metaverse1-como-lo-haremos", date: "2026-09-21",
+    title: { es: "METAVERSE-1: cómo lo haremos", en: "METAVERSE-1: how we will do it", ca: "METAVERSE-1: com ho farem" },
+    summary: {
+      es: "El plan entero para dar vida a ECHO-3 dentro de un mapa 3D: las ocho sub-fases, las siete etapas de trabajo, qué está hecho, qué falta y qué seguirá sin demostrar.",
+      en: "The whole plan for bringing ECHO-3 to life inside a 3D map: the eight sub-phases, the seven working stages, what is done, what is missing and what it will still not demonstrate.",
+      ca: "El pla sencer per donar vida a ECHO-3 dins d'un mapa 3D: les vuit subfases, les set etapes de treball, què està fet, què falta i què continuarà sense demostrar.",
+    },
+  },
+  {
     slug: "gui4-como-visualizar-las-grabaciones", date: "2026-09-20",
     title: { es: "GUI-4: cómo visualizar las grabaciones", en: "GUI-4: how to read the recordings", ca: "GUI-4: com llegir els enregistraments" },
     summary: {
