@@ -7,6 +7,7 @@ import { alternatePaths, localizedPath } from "../src/i18n.js";
 import { ABOUT_COPY } from "../src/about-copy.js";
 import { productFor } from "../src/products.js";
 import { docCatalog } from "../src/docs-catalog.js";
+import { ARTICLES, ARTICLE_LABELS } from "../src/articles.js";
 
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 const dist = path.join(root, "dist");
@@ -127,6 +128,8 @@ function staticBody(page) {
   let body = "";
   if (file && fs.existsSync(file)) {
     body = marked.parse(fs.readFileSync(file, "utf8"));
+    const article = ARTICLES.find((entry) => contentPath(page) === `/articulos/${entry.slug}`);
+    if (article?.featured) body = `<div class="article-featured-meta"><span class="featured-badge">${ARTICLE_LABELS[language].featured}</span>${article.status ? `<span>${esc(article.status[language])}</span>` : ""}</div>${body}`;
   } else if (page.product) {
     body = productBody(productFor(page.product), language);
   } else if (contentPath(page) === "/contact") {
@@ -140,11 +143,19 @@ function staticBody(page) {
   } else if (page.path.replace(/^\/(?:en|ca)(?=\/|$)/, "") === "/articulos") {
     const label = language === "en" ? "Articles" : language === "ca" ? "Articles" : "Artículos";
     const articles = PAGES.filter((entry) => entry.lang === language && entry.article);
-    body = `<h1>${label}</h1><ul>${articles.map((entry) => `<li><a href="${entry.path}">${esc(entry.title)}</a><p>${esc(entry.description)}</p></li>`).join("")}</ul>`;
+    body = `<h1>${label}</h1>${ARTICLES.filter((entry) => entry.featured).map((entry) => featuredBody(entry, language)).join("")}<ul>${articles.filter((entry) => !ARTICLES.some((article) => article.featured && entry.path === localizedPath(`/articulos/${article.slug}`, language))).map((entry) => `<li><a href="${entry.path}">${esc(entry.title)}</a><p>${esc(entry.description)}</p></li>`).join("")}</ul>`;
+  } else if ((contentPath(page) || "/") === "/") {
+    const article = ARTICLES.find((entry) => entry.featured);
+    body = `<h1>RxLabs®</h1>${article ? featuredBody(article, language) : ""}<ul>${["echos", "prisma", "echoai"].map((slug) => `<li><a href="${localizedPath(`/${slug}`, language)}">${esc(productFor(slug).name)}</a></li>`).join("")}</ul>`;
   } else {
     return "";
   }
   return `<main class="page static-page"><div class="docs is-side-hidden"><article class="docs-body static-doc-body">${body}</article></div></main>`;
+}
+
+function featuredBody(article, language) {
+  const labels = ARTICLE_LABELS[language];
+  return `<a class="featured-story" href="${localizedPath(`/articulos/${article.slug}`, language)}"><div class="featured-story-meta"><span class="featured-badge">${labels.featured}</span><time datetime="${article.date}">${article.date}</time>${article.status ? `<span>${esc(article.status[language])}</span>` : ""}</div><div class="featured-story-copy"><h2>${esc(article.title[language])}</h2><p>${esc(article.summary[language])}</p><span class="featured-story-read">${labels.read} ↗</span></div></a>`;
 }
 
 function productBody(product, language) {

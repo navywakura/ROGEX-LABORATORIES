@@ -1,6 +1,16 @@
 // Shared by routing, article cards, metadata and Markdown export.
 export const ARTICLES = [
   {
+    slug: "echo4-ego-funcional", date: "2026-09-21", featured: true,
+    title: { es: "ECHO-4: construir un yo que se pueda poner a prueba", en: "ECHO-4: building a self we can put to the test", ca: "ECHO-4: construir un jo que es pugui posar a prova" },
+    summary: {
+      es: "Del relato de Kurau a un ego funcional: filosofía, software y las pruebas necesarias para un cierre verde. WORLD-1 ya corre; ECHO-4 sigue abierto.",
+      en: "From Kurau's story to a functional self: philosophy, software and the evidence needed for a green closure. WORLD-1 runs; ECHO-4 remains open.",
+      ca: "Del relat de Kurau a un jo funcional: filosofia, programari i les proves necessàries per a un tancament verd. WORLD-1 ja funciona; ECHO-4 continua obert.",
+    },
+    status: { es: "Investigación abierta", en: "Research in progress", ca: "Recerca oberta" },
+  },
+  {
     slug: "metaverse1-como-lo-haremos", date: "2026-09-21",
     title: { es: "METAVERSE-1: cómo lo haremos", en: "METAVERSE-1: how we will do it", ca: "METAVERSE-1: com ho farem" },
     summary: {
@@ -64,3 +74,9 @@ export const ARTICLES = [
     },
   },
 ];
+
+export const ARTICLE_LABELS = {
+  es: { featured: "Destacado", read: "Leer artículo" },
+  en: { featured: "Featured", read: "Read article" },
+  ca: { featured: "Destacat", read: "Llegir article" },
+};

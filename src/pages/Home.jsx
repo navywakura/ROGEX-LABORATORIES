@@ -1,4 +1,6 @@
 import Carousel from "../components/Carousel.jsx";
+import FeaturedArticle from "../components/FeaturedArticle.jsx";
+import { ARTICLES } from "../articles.js";
 import { localizedPath } from "../i18n.js";
 
 const ECHOS = [
@@ -16,6 +18,7 @@ const PRISMA = [
 export default function Home({ language = "es" }) {
   return (
     <main className="home">
+      <FeaturedArticle article={ARTICLES.find((entry) => entry.featured)} language={language} home />
       <Carousel slides={ECHOS} label="echOS" to={localizedPath("/echos", language)} />
       <Carousel slides={PRISMA} label="PRISMA" to={localizedPath("/prisma", language)} />
       <Carousel gif="/media/echoai/board.gif" label="echoAI" to={localizedPath("/echoai", language)} />

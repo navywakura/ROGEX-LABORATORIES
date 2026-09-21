@@ -1,7 +1,8 @@
 import { Link, useLocation } from "react-router-dom";
 import { marked } from "marked";
 import { basePath, localizedPath } from "../i18n.js";
-import { ARTICLES } from "../articles.js";
+import { ARTICLES, ARTICLE_LABELS } from "../articles.js";
+import FeaturedArticle from "../components/FeaturedArticle.jsx";
 import NotFound from "./NotFound.jsx";
 
 const COPY = {
@@ -21,7 +22,10 @@ export default function Articles({ language = "es" }) {
     const source = SOURCES[`../content/${language === "es" ? "" : language + "/"}articles/${article.slug}.md`];
     return (
       <main className="page">
-        <article className="sheet article-sheet" dangerouslySetInnerHTML={{ __html: marked.parse(source) }} />
+        <article className="sheet article-sheet">
+          {article.featured && <div className="article-featured-meta"><span className="featured-badge">{ARTICLE_LABELS[language].featured}</span>{article.status && <span>{article.status[language]}</span>}</div>}
+          <div className="article-body" dangerouslySetInnerHTML={{ __html: marked.parse(source) }} />
+        </article>
       </main>
     );
   }
@@ -33,6 +37,7 @@ export default function Articles({ language = "es" }) {
         <h1>{copy.title}</h1>
         <p>{copy.intro}</p>
         {ARTICLES.map((entry) => (
+          entry.featured ? <FeaturedArticle key={entry.slug} article={entry} language={language} /> :
           <Link key={entry.slug} className="article-card" to={localizedPath(`/articulos/${entry.slug}`, language)}>
             <time dateTime={entry.date}>{entry.date.split("-").reverse().join(" · ")}</time>
             <strong>{entry.title[language]}</strong>
