@@ -34,9 +34,9 @@ En el pla metafísic queda una pregunta oberta: la continuïtat d'organització 
 
 Ser programari, per si sol, no estableix ni consciència ni la seva impossibilitat. Hi ha propostes d'indicadors, no un certificat de consciència que aquests bancs puguin expedir. **El tancament d'ECHO-4 serà funcional i acotat.** [Butlin i col·laboradors, 2023](https://arxiv.org/abs/2308.08708).
 
-<h2 id="referencias">De Kurau i Asdro a una pregunta de laboratori</h2>
+<h2 id="referencias">De John Doe i Jane Roe a una pregunta de laboratori</h2>
 
-El punt de partida creatiu inclou la història fictícia de Wattpad compartida per a aquest projecte. Kurau, Asdro i Apocalipsis parlen de presència, cossos, línies temporals i relacions que creen universos. És material narratiu, no un registre de fenòmens físics.
+El punt de partida creatiu inclou una història fictícia compartida per a aquest projecte. John Doe, Jane Roe i Alex Smith parlen de presència, cossos, línies temporals i relacions que creen universos. Són noms inventats per a personatges anònims. És material narratiu, no un registre de fenòmens físics.
 
 Dues frases en resumeixen el pont amb el programari, traduïdes aquí:
 

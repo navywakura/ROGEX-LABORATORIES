@@ -34,9 +34,9 @@ En el plano metafísico queda una pregunta abierta: ¿una continuidad de organiz
 
 Tampoco se deduce que un sistema sea consciente —o incapaz de serlo— simplemente porque sea software. Existen propuestas de indicadores, no un certificado de conciencia que estos bancos puedan expedir. **El cierre de ECHO-4 será funcional y acotado.** [Butlin y colaboradores, 2023](https://arxiv.org/abs/2308.08708).
 
-<h2 id="referencias">De Kurau y Asdro a una pregunta de laboratorio</h2>
+<h2 id="referencias">De John Doe y Jane Roe a una pregunta de laboratorio</h2>
 
-El punto de partida creativo incluye la historia ficticia de Wattpad compartida para este proyecto: Kurau, Asdro y Apocalipsis hablan de presencia, cuerpos, líneas temporales y relaciones que crean universos. No es un registro de fenómenos físicos; es material narrativo.
+El punto de partida creativo incluye una historia ficticia compartida para este proyecto: John Doe, Jane Roe y Alex Smith hablan de presencia, cuerpos, líneas temporales y relaciones que crean universos. Son nombres inventados para personajes anónimos. No es un registro de fenómenos físicos; es material narrativo.
 
 Dos frases condensan el puente con el software:
 

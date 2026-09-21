@@ -4,9 +4,9 @@ export const ARTICLES = [
     slug: "echo4-ego-funcional", date: "2026-09-21", featured: true,
     title: { es: "ECHO-4: construir un yo que se pueda poner a prueba", en: "ECHO-4: building a self we can put to the test", ca: "ECHO-4: construir un jo que es pugui posar a prova" },
     summary: {
-      es: "Del relato de Kurau a un ego funcional: filosofía, software y las pruebas necesarias para un cierre verde. WORLD-1 ya corre; ECHO-4 sigue abierto.",
-      en: "From Kurau's story to a functional self: philosophy, software and the evidence needed for a green closure. WORLD-1 runs; ECHO-4 remains open.",
-      ca: "Del relat de Kurau a un jo funcional: filosofia, programari i les proves necessàries per a un tancament verd. WORLD-1 ja funciona; ECHO-4 continua obert.",
+      es: "Del relato de John Doe a un ego funcional: filosofía, software y las pruebas necesarias para un cierre verde. WORLD-1 ya corre; ECHO-4 sigue abierto.",
+      en: "From John Doe's story to a functional self: philosophy, software and the evidence needed for a green closure. WORLD-1 runs; ECHO-4 remains open.",
+      ca: "Del relat de John Doe a un jo funcional: filosofia, programari i les proves necessàries per a un tancament verd. WORLD-1 ja funciona; ECHO-4 continua obert.",
     },
     status: { es: "Investigación abierta", en: "Research in progress", ca: "Recerca oberta" },
   },
