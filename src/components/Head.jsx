@@ -2,6 +2,16 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { SITE, abs, imageFor, ogType, pageFor, jsonLd } from "../site.js";
 import { alternatePaths, docsPagePath } from "../i18n.js";
+import { identityFor } from "../identity.js";
+
+function replaceIcons(path) {
+  document.head.querySelectorAll('link[rel="icon"], link[rel="shortcut icon"], link[rel="apple-touch-icon"]').forEach((el) => el.remove());
+  for (const attrs of identityFor(path)) {
+    const el = document.createElement("link");
+    for (const [key, value] of Object.entries(attrs)) el.setAttribute(key, value);
+    document.head.appendChild(el);
+  }
+}
 
 function upsert(selector, attrs) {
   let el = document.head.querySelector(selector);
@@ -92,6 +102,7 @@ export default function Head() {
     document.title = page.title;
     document.documentElement.lang = language;
     document.documentElement.style.colorScheme = "dark";
+    replaceIcons(page.path);
 
     upsert('meta[name="description"]', { name: "description", content: page.description });
     upsert('meta[name="theme-color"]', { name: "theme-color", content: SITE.theme });

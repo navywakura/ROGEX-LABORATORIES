@@ -520,6 +520,7 @@ export const PRODUCTS = [
   {
     slug: "echoai",
     name: "echoAI",
+    updated: "2026-09-22",
     section: "echoAI",
     docs: [
       "echoai/que-es",
@@ -535,7 +536,7 @@ export const PRODUCTS = [
       "echoai/hardware",
       "echoai/limites",
     ],
-    articles: ["drone3-mision-integrada-sitl", "transfer3-aprender-no-basta", "echo3-trece-fases-verdes", "echo3-a-mitad"],
+    articles: ["echo4-continuidad-dream-a-identidad", "echo4-dream-rsi-historia-compartida", "echo4-inicio-roadmap-oficial", "echo4-ego-funcional", "drone3-mision-integrada-sitl", "transfer3-aprender-no-basta", "echo3-trece-fases-verdes", "echo3-a-mitad"],
     media: [
       {
         src: "/media/echoai/opengraph/echo2.png",
@@ -603,7 +604,7 @@ export const PRODUCTS = [
         kicker: "Inteligencia artificial · línea 03",
         lead:
           "Un agente situado de dos relojes. El rápido representa, recuerda, anticipa, decide y aprende con estructuras discretas; el lento sólo puede proponer. No es un chatbot conectado a motores.",
-        status: "ECHO-1 y ECHO-2 cerrados · ECHO-3 14/15 · DRONE-3 cerrado en SITL",
+        status: "ECHO-3 14/15 · ECHO-4: CONTINUITY cerrado; DREAM-A iniciado",
         facts: [
           ["14 / 15", "certificados software de ECHO-3 en bancos acotados"],
           ["512 + 128", "neuronas LIF y Adaptive-LIF en el monitor de ECHO-2"],
@@ -636,7 +637,7 @@ export const PRODUCTS = [
           {
             title: "Hacia dónde va",
             body: [
-              "echoAI es la mente prevista de los drones autónomos de RxLabs® y echOS, su cuerpo. Lo que queda es físico: comprar la plataforma, repetir los bancos sobre hardware real y volar en jaula, con las mismas reglas de siempre —controles, auditores y límites publicados—. La lista de compra con precios y las demostraciones previstas están en hardware previsto.",
+              "ECHO-4 desarrolla autorrepresentación e historia compartida: SELF y CONTINUITY tienen cierres acotados; DREAM-A registra y reproduce intentos, todavía sin Qwen ni automejora demostrada. MAINTAIN y las fases sociales siguen pendientes. RELEASE-1 prevé una distribución reproducible tras INTEGRATE; después vendrán hardware y, al final, METAVERSE-1. El agente no depende del proyecto legado echo-discord.",
             ],
           },
         ],
@@ -655,7 +656,7 @@ export const PRODUCTS = [
         kicker: "Artificial intelligence · line 03",
         lead:
           "A two-clock situated agent. The fast clock represents, remembers, anticipates, decides and learns with discrete structures; the slow one can only propose. It is not a chatbot wired to motors.",
-        status: "ECHO-1 and ECHO-2 closed · ECHO-3 14/15 · DRONE-3 closed in SITL",
+        status: "ECHO-3 14/15 · ECHO-4: CONTINUITY closed; DREAM-A started",
         facts: [
           ["14 / 15", "ECHO-3 software certificates in bounded benches"],
           ["512 + 128", "LIF and Adaptive-LIF neurons in the ECHO-2 monitor"],
@@ -688,7 +689,7 @@ export const PRODUCTS = [
           {
             title: "Where it is heading",
             body: [
-              "echoAI is the intended mind of the RxLabs® autonomous drones, and echOS their body. What remains is physical: buy the platform, repeat the benches on real hardware and fly in a cage, under the same rules as always — controls, auditors and published limits. The shopping list with prices and the planned demonstrations are in planned hardware.",
+              "ECHO-4 develops self-representation and shared history: SELF and CONTINUITY have bounded closures; DREAM-A records and replays attempts, without Qwen or demonstrated self-improvement. MAINTAIN and social phases remain pending. RELEASE-1 plans a reproducible distribution after INTEGRATE; hardware follows, with METAVERSE-1 last. The agent does not depend on legacy echo-discord.",
             ],
           },
         ],
@@ -707,7 +708,7 @@ export const PRODUCTS = [
         kicker: "Intel·ligència artificial · línia 03",
         lead:
           "Un agent situat de dos rellotges. El ràpid representa, recorda, anticipa, decideix i aprèn amb estructures discretes; el lent només pot proposar. No és un chatbot connectat a motors.",
-        status: "ECHO-1 i ECHO-2 tancats · ECHO-3 14/15 · DRONE-3 tancat en SITL",
+        status: "ECHO-3 14/15 · ECHO-4: CONTINUITY tancat; DREAM-A iniciat",
         facts: [
           ["14 / 15", "certificats de programari d'ECHO-3 en bancs acotats"],
           ["512 + 128", "neurones LIF i Adaptive-LIF al monitor d'ECHO-2"],
@@ -740,7 +741,7 @@ export const PRODUCTS = [
           {
             title: "Cap a on va",
             body: [
-              "echoAI és la ment prevista dels drons autònoms de RxLabs® i echOS, el seu cos. El que queda és físic: comprar la plataforma, repetir els bancs sobre maquinari real i volar en gàbia, amb les mateixes regles de sempre: controls, auditors i límits publicats. La llista de compra amb preus i les demostracions previstes són a maquinari previst.",
+              "ECHO-4 desenvolupa autorepresentació i història compartida: SELF i CONTINUITY tenen tancaments acotats; DREAM-A registra i reprodueix intents, sense Qwen ni automillora demostrada. MAINTAIN i les fases socials són pendents. RELEASE-1 preveu una distribució reproduïble després d'INTEGRATE; després, maquinari i METAVERSE-1 al final. L'agent no depèn del projecte llegat echo-discord.",
             ],
           },
         ],

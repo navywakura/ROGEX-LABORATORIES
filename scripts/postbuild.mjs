@@ -8,6 +8,7 @@ import { ABOUT_COPY } from "../src/about-copy.js";
 import { productFor } from "../src/products.js";
 import { docCatalog } from "../src/docs-catalog.js";
 import { ARTICLES, ARTICLE_LABELS } from "../src/articles.js";
+import { identityFor, ECHOAI_BRAND } from "../src/identity.js";
 
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 const dist = path.join(root, "dist");
@@ -29,6 +30,7 @@ function strip(html) {
     .replace(/<link rel="canonical"[^>]*>/g, "")
     .replace(/<link rel="alternate"[^>]*>/g, "")
     .replace(/<link rel="image_src"[^>]*>/g, "")
+    .replace(/<link rel="(?:icon|shortcut icon|apple-touch-icon)"[^>]*>/g, "")
     .replace(/<meta property="og:[^"]+"[^>]*>/g, "")
     .replace(/<meta name="twitter:[^"]+"[^>]*>/g, "");
 }
@@ -51,6 +53,7 @@ function inject(html, page) {
   html = strip(html);
   const block = `
     <title>${esc(page.title)}</title>
+${identityFor(page.path).map((attrs) => `    <link ${Object.entries(attrs).map(([key, value]) => `${key}="${esc(value)}"`).join(" ")} />`).join("\n")}
     <meta name="description" content="${esc(page.description)}" />
     <meta name="theme-color" content="${SITE.theme}" />
     <meta name="msapplication-TileColor" content="${SITE.theme}" />
@@ -164,6 +167,7 @@ function productBody(product, language) {
   const docs = docCatalog(language).filter((doc) => product.docs.includes(doc.id));
   return [
     `<p>${esc(copy.kicker)}</p>`,
+    product.slug === "echoai" ? `<img src="${ECHOAI_BRAND}/echoai-256.png" width="96" height="96" alt="echoAI" />` : "",
     `<h1>${esc(product.name)}</h1>`,
     `<p>${esc(copy.lead)}</p>`,
     `<figure><img src="${hero.src}" width="${hero.width}" height="${hero.height}" alt="${esc(hero.alt[language])}" /><figcaption>${esc(hero.caption[language])}</figcaption></figure>`,

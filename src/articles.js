@@ -1,7 +1,21 @@
 // Shared by routing, article cards, metadata and Markdown export.
 export const ARTICLES = [
   {
-    slug: "echo4-dream-rsi-historia-compartida", date: "2026-09-22", featured: true,
+    slug: "echo4-continuidad-dream-a-identidad", date: "2026-09-22", featured: true,
+    title: { es: "ECHO-4: continuidad verificada, primeros árboles de DREAM y una identidad propia", en: "ECHO-4: verified continuity, first DREAM trees and an identity of its own", ca: "ECHO-4: continuïtat verificada, primers arbres de DREAM i una identitat pròpia" },
+    summary: {
+      es: "CONTINUITY cierra su contrato software; DREAM-A ya registra y reproduce intentos. Nuevo logo oficial y una futura distribución del agente, con límites y resultados a la vista.",
+      en: "CONTINUITY closes its software contract; DREAM-A records and replays attempts. An official logo and a future agent distribution, with results and limits in view.",
+      ca: "CONTINUITY tanca el contracte de programari; DREAM-A registra i reprodueix intents. Logo oficial i futura distribució de l'agent, amb resultats i límits visibles.",
+    },
+    status: { es: "CONTINUITY verde · DREAM-A verificado · ECHO-4 abierto", en: "CONTINUITY green · DREAM-A verified · ECHO-4 open", ca: "CONTINUITY verd · DREAM-A verificat · ECHO-4 obert" },
+    image: {
+      src: "/media/echoai/brand/echoai-1024.png", width: 1024, height: 1024, type: "image/png",
+      alt: { es: "Logo oficial del agente echoAI", en: "Official echoAI agent logo", ca: "Logo oficial de l'agent echoAI" },
+    },
+  },
+  {
+    slug: "echo4-dream-rsi-historia-compartida", date: "2026-09-22",
     title: { es: "ECHO-4: una historia compartida y un córtex que aprende a explorar", en: "ECHO-4: a shared history and a cortex that learns to explore", ca: "ECHO-4: una història compartida i un còrtex que aprèn a explorar" },
     summary: {
       es: "Del cuento a las pruebas: núcleo adaptativo, Qwen local e inspiración Dream-RSI. Lo construido, el bucle de exploración propuesto y qué demostraría un verde.",

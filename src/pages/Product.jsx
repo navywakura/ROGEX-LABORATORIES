@@ -3,6 +3,7 @@ import { localizedPath } from "../i18n.js";
 import { PRODUCTS, PRODUCT_DATE, productFor } from "../products.js";
 import { docCatalog } from "../docs-catalog.js";
 import { ARTICLES } from "../articles.js";
+import { ECHOAI_BRAND } from "../identity.js";
 
 const COPY = {
   es: {
@@ -67,6 +68,7 @@ export default function Product({ slug, language = "es" }) {
   const product = productFor(slug);
   const copy = product.copy[language];
   const ui = COPY[language];
+  const updated = product.updated || PRODUCT_DATE;
   const [hero, ...gallery] = product.media;
   const docs = docCatalog(language).filter((doc) => product.docs.includes(doc.id));
   const articles = ARTICLES.filter((entry) => product.articles.includes(entry.slug));
@@ -77,10 +79,11 @@ export default function Product({ slug, language = "es" }) {
       <article className="sheet product">
         <header className="product-head">
           <span className="bench-kicker">{copy.kicker}</span>
+          {slug === "echoai" && <img className="echoai-agent-mark" src={`${ECHOAI_BRAND}/echoai-256.png`} width="96" height="96" alt="echoAI" decoding="async" />}
           <h1>{product.name}</h1>
           <p className="product-lead">{copy.lead}</p>
           <p className="product-meta">
-            <time dateTime={PRODUCT_DATE}>{PRODUCT_DATE.split("-").reverse().join(" · ")}</time>
+            <time dateTime={updated}>{updated.split("-").reverse().join(" · ")}</time>
             <span aria-hidden="true">·</span>
             <span>{copy.status}</span>
           </p>
