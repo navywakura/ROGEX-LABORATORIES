@@ -39,7 +39,7 @@ Això tanca el tram SITL i **res més**. La fita 15 exigeix també hardware-in-t
 
 ## Què ve ara
 
-La prioritat actual és el [desenvolupament de programari ECHO-4](/ca/docs/echoai/echo4), començant per E4-SENSATION-1. ECHO-3 conserva els contractes físics, que es reprendran després del programari. La compra, el muntatge i les demostracions continuen a [maquinari previst](/ca/docs/echoai/hardware): FLIGHT-1H, SENSOR-1H, PX4-1H, POWER-1H i després DRONE-3H. Les dates de compra queden subjectes a aquesta prioritat.
+La prioritat actual és el [desenvolupament de programari ECHO-4](/ca/docs/echoai/echo4), amb SENSATION, BOUNDARY i SELF tancats en els seus dominis; CONT-A implementat i CONT-B com a següent pas. E4-DREAM-1 és una branca cortical planificada. El desenvolupament es pausa després d'aquesta publicació; METAVERSE-1 continua al final. ECHO-3 conserva els contractes físics, que es reprendran després del programari. La compra, el muntatge i les demostracions continuen a [maquinari previst](/ca/docs/echoai/hardware): FLIGHT-1H, SENSOR-1H, PX4-1H, POWER-1H i després DRONE-3H. Les dates de compra queden subjectes a aquesta prioritat.
 
 Un avís que ja està publicat: el domini certificat fa servir cel·les de tres metres i sales de 21 × 15 m, que no caben en una gàbia domèstica. La versió a escala s'haurà de validar abans en simulació.
 

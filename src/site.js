@@ -203,8 +203,8 @@ const ES_PAGES = [
   {
     path: "/docs/echoai/echo4",
     title: "ECHO-4 — roadmap oficial: yo, otro e historia compartida",
-    description: "Desarrollo oficial de ECHO-4: WORLD, SENSATION, BOUNDARY, SELF, CONTINUITY, MAINTAIN, OTHER, INTERACTION, RELATION, ROLES e INTEGRATE. Hardware después; METAVERSE-1 al final.",
-    dateModified: "2026-09-21",
+    description: "Roadmap ECHO-4 v2: SELF cerrado en su dominio, CONT-A implementado y DREAM planificado. Historia compartida, córtex local, criterios y límites. Hardware después; METAVERSE-1 al final.",
+    dateModified: "2026-09-22",
   },
   {
     path: "/docs/echoai/hardware",
@@ -472,8 +472,8 @@ for (const entry of ARTICLES) {
 EN_META["/docs/echoai/transfer"] = ["TRANSFER-3 — contract, results and state", "TRANSFER-3 is green: transferred perceptual calibration, sealed campaign under human custody, B 38/0 and C 48/1. Static rooms; no hardware and no flight."];
 CA_META["/docs/echoai/transfer"] = ["TRANSFER-3 — contracte, resultats i estat", "TRANSFER-3 és verd: calibració perceptiva transferida, campanya segellada amb custòdia humana, B 38/0 i C 48/1. Sales estàtiques; sense maquinari ni vol."];
 
-EN_META["/docs/echoai/echo4"] = ["ECHO-4 — official roadmap: self, other and shared history", "Official ECHO-4 development: perception, causal influence, self-model, continuity, maintenance, counterpart, interaction, relationships, roles and integration. Hardware later; METAVERSE-1 last."];
-CA_META["/docs/echoai/echo4"] = ["ECHO-4 — full de ruta oficial: jo, altre i història compartida", "Desenvolupament oficial d'ECHO-4: percepció, influència causal, model propi, continuïtat, manteniment, contrapart, interacció, relacions, rols i integració. Maquinari després; METAVERSE-1 al final."];
+EN_META["/docs/echoai/echo4"] = ["ECHO-4 — official roadmap: self, other and shared history", "ECHO-4 roadmap v2: bounded SELF closure, CONT-A implemented and DREAM planned. Shared history, local cortex, acceptance criteria and limits. Hardware later; METAVERSE-1 last."];
+CA_META["/docs/echoai/echo4"] = ["ECHO-4 — full de ruta oficial: jo, altre i història compartida", "Full de ruta ECHO-4 v2: SELF tancat en el seu domini, CONT-A implementat i DREAM planificat. Història compartida, còrtex local, criteris i límits. Maquinari després; METAVERSE-1 al final."];
 
 const spanishPages = ES_PAGES.map((page) => ({ ...page, lang: "es" }));
 const englishPages = ES_PAGES.map((page) => {

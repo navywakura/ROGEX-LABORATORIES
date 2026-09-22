@@ -1,7 +1,17 @@
 // Shared by routing, article cards, metadata and Markdown export.
 export const ARTICLES = [
   {
-    slug: "echo4-inicio-roadmap-oficial", date: "2026-09-21", featured: true,
+    slug: "echo4-dream-rsi-historia-compartida", date: "2026-09-22", featured: true,
+    title: { es: "ECHO-4: una historia compartida y un córtex que aprende a explorar", en: "ECHO-4: a shared history and a cortex that learns to explore", ca: "ECHO-4: una història compartida i un còrtex que aprèn a explorar" },
+    summary: {
+      es: "Del cuento a las pruebas: núcleo adaptativo, Qwen local e inspiración Dream-RSI. Lo construido, el bucle de exploración propuesto y qué demostraría un verde.",
+      en: "From story to tests: an adaptive core, local Qwen and Dream-RSI inspiration. What is built, the proposed exploration loop and what green would establish.",
+      ca: "Del conte a les proves: nucli adaptatiu, Qwen local i inspiració Dream-RSI. Què està construït, el bucle proposat i què demostraria un verd.",
+    },
+    status: { es: "Visión y roadmap v2 · DREAM en plan", en: "Vision and roadmap v2 · DREAM planned", ca: "Visió i full de ruta v2 · DREAM en pla" },
+  },
+  {
+    slug: "echo4-inicio-roadmap-oficial", date: "2026-09-21",
     title: { es: "Empieza ECHO-4: un yo, un otro y una historia compartida", en: "ECHO-4 begins: a self, another and a shared history", ca: "Comença ECHO-4: un jo, un altre i una història compartida" },
     summary: {
       es: "Abrimos oficialmente el desarrollo: de la percepción del cuerpo a la cooperación aprendida. El roadmap, el primer experimento y lo que podríamos demostrar si funciona.",

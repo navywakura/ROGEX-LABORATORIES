@@ -1,5 +1,8 @@
 # ECHO-4 begins: a self, another and a shared history
 
+> Archive note · 22/09/2026: this announcement preserves the initial state on the 21st. See the [current roadmap](/en/docs/echoai/echo4) and [ECHO-4 with DREAM](/en/articulos/echo4-dream-rsi-historia-compartida) for today's status.
+
+
 21 September 2026 · RxLabs® · Official start of development
 
 <p class="article-status"><strong>ECHO-4 officially enters development.</strong> WORLD-1 provides an executable foundation. E4-SENSATION-1 is next. We are publishing the expanded roadmap: perception, causal influence, self-representation, continuity and learning with a counterpart.</p>

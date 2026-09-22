@@ -1,79 +1,64 @@
 # ECHO-4 — roadmap oficial
 
-21 de septiembre de 2026 · Versión 1 · Desarrollo iniciado
+22 de septiembre de 2026 · Versión 2 · Punto de pausa; programa abierto
 
-**Objetivo:** desarrollar una representación funcional de sí mismo, del otro y de su historia compartida, y aprender cuándo una interacción mejora los resultados de ambos.
+**Objetivo:** desarrollar representación funcional de sí mismo, del otro y de la historia compartida, y medir cuándo interactuar mejora los resultados. E4-DREAM-1 añade una rama cortical para investigar cómo mejorar la exploración a partir de experiencia registrada.
 
-La hipótesis central es que la reciprocidad y la memoria de encuentros pueden contribuir a la adaptación de cada agente. Mediremos por separado el resultado individual, el conjunto y los costes de coordinarse. Habrá casos donde cooperar ayude y otros donde actuar por separado sea preferible.
+Este estado sustituye la versión inicial del 21 de septiembre. Publicar una fase no significa implementarla. «Verde» siempre se refiere a un contrato y dominio concretos, no a conciencia subjetiva ni al cierre global.
 
-Este documento fija el orden oficial del programa ampliado. Sustituye la secuencia preliminar del primer artículo de ECHO-4. Cada fase pendiente necesita todavía su contrato de sensores, memoria, aprendizaje, controles y umbrales antes del examen.
+## Qué tenemos
 
-## Punto de partida
+ECHO-1 y ECHO-2 conservan sus cierres. ECHO-3 tiene 14/15 hitos software; DRONE-3 cerró SITL, no HIL ni jaula. No hay AKD1000 en el laboratorio. El programa ECHO-4 sigue siendo software-first.
 
-NEXUS-0 aporta WSP, CAM, Q, T y gate. ECHO-1 y ECHO-2 conservan sus cierres. ECHO-3 tiene 14/15 hitos completos en su alcance software; DRONE-3 ha cerrado SITL y mantiene HIL y jaula pendientes.
+WORLD está implementado; SENSATION, BOUNDARY y SELF tienen cierres acotados. CONT-A está implementado y validado en desarrollo; CONTINUITY completo y DREAM siguen abiertos. [Resumen público de resultados, límites y procedencia](/evidence/echo4/ECHO4-STATUS-20260922.md).
 
-**E4-WORLD-1 está implementado.** El informe enumera 16.002 estados vivos, 48.006 transiciones y un núcleo de viabilidad de 15.954 estados. Documenta 45 pruebas nuevas y 48 de regresión seleccionadas. El agente inicial muere por calor tras 37 acciones; el mantenimiento aprendido sigue pendiente. Las 32 clases de observación viva presentan ambigüedad dinámica. [Evidencia y reproducción](/evidence/echo4/WORLD1-20260921.md).
+## Roadmap completo
 
-El desarrollo continúa con **E4-SENSATION-1**. Publicar este roadmap no significa que sus módulos pendientes estén implementados.
+1. **E4-WORLD-1 — Implementado.** Cuerpo virtual, recursos, temperatura, acciones y terminalidad. Censo: 16.002 estados vivos, 48.006 transiciones y 15.954 estados viables. El agente inicial muere tras 37 acciones: existencia de trayectorias sostenibles no equivale a mantenimiento aprendido. [Evidencia](/evidence/echo4/WORLD1-20260921.md).
+2. **E4-SENSATION-1 — Cerrado en dominio nominal.** Historia temporal y predicción de consecuencias, sin reasignar bytes WSP. La historia de dos pasos mejora al predictor T en B/C: +218/+203 aciertos. No identifica por sí sola la causa del error.
+3. **E4-BOUNDARY-1 — Cerrado bajo intervenciones virtuales pareadas.** Distingue influencia de coincidencia: 1.408/1.408 máscaras correctas en B y C, con abstención ante recibos inválidos. Depende de restauraciones supervisadas del ejecutor; influencia no equivale a propiedad corporal.
+4. **E4-SELF-1 — Verde y cerrado en WORLD1-binary-couplings-single-pulse-v1.** Diagnóstico confirmado 80/80 por fase A/B/C; reutilización selectiva 189/240 en B y 193/240 en C. Conserva resultados negativos y límites: casos mixtos incompletos y terminalidades fuera del prior. No es autorreparación ni causalidad universal.
+5. **E4-CONTINUITY-1 — En desarrollo; CONT-A completado, sin verde global.** Preservar memoria, modelos, cuerpo y orden temporal entre procesos. Faltan CONT-B/C/D, descritos abajo.
+6. **E4-DREAM-1 — PLAN, rama cortical tras continuidad.** Qwen propondrá estrategias acotadas; replay histórico y pruebas nuevas determinarán su utilidad. Pesos fijos y sin código arbitrario. No bloquea la línea basal sin LLM; integración evaluará ambos brazos por separado.
+7. **E4-MAINTAIN-1 — Pendiente.** Daño funcional, reparación con coste y trabajo útil. Exigir actividad y trabajo mínimos simultáneos, recursos contabilizados y ausencia de rescates ocultos; medir qué aporta el modelo propio.
+8. **E4-OTHER-1 — Pendiente.** Otra instancia con cuerpo, observaciones y memoria privados. Aprender expectativas útiles sobre su conducta en situaciones nuevas, sin leer su estado interno.
+9. **E4-INTERACTION-1 — Pendiente.** Señales y acciones con consecuencias para ambos. Comparar reciprocidad, grabaciones y señales bloqueadas; medir beneficio individual, conjunto y coste. Cooperar siempre no es el objetivo.
+10. **E4-RELATION-1 — Pendiente.** Historia de encuentros, confianza contextual y revisión de expectativas. Retirar esa historia debe medir su contribución frente a identificadores o reglas fijas.
+11. **E4-ROLES-1 — Pendiente.** Coordinación y delegación según información, recursos y competencia. Los roles deben cambiar al cambiar las capacidades, sin imponer una jerarquía permanente.
+12. **E4-INTEGRATE-1 — Pendiente; futuro cierre software.** Escenarios reservados, ejecuciones continuas y ablaciones del yo, otro e historia. Núcleo sin córtex y rama cortical con costes explícitos. La mejora de DREAM debe demostrarse, no heredarse del paper.
+13. **Validación física — Después del software.** Sensores, cuerpos reales y contratos físicos de ECHO-3, incluidos HIL y jaula. Los cierres virtuales no certifican hardware.
+14. **METAVERSE-1 — Al final de todo.** Representación 3D fiel a decisiones, agentes, relaciones y trazas, después del software y las validaciones físicas previstas. Visualizar no concede un certificado cognitivo.
 
-## Orden técnico y criterios de avance
+## Continuidad: por dónde reanudaremos
 
-1. **E4-WORLD-1 · Implementado.** Cuerpo virtual, recursos, temperatura, acciones y terminalidad. El verificador demuestra que existen trayectorias sostenibles con observación completa. Su política testigo permanece fuera del agente.
+- **CONT-A, hecho:** checkpoint del SelfAgent nominal al terminar un turno, restaurado en proceso nuevo. Cinco escenarios; 52/52 pasos posteriores idénticos; el terminal no resucita. Conserva CAM/Q/T, restos enteros, referencias, historia, recursos y reloj.
+- **CONT-B, siguiente:** persistir diagnóstico y recuperación activa de SELF; rechazar estados parciales o incompatibles.
+- **CONT-C, pendiente:** distinguir reanudación del mismo estado, nuevo cuerpo, descendiente y bifurcación; declarar herencia e invalidación de referencias corporales.
+- **CONT-D, pendiente:** contrato numérico congelado antes de A/B/C nuevos, controles sin historia o sin restos, auditoría independiente del informe y reproducción.
 
-2. **E4-SENSATION-1 · Siguiente fase; contrato e implementación pendientes.** Comparar la observación actual con historias de 2 y 4 pasos que incluyan acciones ejecutadas. Estimar tendencias, consecuencias e incertidumbre con memoria acotada y aritmética entera. Para avanzar, medir qué ambigüedades se resuelven, qué mejora predictiva generaliza y cuánto cuesta. Un error indica una consecuencia inesperada; su causa sigue abierta. La duración de la historia es una variable experimental.
+Los checkpoints completos contienen estado físico privado del ejecutor. No se entregarán a Qwen ni al agente como observaciones.
 
-3. **E4-BOUNDARY-1 · Pendiente.** Estimar influencia causal sobre variables y capacidades mediante intervenciones comparables, acciones vetadas, retardos y perturbaciones. Para avanzar, distinguir efectos propios de coincidencias y conservar una salida desconocida. Controlar una puerta no la convierte en cuerpo; predecir un reloj no significa controlarlo. La pertenencia corporal se investigará en SELF.
+## DREAM: entregables propuestos, todavía sin implementar
 
-4. **E4-SELF-1 · Pendiente.** Integrar capacidades corporales, predicción y evidencia para distinguir cambio propio, externo, mixto o desconocido. Para avanzar, la atribución debe mejorar la recuperación conductual y preservar conocimiento del entorno que no haya sido refutado. El SELF-1 histórico aporta métodos; este dominio exige evidencia nueva.
+- **DREAM-A:** árbol de intentos con procedencia, costes y resultados; replay limitado a ramas registradas, sin filtración de futuros. Lo no observado devuelve desconocido.
+- **DREAM-B:** modo offline de Qwen que emite estrategias declarativas de prioridades y presupuestos. Parseo estricto, límites y llamadas reales registradas; un stub no cierra esta fase.
+- **DREAM-C:** selección histórica con evaluador fijo e incumbente entre candidatos. Informar cobertura y coste total, incluida generación de propuestas; no atribuir generalización a una puntuación histórica.
+- **DREAM-D:** ensayos nuevos en WORLD-1, varios ciclos, controles fijos/aleatorios equiparados, ablaciones de historial y Qwen, rechazo y reversión.
 
-5. **E4-CONTINUITY-1 · Pendiente.** Conservar estado causal, memoria útil, orden temporal y duración de acontecimientos. Para avanzar, comparar ejecución continua con pausa/reanudación en un proceso nuevo bajo idénticas entradas futuras; distinguir restauración, cambio de cuerpo y nuevo individuo, y rechazar estados incompatibles.
+El adaptador existente usa llama.cpp y señales restringidas; no es aún este orquestador. Verificaremos modelo, hash y configuración local. Primera superficie editable: programación de experimentos, nunca gate, núcleo, recompensas o examinador. [Arquitectura y motivación](/articulos/echo4-dream-rsi-historia-compartida).
 
-6. **E4-MAINTAIN-1 · Pendiente.** Incorporar daño funcional, reparación con coste y trabajo útil. Para avanzar, cumplir simultáneamente un horizonte de actividad y un mínimo de trabajo, con balance de recursos y sin rescates ocultos. La comparación sin modelo propio debe medir su contribución.
+## Invariantes y significado del verde
 
-7. **E4-OTHER-1 · Pendiente.** Dos instancias con cuerpo, memoria y observaciones separados. Aprender expectativas sobre la contraparte a partir de conducta accesible. Para avanzar, predecir en situaciones nuevas y ajustar decisiones a diferencias de información, sin consultar la memoria privada del otro.
+WSP conserva 16 bytes y layout; no hay otro bus ni otra CAM/T/Q dentro de un individuo. CAM mantiene su capacidad de 4.096 ranuras. El camino basal usa enteros y cero llamadas corticales. Hipótesis no es hecho; no se permite acceso a causas privadas, futuros del replay o respuestas reservadas.
 
-8. **E4-INTERACTION-1 · Pendiente.** Acciones y señales con consecuencias para ambos agentes. Para avanzar, aprender cuándo coordinarse resulta útil y demostrar que bloquear o sustituir las señales cambia las decisiones pertinentes. Comparar interacción recíproca con grabaciones y controles equiparados; registrar beneficio de cada agente, resultado conjunto y coste.
+Los ensayos corticales son una condición explícita, con llamadas y recursos contabilizados, sin ocultarlos bajo certificados sin LLM. El operador conserva parada y reversión. Modelo y evaluador se versionan; el candidato no se autoautoriza.
 
-9. **E4-RELATION-1 · Pendiente.** Memoria de encuentros y expectativas específicas de una relación. Para avanzar, utilizar historia compartida en encuentros nuevos, revisar la fiabilidad por contexto y adaptarse a cambios de conducta. Retirar esa memoria debe permitir medir qué aporta frente al identificador o a una regla fija.
+Para cada fase pendiente habrá que fijar dominio, particiones, presupuesto, métricas y umbrales antes de examinar. Ninguna media compensa violar un invariante. Los resultados publicados de SELF sirven como regresión, no como nuevos datos reservados de DREAM.
 
-10. **E4-ROLES-1 · Pendiente.** Diferencias de información, recursos y capacidades, con tareas que permitan delegar y cambiar la coordinación. Para avanzar, los roles deben ajustarse a la competencia relevante cuando cambie la situación. La jerarquía humana inspira preguntas; no se presupone una explicación universal de ella ni se impone un rango permanente.
+Si el programa pasa, respaldará capacidades funcionales de autorrepresentación, continuidad, perspectiva ajena, cooperación y exploración mejorada dentro del alcance medido. No demostrará alma, experiencia subjetiva o una teoría completa de la conciencia.
 
-11. **E4-INTEGRATE-1 · Pendiente; cierre software de ECHO-4.** Reunir las capacidades en ejecuciones continuas y escenarios reservados para validación y confirmación. Para avanzar, satisfacer los criterios conjuntos y demostrar las contribuciones del modelo propio, del otro y de la historia compartida mediante ablaciones.
+## Congelación de trabajo
 
-12. **Validación física · Después del software.** Trasladar las capacidades pertinentes a sensores y cuerpos reales. Retomar los contratos físicos de ECHO-3, HIL y jaula. Los resultados virtuales no conceden automáticamente aprobación física; los recursos y la energía deberán medirse en ese dominio.
+Pausa solicitada al publicar esta actualización: no se inicia CONT-B ni DREAM en esta entrega. Conservamos fuentes y certificados; esta pausa no congela umbrales aún inexistentes ni declara ECHO-4 cerrado. El próximo trabajo, cuando se autorice reanudar, es CONT-B.
 
-13. **METAVERSE-1 · Última fase.** Representar agentes, relaciones y trayectorias en un entorno 3D observable e interactivo, después del programa software y de las validaciones físicas previstas. El renderer debe reflejar fielmente las decisiones registradas. Su contrato de visualización sigue siendo independiente del cierre cognitivo.
-
-## Primer trabajo: contrato de SENSATION
-
-El primer entregable será una auditoría temporal: observación actual frente a historias de 2 y 4 pasos sobre trayectorias declaradas. Contaremos los casos que siguen requiriendo decisiones incompatibles, los errores de predicción y las abstenciones, y compararemos con el predictor existente bajo el mismo acceso a datos.
-
-Los valores exactos de reserva y temperatura existen para actualizar la fisiología; el contrato debe especificar qué recibe el predictor. Acceder a esos registros exactos sería una ampliación sensorial que habrá que declarar, no una mejora obtenida únicamente recordando observaciones.
-
-Un resumen de cuatro estados —compatible, desviación pequeña, desviación grande, evidencia insuficiente— puede ayudar a inspeccionar resultados. Error e incertidumbre se conservarán por separado. Un predictor lineal entero es un candidato por evaluar; todavía no está elegido ni implementado.
-
-## Arquitectura e invariantes
-
-WSP mantiene **16 bytes y su layout congelado**: no dispone de 4–5 bytes libres para reasignar. La historia y las estimaciones tendrán un presupuesto fijo definido en su contrato, usando la arquitectura existente y sin un segundo bus cognitivo.
-
-CAM conserva episodios en 4.096 ranuras sin destrucción; Q conserva la política y T el modelo de transiciones. Los modelos aprendidos son estimaciones: una predicción no se convierte en hecho por tener confianza alta. El camino rápido utiliza enteros, el córtex permanece apagado y no hay LLM en estos bancos.
-
-Cada individuo tendrá su estado separado y observaciones autorizadas. El protocolo público de interacción debe desembocar en la representación existente; no concede acceso a etiquetas privadas, semillas, solución del evaluador o memoria ajena. Las paradas del operador conservan su autoridad.
-
-## Qué significa cerrar en verde
-
-Cada contrato fijará antes de validar dominio, datos reservados, presupuesto de aprendizaje y memoria, horizonte, errores aceptables, mejora mínima y tratamiento de incertidumbre. Aún no hay umbrales numéricos finales aprobados para las fases pendientes.
-
-Se publicarán resultados negativos, controles convencionales competentes, ablaciones, trazas con procedencia y reproducción en procesos nuevos. Quitar memoria, modelo propio, modelo ajeno o reciprocidad debe permitir evaluar su contribución. Greedy no equivale a aprendizaje congelado.
-
-El cierre software exige los criterios juntos, cero hechos falsos, cero ranuras destruidas, cero llamadas al córtex y ausencia de acceso al oráculo. Una media de éxitos no compensa romper un invariante.
-
-Si todo pasa, podremos respaldar capacidades acotadas de autorrepresentación, perspectiva ajena, continuidad y cooperación aprendida. Para sostener que la interacción favorece la representación propia habrá que mostrar ese efecto específico frente a controles. La experiencia subjetiva y una explicación general de la conciencia seguirán siendo preguntas adicionales.
-
-## Por qué merece la pena
-
-Un resultado positivo permitiría preguntar cuánto de una conducta depende del cuerpo, cuánto de la memoria y cuánto de haber aprendido con otro. Esa posibilidad de intervenir y reproducir la historia es el valor del laboratorio. Un resultado negativo también puede localizar qué información o capacidad falta.
-
-Hay precedentes de modelos de otros agentes: [Machine Theory of Mind](https://arxiv.org/abs/1802.07740). La evaluación de señales exige comprobar su efecto: [On the Pitfalls of Measuring Emergent Communication](https://arxiv.org/abs/1903.05168). Nuestra apuesta es investigar la integración bajo las restricciones de ECHO-AI; la novedad concreta deberá contrastarse con esos trabajos.
-
-[Anuncio del inicio de desarrollo](/articulos/echo4-inicio-roadmap-oficial) · [Filosofía e inspiración](/articulos/echo4-ego-funcional) · [Roadmap ECHO-3](/docs/echoai/ruta) · [Markdown](/raw/es/echoai/echo4.md)
+[Artículo destacado](/articulos/echo4-dream-rsi-historia-compartida) · [Roadmap ECHO-3](/docs/echoai/ruta) · [Markdown](/raw/es/echoai/echo4.md)

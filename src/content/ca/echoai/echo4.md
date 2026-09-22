@@ -1,79 +1,64 @@
 # ECHO-4 — full de ruta oficial
 
-21 de setembre de 2026 · Versió 1 · Desenvolupament iniciat
+22 de setembre de 2026 · Versió 2 · Punt de pausa; programa obert
 
-**Objectiu:** desenvolupar representacions funcionals d'un mateix, de l'altre i de la història compartida, i aprendre quan la interacció millora els resultats de tots dos agents.
+**Objectiu:** desenvolupar representacions funcionals d'un mateix, de l'altre i de la història compartida, i mesurar quan la interacció ajuda. E4-DREAM-1 afegeix una branca cortical per millorar l'exploració amb experiència registrada.
 
-La hipòtesi és que la reciprocitat i la memòria de les trobades poden contribuir a l'adaptació. Mesurarem separadament resultats individuals, conjunts i costos de coordinació, incloses situacions on actuar independentment sigui preferible.
+Substitueix la versió inicial del 21 de setembre. Planificat no significa implementat. El verd correspon a un contracte i domini concrets, no a consciència subjectiva o tancament global.
 
-Aquest document substitueix l'ordre preliminar del primer article. Cada fase pendent necessita un contracte de sensors, memòria, aprenentatge, controls i llindars abans de validar-la.
+## Estat actual
 
-## Punt de partida
+ECHO-1 i ECHO-2 conserven els tancaments. ECHO-3 té 14/15 fites de programari; DRONE-3 ha tancat SITL, no HIL ni gàbia. No hi ha AKD1000 al laboratori. ECHO-4 continua prioritzant programari.
 
-NEXUS-0 aporta WSP, CAM, Q, T i el gate. ECHO-1 i ECHO-2 conserven els seus tancaments. ECHO-3 té 14/15 fites completes en l'àmbit de programari; DRONE-3 té SITL tancat, amb HIL i gàbia pendents.
+WORLD està implementat; SENSATION, BOUNDARY i SELF tenen tancaments acotats. CONT-A està validat en desenvolupament; CONTINUITY complet i DREAM continuen oberts. [Evidència pública, procedència i límits](/evidence/echo4/ECHO4-STATUS-20260922.md).
 
-**E4-WORLD-1 està implementat.** L'informe enumera 16.002 estats vius, 48.006 transicions i un nucli de viabilitat de 15.954 estats. Documenta 45 proves noves i 48 de regressió seleccionades. L'agent inicial mor per calor després de 37 accions: el manteniment après continua pendent. Les 32 classes d'observació vives presenten ambigüitat dinàmica. [Evidència i reproducció](/evidence/echo4/WORLD1-20260921.md).
+## Full de ruta complet
 
-El desenvolupament continua amb **E4-SENSATION-1**. Publicar aquest full de ruta no implementa els mòduls pendents.
+1. **E4-WORLD-1 — Implementat.** Cos virtual, recursos, temperatura, accions i terminalitat. Cens: 16.002 estats vius, 48.006 transicions i 15.954 estats viables. L'agent inicial mor després de 37 accions: viabilitat física no és manteniment après. [Evidència](/evidence/echo4/WORLD1-20260921.md).
+2. **E4-SENSATION-1 — Tancat en domini nominal.** Història temporal i predicció de conseqüències, sense reassignar bytes WSP. Història de dos passos: +218/+203 encerts respecte de T a B/C. L'error no identifica la causa.
+3. **E4-BOUNDARY-1 — Tancat sota intervencions virtuals aparellades.** Separa influència de coincidència: 1.408/1.408 màscares correctes tant a B com a C, amb abstenció davant rebuts invàlids. Requereix restauracions supervisades; influència no és pertinença corporal.
+4. **E4-SELF-1 — Verd en WORLD1-binary-couplings-single-pulse-v1.** Diagnòstic confirmat 80/80 a cada fase A/B/C; reutilització selectiva 189/240 a B i 193/240 a C. Persistència de casos mixtos incomplets i terminalitats fora del prior. No és autoreparació ni causalitat universal.
+5. **E4-CONTINUITY-1 — En desenvolupament; CONT-A complet, fase oberta.** Preservar memòria, models, cos i ordre temporal entre processos. Falten CONT-B/C/D.
+6. **E4-DREAM-1 — PLA, branca cortical després de continuïtat.** Qwen proposarà estratègies acotades, avaluades amb replay històric i proves noves. Pesos fixos, sense codi arbitrari. No bloqueja el nucli sense LLM; integració compara els braços per separat.
+7. **E4-MAINTAIN-1 — Pendent.** Dany funcional, reparació amb cost i treball útil. Exigir activitat i treball simultanis, recursos comptabilitzats i cap rescat ocult; mesurar l'aportació del model propi.
+8. **E4-OTHER-1 — Pendent.** Una altra instància amb cos, observacions i memòria privats. Predir conducta útilment en situacions noves sense llegir l'estat intern.
+9. **E4-INTERACTION-1 — Pendent.** Senyals i accions amb conseqüències per als dos agents. Comparar reciprocitat, gravacions i senyals bloquejats; mesurar beneficis individuals, conjunts i costos. Cooperar sempre no és l'objectiu.
+10. **E4-RELATION-1 — Pendent.** Història de trobades, confiança contextual i revisió d'expectatives. Retirar la història per mesurar-ne l'aportació respecte d'identificadors o regles fixes.
+11. **E4-ROLES-1 — Pendent.** Coordinació i delegació segons informació, recursos i competència. Els rols s'han d'adaptar als canvis de capacitat; no s'imposa una jerarquia permanent.
+12. **E4-INTEGRATE-1 — Pendent; futur tancament de programari.** Escenaris reservats, execucions contínues i ablacions del jo, l'altre i la història. Nucli sense còrtex i branca cortical amb costos explícits. DREAM ha de demostrar l'aportació, no heretar-la del paper.
+13. **Validació física — Després del programari.** Sensors i cossos reals, i contractes físics ECHO-3, inclosos HIL i gàbia. Els tancaments virtuals no certifiquen maquinari.
+14. **METAVERSE-1 — Al final de tot.** Representació 3D fidel d'agents, relacions i traces, després del programari i les validacions físiques previstes. Visualitzar no certifica cognició.
 
-## Ordre tècnic i requisits d'acceptació
+## Continuïtat: per on reprendrem
 
-1. **E4-WORLD-1 · Implementat.** Cos virtual, recursos, temperatura, accions i condicions terminals. El verificador estableix trajectòries sostenibles amb observació completa; la seva política testimoni queda fora de l'agent.
+- **CONT-A, fet:** checkpoint del SelfAgent nominal entre torns complets i restauració en procés nou. Cinc escenaris, 52/52 passos posteriors idèntics; el terminal no ressuscita. Conserva CAM/Q/T, restes enteres, referències, història, recursos i rellotge.
+- **CONT-B, següent:** persistir diagnòstic i recuperació activa SELF; rebutjar estats parcials o incompatibles.
+- **CONT-C, pendent:** distingir represa, cos nou, descendent i bifurcació; declarar herència i invalidació de referències corporals.
+- **CONT-D, pendent:** congelar el contracte numèric abans d'A/B/C nous, controls sense història o restes i verificació independent de l'informe.
 
-2. **E4-SENSATION-1 · Fase següent; contracte i implementació pendents.** Comparar l'observació actual amb historials de 2 i 4 passos que incloguin accions executades. Estimar tendències, resultats i incertesa amb memòria acotada i enters. Mesurar ambigüitat resolta, predicció en trajectòries noves i cost. Un resultat inesperat no identifica la causa.
+Els checkpoints complets contenen física privada de l'executor. No són observacions de Qwen ni de l'agent.
 
-3. **E4-BOUNDARY-1 · Pendent.** Estimar influència causal sobre variables i capacitats mitjançant intervencions comparables, accions vetades, retards i pertorbacions. Distingir efectes propis de coincidències i conservar el resultat desconegut. Controlar una porta no la converteix en cos; predir un rellotge no implica controlar-lo. SELF investiga la pertinença corporal.
+## DREAM: lliurables encara sense implementar
 
-4. **E4-SELF-1 · Pendent.** Combinar capacitats corporals, predicció i evidència per distingir canvis propis, externs, mixtos o desconeguts. L'atribució ha de millorar la recuperació sense descartar coneixement ambiental no refutat. SELF-1 històric aporta mètodes, però aquest domini necessita evidència nova.
+- **DREAM-A:** arbres d'intents amb procedència i costos; replay de branques registrades sense filtrar futurs. Allò no observat és desconegut.
+- **DREAM-B:** Qwen offline proposa prioritats i pressupostos declaratius, amb parseig estricte i inferència real registrada. Un stub no tanca aquesta fase.
+- **DREAM-C:** selecció històrica amb avaluador fix i estratègia vigent entre candidats. Informar cobertura i cost total, incloses propostes; la puntuació històrica no demostra generalització.
+- **DREAM-D:** proves noves WORLD-1, diversos cicles, controls fixos/aleatoris amb pressupost equivalent, ablacions d'historial i Qwen, rebuig i reversió.
 
-5. **E4-CONTINUITY-1 · Pendent.** Preservar estat causal, memòria útil, ordre dels esdeveniments i durada. Comparar execució contínua amb pausa i restauració en un procés nou amb entrades futures idèntiques. Distingir restauració, canvi de cos i individu nou; rebutjar estats incompatibles.
+L'adaptador llama.cpp existent interpreta senyals; encara no és l'orquestrador. Identificarem model, hash i configuració. Inicialment només es modifica la programació d'experiments, mai nucli, gate, recompenses o examinador. [Arquitectura i motivació](/ca/articulos/echo4-dream-rsi-historia-compartida).
 
-6. **E4-MAINTAIN-1 · Pendent.** Introduir dany funcional, reparació costosa i feina útil. Complir alhora un horitzó d'activitat i un mínim de feina, comptabilitzant recursos i sense rescats ocults. Comparar amb l'eliminació del model propi.
+## Invariants i tancament
 
-7. **E4-OTHER-1 · Pendent.** Dues instàncies amb cossos, memòries i observacions separats. Aprendre expectatives sobre la contrapart a partir del comportament accessible. Predir en situacions noves i adaptar decisions a diferències d'informació sense llegir memòria privada.
+WSP conserva 16 bytes i layout; un sol bus/CAM/T/Q per individu. CAM manté 4.096 ranures. El camí basal utilitza enters i zero crides corticals. Hipòtesi no és fet; causes privades, futurs del replay i respostes reservades queden fora de l'abast.
 
-8. **E4-INTERACTION-1 · Pendent.** Accions i senyals amb conseqüències per a tots dos. Aprendre quan coordinar-se ajuda i demostrar que bloquejar o substituir senyals modifica decisions rellevants. Comparar reciprocitat, enregistraments i controls equivalents; informar de beneficis individuals, resultats conjunts i costos.
+Els assajos corticals declaren crides i recursos, sense amagar-los sota certificats sense LLM. L'operador conserva aturada i reversió. Models i avaluadors es versionen; els candidats no s'autoautoritzen.
 
-9. **E4-RELATION-1 · Pendent.** Memòria de trobades i expectatives específiques d'una relació. Aprofitar la història compartida en trobades noves, revisar fiabilitat segons context i adaptar-se a canvis de comportament. Retirar aquesta memòria per mesurar-ne l'aportació més enllà d'identificadors o regles fixes.
+Cada fase pendent requereix domini, particions, pressupostos, mètriques i llindars fixats abans de l'examen. Les mitjanes no compensen violacions d'invariants. Els casos SELF publicats són regressió, no nous casos reservats per a DREAM.
 
-10. **E4-ROLES-1 · Pendent.** Diferències d'informació, recursos i capacitats, amb delegació i coordinació canviants. Els rols han de seguir la competència rellevant quan canviïn les condicions. La jerarquia humana inspira preguntes; no n'assumim una explicació universal ni rangs permanents.
+L'èxit recolzaria capacitats funcionals acotades de model propi, continuïtat, model de l'altre, cooperació i exploració millorada. No demostraria ànima, experiència subjectiva ni una teoria completa de la consciència.
 
-11. **E4-INTEGRATE-1 · Pendent; tancament de programari ECHO-4.** Integrar capacitats en execucions contínues i escenaris reservats de validació i confirmació. Complir requisits conjunts i demostrar l'aportació del model propi, del model de l'altre i de la història compartida mitjançant ablacions.
+## Congelació de treball
 
-12. **Validació física · Després del programari.** Traslladar capacitats pertinents a sensors i cossos reals, reprenent els contractes físics, HIL i gàbia d'ECHO-3. Els resultats virtuals no atorguen aprovació física: recursos i energia requereixen mesures en aquell domini.
+La publicació marca la pausa demanada: aquesta entrega no inicia CONT-B ni DREAM. Conservem fonts i rebuts. La pausa no congela llindars encara inexistents ni declara ECHO-4 tancat. CONT-B serà el següent pas quan s'autoritzi reprendre.
 
-13. **METAVERSE-1 · Última fase.** Representar agents, relacions i trajectòries en un entorn 3D observable i interactiu després del programa de programari i les validacions físiques previstes. La representació ha de reflectir fidelment decisions registrades. El contracte visual continua separat del tancament cognitiu.
-
-## Primer lliurable: contracte SENSATION
-
-Comencem amb una auditoria temporal: observació actual davant d'historials de 2 i 4 passos en trajectòries declarades. Comptarem casos restants que exigeixen decisions incompatibles, errors predictius i abstencions. Compararem amb el predictor existent amb accés idèntic a les dades.
-
-Els registres exactes de reserva i temperatura actualitzen la fisiologia. El contracte especificarà què rep el predictor: l'accés directe seria una ampliació sensorial declarada, no una millora atribuïble només a recordar observacions.
-
-Un resum de quatre estats —compatible, desviació petita, desviació gran, evidència insuficient— pot ajudar a inspeccionar. Error i incertesa continuen separats. Un predictor lineal enter és un candidat a avaluar, no un algoritme ja seleccionat o implementat.
-
-## Arquitectura i invariants
-
-WSP manté **16 bytes i la distribució de camps congelada**; no té 4–5 bytes lliures per reassignar. Historials i estimacions necessiten un pressupost fix declarat dins l'arquitectura existent, sense un segon bus cognitiu.
-
-CAM conserva episodis en 4.096 ranures sense destrucció. Q conserva la política i T el model de transició. Els models apresos són estimacions; la confiança no converteix prediccions en fets. El camí ràpid utilitza enters, el còrtex roman apagat i aquests bancs no utilitzen LLM.
-
-Cada individu manté estat separat i observacions autoritzades. Les interaccions públiques entren per la representació existent. No hi ha accés a etiquetes privades, llavors, solucions de l'avaluador ni memòria de la contrapart. L'aturada de l'operador conserva l'autoritat.
-
-## Què significa el tancament verd
-
-Abans de validar, cada contracte fixarà domini, dades reservades, pressupostos d'aprenentatge i memòria, horitzó, errors acceptables, millora mínima i tractament de la incertesa. Els llindars numèrics finals de les fases pendents encara no estan aprovats.
-
-Publicarem resultats negatius, controls convencionals competents, ablacions, traces amb procedència i reproducció en processos nous. Retirar memòria, models o reciprocitat ha de permetre avaluar-ne l'aportació. Una política greedy no implica aprenentatge congelat.
-
-El tancament exigeix criteris conjunts, zero fets falsos, zero ranures destruïdes, zero crides al còrtex i cap accés a oracles. L'èxit mitjà no compensa un invariant trencat.
-
-Un èxit donaria suport a capacitats delimitades de representació pròpia, perspectiva de l'altre, continuïtat i cooperació apresa. Afirmar que la interacció millora la representació pròpia exigeix mesurar específicament aquest efecte. L'experiència subjectiva i una explicació general de la consciència continuen sent preguntes addicionals.
-
-## Per què investigar-ho?
-
-Podríem separar què deu el comportament al cos, a la memòria i a aprendre amb un altre. Poder intervenir i reproduir històries és el valor del laboratori. Els resultats negatius també poden identificar informació o capacitats que falten.
-
-Hi ha precedents de modelatge d'altres agents: [Machine Theory of Mind](https://arxiv.org/abs/1802.07740). Cal comprovar els efectes dels senyals: [On the Pitfalls of Measuring Emergent Communication](https://arxiv.org/abs/1903.05168). Investiguem la integració sota les restriccions d'ECHO-AI; qualsevol novetat específica s'ha de contrastar amb treballs existents.
-
-[Anunci del desenvolupament](/ca/articulos/echo4-inicio-roadmap-oficial) · [Filosofia i inspiració](/ca/articulos/echo4-ego-funcional) · [Full de ruta ECHO-3](/ca/docs/echoai/ruta) · [Markdown](/raw/ca/echoai/echo4.md)
+[Article destacat](/ca/articulos/echo4-dream-rsi-historia-compartida) · [Full de ruta ECHO-3](/ca/docs/echoai/ruta) · [Markdown](/raw/ca/echoai/echo4.md)

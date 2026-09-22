@@ -1,5 +1,8 @@
 # Empieza ECHO-4: un yo, un otro y una historia compartida
 
+> Nota de archivo · 22/09/2026: este anuncio conserva el estado inicial del día 21. Consulta el [roadmap actualizado](/docs/echoai/echo4) y la [visión ECHO-4 con DREAM](/articulos/echo4-dream-rsi-historia-compartida) para el estado vigente.
+
+
 21 de septiembre de 2026 · RxLabs® · Inicio oficial del desarrollo
 
 <p class="article-status"><strong>ECHO-4 entra oficialmente en desarrollo.</strong> WORLD-1 aporta la base ejecutable. El siguiente trabajo es E4-SENSATION-1. Publicamos el roadmap ampliado: percepción, influencia causal, representación propia, continuidad y aprendizaje con una contraparte.</p>
