@@ -1,7 +1,8 @@
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { marked } from "marked";
-import { basePath, localizedPath } from "../i18n.js";
-import { ARTICLES, ARTICLE_LABELS } from "../articles.js";
+import { basePath } from "../i18n.js";
+import { ARTICLES, ARTICLE_LABELS, articleMediaFromSource } from "../articles.js";
+import ArticleCard from "../components/ArticleCard.jsx";
 import FeaturedArticle from "../components/FeaturedArticle.jsx";
 import NotFound from "./NotFound.jsx";
 
@@ -12,6 +13,10 @@ const COPY = {
 };
 const SOURCES = import.meta.glob("../content/**/articles/*.md", { query: "?raw", import: "default", eager: true });
 
+function sourceFor(article, language) {
+  return SOURCES[`../content/${language === "es" ? "" : language + "/"}articles/${article.slug}.md`] || "";
+}
+
 export default function Articles({ language = "es" }) {
   const location = useLocation();
   const copy = COPY[language];
@@ -19,7 +24,7 @@ export default function Articles({ language = "es" }) {
   const article = ARTICLES.find((entry) => path === `/articulos/${entry.slug}`);
 
   if (article) {
-    const source = SOURCES[`../content/${language === "es" ? "" : language + "/"}articles/${article.slug}.md`];
+    const source = sourceFor(article, language);
     return (
       <main className="page">
         <article className="sheet article-sheet">
@@ -30,21 +35,36 @@ export default function Articles({ language = "es" }) {
     );
   }
   if (path !== "/articulos") return <NotFound language={language} />;
+  const pinned = ARTICLES.filter((entry) => entry.featured);
+  const articles = ARTICLES.filter((entry) => !entry.featured);
 
   return (
     <main className="page">
       <section className="sheet articles-index">
         <h1>{copy.title}</h1>
-        <p>{copy.intro}</p>
-        {ARTICLES.map((entry) => (
-          entry.featured ? <FeaturedArticle key={entry.slug} article={entry} language={language} /> :
-          <Link key={entry.slug} className="article-card" to={localizedPath(`/articulos/${entry.slug}`, language)}>
-            <time dateTime={entry.date}>{entry.date.split("-").reverse().join(" · ")}</time>
-            <strong>{entry.title[language]}</strong>
-            <p>{entry.summary[language]}</p>
-            <small>{copy.read} →</small>
-          </Link>
-        ))}
+        <p className="articles-intro">{copy.intro}</p>
+        <div className="articles-pinned">
+          {pinned.map((entry) => (
+            <FeaturedArticle
+              key={entry.slug}
+              article={entry}
+              language={language}
+              pinned
+              media={articleMediaFromSource(entry, language, sourceFor(entry, language))}
+            />
+          ))}
+        </div>
+        <div className="articles-masonry">
+          {articles.map((entry) => (
+            <ArticleCard
+              key={entry.slug}
+              article={entry}
+              language={language}
+              media={articleMediaFromSource(entry, language, sourceFor(entry, language))}
+              readLabel={copy.read}
+            />
+          ))}
+        </div>
       </section>
     </main>
   );

@@ -114,3 +114,37 @@ export const ARTICLE_LABELS = {
   en: { featured: "Featured", read: "Read article" },
   ca: { featured: "Destacat", read: "Llegir article" },
 };
+
+function htmlMedia(source, tag, attribute, kind) {
+  const expression = new RegExp(`<${tag}\\b[^>]*\\b${attribute}=(['"])(.*?)\\1[^>]*>`, "i");
+  const match = expression.exec(source);
+  if (!match) return null;
+  const dimension = (name) => {
+    const value = new RegExp(`\\b${name}=['"]?(\\d+)`, "i").exec(match[0]);
+    return value ? Number(value[1]) : undefined;
+  };
+  return { index: match.index, src: match[2], kind, width: dimension("width"), height: dimension("height") };
+}
+
+// Article indexes use the first real visual in the Markdown. Editorial metadata
+// is only a fallback, so future articles gain thumbnails without duplicate data.
+export function articleMediaFromSource(article, language = "es", source = "") {
+  const markdown = /!\[[^\]]*\]\(([^)\s]+)(?:\s+["'][^"']*["'])?\)/.exec(source);
+  const candidates = [
+    htmlMedia(source, "img", "src", "image"),
+    htmlMedia(source, "video", "poster", "video-poster"),
+    markdown ? { index: markdown.index, src: markdown[1], kind: "image" } : null,
+  ].filter(Boolean).sort((a, b) => a.index - b.index);
+
+  if (candidates[0]) {
+    return { ...candidates[0], alt: article.title[language] };
+  }
+  if (!article.image) return null;
+  return {
+    src: article.image.src,
+    width: article.image.width,
+    height: article.image.height,
+    kind: "image",
+    alt: article.image.alt?.[language] || article.title[language],
+  };
+}

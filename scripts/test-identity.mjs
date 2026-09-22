@@ -3,7 +3,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { identityFor } from "../src/identity.js";
-import { ARTICLES } from "../src/articles.js";
+import { ARTICLES, articleMediaFromSource } from "../src/articles.js";
 import { PAGES, NOT_FOUND } from "../src/site.js";
 import { docsPagePath } from "../src/i18n.js";
 
@@ -22,6 +22,13 @@ for (const prefix of ["", "/en", "/ca"]) {
 assert.match(identityFor(docsPagePath("/en/echoai/echo4", true))[0].href, /echoai/);
 assert.equal(ARTICLES.filter((a) => a.featured).length, 1);
 assert.equal(ARTICLES.find((a) => a.featured).slug, "echo4-continuidad-dream-a-identidad");
+const source = (slug) => fs.readFileSync(path.join(root, "src", "content", "articles", `${slug}.md`), "utf8");
+const featured = ARTICLES.find((a) => a.slug === "echo4-continuidad-dream-a-identidad");
+const gui4 = ARTICLES.find((a) => a.slug === "gui4-como-visualizar-las-grabaciones");
+const textOnly = ARTICLES.find((a) => a.slug === "echo4-dream-rsi-historia-compartida");
+assert.equal(articleMediaFromSource(featured, "es", source(featured.slug)).src, "/media/echoai/brand/echoai-256.png");
+assert.equal(articleMediaFromSource(gui4, "es", source(gui4.slug)).src, "/media/gui4/gui4-casos-evidencia-1-poster.jpg");
+assert.equal(articleMediaFromSource(textOnly, "es", source(textOnly.slug)), null);
 
 // Validate the build, not only the routing helper. Covers first request/no JS.
 for (const page of [...PAGES, NOT_FOUND]) {
@@ -36,8 +43,16 @@ for (const page of [...PAGES, NOT_FOUND]) {
   }
   checked++;
 }
+for (const prefix of ["", "en/", "ca/"]) {
+  const html = fs.readFileSync(path.join(root, "dist", prefix, "articulos", "index.html"), "utf8");
+  assert.match(html, /class="articles-pinned"/);
+  assert.match(html, /class="articles-masonry"/);
+  assert.equal((html.match(/class="featured-badge"/g) || []).length, 1);
+  assert.equal((html.match(/class="article-card(?: |")/g) || []).length, ARTICLES.length - 1);
+  assert.ok(html.indexOf("featured-story-pinned") < html.indexOf("articles-masonry"));
+}
 for (const lang of ["es", "en", "ca"]) {
   const file = path.join(root, "public", "raw", lang, "articulos/echo4-continuidad-dream-a-identidad.md");
   assert.match(fs.readFileSync(file, "utf8"), /dream1_green=false/);
 }
-console.log(`identity: ${checked} route/build checks passed; 3 article exports; one featured article`);
+console.log(`identity: ${checked} route/build checks passed; masonry media extraction; 3 article exports; one pinned article`);

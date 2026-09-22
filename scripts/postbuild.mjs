@@ -7,7 +7,7 @@ import { alternatePaths, localizedPath } from "../src/i18n.js";
 import { ABOUT_COPY } from "../src/about-copy.js";
 import { productFor } from "../src/products.js";
 import { docCatalog } from "../src/docs-catalog.js";
-import { ARTICLES, ARTICLE_LABELS } from "../src/articles.js";
+import { ARTICLES, ARTICLE_LABELS, articleMediaFromSource } from "../src/articles.js";
 import { identityFor, ECHOAI_BRAND } from "../src/identity.js";
 
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
@@ -145,8 +145,10 @@ function staticBody(page) {
     body = `<h1>${language === "en" ? "Documentation" : language === "ca" ? "Documentació" : "Documentación"}</h1><ul>${docs.map((entry) => `<li><a href="${entry.path}">${esc(entry.title)}</a><p>${esc(entry.description)}</p></li>`).join("")}</ul>`;
   } else if (page.path.replace(/^\/(?:en|ca)(?=\/|$)/, "") === "/articulos") {
     const label = language === "en" ? "Articles" : language === "ca" ? "Articles" : "Artículos";
-    const articles = PAGES.filter((entry) => entry.lang === language && entry.article);
-    body = `<h1>${label}</h1>${ARTICLES.filter((entry) => entry.featured).map((entry) => featuredBody(entry, language)).join("")}<ul>${articles.filter((entry) => !ARTICLES.some((article) => article.featured && entry.path === localizedPath(`/articulos/${article.slug}`, language))).map((entry) => `<li><a href="${entry.path}">${esc(entry.title)}</a><p>${esc(entry.description)}</p></li>`).join("")}</ul>`;
+    const intro = language === "en" ? "Laboratory notes written from the code, the test banks and the reports." : language === "ca" ? "Notes de laboratori escrites des del codi, els bancs i els informes." : "Notas de laboratorio escritas desde el código, los bancos y los informes.";
+    const pinned = ARTICLES.filter((entry) => entry.featured);
+    const articles = ARTICLES.filter((entry) => !entry.featured);
+    body = `<h1>${label}</h1><p class="articles-intro">${intro}</p><div class="articles-pinned">${pinned.map((entry) => featuredBody(entry, language, { pinned: true, media: articleMedia(entry, language) })).join("")}</div><div class="articles-masonry">${articles.map((entry) => articleCardBody(entry, language, articleMedia(entry, language))).join("")}</div>`;
   } else if ((contentPath(page) || "/") === "/") {
     const article = ARTICLES.find((entry) => entry.featured);
     body = `<h1>RxLabs®</h1>${article ? featuredBody(article, language) : ""}<ul>${["echos", "prisma", "echoai"].map((slug) => `<li><a href="${localizedPath(`/${slug}`, language)}">${esc(productFor(slug).name)}</a></li>`).join("")}</ul>`;
@@ -156,9 +158,30 @@ function staticBody(page) {
   return `<main class="page static-page"><div class="docs is-side-hidden"><article class="docs-body static-doc-body">${body}</article></div></main>`;
 }
 
-function featuredBody(article, language) {
+function articleSource(article, language) {
+  const directory = language === "es" ? contentDir : path.join(contentDir, language);
+  const file = path.join(directory, "articles", `${article.slug}.md`);
+  return fs.existsSync(file) ? fs.readFileSync(file, "utf8") : "";
+}
+
+function articleMedia(article, language) {
+  return articleMediaFromSource(article, language, articleSource(article, language));
+}
+
+function mediaBody(media, className, eager = false) {
+  if (!media) return "";
+  const dimensions = `${media.width ? ` width="${media.width}"` : ""}${media.height ? ` height="${media.height}"` : ""}`;
+  return `<span class="${className}"><img src="${esc(media.src)}"${dimensions} alt="${esc(media.alt)}" decoding="async"${eager ? ' fetchpriority="high"' : ' loading="lazy"'} /></span>`;
+}
+
+function articleCardBody(article, language, media) {
   const labels = ARTICLE_LABELS[language];
-  return `<a class="featured-story" href="${localizedPath(`/articulos/${article.slug}`, language)}"><div class="featured-story-meta"><span class="featured-badge">${labels.featured}</span><time datetime="${article.date}">${article.date}</time>${article.status ? `<span>${esc(article.status[language])}</span>` : ""}</div><div class="featured-story-copy"><h2>${esc(article.title[language])}</h2><p>${esc(article.summary[language])}</p><span class="featured-story-read">${labels.read} ↗</span></div></a>`;
+  return `<a class="article-card${media ? " article-card-has-media" : ""}" href="${localizedPath(`/articulos/${article.slug}`, language)}">${mediaBody(media, "article-card-media")}<div class="article-card-copy"><time datetime="${article.date}">${article.date.split("-").reverse().join(" · ")}</time><strong>${esc(article.title[language])}</strong><p>${esc(article.summary[language])}</p><small>${labels.read} <span aria-hidden="true">→</span></small></div></a>`;
+}
+
+function featuredBody(article, language, { pinned = false, media = null } = {}) {
+  const labels = ARTICLE_LABELS[language];
+  return `<a class="featured-story${pinned ? " featured-story-pinned" : ""}" href="${localizedPath(`/articulos/${article.slug}`, language)}">${mediaBody(media, "featured-story-media", true)}<div class="featured-story-content"><div class="featured-story-meta"><span class="featured-badge">${labels.featured}</span><time datetime="${article.date}">${article.date}</time>${article.status ? `<span>${esc(article.status[language])}</span>` : ""}</div><div class="featured-story-copy"><h2>${esc(article.title[language])}</h2><p>${esc(article.summary[language])}</p><span class="featured-story-read">${labels.read} ↗</span></div></div></a>`;
 }
 
 function productBody(product, language) {
