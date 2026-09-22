@@ -637,7 +637,7 @@ Un aviso que ya está publicado: el dominio certificado usa celdas de tres metro
 
 # ECHO-4 — roadmap oficial
 
-22 de septiembre de 2026 · Versión 3 · CONTINUITY cerrada; DREAM-A iniciado
+22 de septiembre de 2026 · Versión 4 · CONTINUITY cerrada; RELATION-A verificado
 
 **Objetivo:** desarrollar representación funcional de sí mismo, del otro y de la historia compartida, y medir cuándo interactuar mejora los resultados. E4-DREAM-1 añade una rama cortical para investigar cómo mejorar la exploración a partir de experiencia registrada.
 
@@ -647,7 +647,7 @@ Este estado sustituye la versión inicial del 21 de septiembre. Publicar una fas
 
 ECHO-1 y ECHO-2 conservan sus cierres. ECHO-3 tiene 14/15 hitos software; DRONE-3 cerró SITL, no HIL ni jaula. No hay AKD1000 en el laboratorio. El programa ECHO-4 sigue siendo software-first.
 
-WORLD está implementado; SENSATION, BOUNDARY, SELF y CONTINUITY tienen cierres acotados. DREAM-A tiene su primer incremento verificado; DREAM-1 y ECHO-4 siguen abiertos. [Resumen público actualizado](/evidence/echo4/ECHO4-STATUS-20260922-v3.md).
+WORLD está implementado; SENSATION, BOUNDARY, SELF y CONTINUITY tienen cierres acotados. DREAM-A tiene su primer incremento verificado. RELATION-A ya registra y reconstruye historias de encuentros, pero no mejora la conducta: B/C/D siguen pendientes y RELATION-1 continúa abierto. [Resumen público actualizado](/evidence/echo4/ECHO4-STATUS-20260922-v3.md).
 
 ## Roadmap completo
 
@@ -660,7 +660,7 @@ WORLD está implementado; SENSATION, BOUNDARY, SELF y CONTINUITY tienen cierres 
 7. **E4-MAINTAIN-1 — Pendiente.** Daño funcional, reparación con coste y trabajo útil. Exigir actividad y trabajo mínimos simultáneos, recursos contabilizados y ausencia de rescates ocultos; medir qué aporta el modelo propio.
 8. **E4-OTHER-1 — Pendiente.** Otra instancia con cuerpo, observaciones y memoria privados. Aprender expectativas útiles sobre su conducta en situaciones nuevas, sin leer su estado interno.
 9. **E4-INTERACTION-1 — Pendiente.** Señales y acciones con consecuencias para ambos. Comparar reciprocidad, grabaciones y señales bloqueadas; medir beneficio individual, conjunto y coste. Cooperar siempre no es el objetivo.
-10. **E4-RELATION-1 — Pendiente.** Historia de encuentros, confianza contextual y revisión de expectativas. Retirar esa historia debe medir su contribución frente a identificadores o reglas fijas.
+10. **E4-RELATION-1 — En curso; RELATION-A válido, cierre global pendiente.** 912 episodios reconstruibles en tres cohortes de desarrollo; 36 pruebas nuevas y 181 regresiones seleccionadas aprobadas. La memoria es pasiva: acciones y resultados son idénticos al control sin grabación. RELATION-B medirá transferencia a una tarea nueva frente a controles sin historia, OTHER, identidad agrupada y orden eliminado; C probará ruptura/reencuentro y D será un examen preregistrado independiente. A no acredita ventaja conductual ni conciencia.
 11. **E4-ROLES-1 — Pendiente.** Coordinación y delegación según información, recursos y competencia. Los roles deben cambiar al cambiar las capacidades, sin imponer una jerarquía permanente.
 12. **E4-INTEGRATE-1 — Pendiente; futuro cierre software.** Escenarios reservados, ejecuciones continuas y ablaciones del yo, otro e historia. Núcleo sin córtex y rama cortical con costes explícitos. La mejora de DREAM debe demostrarse, no heredarse del paper.
 13. **E4-RELEASE-1 — PLAN, publicación software tras INTEGRATE.** REL-A: paquete instalable; REL-B: coordinación de núcleo rápido y córtex lento con pruebas OFF/ON/fallo; REL-C: licencias, privacidad y ficha del sistema; REL-D: publicación autorizada en Hugging Face y reproducción desde descarga limpia. Un runtime, no una fusión dentro de pesos. Sin dependencias de `echo-discord`.
@@ -683,6 +683,12 @@ Los checkpoints completos contienen estado físico privado del ejecutor. No se e
 - **DREAM-C:** selección histórica con evaluador fijo e incumbente entre candidatos. Informar cobertura y coste total, incluida generación de propuestas; no atribuir generalización a una puntuación histórica.
 - **DREAM-D:** ensayos nuevos en WORLD-1, varios ciclos, controles fijos/aleatorios equiparados, ablaciones de historial y Qwen, rechazo y reversión.
 
+## RELATION: primer incremento válido y siguientes pruebas
+
+RELATION-A reserva episodios factuales en la CAM original de cada observador y permite reconstruirlos desde recibos, sin CAM global ni acceso a memoria privada ajena. Cada historia puede ser parcial; ausencia de identidad no se convierte en una pareja inventada. En el banco de desarrollo (semillas 113, 127 y 139), 912 episodios fueron reconstruibles y la inversión del orden reprodujo trazas y digests. Grabar no alteró ninguna acción, coste, predicción ni resultado frente al control. Por tanto, A demuestra registro/replay bajo este contrato, no confianza sentida, aprendizaje relacional ni mejora.
+
+RELATION-B será la prueba discriminante: transferir la historia a decisiones de una tarea nueva, igualando formación, experiencia, recursos y oportunidades. Comparará historia completa con ablaciones que retiren historia, identidad, orden y el modelo OTHER, y contabilizará también si el coste de formación se amortiza. C y D permanecen pendientes. [Contrato y resultados de RELATION-A](/docs/echoai/relation).
+
 El adaptador existente usa llama.cpp y señales restringidas; no es aún este orquestador. Verificaremos modelo, hash y configuración local. Primera superficie editable: programación de experimentos, nunca gate, núcleo, recompensas o examinador. [Arquitectura y motivación](/articulos/echo4-dream-rsi-historia-compartida).
 
 ## Invariantes y significado del verde
@@ -699,7 +705,37 @@ Si el programa pasa, respaldará capacidades funcionales de autorrepresentación
 
 La pausa editorial de v2 fue seguida por CONT-B/C/D y DREAM-A. Ahora toca fijar tarea/evaluador discriminantes y contrato DREAM-B antes de activar el ensayo cortical. Esta actualización web no inicia nuevas fases ni publica el paquete en Hugging Face. Logo oficial incorporado; el proyecto legado Discord queda separado y congelado.
 
-[Novedades destacadas](/articulos/echo4-continuidad-dream-a-identidad) · [Roadmap ECHO-3](/docs/echoai/ruta) · [Markdown](/raw/es/echoai/echo4.md)
+[Artículo nuevo sobre RELATION-A](/articulos/echo4-relacion-historia-medida) · [Roadmap ECHO-3](/docs/echoai/ruta) · [Markdown](/raw/es/echoai/echo4.md)
+
+---
+
+<!-- src/content/echoai/relation.md · /docs/echoai/relation -->
+
+# E4-RELATION-1 · RELATION-A
+
+22 de septiembre de 2026 · A válida; RELATION-1 sigue abierto
+
+RELATION estudia si la historia de encuentros entre dos agentes puede mejorar decisiones posteriores. «Compartida» significa que ambos participaron en el encuentro, no que tengan memoria común. Cada agente conserva su propia observación. No se presupone confianza sentida, alma ni conciencia subjetiva.
+
+## RELATION-A
+
+Cada observador reserva episodios factuales en su CAM existente: contexto, acciones observadas, tick, coste propio y producción propia. Enlaces permiten recorrer la secuencia global o la de una contraparte identificada. Recibos y enlaces usan campos host existentes; WSP conserva su layout de 16 bytes y E[6] permanece a cero. No se copia Q ajena ni se introduce otra CAM, bus o política.
+
+Las historias pueden ser asimétricas e incompletas. Si falta identidad, el encuentro queda sin atribución; un recibo ausente no se transforma en una acción supuesta. Una propuesta o un intento no cuentan como éxito. Los resúmenes son consultas derivadas, no hechos nuevos ni puntuaciones de afecto.
+
+## Resultado del banco
+
+Tres semillas de desarrollo (113, 127 y 139), 144 rondas cada una: 96 de formación y 48 greedy. Se reconstruyeron **912 episodios primarios** y se ejecutaron 7.440 turnos nativos contando controles, orden inverso y observación parcial.
+
+La memoria es pasiva en este incremento: acciones, costes, predicciones y resultados fueron idénticos al control sin grabación. Al invertir el orden se reprodujeron trazas y digests. Esto confirma registro y reconstrucción bajo el contrato ensayado; no demuestra que recordar mejore la política ni que exista confianza o relación sentida.
+
+Pasaron **36 pruebas nuevas** y **181 pruebas distintas** incluyendo regresiones seleccionadas. Se comprobaron capacidad y ticks, identidades separadas, perspectivas parciales, corrupción de enlaces, fallos al guardar y reconstrucción en CAM con direcciones diferentes. Si falla la grabación después de una acción, se conservan costes y se detiene la sesión; no se afirma rollback de física.
+
+## Lo que falta
+
+RELATION-B debe distinguir una biografía útil de un registro decorativo: transferir la historia a decisiones en una tarea nueva. Comparará historia completa con controles sin historia, solo OTHER, identidad agrupada y orden eliminado; igualará formación, recursos y oportunidades; contabilizará también si el coste de formación se amortiza. RELATION-C estudiará ruptura/reencuentro e historias contradictorias o incompletas. RELATION-D será un examen nuevo preregistrado y auditado.
+
+Hasta cerrar B/C/D, **RELATION-1 no está verde**. A no mide confianza subjetiva, no acredita autorreparación ni conciencia y no altera INTERACTION. No se activó un LLM. [Roadmap ECHO-4](/docs/echoai/echo4) · [Artículo](/articulos/echo4-relacion-historia-medida).
 
 ---
 
@@ -2183,6 +2219,40 @@ Un resultado negativo bien medido también responde a la pregunta.
 - Carta de Derechos Digitales, Gobierno de España (2021). [espanadigital.gob.es](https://espanadigital.gob.es/lineas-de-actuacion/carta-de-derechos-digitales)
 
 — R.N.
+
+---
+
+<!-- src/content/articles/echo4-relacion-historia-medida.md · /articulos/echo4-relacion-historia-medida -->
+
+# ECHO-4 · RELATION-A: una historia que se puede reconstruir
+
+22 de septiembre de 2026 · Nota de laboratorio
+
+RELATION-A ya está implementada y validada como primer incremento de **E4-RELATION-1**. Es un paso de infraestructura deliberadamente modesto: el agente puede guardar episodios de encuentros en su memoria existente y reconstruir la secuencia después. Todavía no hemos demostrado que esa historia ayude a decidir mejor.
+
+## Una historia compartida, dos memorias privadas
+
+La inspiración es sencilla: dos agentes interactúan y, con el tiempo, esa secuencia podría cambiar lo que cada uno espera del otro. En la implementación, «compartida» solo significa que ambos participaron en el encuentro. Cada observador conserva su propio registro; no hay memoria global común ni acceso a la Q, recursos o incentivos privados de la contraparte.
+
+Cada episodio registra contexto, acciones realmente observadas, tick, coste propio y producción propia. Los enlaces permiten recorrer encuentros en orden global o por identidad conocida. Si falta la identidad o un recibo, la historia conserva esa incertidumbre: no inventa una pareja ni una acción. Una intención o un intento tampoco se convierte automáticamente en éxito.
+
+El contrato mantiene WSP de 16 bytes, deja E[6] en cero y guarda recibos en campos host existentes de CAM. No crea otro bus o política, no cambia Agent.turn, T, Q ni el gate y no llama a un LLM. Los resúmenes se derivan al consultarlos; no añaden hechos ni una puntuación de «confianza».
+
+## Qué dicen las pruebas
+
+El banco usó tres semillas de desarrollo —113, 127 y 139— con 144 rondas por semilla: 96 de formación y 48 greedy. Se reconstruyeron **912 episodios primarios**. El banco ejecutó 7.440 turnos nativos contando controles, inversión del orden y observación parcial.
+
+La comprobación clave también es un resultado negativo: con y sin registro, acciones, costes, predicciones y resultados fueron idénticos. Invertir el orden reprodujo trazas y digests de historia. Así sabemos que A guarda y reconstruye los encuentros sin alterar la política. No sabemos todavía si una biografía relacional aporta capacidad nueva.
+
+Pasaron **36 pruebas nuevas** y **181 pruebas distintas** con regresiones seleccionadas. Cubren límites de capacidad y ticks, perspectivas diferentes, encuentros sin identidad, corrupción, recibos y fallos parciales. Si guardar falla después de ejecutar una acción, se conservan los costes y se detiene la sesión; el software no finge haber deshecho la física.
+
+## La prueba que falta
+
+RELATION-B pondrá la historia a trabajar: decisiones en una tarea nueva, con el mismo presupuesto y oportunidades para cada condición. Compararemos historia completa contra controles sin historia, solo el modelo OTHER, identidad agrupada y orden eliminado. También mediremos el coste de aprender esa historia: una ventaja que cuesta más de lo que devuelve no sería una mejora práctica.
+
+Después quedan C (ruptura, reencuentro e historia contradictoria o incompleta) y D (un examen nuevo, fijado antes de ejecutarlo y reconstruido por auditoría independiente). Hasta cerrar esas pruebas, **RELATION-1 sigue abierto**. A no demuestra confianza sentida, conciencia subjetiva ni autorreparación. Es un registro auditable sobre el que ahora podemos plantear un experimento causal.
+
+[Contrato y documentación RELATION-A](/docs/echoai/relation) · [Roadmap ECHO-4](/docs/echoai/echo4).
 
 ---
 

@@ -1,6 +1,16 @@
 // Shared by routing, article cards, metadata and Markdown export.
 export const ARTICLES = [
   {
+    slug: "echo4-relacion-historia-medida", date: "2026-09-22",
+    title: { es: "ECHO-4 · RELATION-A: una historia que se puede reconstruir", en: "ECHO-4 · RELATION-A: a history that can be reconstructed", ca: "ECHO-4 · RELATION-A: una història que es pot reconstruir" },
+    summary: {
+      es: "Primer incremento válido: 912 episodios reconstruibles y memoria por agente. El registro no cambió la conducta; la transferencia sigue por demostrar.",
+      en: "A valid first increment: 912 reconstructible episodes and per-agent memory. Recording changed no behaviour; transfer remains to be demonstrated.",
+      ca: "Primer increment vàlid: 912 episodis reconstruïbles i memòria per agent. El registre no va canviar la conducta; la transferència encara s'ha de demostrar.",
+    },
+    status: { es: "RELATION-A válido · RELATION-1 abierto", en: "RELATION-A valid · RELATION-1 open", ca: "RELATION-A vàlid · RELATION-1 obert" },
+  },
+  {
     slug: "echo4-continuidad-dream-a-identidad", date: "2026-09-22", featured: true,
     title: { es: "ECHO-4: continuidad verificada, primeros árboles de DREAM y una identidad propia", en: "ECHO-4: verified continuity, first DREAM trees and an identity of its own", ca: "ECHO-4: continuïtat verificada, primers arbres de DREAM i una identitat pròpia" },
     summary: {

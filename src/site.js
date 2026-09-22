@@ -203,7 +203,13 @@ const ES_PAGES = [
   {
     path: "/docs/echoai/echo4",
     title: "ECHO-4 — roadmap oficial: yo, otro e historia compartida",
-    description: "Roadmap ECHO-4 v3: SELF y CONTINUITY cerrados en su dominio; primer incremento DREAM-A verificado. Automejora pendiente y RELEASE-1 en plan. Hardware después; METAVERSE-1 al final.",
+    description: "Roadmap ECHO-4 v4: RELATION-A registra historias reconstruibles sin ventaja conductual demostrada. SELF y CONTINUITY cerrados en su dominio; B/C/D siguen pendientes.",
+    dateModified: "2026-09-22",
+  },
+  {
+    path: "/docs/echoai/relation",
+    title: "ECHO-4 — RELATION-A: historia relacional medida",
+    description: "RELATION-A reconstruye 912 episodios de desarrollo con memoria por agente. Registro pasivo, sin ventaja conductual demostrada; RELATION-B/C/D pendientes.",
     dateModified: "2026-09-22",
   },
   {
@@ -472,8 +478,10 @@ for (const entry of ARTICLES) {
 EN_META["/docs/echoai/transfer"] = ["TRANSFER-3 — contract, results and state", "TRANSFER-3 is green: transferred perceptual calibration, sealed campaign under human custody, B 38/0 and C 48/1. Static rooms; no hardware and no flight."];
 CA_META["/docs/echoai/transfer"] = ["TRANSFER-3 — contracte, resultats i estat", "TRANSFER-3 és verd: calibració perceptiva transferida, campanya segellada amb custòdia humana, B 38/0 i C 48/1. Sales estàtiques; sense maquinari ni vol."];
 
-EN_META["/docs/echoai/echo4"] = ["ECHO-4 — official roadmap: self, other and shared history", "ECHO-4 roadmap v3: bounded SELF and CONTINUITY closure; DREAM-A first increment verified. Self-improvement pending and RELEASE-1 planned. Hardware later; METAVERSE-1 last."];
-CA_META["/docs/echoai/echo4"] = ["ECHO-4 — full de ruta oficial: jo, altre i història compartida", "Full de ruta ECHO-4 v3: SELF i CONTINUITY tancats en el seu domini; primer increment DREAM-A verificat. Automillora pendent i RELEASE-1 en pla. Maquinari després; METAVERSE-1 al final."];
+EN_META["/docs/echoai/echo4"] = ["ECHO-4 — official roadmap: self, other and shared history", "ECHO-4 roadmap v4: RELATION-A records reconstructible histories without a demonstrated behavioural advantage. SELF and CONTINUITY are closed within scope; B/C/D remain pending."];
+CA_META["/docs/echoai/echo4"] = ["ECHO-4 — full de ruta oficial: jo, altre i història compartida", "Full de ruta ECHO-4 v4: RELATION-A registra històries reconstruïbles sense avantatge conductual demostrat. SELF i CONTINUITY tancats dins del seu abast; B/C/D pendents."];
+EN_META["/docs/echoai/relation"] = ["ECHO-4 — RELATION-A: measured relational history", "RELATION-A reconstructs 912 development episodes with per-agent memory. Passive recording, no demonstrated behavioural advantage; RELATION-B/C/D pending."];
+CA_META["/docs/echoai/relation"] = ["ECHO-4 — RELATION-A: història relacional mesurada", "RELATION-A reconstrueix 912 episodis de desenvolupament amb memòria per agent. Registre passiu, sense avantatge conductual demostrat; RELATION-B/C/D pendents."];
 
 const spanishPages = ES_PAGES.map((page) => ({ ...page, lang: "es" }));
 const englishPages = ES_PAGES.map((page) => {

@@ -1,6 +1,6 @@
 # ECHO-4 — roadmap oficial
 
-22 de septiembre de 2026 · Versión 3 · CONTINUITY cerrada; DREAM-A iniciado
+22 de septiembre de 2026 · Versión 4 · CONTINUITY cerrada; RELATION-A verificado
 
 **Objetivo:** desarrollar representación funcional de sí mismo, del otro y de la historia compartida, y medir cuándo interactuar mejora los resultados. E4-DREAM-1 añade una rama cortical para investigar cómo mejorar la exploración a partir de experiencia registrada.
 
@@ -10,7 +10,7 @@ Este estado sustituye la versión inicial del 21 de septiembre. Publicar una fas
 
 ECHO-1 y ECHO-2 conservan sus cierres. ECHO-3 tiene 14/15 hitos software; DRONE-3 cerró SITL, no HIL ni jaula. No hay AKD1000 en el laboratorio. El programa ECHO-4 sigue siendo software-first.
 
-WORLD está implementado; SENSATION, BOUNDARY, SELF y CONTINUITY tienen cierres acotados. DREAM-A tiene su primer incremento verificado; DREAM-1 y ECHO-4 siguen abiertos. [Resumen público actualizado](/evidence/echo4/ECHO4-STATUS-20260922-v3.md).
+WORLD está implementado; SENSATION, BOUNDARY, SELF y CONTINUITY tienen cierres acotados. DREAM-A tiene su primer incremento verificado. RELATION-A ya registra y reconstruye historias de encuentros, pero no mejora la conducta: B/C/D siguen pendientes y RELATION-1 continúa abierto. [Resumen público actualizado](/evidence/echo4/ECHO4-STATUS-20260922-v3.md).
 
 ## Roadmap completo
 
@@ -23,7 +23,7 @@ WORLD está implementado; SENSATION, BOUNDARY, SELF y CONTINUITY tienen cierres 
 7. **E4-MAINTAIN-1 — Pendiente.** Daño funcional, reparación con coste y trabajo útil. Exigir actividad y trabajo mínimos simultáneos, recursos contabilizados y ausencia de rescates ocultos; medir qué aporta el modelo propio.
 8. **E4-OTHER-1 — Pendiente.** Otra instancia con cuerpo, observaciones y memoria privados. Aprender expectativas útiles sobre su conducta en situaciones nuevas, sin leer su estado interno.
 9. **E4-INTERACTION-1 — Pendiente.** Señales y acciones con consecuencias para ambos. Comparar reciprocidad, grabaciones y señales bloqueadas; medir beneficio individual, conjunto y coste. Cooperar siempre no es el objetivo.
-10. **E4-RELATION-1 — Pendiente.** Historia de encuentros, confianza contextual y revisión de expectativas. Retirar esa historia debe medir su contribución frente a identificadores o reglas fijas.
+10. **E4-RELATION-1 — En curso; RELATION-A válido, cierre global pendiente.** 912 episodios reconstruibles en tres cohortes de desarrollo; 36 pruebas nuevas y 181 regresiones seleccionadas aprobadas. La memoria es pasiva: acciones y resultados son idénticos al control sin grabación. RELATION-B medirá transferencia a una tarea nueva frente a controles sin historia, OTHER, identidad agrupada y orden eliminado; C probará ruptura/reencuentro y D será un examen preregistrado independiente. A no acredita ventaja conductual ni conciencia.
 11. **E4-ROLES-1 — Pendiente.** Coordinación y delegación según información, recursos y competencia. Los roles deben cambiar al cambiar las capacidades, sin imponer una jerarquía permanente.
 12. **E4-INTEGRATE-1 — Pendiente; futuro cierre software.** Escenarios reservados, ejecuciones continuas y ablaciones del yo, otro e historia. Núcleo sin córtex y rama cortical con costes explícitos. La mejora de DREAM debe demostrarse, no heredarse del paper.
 13. **E4-RELEASE-1 — PLAN, publicación software tras INTEGRATE.** REL-A: paquete instalable; REL-B: coordinación de núcleo rápido y córtex lento con pruebas OFF/ON/fallo; REL-C: licencias, privacidad y ficha del sistema; REL-D: publicación autorizada en Hugging Face y reproducción desde descarga limpia. Un runtime, no una fusión dentro de pesos. Sin dependencias de `echo-discord`.
@@ -46,6 +46,12 @@ Los checkpoints completos contienen estado físico privado del ejecutor. No se e
 - **DREAM-C:** selección histórica con evaluador fijo e incumbente entre candidatos. Informar cobertura y coste total, incluida generación de propuestas; no atribuir generalización a una puntuación histórica.
 - **DREAM-D:** ensayos nuevos en WORLD-1, varios ciclos, controles fijos/aleatorios equiparados, ablaciones de historial y Qwen, rechazo y reversión.
 
+## RELATION: primer incremento válido y siguientes pruebas
+
+RELATION-A reserva episodios factuales en la CAM original de cada observador y permite reconstruirlos desde recibos, sin CAM global ni acceso a memoria privada ajena. Cada historia puede ser parcial; ausencia de identidad no se convierte en una pareja inventada. En el banco de desarrollo (semillas 113, 127 y 139), 912 episodios fueron reconstruibles y la inversión del orden reprodujo trazas y digests. Grabar no alteró ninguna acción, coste, predicción ni resultado frente al control. Por tanto, A demuestra registro/replay bajo este contrato, no confianza sentida, aprendizaje relacional ni mejora.
+
+RELATION-B será la prueba discriminante: transferir la historia a decisiones de una tarea nueva, igualando formación, experiencia, recursos y oportunidades. Comparará historia completa con ablaciones que retiren historia, identidad, orden y el modelo OTHER, y contabilizará también si el coste de formación se amortiza. C y D permanecen pendientes. [Contrato y resultados de RELATION-A](/docs/echoai/relation).
+
 El adaptador existente usa llama.cpp y señales restringidas; no es aún este orquestador. Verificaremos modelo, hash y configuración local. Primera superficie editable: programación de experimentos, nunca gate, núcleo, recompensas o examinador. [Arquitectura y motivación](/articulos/echo4-dream-rsi-historia-compartida).
 
 ## Invariantes y significado del verde
@@ -62,4 +68,4 @@ Si el programa pasa, respaldará capacidades funcionales de autorrepresentación
 
 La pausa editorial de v2 fue seguida por CONT-B/C/D y DREAM-A. Ahora toca fijar tarea/evaluador discriminantes y contrato DREAM-B antes de activar el ensayo cortical. Esta actualización web no inicia nuevas fases ni publica el paquete en Hugging Face. Logo oficial incorporado; el proyecto legado Discord queda separado y congelado.
 
-[Novedades destacadas](/articulos/echo4-continuidad-dream-a-identidad) · [Roadmap ECHO-3](/docs/echoai/ruta) · [Markdown](/raw/es/echoai/echo4.md)
+[Artículo nuevo sobre RELATION-A](/articulos/echo4-relacion-historia-medida) · [Roadmap ECHO-3](/docs/echoai/ruta) · [Markdown](/raw/es/echoai/echo4.md)

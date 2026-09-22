@@ -15,6 +15,9 @@ const COPY = {
     others: "Otras líneas",
     log: "Registro serie",
     open: "Abrir imagen",
+    relation: "Investigación relacionada",
+    relationText: "Línea independiente de software: ECHO-4 estudia si los historiales de interacción entre agentes aportan una ventaja medible. No usa EEG, datos clínicos ni funciones de PRISMA.",
+    relationLink: "Leer RELATION-A",
   },
   en: {
     video: "Demonstration",
@@ -25,6 +28,9 @@ const COPY = {
     others: "Other lines",
     log: "Serial log",
     open: "Open image",
+    relation: "Related research",
+    relationText: "An independent software research line: ECHO-4 studies whether interaction histories between agents provide a measurable advantage. It does not use EEG, clinical data or PRISMA features.",
+    relationLink: "Read RELATION-A",
   },
   ca: {
     video: "Demostració",
@@ -35,6 +41,9 @@ const COPY = {
     others: "Altres línies",
     log: "Registre sèrie",
     open: "Obre la imatge",
+    relation: "Recerca relacionada",
+    relationText: "Una línia independent de programari: ECHO-4 estudia si els historials d'interacció entre agents aporten un avantatge mesurable. No utilitza EEG, dades clíniques ni funcions de PRISMA.",
+    relationLink: "Llegeix RELATION-A",
   },
 };
 
@@ -110,6 +119,14 @@ export default function Product({ slug, language = "es" }) {
               {copy.campaign.link} →
             </Link>
           </aside>
+        )}
+
+        {slug === "prisma" && (
+          <section className="product-section">
+            <h2>{ui.relation}</h2>
+            <p>{ui.relationText}</p>
+            <Link to={localizedPath("/docs/echoai/relation", language)}>{ui.relationLink} →</Link>
+          </section>
         )}
 
         {copy.flow && (

@@ -270,7 +270,7 @@ export const PRODUCTS = [
     slug: "prisma",
     name: "PRISMA",
     section: "PRISMA",
-    docs: ["prisma/resumen", "prisma/tecnico", "prisma/eeg-dron"],
+    docs: ["prisma/resumen", "prisma/tecnico", "prisma/eeg-dron", "echoai/relation"],
     articles: [],
     media: [
       {

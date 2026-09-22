@@ -1,6 +1,6 @@
 # ECHO-4 — full de ruta oficial
 
-22 de setembre de 2026 · Versió 3 · CONTINUITY tancada; DREAM-A iniciat
+22 de setembre de 2026 · Versió 4 · CONTINUITY tancada; RELATION-A verificat
 
 **Objectiu:** desenvolupar representacions funcionals d'un mateix, de l'altre i de la història compartida, i mesurar quan la interacció ajuda. E4-DREAM-1 afegeix una branca cortical per millorar l'exploració amb experiència registrada.
 
@@ -10,7 +10,7 @@ Substitueix la versió inicial del 21 de setembre. Planificat no significa imple
 
 ECHO-1 i ECHO-2 conserven els tancaments. ECHO-3 té 14/15 fites de programari; DRONE-3 ha tancat SITL, no HIL ni gàbia. No hi ha AKD1000 al laboratori. ECHO-4 continua prioritzant programari.
 
-WORLD està implementat; SENSATION, BOUNDARY, SELF i CONTINUITY tenen tancaments acotats. Primer increment DREAM-A verificat; DREAM-1 i ECHO-4 continuen oberts. [Evidència i límits actualitzats](/evidence/echo4/ECHO4-STATUS-20260922-v3.md).
+WORLD està implementat; SENSATION, BOUNDARY, SELF i CONTINUITY tenen tancaments acotats. Primer increment DREAM-A verificat. RELATION-A ja registra i reconstrueix històries de trobades, però no millora la conducta: B/C/D continuen pendents i RELATION-1 continua obert. [Evidència i límits actualitzats](/evidence/echo4/ECHO4-STATUS-20260922-v3.md).
 
 ## Full de ruta complet
 
@@ -23,7 +23,7 @@ WORLD està implementat; SENSATION, BOUNDARY, SELF i CONTINUITY tenen tancaments
 7. **E4-MAINTAIN-1 — Pendent.** Dany funcional, reparació amb cost i treball útil. Exigir activitat i treball simultanis, recursos comptabilitzats i cap rescat ocult; mesurar l'aportació del model propi.
 8. **E4-OTHER-1 — Pendent.** Una altra instància amb cos, observacions i memòria privats. Predir conducta útilment en situacions noves sense llegir l'estat intern.
 9. **E4-INTERACTION-1 — Pendent.** Senyals i accions amb conseqüències per als dos agents. Comparar reciprocitat, gravacions i senyals bloquejats; mesurar beneficis individuals, conjunts i costos. Cooperar sempre no és l'objectiu.
-10. **E4-RELATION-1 — Pendent.** Història de trobades, confiança contextual i revisió d'expectatives. Retirar la història per mesurar-ne l'aportació respecte d'identificadors o regles fixes.
+10. **E4-RELATION-1 — En curs; RELATION-A vàlid, tancament global pendent.** 912 episodis reconstruïbles en tres cohorts de desenvolupament; 36 proves noves i 181 regressions seleccionades aprovades. La memòria és passiva: accions i resultats coincideixen amb el control sense enregistrament. RELATION-B mesurarà transferència a una tasca nova davant controls sense història, OTHER, identitat agrupada i ordre eliminat; C provarà ruptura/reunió i D serà un examen preregistrat independent. A no acredita avantatge conductual ni consciència.
 11. **E4-ROLES-1 — Pendent.** Coordinació i delegació segons informació, recursos i competència. Els rols s'han d'adaptar als canvis de capacitat; no s'imposa una jerarquia permanent.
 12. **E4-INTEGRATE-1 — Pendent; futur tancament de programari.** Escenaris reservats, execucions contínues i ablacions del jo, l'altre i la història. Nucli sense còrtex i branca cortical amb costos explícits. DREAM ha de demostrar l'aportació, no heretar-la del paper.
 13. **E4-RELEASE-1 — PLA després d'INTEGRATE.** REL-A: paquet instal·lable; REL-B: runtime ràpid/lent amb proves OFF/ON/fallada; REL-C: llicències, privacitat i fitxa del sistema; REL-D: publicació autoritzada a Hugging Face i reproducció des de descàrrega neta. No fusió dins dels pesos ni dependència de `echo-discord`.
@@ -46,6 +46,12 @@ Els checkpoints complets contenen física privada de l'executor. No són observa
 - **DREAM-C:** selecció històrica amb avaluador fix i estratègia vigent entre candidats. Informar cobertura i cost total, incloses propostes; la puntuació històrica no demostra generalització.
 - **DREAM-D:** proves noves WORLD-1, diversos cicles, controls fixos/aleatoris amb pressupost equivalent, ablacions d'historial i Qwen, rebuig i reversió.
 
+## RELATION: primer increment vàlid i proves següents
+
+RELATION-A desa episodis factuals a la CAM original de cada observador i els reconstrueix des dels rebuts, sense CAM global ni accés a la memòria privada d'un altre agent. La història pot ser parcial; una identitat absent no es converteix en una parella inventada. A les cohorts de desenvolupament (llavors 113, 127 i 139), es van reconstruir 912 episodis i invertir l'ordre va reproduir traces i digests. Enregistrar no va canviar cap acció, cost, predicció o resultat respecte del control. Per tant, A demostra registre/replay sota aquest contracte, no confiança sentida, aprenentatge relacional ni millora.
+
+RELATION-B és la prova discriminant: transferir la història a decisions en una tasca nova, igualant formació, experiència, recursos i oportunitats. Compararà la història completa amb ablacions sense història, identitat, ordre o model OTHER, i comptarà si s'amortitza el cost de formació. C i D continuen pendents. [Contracte i resultats de RELATION-A](/ca/docs/echoai/relation).
+
 L'adaptador llama.cpp existent interpreta senyals; encara no és l'orquestrador. Identificarem model, hash i configuració. Inicialment només es modifica la programació d'experiments, mai nucli, gate, recompenses o examinador. [Arquitectura i motivació](/ca/articulos/echo4-dream-rsi-historia-compartida).
 
 ## Invariants i tancament
@@ -62,4 +68,4 @@ L'èxit recolzaria capacitats funcionals acotades de model propi, continuïtat, 
 
 Després de la pausa v2 s'han implementat CONT-B/C/D i DREAM-A. Ara cal fixar tasca/avaluador discriminants i contracte DREAM-B abans de l'assaig cortical. Aquesta actualització web no inicia fases noves ni publica el paquet. Logo oficial incorporat; el projecte llegat Discord queda separat i congelat.
 
-[Noves destacades](/ca/articulos/echo4-continuidad-dream-a-identidad) · [Full de ruta ECHO-3](/ca/docs/echoai/ruta) · [Markdown](/raw/ca/echoai/echo4.md)
+[Article nou sobre RELATION-A](/ca/articulos/echo4-relacion-historia-medida) · [Full de ruta ECHO-3](/ca/docs/echoai/ruta) · [Markdown](/raw/ca/echoai/echo4.md)

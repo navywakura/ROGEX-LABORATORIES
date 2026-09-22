@@ -1,6 +1,6 @@
 # ECHO-4 — official roadmap
 
-22 September 2026 · Version 3 · CONTINUITY closed; DREAM-A started
+22 September 2026 · Version 4 · CONTINUITY closed; RELATION-A verified
 
 **Goal:** develop functional representations of self, another agent and their shared history, and measure when interaction helps. E4-DREAM-1 adds a cortical research branch for improving exploration using recorded experience.
 
@@ -10,7 +10,7 @@ This replaces the initial 21 September roadmap. Planned does not mean implemente
 
 ECHO-1 and ECHO-2 retain their closures. ECHO-3 has 14/15 software milestones; DRONE-3 closed SITL, not HIL or cage testing. There is no AKD1000 in the lab. ECHO-4 remains software-first.
 
-WORLD is implemented; SENSATION, BOUNDARY, SELF and CONTINUITY have bounded closures. DREAM-A's first increment is verified; DREAM-1 and ECHO-4 remain open. [Updated evidence and limits](/evidence/echo4/ECHO4-STATUS-20260922-v3.md).
+WORLD is implemented; SENSATION, BOUNDARY, SELF and CONTINUITY have bounded closures. DREAM-A's first increment is verified. RELATION-A now records and reconstructs encounter histories, but does not improve behaviour: B/C/D remain pending and RELATION-1 is still open. [Updated evidence and limits](/evidence/echo4/ECHO4-STATUS-20260922-v3.md).
 
 ## Full roadmap
 
@@ -23,7 +23,7 @@ WORLD is implemented; SENSATION, BOUNDARY, SELF and CONTINUITY have bounded clos
 7. **E4-MAINTAIN-1 — Pending.** Functional damage, costly repair and useful work. Require activity and work together, account for resources and exclude hidden rescues; measure the self-model's contribution.
 8. **E4-OTHER-1 — Pending.** Another instance with private body, observations and memory. Predict behaviour usefully in new situations without reading its internal state.
 9. **E4-INTERACTION-1 — Pending.** Consequential signals and actions. Compare reciprocity with recordings and blocked signals; measure individual and joint gains and costs. Always cooperating is not the goal.
-10. **E4-RELATION-1 — Pending.** Encounter history, contextual trust and revised expectations. Remove history to measure its contribution against identifiers or fixed rules.
+10. **E4-RELATION-1 — In progress; RELATION-A valid, overall closure pending.** 912 reconstructible episodes across three development cohorts; 36 new tests and 181 selected regressions passed. Memory is passive: actions and outcomes match the no-recording control. RELATION-B will test transfer to a new task against no-history, OTHER, grouped-identity and order-removed controls; C tests rupture/reunion and D is a preregistered independent examination. A establishes neither behavioural advantage nor consciousness.
 11. **E4-ROLES-1 — Pending.** Coordination and delegation based on information, resources and competence. Roles must adapt when capabilities change; no imposed permanent hierarchy.
 12. **E4-INTEGRATE-1 — Pending; future software closure.** Held-out scenarios, continuous runs and self/other/history ablations. Core without cortex and cortical branch with explicit costs. DREAM's contribution must be measured, not inherited from a paper.
 13. **E4-RELEASE-1 — PLAN after INTEGRATE.** REL-A: installable package; REL-B: fast/slow runtime with OFF/ON/failure tests; REL-C: licensing, privacy and system card; REL-D: authorised Hugging Face publication and clean-download reproduction. Not fusion into LLM weights; no `echo-discord` dependency.
@@ -46,6 +46,12 @@ Full checkpoints contain private executor physics. They are not Qwen or agent ob
 - **DREAM-C:** fixed-evaluator historical selection including the incumbent. Report coverage and total cost, including proposals; historical scores do not establish generalisation.
 - **DREAM-D:** new WORLD-1 trials over multiple cycles, budget-matched fixed/random controls, history/Qwen ablations, rejection and rollback.
 
+## RELATION: valid first increment and next tests
+
+RELATION-A stores factual episodes in each observer's original CAM and can reconstruct them from receipts, without a global CAM or access to another agent's private memory. A history can be partial; missing identity is never turned into an invented pair. In development cohorts (seeds 113, 127 and 139), 912 episodes were reconstructible, and reversed order reproduced traces and history digests. Recording changed no action, cost, prediction or outcome against the control. A therefore demonstrates recording/replay under this contract, not felt trust, relational learning or improvement.
+
+RELATION-B is the discriminating test: transfer history to decisions in a new task while matching training, experience, resources and opportunities. It will compare complete history with ablations removing history, identity, order and the OTHER model, and count whether training cost is repaid. C and D remain pending. [RELATION-A contract and results](/en/docs/echoai/relation).
+
 The existing llama.cpp signal adapter is not this orchestrator. Identify model, hash and configuration before trials. Initially only experiment scheduling is editable, never core, gate, rewards or examiner. [Architecture and motivation](/en/articulos/echo4-dream-rsi-historia-compartida).
 
 ## Invariants and closure
@@ -62,4 +68,4 @@ Success would support bounded functional self-modelling, continuity, other-model
 
 After the v2 pause, CONT-B/C/D and DREAM-A were implemented. Next: a discriminating task/evaluator and the DREAM-B contract before cortical trials. This web update starts no new phase and uploads no agent package. The official logo is adopted; legacy Discord development is separate and frozen.
 
-[Latest featured article](/en/articulos/echo4-continuidad-dream-a-identidad) · [ECHO-3 roadmap](/en/docs/echoai/ruta) · [Markdown](/raw/en/echoai/echo4.md)
+[RELATION-A article](/en/articulos/echo4-relacion-historia-medida) · [ECHO-3 roadmap](/en/docs/echoai/ruta) · [Markdown](/raw/en/echoai/echo4.md)

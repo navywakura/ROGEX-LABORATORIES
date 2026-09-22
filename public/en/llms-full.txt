@@ -628,7 +628,7 @@ One warning that is already published: the certified domain uses three-metre cel
 
 # ECHO-4 — official roadmap
 
-22 September 2026 · Version 3 · CONTINUITY closed; DREAM-A started
+22 September 2026 · Version 4 · CONTINUITY closed; RELATION-A verified
 
 **Goal:** develop functional representations of self, another agent and their shared history, and measure when interaction helps. E4-DREAM-1 adds a cortical research branch for improving exploration using recorded experience.
 
@@ -638,7 +638,7 @@ This replaces the initial 21 September roadmap. Planned does not mean implemente
 
 ECHO-1 and ECHO-2 retain their closures. ECHO-3 has 14/15 software milestones; DRONE-3 closed SITL, not HIL or cage testing. There is no AKD1000 in the lab. ECHO-4 remains software-first.
 
-WORLD is implemented; SENSATION, BOUNDARY, SELF and CONTINUITY have bounded closures. DREAM-A's first increment is verified; DREAM-1 and ECHO-4 remain open. [Updated evidence and limits](/evidence/echo4/ECHO4-STATUS-20260922-v3.md).
+WORLD is implemented; SENSATION, BOUNDARY, SELF and CONTINUITY have bounded closures. DREAM-A's first increment is verified. RELATION-A now records and reconstructs encounter histories, but does not improve behaviour: B/C/D remain pending and RELATION-1 is still open. [Updated evidence and limits](/evidence/echo4/ECHO4-STATUS-20260922-v3.md).
 
 ## Full roadmap
 
@@ -651,7 +651,7 @@ WORLD is implemented; SENSATION, BOUNDARY, SELF and CONTINUITY have bounded clos
 7. **E4-MAINTAIN-1 — Pending.** Functional damage, costly repair and useful work. Require activity and work together, account for resources and exclude hidden rescues; measure the self-model's contribution.
 8. **E4-OTHER-1 — Pending.** Another instance with private body, observations and memory. Predict behaviour usefully in new situations without reading its internal state.
 9. **E4-INTERACTION-1 — Pending.** Consequential signals and actions. Compare reciprocity with recordings and blocked signals; measure individual and joint gains and costs. Always cooperating is not the goal.
-10. **E4-RELATION-1 — Pending.** Encounter history, contextual trust and revised expectations. Remove history to measure its contribution against identifiers or fixed rules.
+10. **E4-RELATION-1 — In progress; RELATION-A valid, overall closure pending.** 912 reconstructible episodes across three development cohorts; 36 new tests and 181 selected regressions passed. Memory is passive: actions and outcomes match the no-recording control. RELATION-B will test transfer to a new task against no-history, OTHER, grouped-identity and order-removed controls; C tests rupture/reunion and D is a preregistered independent examination. A establishes neither behavioural advantage nor consciousness.
 11. **E4-ROLES-1 — Pending.** Coordination and delegation based on information, resources and competence. Roles must adapt when capabilities change; no imposed permanent hierarchy.
 12. **E4-INTEGRATE-1 — Pending; future software closure.** Held-out scenarios, continuous runs and self/other/history ablations. Core without cortex and cortical branch with explicit costs. DREAM's contribution must be measured, not inherited from a paper.
 13. **E4-RELEASE-1 — PLAN after INTEGRATE.** REL-A: installable package; REL-B: fast/slow runtime with OFF/ON/failure tests; REL-C: licensing, privacy and system card; REL-D: authorised Hugging Face publication and clean-download reproduction. Not fusion into LLM weights; no `echo-discord` dependency.
@@ -674,6 +674,12 @@ Full checkpoints contain private executor physics. They are not Qwen or agent ob
 - **DREAM-C:** fixed-evaluator historical selection including the incumbent. Report coverage and total cost, including proposals; historical scores do not establish generalisation.
 - **DREAM-D:** new WORLD-1 trials over multiple cycles, budget-matched fixed/random controls, history/Qwen ablations, rejection and rollback.
 
+## RELATION: valid first increment and next tests
+
+RELATION-A stores factual episodes in each observer's original CAM and can reconstruct them from receipts, without a global CAM or access to another agent's private memory. A history can be partial; missing identity is never turned into an invented pair. In development cohorts (seeds 113, 127 and 139), 912 episodes were reconstructible, and reversed order reproduced traces and history digests. Recording changed no action, cost, prediction or outcome against the control. A therefore demonstrates recording/replay under this contract, not felt trust, relational learning or improvement.
+
+RELATION-B is the discriminating test: transfer history to decisions in a new task while matching training, experience, resources and opportunities. It will compare complete history with ablations removing history, identity, order and the OTHER model, and count whether training cost is repaid. C and D remain pending. [RELATION-A contract and results](/en/docs/echoai/relation).
+
 The existing llama.cpp signal adapter is not this orchestrator. Identify model, hash and configuration before trials. Initially only experiment scheduling is editable, never core, gate, rewards or examiner. [Architecture and motivation](/en/articulos/echo4-dream-rsi-historia-compartida).
 
 ## Invariants and closure
@@ -690,7 +696,37 @@ Success would support bounded functional self-modelling, continuity, other-model
 
 After the v2 pause, CONT-B/C/D and DREAM-A were implemented. Next: a discriminating task/evaluator and the DREAM-B contract before cortical trials. This web update starts no new phase and uploads no agent package. The official logo is adopted; legacy Discord development is separate and frozen.
 
-[Latest featured article](/en/articulos/echo4-continuidad-dream-a-identidad) · [ECHO-3 roadmap](/en/docs/echoai/ruta) · [Markdown](/raw/en/echoai/echo4.md)
+[RELATION-A article](/en/articulos/echo4-relacion-historia-medida) · [ECHO-3 roadmap](/en/docs/echoai/ruta) · [Markdown](/raw/en/echoai/echo4.md)
+
+---
+
+<!-- src/content/en/echoai/relation.md · /en/docs/echoai/relation -->
+
+# E4-RELATION-1 · RELATION-A
+
+22 September 2026 · A valid; RELATION-1 remains open
+
+RELATION asks whether encounter history between agents can improve later decisions. “Shared” means both took part in an encounter, not that they share memory. Each agent keeps its own observation. Felt trust, a soul or subjective consciousness is not assumed.
+
+## RELATION-A
+
+Each observer stores factual episodes in its existing CAM: context, observed actions, tick, its own cost and output. Links traverse the global sequence or the sequence for an identified counterpart. Receipts and links use existing host fields; the 16-byte WSP layout is unchanged and E[6] remains zero. No other agent's Q is copied, and no second CAM, bus or policy is introduced.
+
+Histories can be asymmetric and incomplete. Without identity, an encounter remains unattributed; a missing receipt is not converted into an assumed action. A proposal or attempt is not counted as success. Summaries are derived queries, not new facts or affect scores.
+
+## Results
+
+Three development seeds (113, 127 and 139), 144 rounds each: 96 training and 48 greedy. **912 primary episodes** were reconstructed across 7,440 native turns including controls, reversed order and partial observation.
+
+Memory is passive in this increment: actions, costs, predictions and outcomes matched the no-recording control. Reversing order reproduced traces and digests. This confirms recording and reconstruction under the tested contract; it does not show that remembering improves the policy or that felt trust or relationship exists.
+
+**36 new tests** and **181 distinct tests** including selected regressions passed. Checks covered capacity and ticks, separate identities, partial perspectives, corrupted links, write failures and reconstruction into CAMs with different addresses. If recording fails after an action, costs are preserved and the session stops; no physical rollback is claimed.
+
+## What remains
+
+RELATION-B must distinguish useful biography from decorative logging: transfer history to decisions in a new task. It will compare complete history with no-history, OTHER-only, grouped-identity and order-removed controls; match training, resources and opportunities; and count whether training cost is repaid. RELATION-C will test rupture/reunion and contradictory or incomplete histories. RELATION-D will be a new preregistered, audited examination.
+
+Until B/C/D close, **RELATION-1 is not green**. A does not measure subjective trust, establish self-repair or consciousness, or change INTERACTION. No LLM was activated. [ECHO-4 roadmap](/en/docs/echoai/echo4) · [Article](/en/articulos/echo4-relacion-historia-medida).
 
 ---
 
@@ -2150,6 +2186,40 @@ A well-measured negative result also answers the question.
 - Charter of Digital Rights, Government of Spain (2021). [espanadigital.gob.es](https://espanadigital.gob.es/lineas-de-actuacion/carta-de-derechos-digitales)
 
 — R.N.
+
+---
+
+<!-- src/content/en/articles/echo4-relacion-historia-medida.md · /en/articulos/echo4-relacion-historia-medida -->
+
+# ECHO-4 · RELATION-A: a history that can be reconstructed
+
+22 September 2026 · Lab note
+
+RELATION-A is implemented and validated as the first increment of **E4-RELATION-1**. It is a deliberately modest infrastructure step: the agent can store encounter episodes in its existing memory and reconstruct their sequence later. We have not shown that this history helps it make better decisions.
+
+## One shared history, two private memories
+
+The inspiration is simple: two agents interact and, over time, that sequence might change what each expects from the other. In the implementation, “shared” only means both took part in an encounter. Each observer keeps its own record; there is no common global memory and no access to the counterpart's Q, resources or private incentives.
+
+Each episode records context, actions actually observed, tick, the observer's own cost and output. Links traverse encounters in global order or by known identity. If identity or a receipt is missing, the history preserves that uncertainty: it invents neither a pair nor an action. An intention or attempt does not automatically become success.
+
+The contract keeps the 16-byte WSP intact, leaves E[6] at zero and stores receipts in existing CAM host fields. It adds no bus or policy, changes no Agent.turn, T, Q or gate, and makes no LLM calls. Summaries are derived on query; they add neither facts nor a “trust” score.
+
+## What the tests say
+
+The bank used three development seeds —113, 127 and 139— with 144 rounds each: 96 training and 48 greedy. **912 primary episodes** were reconstructed. It ran 7,440 native turns counting controls, reversed order and partial observation.
+
+The key check is also a negative result: with and without recording, actions, costs, predictions and outcomes were identical. Reversing order reproduced traces and history digests. This shows that A stores and reconstructs encounters without changing the policy. We do not yet know whether relational biography adds a new capability.
+
+**36 new tests** and **181 distinct tests** including selected regressions passed. They cover capacity and tick limits, different perspectives, unidentified encounters, corruption, receipts and partial failures. If storage fails after the environment executes an action, costs are preserved and the session stops; software does not pretend to undo physics.
+
+## The missing test
+
+RELATION-B will put history to work: decisions in a new task, with the same budget and opportunities for each condition. We will compare complete history against no-history controls, OTHER-only, grouped identity and order-removed conditions. We will also measure the cost of learning that history: an advantage that costs more than it returns would not be practical.
+
+Then come C (rupture, reunion and contradictory or incomplete history) and D (a new examination fixed before execution and reconstructed by an independent audit). Until those tests close, **RELATION-1 remains open**. A does not establish felt trust, subjective consciousness or self-repair. It is an auditable record on which we can now build a causal experiment.
+
+[RELATION-A contract and documentation](/en/docs/echoai/relation) · [ECHO-4 roadmap](/en/docs/echoai/echo4).
 
 ---
 

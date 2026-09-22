@@ -188,6 +188,11 @@ function productBody(product, language) {
   const copy = product.copy[language];
   const hero = product.media[0];
   const docs = docCatalog(language).filter((doc) => product.docs.includes(doc.id));
+  const relatedResearch = {
+    es: ["Investigación relacionada", "Línea independiente de software: ECHO-4 estudia si los historiales de interacción entre agentes aportan una ventaja medible. No usa EEG, datos clínicos ni funciones de PRISMA.", "Leer RELATION-A"],
+    en: ["Related research", "An independent software research line: ECHO-4 studies whether interaction histories between agents provide a measurable advantage. It does not use EEG, clinical data or PRISMA features.", "Read RELATION-A"],
+    ca: ["Recerca relacionada", "Una línia independent de programari: ECHO-4 estudia si els historials d'interacció entre agents aporten un avantatge mesurable. No utilitza EEG, dades clíniques ni funcions de PRISMA.", "Llegeix RELATION-A"],
+  }[language];
   return [
     `<p>${esc(copy.kicker)}</p>`,
     product.slug === "echoai" ? `<img src="${ECHOAI_BRAND}/echoai-256.png" width="96" height="96" alt="echoAI" />` : "",
@@ -197,6 +202,9 @@ function productBody(product, language) {
     `<ul>${copy.facts.map(([value, label]) => `<li><strong>${esc(value)}</strong> — ${esc(label)}</li>`).join("")}</ul>`,
     copy.campaign
       ? `<h2>${esc(copy.campaign.title)}</h2>${copy.campaign.body.map((line) => `<p>${esc(line)}</p>`).join("")}<p><a href="${localizedPath(`/docs/${copy.campaign.doc}`, language)}">${esc(copy.campaign.link)}</a></p>`
+      : "",
+    product.slug === "prisma"
+      ? `<h2>${esc(relatedResearch[0])}</h2><p>${esc(relatedResearch[1])}</p><p><a href="${localizedPath("/docs/echoai/relation", language)}">${esc(relatedResearch[2])}</a></p>`
       : "",
     ...copy.sections.map((section) => `<h2>${esc(section.title)}</h2>${section.body.map((line) => `<p>${esc(line)}</p>`).join("")}`),
     `<ul>${copy.limits.map((line) => `<li>${esc(line)}</li>`).join("")}</ul>`,

@@ -17,6 +17,7 @@ export const DOC_CATALOG = [
   { id: "echoai/proceso", title: { es: "Cómo se construyó", en: "How it was built", ca: "Com es va construir" } },
   { id: "echoai/ruta", title: { es: "ECHO-3", en: "ECHO-3", ca: "ECHO-3" } },
   { id: "echoai/echo4", title: { es: "ECHO-4 · roadmap oficial", en: "ECHO-4 · official roadmap", ca: "ECHO-4 · full de ruta oficial" } },
+  { id: "echoai/relation", title: { es: "RELATION-A · historia relacional", en: "RELATION-A · relational history", ca: "RELATION-A · història relacional" } },
   { id: "echoai/transfer", title: { es: "TRANSFER-3", en: "TRANSFER-3", ca: "TRANSFER-3" } },
   { id: "echoai/drone3", title: { es: "DRONE-3", en: "DRONE-3", ca: "DRONE-3" } },
   { id: "echoai/hardware", title: { es: "Hardware previsto", en: "Planned hardware", ca: "Maquinari previst" } },
