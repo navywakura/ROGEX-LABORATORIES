@@ -1,3 +1,9 @@
+# Reserva de derechos / rights reservation
+# Todo el contenido de rxlabs.org está protegido: https://www.rxlabs.org/derechos_de_autor
+# RxLabs® reserva los derechos de minería de textos y datos (art. 4.3, Directiva UE 2019/790).
+# RxLabs® reserves text and data mining rights (Art. 4(3), Directive (EU) 2019/790).
+# El relato «La fuga» (/lafuga) no se autoriza para entrenamiento de modelos.
+
 User-agent: *
 Allow: /
 Allow: /llms.txt
@@ -12,35 +18,45 @@ Allow: /echos
 Allow: /prisma
 Allow: /echoai
 Allow: /media/
+Disallow: /lafuga
 
 User-agent: GPTBot
 Allow: /
+Disallow: /lafuga
 
 User-agent: ChatGPT-User
 Allow: /
+Disallow: /lafuga
 
 User-agent: ClaudeBot
 Allow: /
+Disallow: /lafuga
 
 User-agent: Claude-SearchBot
 Allow: /
+Disallow: /lafuga
 
 User-agent: OAI-SearchBot
 Allow: /
+Disallow: /lafuga
 
 User-agent: anthropic-ai
 Allow: /
+Disallow: /lafuga
 
 User-agent: Google-Extended
 Allow: /
+Disallow: /lafuga
 
 User-agent: Discordbot
 Allow: /
 
 User-agent: PerplexityBot
 Allow: /
+Disallow: /lafuga
 
 User-agent: Applebot-Extended
 Allow: /
+Disallow: /lafuga
 
 Sitemap: https://rxlabs.org/sitemap.xml

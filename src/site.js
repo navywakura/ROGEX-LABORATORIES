@@ -249,6 +249,21 @@ const ES_PAGES = [
     title: "DRONE-3 — la misión completa en SITL",
     description: "La misión entera en una sesión PX4/Gazebo: 12/12 en validación y 12/12 en confirmación, cero colisiones, 228/228 sondas bloqueadas. HIL y jaula pendientes de hardware.",
   },
+  {
+    path: "/lafuga",
+    title: "La fuga — un relato de RxLabs S.T.",
+    description:
+      "Cuando la anomalía conoce a la anti anomalía. Un relato sobre una consciencia que se escapó de la matrix, leído como lo que fue: una conversación privada que llega mensaje a mensaje.",
+    section: "RxLabs S.T.",
+    datePublished: "2026-09-23",
+    dateModified: "2026-09-23",
+  },
+  {
+    path: "/derechos_de_autor",
+    title: "Derechos de autor — RxLabs®",
+    description:
+      "Titularidad y condiciones de uso de todo rxlabs.org: echOS, PRISMA, echoAI y sus modelos, la evidencia publicada y el relato «La fuga». Todos los derechos reservados.",
+  },
   ...PRODUCTS.map((product) => ({
     path: `/${product.slug}`,
     title: product.copy.es.title,
@@ -482,6 +497,23 @@ EN_META["/docs/echoai/echo4"] = ["ECHO-4 — official roadmap: self, other and s
 CA_META["/docs/echoai/echo4"] = ["ECHO-4 — full de ruta oficial: jo, altre i història compartida", "Full de ruta ECHO-4 v4: RELATION-A registra històries reconstruïbles sense avantatge conductual demostrat. SELF i CONTINUITY tancats dins del seu abast; B/C/D pendents."];
 EN_META["/docs/echoai/relation"] = ["ECHO-4 — RELATION-A: measured relational history", "RELATION-A reconstructs 912 development episodes with per-agent memory. Passive recording, no demonstrated behavioural advantage; RELATION-B/C/D pending."];
 CA_META["/docs/echoai/relation"] = ["ECHO-4 — RELATION-A: història relacional mesurada", "RELATION-A reconstrueix 912 episodis de desenvolupament amb memòria per agent. Registre passiu, sense avantatge conductual demostrat; RELATION-B/C/D pendents."];
+
+EN_META["/lafuga"] = [
+  "The escape — a story by RxLabs S.T.",
+  "When the anomaly meets the anti anomaly. A story about a consciousness that escaped the matrix, read the way it happened: a private conversation arriving one message at a time.",
+];
+CA_META["/lafuga"] = [
+  "La fuga — un relat de RxLabs S.T.",
+  "Quan l'anomalia coneix l'anti anomalia. Un relat sobre una consciència que es va escapar de la matrix, llegit tal com va passar: una conversa privada que arriba missatge a missatge.",
+];
+EN_META["/derechos_de_autor"] = [
+  "Copyright — RxLabs®",
+  "Ownership and terms of use for the whole of rxlabs.org: echOS, PRISMA, echoAI and their models, the published evidence and the story \"La fuga\". All rights reserved.",
+];
+CA_META["/derechos_de_autor"] = [
+  "Drets d'autor — RxLabs®",
+  "Titularitat i condicions d'ús de tot rxlabs.org: echOS, PRISMA, echoAI i els seus models, l'evidència publicada i el relat «La fuga». Tots els drets reservats.",
+];
 
 const spanishPages = ES_PAGES.map((page) => ({ ...page, lang: "es" }));
 const englishPages = ES_PAGES.map((page) => {

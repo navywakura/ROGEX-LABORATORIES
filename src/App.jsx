@@ -11,7 +11,9 @@ import NotFound from "./pages/NotFound.jsx";
 import Docs from "./pages/Docs.jsx";
 import Articles from "./pages/Articles.jsx";
 import Product from "./pages/Product.jsx";
-import { languageForPath } from "./i18n.js";
+import LaFuga from "./pages/LaFuga.jsx";
+import Copyright from "./pages/Copyright.jsx";
+import { basePath, languageForPath } from "./i18n.js";
 
 function isDocsHost() {
   if (typeof window === "undefined") return false;
@@ -22,6 +24,10 @@ export default function App() {
   const loc = useLocation();
   const docsHost = isDocsHost();
   const language = languageForPath(loc.pathname);
+  // "La fuga" is not a page of the site: it is a private channel. The
+  // navigation bar and the footer would give the screen away as a web page,
+  // so it carries its own exits instead.
+  const immersive = (basePath(loc.pathname).replace(/\/$/, "") || "/") === "/lafuga";
 
   // Client-side navigation keeps the scroll offset; footer links would
   // otherwise open the next page already scrolled to its bottom.
@@ -46,7 +52,7 @@ export default function App() {
   return (
     <>
       <Head />
-      <Nav path={loc.pathname} language={language} />
+      {!immersive && <Nav path={loc.pathname} language={language} />}
       <Routes>
         <Route path="/" element={<Home language="es" />} />
         <Route path="/en" element={<Home language="en" />} />
@@ -90,9 +96,15 @@ export default function App() {
         <Route path="/echo" element={<Navigate to="/echos" replace />} />
         <Route path="/en/echo" element={<Navigate to="/en/echos" replace />} />
         <Route path="/ca/echo" element={<Navigate to="/ca/echos" replace />} />
+        <Route path="/lafuga" element={<LaFuga language="es" />} />
+        <Route path="/en/lafuga" element={<LaFuga language="en" />} />
+        <Route path="/ca/lafuga" element={<LaFuga language="ca" />} />
+        <Route path="/derechos_de_autor" element={<Copyright language="es" />} />
+        <Route path="/en/derechos_de_autor" element={<Copyright language="en" />} />
+        <Route path="/ca/derechos_de_autor" element={<Copyright language="ca" />} />
         <Route path="*" element={<NotFound language={language} />} />
       </Routes>
-      <Footer language={language} />
+      {!immersive && <Footer language={language} />}
       <Analytics />
     </>
   );

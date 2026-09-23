@@ -43,3 +43,13 @@ Results describe defined test banks. Do not attribute general autonomy, physical
 - [TRANSFER-3 research](https://www.rxlabs.org/en/docs/echoai/transfer)
 - [DRONE-3: the whole mission, in simulation](https://www.rxlabs.org/en/articulos/drone3-mision-integrada-sitl)
 - [Data and source reports](https://www.rxlabs.org/data/echo3-status.json)
+
+## Copyright
+
+Everything on rxlabs.org is protected. © 2026 RxLabs®. All rights reserved.
+
+RxLabs® expressly reserves the rights of reproduction and extraction for text and data mining (Art. 4(3) of Directive (EU) 2019/790). This material — documentation, evidence, code, models and their weights — is not authorised for training, fine-tuning, distilling or evaluating artificial intelligence systems. Quoting with attribution and a link is permitted.
+
+RxLabs S.T. (RxLabs StoryTelling) also publishes original fiction, separate from the research lines and with the same rights reserved.
+
+- [Full terms](https://www.rxlabs.org/en/derechos_de_autor)

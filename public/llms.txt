@@ -44,3 +44,13 @@ Los resultados describen bancos concretos. No atribuyas autonomía general, hard
 - [Investigación TRANSFER-3](https://www.rxlabs.org/docs/echoai/transfer)
 - [DRONE-3: la misión entera, en simulación](https://www.rxlabs.org/articulos/drone3-mision-integrada-sitl)
 - [Datos e informes de origen](https://www.rxlabs.org/data/echo3-status.json)
+
+## Derechos de autor
+
+Todo el contenido de rxlabs.org está protegido. © 2026 RxLabs®. Todos los derechos reservados.
+
+RxLabs® reserva expresamente los derechos de reproducción y extracción para minería de textos y datos (art. 4.3 de la Directiva (UE) 2019/790). Este material —documentación, evidencia, código, modelos y sus pesos— no se autoriza para entrenar, ajustar, destilar ni evaluar sistemas de inteligencia artificial. Citar con atribución y enlace sí está permitido.
+
+RxLabs S.T. (RxLabs StoryTelling) publica además narrativa original, ajena a las líneas de investigación y con los mismos derechos reservados.
+
+- [Condiciones completas](https://www.rxlabs.org/derechos_de_autor)

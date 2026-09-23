@@ -1561,3 +1561,472 @@ button { font-family: inherit; }
 /* Official agent identity; the laboratory navigation retains its R mark. */
 .echoai-agent-mark { display: block; width: 96px; height: 96px; margin: 1.25rem 0; }
 .article-body .echoai-article-mark { display: block; width: 128px; height: 128px; margin: 1.5rem 0; }
+
+/* ── La fuga ─────────────────────────────────────────────────────────────
+   A private channel, not a page: no navigation bar, no footer, one column
+   of messages on black and a thin bar that never moves. Everything here is
+   scoped under .fuga so it cannot leak into the rest of the site. */
+
+.fuga {
+  --fuga-dim: #6b6b6b;
+  --fuga-line: #1c1c1c;
+  --fuga-self: #0e0e0e;
+  position: relative;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  background: #000;
+  font-size: 15px;
+}
+
+/* A faint curvature of light: enough for the screen to feel like a device
+   and not enough to read as decoration. */
+.fuga::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+  background:
+    radial-gradient(120% 90% at 50% 0%, rgba(255, 255, 255, 0.045), transparent 60%),
+    radial-gradient(140% 120% at 50% 100%, rgba(0, 0, 0, 0.9), transparent 55%);
+}
+
+.fuga-bar {
+  position: sticky;
+  top: 0;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 14px 20px;
+  background: rgba(0, 0, 0, 0.92);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--fuga-line);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  color: var(--fuga-dim);
+}
+
+.fuga-channel { color: #d0d0d0; }
+
+.fuga-peer {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-left: auto;
+}
+
+.fuga-peer i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #fff;
+  animation: fuga-pulse 2.6s ease-in-out infinite;
+}
+
+@keyframes fuga-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.25; }
+}
+
+.fuga-mute,
+.fuga-exit-button,
+.fuga-quiet,
+.fuga-open,
+.fuga-gesture {
+  font-family: inherit;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  color: var(--fuga-dim);
+  background: none;
+  border: 1px solid var(--fuga-line);
+  border-radius: 2px;
+  padding: 5px 11px;
+  cursor: pointer;
+}
+
+.fuga-mute:hover,
+.fuga-exit-button:hover,
+.fuga-quiet:hover,
+.fuga-gesture:hover { color: #fff; border-color: #444; }
+
+.fuga-langs {
+  display: inline-flex;
+  gap: 10px;
+}
+
+.fuga-langs a {
+  color: var(--fuga-dim);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+}
+
+.fuga-langs a:hover { color: #fff; text-decoration: none; }
+.fuga-langs a.is-current { color: #fff; }
+
+/* ── the opening screen ─────────────────────────────────────────────── */
+
+.fuga-boot .fuga-bar { justify-content: space-between; }
+
+.fuga-boot-inner {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 4px;
+  max-width: 620px;
+  margin: 0 auto;
+  padding: 64px 20px 96px;
+  width: 100%;
+}
+
+.fuga-title {
+  margin: 0;
+  font-size: clamp(2.4rem, 8vw, 4rem);
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.fuga-sub {
+  margin: 14px 0 0;
+  color: #d0d0d0;
+  font-size: 1rem;
+}
+
+.fuga-lead {
+  margin: 6px 0 0;
+  color: var(--fuga-dim);
+  max-width: 34rem;
+}
+
+.fuga-boot-log {
+  list-style: none;
+  margin: 34px 0 0;
+  padding: 0;
+  font-size: 12.5px;
+  color: var(--fuga-dim);
+}
+
+.fuga-boot-log li {
+  opacity: 0;
+  animation: fuga-in 0.5s ease forwards;
+}
+
+.fuga-boot-log li::before { content: "› "; opacity: 0.5; }
+
+@keyframes fuga-in {
+  from { opacity: 0; transform: translateY(3px); }
+  to { opacity: 1; transform: none; }
+}
+
+.fuga-warn {
+  margin: 26px 0 0;
+  max-width: 32rem;
+  color: #8c8c8c;
+  font-size: 12.5px;
+  line-height: 1.7;
+}
+
+.fuga-open {
+  margin-top: 26px;
+  padding: 12px 22px;
+  font-size: 14px;
+  color: #000;
+  background: #f4f4f4;
+  border-color: #f4f4f4;
+}
+
+.fuga-open:hover { background: #fff; border-color: #fff; color: #000; }
+
+.fuga-quiet { margin-top: 12px; }
+
+.fuga-note {
+  margin: 30px 0 0;
+  color: #4e4e4e;
+  font-size: 11.5px;
+  letter-spacing: 0.04em;
+}
+
+.fuga-rights {
+  display: block;
+  margin-top: 10px;
+  color: #4e4e4e;
+  font-size: 11.5px;
+  letter-spacing: 0.04em;
+}
+
+.fuga-rights:hover { color: #9a9a9a; text-decoration: none; }
+
+.fuga-exit {
+  display: block;
+  margin-top: 6px;
+  color: #4e4e4e;
+  font-size: 11.5px;
+}
+
+.fuga-exit:hover { color: #9a9a9a; text-decoration: none; }
+
+/* ── the session ────────────────────────────────────────────────────── */
+
+.fuga-log {
+  flex: 1;
+  width: 100%;
+  max-width: 620px;
+  margin: 0 auto;
+  padding: 40px 20px 30vh;
+  position: relative;
+  z-index: 2;
+}
+
+.fuga-stamp {
+  margin: 44px 0 20px;
+  color: #454545;
+  font-size: 11.5px;
+  letter-spacing: 0.1em;
+}
+
+.fuga-stamp::after {
+  content: "";
+  display: block;
+  margin-top: 12px;
+  height: 1px;
+  background: var(--fuga-line);
+}
+
+.fuga-log > .fuga-stamp:first-child { margin-top: 0; }
+
+.fuga-msg {
+  margin: 0 0 11px;
+  max-width: 88%;
+  line-height: 1.55;
+  color: #ededed;
+  animation: fuga-arrive 0.24s ease-out both;
+  overflow-wrap: anywhere;
+}
+
+@keyframes fuga-arrive {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* The second voice in the conversation sits apart, so a reader can see at a
+   glance that someone else was in the room. */
+.fuga-msg.is-a {
+  margin-left: auto;
+  text-align: right;
+  color: #9d9d9d;
+}
+
+.fuga-msg.is-self {
+  margin-left: auto;
+  width: fit-content;
+  max-width: 88%;
+  padding: 7px 13px;
+  border: 1px solid var(--fuga-line);
+  border-radius: 3px;
+  background: var(--fuga-self);
+  color: #cfcfcf;
+}
+
+.fuga-msg.fx-shout {
+  font-size: 1.22em;
+  letter-spacing: 0.02em;
+  color: #fff;
+  margin-bottom: 7px;
+  text-shadow: 0 0 22px rgba(255, 255, 255, 0.28);
+}
+
+.fuga-msg.fx-seen { color: #fff; }
+
+.fuga-msg.fx-glitch {
+  color: #fff;
+  animation: fuga-arrive 0.24s ease-out both, fuga-tear 0.7s steps(2) 2;
+}
+
+@keyframes fuga-tear {
+  0% { transform: none; text-shadow: none; }
+  30% { transform: translateX(-2px); text-shadow: 2px 0 rgba(255, 255, 255, 0.5); }
+  60% { transform: translateX(3px); text-shadow: -3px 0 rgba(255, 255, 255, 0.35); }
+  100% { transform: none; text-shadow: none; }
+}
+
+.fuga-msg.fx-static {
+  font-size: 1.3em;
+  color: #fff;
+  text-shadow: 0 0 30px rgba(255, 255, 255, 0.45);
+}
+
+.fuga-sys {
+  margin: 0 0 11px;
+  color: #5a5a5a;
+  font-size: 12.5px;
+  letter-spacing: 0.04em;
+}
+
+.fuga-typing {
+  margin: 4px 0 11px;
+  color: #5a5a5a;
+  font-size: 12.5px;
+  letter-spacing: 0.05em;
+  animation: fuga-breathe 1.9s ease-in-out infinite;
+}
+
+@keyframes fuga-breathe {
+  0%, 100% { opacity: 0.45; }
+  50% { opacity: 1; }
+}
+
+.fuga-gesture {
+  display: block;
+  margin: 6px 0 14px auto;
+  padding: 10px 18px;
+  color: #fff;
+  border-color: #3a3a3a;
+  animation: fuga-breathe 2.2s ease-in-out infinite;
+}
+
+.fuga-bottom { height: 1px; }
+
+.fuga-close {
+  margin-top: 52px;
+  padding-top: 26px;
+  border-top: 1px solid var(--fuga-line);
+}
+
+.fuga-end {
+  margin: 0 0 18px;
+  color: #cfcfcf;
+  letter-spacing: 0.12em;
+}
+
+.fuga-close-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.fuga-close-actions .fuga-quiet { margin-top: 0; }
+
+.fuga-foot {
+  position: sticky;
+  bottom: 0;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 20px;
+  background: rgba(0, 0, 0, 0.92);
+  backdrop-filter: blur(6px);
+  border-top: 1px solid var(--fuga-line);
+}
+
+/* The whole surface shifts when the channel breaks. */
+.fuga.is-glitch { animation: fuga-shake 0.35s steps(3) 2; }
+
+@keyframes fuga-shake {
+  0% { transform: none; }
+  25% { transform: translate(-2px, 1px); }
+  50% { transform: translate(2px, -1px); }
+  75% { transform: translate(-1px, -2px); }
+  100% { transform: none; }
+}
+
+/* ── the flat transcript ────────────────────────────────────────────── */
+
+.fuga-sheet {
+  max-width: 620px;
+  margin: 0 auto;
+  padding: 56px 20px 100px;
+}
+
+.fuga-sheet h1 {
+  margin: 0;
+  font-size: clamp(2rem, 7vw, 3rem);
+  font-weight: 400;
+  letter-spacing: -0.03em;
+}
+
+.fuga-plain-block { margin-top: 42px; }
+
+.fuga-plain-block h2 {
+  margin: 0 0 16px;
+  font-size: 11.5px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  color: #454545;
+  border-bottom: 1px solid var(--fuga-line);
+  padding-bottom: 12px;
+}
+
+.fuga-plain-block p {
+  margin: 0 0 11px;
+  color: #ededed;
+  line-height: 1.55;
+}
+
+.fuga-sheet .fuga-end { margin-top: 42px; }
+
+@media (max-width: 600px) {
+  .fuga-bar { gap: 12px; padding: 12px 16px; }
+  .fuga-log { padding: 28px 16px 40vh; }
+  .fuga-boot-inner { padding: 48px 16px 72px; }
+  .fuga-sheet { padding: 40px 16px 80px; }
+  .fuga-msg { max-width: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fuga *,
+  .fuga::after { animation: none !important; transition: none !important; }
+}
+
+/* ── copyright page ──────────────────────────────────────────────────── */
+
+.sheet.rights { max-width: 760px; }
+
+.rights-notice {
+  margin-top: 0;
+  color: #fff;
+  letter-spacing: 0.04em;
+}
+
+.rights-section { margin-top: 2.6rem; }
+
+.rights-section h2 {
+  margin: 0 0 0.9rem;
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: #fff;
+}
+
+.rights-section p {
+  max-width: 46rem;
+  color: #d8d8d8;
+}
+
+.rights-section ul {
+  margin: 0.9rem 0 0;
+  padding-left: 1.1rem;
+  max-width: 46rem;
+  color: #d8d8d8;
+}
+
+.rights-section li { margin-bottom: 0.5rem; line-height: 1.6; }
+
+.rights-mail {
+  margin-top: 2.6rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid #1c1c1c;
+}
+
+.rights-mail a { border-bottom: 1px solid #555; }
+.rights-mail a:hover { border-color: #fff; text-decoration: none; }
+
+.fuga-peer.is-gone { color: #3a3a3a; }
+.fuga-peer.is-gone i { background: #3a3a3a; animation: none; }

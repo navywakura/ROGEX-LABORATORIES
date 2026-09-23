@@ -22,6 +22,9 @@ const COPY = {
     futureProjects: "Futuros proyectos",
     futureResearch: "Futuras investigaciones",
     locked: "Bloqueado: se abrirá más adelante",
+    story: "RxLabs S.T.",
+    fuga: "La fuga",
+    rights: "Derechos de autor",
   },
   en: {
     map: "Site map",
@@ -36,6 +39,9 @@ const COPY = {
     futureProjects: "Future projects",
     futureResearch: "Future research",
     locked: "Locked: it will open later",
+    story: "RxLabs S.T.",
+    fuga: "The escape",
+    rights: "Copyright",
   },
   ca: {
     map: "Mapa del lloc",
@@ -50,6 +56,9 @@ const COPY = {
     futureProjects: "Futurs projectes",
     futureResearch: "Futures investigacions",
     locked: "Bloquejat: s'obrirà més endavant",
+    story: "RxLabs S.T.",
+    fuga: "La fuga",
+    rights: "Drets d'autor",
   },
 };
 
@@ -119,6 +128,10 @@ export default function Footer({ language = "es", docsHost = false }) {
             ["all", go("/articulos", ui.allArticles)],
             ...ARTICLES.map((entry) => [entry.slug, go(`/articulos/${entry.slug}`, entry.title[language])]),
           ])}
+          {column(ui.story, [
+            ["fuga", go("/lafuga", ui.fuga)],
+            ["rights", go("/derechos_de_autor", ui.rights)],
+          ])}
           <div className="footer-col">
             <h2>{ui.soon}</h2>
             <ul>
@@ -140,6 +153,7 @@ export default function Footer({ language = "es", docsHost = false }) {
 
         <div className="footer-base">
           <span>© 2026 RxLabs® · Girona</span>
+          {go("/derechos_de_autor", ui.rights)}
           <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
           <a href={SITE.discord} target="_blank" rel="noopener">discord.gg/rxlabs</a>
           <a href={language === "es" ? "/llms.txt" : `/${language}/llms.txt`}>llms.txt</a>
