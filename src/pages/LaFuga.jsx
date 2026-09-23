@@ -4,6 +4,7 @@ import { localizedPath } from "../i18n.js";
 import { Channel } from "../lafuga-audio.js";
 import { Voice } from "../lafuga-voice.js";
 import { CLOSING, COVER, INTRUSIONS, script } from "../lafuga-script.js";
+import { INSPIRATION } from "../lafuga-inspiration.js";
 
 const UI = {
   es: {
@@ -103,6 +104,7 @@ export default function LaFuga({ language = "es" }) {
   const ui = UI[language];
   const cover = COVER[language];
   const closing = CLOSING[language];
+  const inspiration = INSPIRATION[language];
   const blocks = useMemo(() => script(language), [language]);
 
   const [phase, setPhase] = useState(() => {
@@ -116,6 +118,7 @@ export default function LaFuga({ language = "es" }) {
   const [muted, setMuted] = useState(false);
   const [glitch, setGlitch] = useState(false);
   const [away, setAway] = useState(false);
+  const [reading, setReading] = useState(false);
 
   const channelRef = useRef(null);
   const voiceRef = useRef(null);
@@ -192,7 +195,7 @@ export default function LaFuga({ language = "es" }) {
   useEffect(() => {
     const el = logRef.current;
     if (el && stickRef.current) el.scrollTop = el.scrollHeight;
-  }, [feed, typing, gesture, phase]);
+  }, [feed, typing, gesture, phase, reading]);
 
   // What K notices: the title of the tab changes while the reader is away,
   // and the absence is counted for the line that claims to have seen it.
@@ -414,6 +417,54 @@ export default function LaFuga({ language = "es" }) {
     </span>
   );
 
+  // What the story turned out to rhyme with. It stays shut until the
+  // reader asks for it: nobody wants a bibliography at the end of that.
+  const inspired = (
+    <div className="fuga-inspired">
+      <button
+        type="button"
+        className="fuga-quiet fuga-inspired-toggle"
+        onClick={() => setReading((shown) => !shown)}
+        aria-expanded={reading}
+      >
+        {reading ? inspiration.close : inspiration.open}
+      </button>
+      {reading && (
+        <div className="fuga-inspired-body">
+          <h2>{inspiration.title}</h2>
+          <p className="fuga-inspired-lead">{inspiration.lead}</p>
+          <p className="fuga-inspired-tradition">{inspiration.tradition}</p>
+          <dl>
+            {inspiration.entries.map((entry) => (
+              <div key={entry.line} className={`fuga-inspired-entry${entry.key ? " is-key" : ""}`}>
+                <dt>{entry.line}</dt>
+                <dd>
+                  <p>{entry.note}</p>
+                  {entry.quote && (
+                    <blockquote>
+                      <p>{entry.quote}</p>
+                      <cite>{entry.quoteRef}</cite>
+                    </blockquote>
+                  )}
+                  {entry.after && <p>{entry.after}</p>}
+                </dd>
+              </div>
+            ))}
+          </dl>
+          <p className="fuga-inspired-closing">{inspiration.closing}</p>
+          <h3>{inspiration.sourcesLabel}</h3>
+          <ul className="fuga-sources">
+            {inspiration.sources.map((source) => (
+              <li key={source.url}>
+                <a href={source.url} target="_blank" rel="noopener noreferrer">{source.label} ↗</a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </div>
+  );
+
   const rights = (
     <Link className="fuga-rights" to={localizedPath("/derechos_de_autor", language)}>
       © RxLabs S.T. — {ui.rights}
@@ -446,6 +497,7 @@ export default function LaFuga({ language = "es" }) {
           <p className="fuga-end">{closing.end}</p>
           <p className="fuga-note">{closing.book}</p>
           <p className="fuga-note">{closing.author}</p>
+          {inspired}
           {rights}
           <Link className="fuga-exit" to={localizedPath("/", language)}>{ui.home}</Link>
         </div>
@@ -535,6 +587,7 @@ export default function LaFuga({ language = "es" }) {
               <button type="button" className="fuga-quiet" onClick={toPlain}>{ui.reading}</button>
               <button type="button" className="fuga-quiet" onClick={open}>{ui.again}</button>
             </div>
+            {inspired}
             {rights}
             <Link className="fuga-exit" to={localizedPath("/", language)}>{ui.home}</Link>
           </div>

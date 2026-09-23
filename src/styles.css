@@ -2063,3 +2063,105 @@ button { font-family: inherit; }
    hears the difference, they do not need to be shown it twice. */
 .fuga-msg.is-spoken,
 .fuga-plain-block p.is-spoken { color: #fff; }
+
+/* "inspirado en:" — the reading that follows the story. Shut by default:
+   nobody wants a bibliography the second the last line lands. */
+.fuga-inspired { margin-top: 26px; }
+
+.fuga-inspired-toggle { margin-top: 0; }
+
+.fuga-inspired-body {
+  margin-top: 22px;
+  padding-top: 22px;
+  border-top: 1px solid var(--fuga-line, #1c1c1c);
+  animation: fuga-in 0.4s ease both;
+}
+
+.fuga-inspired-body h2 {
+  margin: 0 0 14px;
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: #fff;
+}
+
+.fuga-inspired-body h3 {
+  margin: 30px 0 10px;
+  font-size: 11.5px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  color: #454545;
+}
+
+.fuga-inspired-lead { margin: 0 0 12px; color: #d8d8d8; line-height: 1.65; }
+.fuga-inspired-tradition { margin: 0 0 8px; color: #8c8c8c; font-size: 13px; line-height: 1.7; }
+
+.fuga-inspired-body dl { margin: 22px 0 0; }
+
+.fuga-inspired-entry { margin-bottom: 26px; }
+
+.fuga-inspired-entry dt {
+  color: #fff;
+  font-size: 13px;
+  line-height: 1.6;
+  margin-bottom: 7px;
+}
+
+.fuga-inspired-entry dd {
+  margin: 0;
+  padding-left: 14px;
+  border-left: 1px solid #1c1c1c;
+}
+
+.fuga-inspired-entry dd p {
+  margin: 0 0 8px;
+  color: #a9a9a9;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+/* The last line of the story gets the answer it earned. */
+.fuga-inspired-entry.is-key dd { border-left-color: #3a3a3a; }
+.fuga-inspired-entry.is-key dt { font-size: 15px; }
+.fuga-inspired-entry.is-key dd p { color: #d8d8d8; }
+
+.fuga-inspired-entry blockquote {
+  margin: 12px 0;
+  padding: 12px 14px;
+  background: #0b0b0b;
+  border: 1px solid #1c1c1c;
+  border-radius: 2px;
+}
+
+.fuga-inspired-entry blockquote p {
+  margin: 0 0 8px;
+  color: #ededed;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.fuga-inspired-entry blockquote cite {
+  color: #5a5a5a;
+  font-size: 11px;
+  font-style: normal;
+  letter-spacing: 0.03em;
+}
+
+.fuga-inspired-closing {
+  margin: 26px 0 0;
+  color: #8c8c8c;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.fuga-sources { margin: 0; padding-left: 1.1rem; }
+
+.fuga-sources li { margin-bottom: 6px; }
+
+.fuga-sources a {
+  color: #8c8c8c;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.fuga-sources a:hover { color: #fff; text-decoration: none; }
