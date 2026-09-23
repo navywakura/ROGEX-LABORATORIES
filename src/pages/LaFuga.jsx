@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { localizedPath } from "../i18n.js";
 import { Channel } from "../lafuga-audio.js";
+import { Voice } from "../lafuga-voice.js";
 import { CLOSING, COVER, INTRUSIONS, script } from "../lafuga-script.js";
 
 const UI = {
@@ -114,8 +115,10 @@ export default function LaFuga({ language = "es" }) {
   const [gesture, setGesture] = useState(null);
   const [muted, setMuted] = useState(false);
   const [glitch, setGlitch] = useState(false);
+  const [away, setAway] = useState(false);
 
   const channelRef = useRef(null);
+  const voiceRef = useRef(null);
   const cancelRef = useRef({ cancelled: false });
   const speedRef = useRef(1);
   const awayRef = useRef(0);
@@ -264,7 +267,13 @@ export default function LaFuga({ language = "es" }) {
       if (token.cancelled) return;
       push({ kind: "time", time: block.time, speaker: block.speaker });
       audio()?.notify();
+      // The theta tone rides under part two and nothing else.
+      audio()?.setBinaural(block.p2);
       await wait(2800);
+      if (block.note) {
+        push({ kind: "sys", text: block.note });
+        await wait(1600);
+      }
       for (const line of block.lines) {
         if (token.cancelled) return;
         const shout = line.fx === "shout";
@@ -294,7 +303,11 @@ export default function LaFuga({ language = "es" }) {
         setTyping(true);
         await wait(typingTime(line.text, shout));
         setTyping(false);
-        push({ kind: "msg", speaker: block.speaker, text: line.text, fx: line.fx });
+        push({ kind: "msg", speaker: block.speaker, text: line.text, fx: line.fx, p2: line.p2 });
+
+        // Part two is not typed, it is said. The line waits to be finished
+        // speaking before the next one starts.
+        if (line.p2) await voiceRef.current?.speak(line.text, language);
 
         if (line.fx === "static") {
           audio()?.static_(1.1);
@@ -311,10 +324,20 @@ export default function LaFuga({ language = "es" }) {
           setTimeout(() => setGlitch(false), 700);
         }
 
-        await wait(gapAfter(line) + (line.pause || 0));
+        // K said it left. It leaves: the header goes dark, nothing is
+        // typed, and the reader sits in it until it comes back.
+        if (line.fx === "away") {
+          setAway(true);
+          await wait(line.pause);
+          setAway(false);
+          await wait(gapAfter(line));
+        } else {
+          await wait(gapAfter(line) + (line.pause || 0));
+        }
       }
     }
     if (!token.cancelled) {
+      audio()?.setBinaural(false);
       await wait(2400);
       setGlitch(false);
       setPhase("ended");
@@ -327,7 +350,12 @@ export default function LaFuga({ language = "es" }) {
     channelRef.current = new Channel();
     channelRef.current.setMuted(muted);
     channelRef.current.start();
+    voiceRef.current?.destroy();
+    voiceRef.current = new Voice();
+    voiceRef.current.setMuted(muted);
+    voiceRef.current.prime();
     setFeed([]);
+    setAway(false);
     setPhase("live");
   };
 
@@ -344,11 +372,13 @@ export default function LaFuga({ language = "es" }) {
   useEffect(() => () => {
     cancelRef.current.cancelled = true;
     channelRef.current?.close();
+    voiceRef.current?.destroy();
   }, []);
 
   const toggleMute = () => {
     setMuted((current) => {
       channelRef.current?.setMuted(!current);
+      voiceRef.current?.setMuted(!current);
       return !current;
     });
   };
@@ -357,6 +387,7 @@ export default function LaFuga({ language = "es" }) {
     cancelRef.current.cancelled = true;
     channelRef.current?.close();
     channelRef.current = null;
+    voiceRef.current?.cancel();
     setPhase("plain");
   };
 
@@ -364,6 +395,7 @@ export default function LaFuga({ language = "es" }) {
     cancelRef.current.cancelled = true;
     channelRef.current?.close();
     channelRef.current = null;
+    voiceRef.current?.cancel();
     setPhase("ended");
   };
 
@@ -405,7 +437,10 @@ export default function LaFuga({ language = "es" }) {
           {blocks.map((block) => (
             <section key={block.id} className="fuga-plain-block">
               <h2>{block.speaker} — {block.time}</h2>
-              {block.lines.map((line) => <p key={line.id}>{line.text}</p>)}
+              {block.note && <p className="fuga-sys">{block.note}</p>}
+              {block.lines.map((line) => (
+                <p key={line.id} className={line.p2 ? "is-spoken" : undefined}>{line.text}</p>
+              ))}
             </section>
           ))}
           <p className="fuga-end">{closing.end}</p>
@@ -448,9 +483,9 @@ export default function LaFuga({ language = "es" }) {
     <main className={`fuga fuga-live${glitch ? " is-glitch" : ""}`}>
       <header className="fuga-bar">
         <span className="fuga-channel">{ui.channel}</span>
-        <span className={`fuga-peer${phase === "ended" ? " is-gone" : ""}`}>
+        <span className={`fuga-peer${phase === "ended" || away ? " is-gone" : ""}`}>
           <i aria-hidden="true" />
-          {ui.peer} · {phase === "ended" ? ui.offline : ui.live}
+          {ui.peer} · {phase === "ended" || away ? ui.offline : ui.live}
         </span>
         <button type="button" className="fuga-mute" onClick={toggleMute} aria-pressed={muted}>
           {muted ? ui.unmute : ui.mute}
@@ -473,7 +508,7 @@ export default function LaFuga({ language = "es" }) {
             return <p key={entry.key} className="fuga-sys">{entry.text}</p>;
           }
           return (
-            <p key={entry.key} className={`fuga-msg is-${entry.speaker.toLowerCase()}${entry.fx ? ` fx-${entry.fx}` : ""}`}>
+            <p key={entry.key} className={`fuga-msg is-${entry.speaker.toLowerCase()}${entry.p2 ? " is-spoken" : ""}${entry.fx ? ` fx-${entry.fx}` : ""}`}>
               {entry.text}
             </p>
           );

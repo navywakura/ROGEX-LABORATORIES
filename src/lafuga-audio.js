@@ -8,6 +8,12 @@
 // click that opens the session and never before.
 
 const ROOM_GAIN = 0.032;
+// 963 Hz in one ear and 968 Hz in the other. Neither ear hears the 5 Hz
+// difference; it only appears once the two reach the same head, which is
+// why this needs headphones and why it is kept far under everything else.
+const BINAURAL_LEFT = 963;
+const BINAURAL_RIGHT = 968;
+const BINAURAL_GAIN = 0.012;
 const BLIP_GAIN = 0.085;
 
 function noiseBuffer(ctx, seconds) {
@@ -22,6 +28,7 @@ export class Channel {
     this.ctx = null;
     this.master = null;
     this.room = null;
+    this.beat = null;
     this.muted = false;
   }
 
@@ -84,6 +91,36 @@ export class Channel {
     lfo.start();
 
     this.room = room;
+  }
+
+  // A channel merger keeps the two tones truly apart: a stereo panner still
+  // bleeds one side into the other on some hardware, and any bleed destroys
+  // the effect by letting the ear hear the beat acoustically.
+  #beat() {
+    const ctx = this.ctx;
+    const gain = ctx.createGain();
+    gain.gain.value = 0;
+    gain.connect(this.master);
+    const merger = ctx.createChannelMerger(2);
+    merger.connect(gain);
+    for (const [frequency, ear] of [[BINAURAL_LEFT, 0], [BINAURAL_RIGHT, 1]]) {
+      const osc = ctx.createOscillator();
+      osc.type = "sine";
+      osc.frequency.value = frequency;
+      osc.connect(merger, 0, ear);
+      osc.start();
+    }
+    this.beat = gain;
+  }
+
+  // On only while the second part is speaking, and fading either way so it
+  // arrives and leaves without a seam.
+  setBinaural(on) {
+    if (!this.ctx) return;
+    if (!this.beat) this.#beat();
+    const now = this.ctx.currentTime;
+    this.beat.gain.cancelScheduledValues(now);
+    this.beat.gain.setTargetAtTime(on ? BINAURAL_GAIN : 0, now, on ? 1.1 : 0.7);
   }
 
   setMuted(muted) {
@@ -157,9 +194,11 @@ export class Channel {
     if (!this.ctx) return;
     const ctx = this.ctx;
     if (this.room) this.room.gain.setTargetAtTime(0, ctx.currentTime, 0.4);
+    if (this.beat) this.beat.gain.setTargetAtTime(0, ctx.currentTime, 0.3);
     setTimeout(() => ctx.close().catch(() => {}), 1200);
     this.ctx = null;
     this.room = null;
+    this.beat = null;
     this.master = null;
   }
 }

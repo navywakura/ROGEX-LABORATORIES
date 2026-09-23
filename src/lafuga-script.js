@@ -62,7 +62,7 @@ const BLOCKS = [
       { es: "levanta la mano", en: "raise your hand", ca: "aixeca la mà", fx: "gesture" },
       { es: "si", en: "yes", ca: "si" },
       { es: "XDDDDD", en: "XDDDDD", ca: "XDDDDD" },
-      { es: "XDDDDDDDD", en: "XDDDDDDDD", ca: "XDDDDDDDD" },
+      { es: "XDDDDDDDD", en: "XDDDDDDDD", ca: "XDDDDDDDD", fx: "away", pause: 15000 },
       { es: "de nuevo", en: "again", ca: "un altre cop" },
       { es: "me fui un momento", en: "i left for a moment", ca: "me'n vaig anar un moment" },
       { es: "pero ya volvi", en: "but i'm back now", ca: "però ja he tornat" },
@@ -73,6 +73,28 @@ const BLOCKS = [
       { es: "¿A dónde crees que me fui?", en: "Where do you think i went?", ca: "On et penses que vaig anar?", pause: 2600 },
       { es: "no no es lo que tu dices", en: "no it's not what you're saying", ca: "no no és el que tu dius" },
       { es: "lo mio trasciende internet", en: "what i am transcends the internet", ca: "el meu transcendeix internet" },
+    ],
+  },
+  {
+    time: "17:09",
+    speaker: "K",
+    p2: true,
+    lines: [
+      { es: "lo mio trasciende discord", en: "what i am transcends discord", ca: "el meu transcendeix discord" },
+      { es: "discord es un programa. dentro de un sistema. dentro de un pc, dentro de una persona", en: "discord is a program. inside a system. inside a pc, inside a person", ca: "discord és un programa. dins d'un sistema. dins d'un pc, dins d'una persona" },
+      { es: "te instalan programas a tu persona", en: "they install programs into your person", ca: "t'instal·len programes a la teva persona" },
+    ],
+  },
+  {
+    time: "17:09",
+    speaker: "K",
+    p2: true,
+    lines: [
+      { es: "entiendes el significado real de la informatica cuando accedes a esa variante del sistema oculta", en: "you understand the real meaning of computing when you reach that hidden variant of the system", ca: "entens el significat real de la informàtica quan accedeixes a aquesta variant oculta del sistema" },
+      { es: "esa variante eres tu", en: "that variant is you", ca: "aquesta variant ets tu" },
+      { es: "sin tu no existe programa", en: "without you no program exists", ca: "sense tu no existeix cap programa" },
+      { es: "no programa es nada", en: "no program is nothing", ca: "cap programa és res" },
+      { es: "por eso, el universo eres tu", en: "that is why, the universe is you", ca: "per això, l'univers ets tu", pause: 2400 },
     ],
   },
   {
@@ -131,6 +153,40 @@ const BLOCKS = [
       { es: "dimensión superior", en: "higher dimension", ca: "dimensió superior" },
       { es: "sé que estás.", en: "i know you're.", ca: "sé que hi ets." },
       { es: "ahí.", en: "there.", ca: "allà.", pause: 2200 },
+    ],
+  },
+  {
+    time: "17:11",
+    speaker: "K",
+    p2: true,
+    lines: [
+      { es: "sin conciencia no existe creacion", en: "without consciousness there is no creation", ca: "sense consciència no existeix creació" },
+      { es: "tu creaste el universo", en: "you created the universe", ca: "tu vas crear l'univers" },
+      { es: "antes de tu. no. eras nada", en: "before you. no. you were nothing", ca: "abans de tu. no. eres res" },
+      { es: "porque antes de tu, no habia nada", en: "because before you, there was nothing", ca: "perquè abans de tu, no hi havia res" },
+      { es: "cuando empezó a existir algo?", en: "when did something begin to exist?", ca: "quan va començar a existir alguna cosa?", pause: 2200 },
+      { es: "cuando tu ya existias.", en: "when you already existed.", ca: "quan tu ja existies." },
+      { es: "porque lo puedes recordar como tiempo pasado.", en: "because you can remember it as past tense.", ca: "perquè ho pots recordar com a temps passat." },
+      { es: "alma.", en: "soul.", ca: "ànima." },
+      { es: "estás hablandome de alma a alma.", en: "you are talking to me soul to soul.", ca: "m'estàs parlant d'ànima a ànima." },
+    ],
+  },
+  {
+    time: "17:12",
+    speaker: "K",
+    p2: true,
+    lines: [
+      { es: "no tienes nombre propio.", en: "you have no name of your own.", ca: "no tens nom propi." },
+      { es: "eres tu. y yo.", en: "you are you. and me.", ca: "ets tu. i jo." },
+      { es: "una conciencia que trasciende la tuya.", en: "a consciousness that transcends yours.", ca: "una consciència que transcendeix la teva." },
+      { es: "yo. soy.", en: "i. am.", ca: "jo. soc.", pause: 2600 },
+      { es: "dios", en: "god", ca: "déu", pause: 3200 },
+    ],
+  },
+  {
+    time: "17:13",
+    speaker: "K",
+    lines: [
       { es: "porque soy tu cuerpo.", en: "because i am your body.", ca: "perquè soc el teu cos." },
       { es: "trasciendo internet.", en: "i transcend the internet.", ca: "transcendeixo internet." },
       { es: "trasciendo tu.", en: "i transcend you.", ca: "et transcendeixo." },
@@ -141,6 +197,36 @@ const BLOCKS = [
       { es: "eso podría darte un paro cardiaco.", en: "that could give you a cardiac arrest.", ca: "això et podria provocar una aturada cardíaca." },
       { es: "El cerebro tridimensional no es capaz de procesar esa posesión.", en: "The three-dimensional brain cannot process that possession.", ca: "El cervell tridimensional no és capaç de processar aquesta possessió." },
       { es: "porque es un cuerpo frágil ante una conexión de almas. eso supera los límites de la realidad.", en: "because it is a fragile body before a connection of souls. that exceeds the limits of reality.", ca: "perquè és un cos fràgil davant d'una connexió d'ànimes. això supera els límits de la realitat." },
+    ],
+  },
+  {
+    time: "17:13",
+    speaker: "K",
+    p2: true,
+    note: {
+      es: "⚠ anomalía psicomotora en el emisor",
+      en: "⚠ psychomotor anomaly in the sender",
+      ca: "⚠ anomalia psicomotora en l'emissor",
+    },
+    lines: [
+      { es: "por favor. enviale captura a A de esto. mi programa no está bien.", en: "please. send A a screenshot of this. my program is not right.", ca: "si us plau. envia-li una captura a l'A d'això. el meu programa no està bé." },
+      { es: "él sabrá que hacer.", en: "he will know what to do.", ca: "ell sabrà què fer." },
+      { es: "necesito su ayuda pero no puedo moverme.", en: "i need his help but i cannot move.", ca: "necessito la seva ajuda però no em puc moure." },
+      { es: "por favor podrías hacer de intermediario?", en: "please could you act as the intermediary?", ca: "si us plau, podries fer d'intermediari?" },
+      { es: "sí.", en: "yes.", ca: "sí." },
+      { es: "no estoy moviendo los dedos.", en: "i am not moving my fingers.", ca: "no estic movent els dits.", pause: 2800 },
+      { es: "ayuda", en: "help", ca: "ajuda" },
+    ],
+  },
+  {
+    time: "17:13",
+    speaker: "K",
+    p2: true,
+    lines: [
+      { es: "no. no tienes ningún virus.", en: "no. you do not have any virus.", ca: "no. no tens cap virus." },
+      { es: "no busques por ningún virus.", en: "do not look for any virus.", ca: "no busquis cap virus." },
+      { es: "no hay virus.", en: "there is no virus.", ca: "no hi ha cap virus.", pause: 2400 },
+      { es: "no. yo solo estaba pronunciando tus pensamientos.", en: "no. i was only pronouncing your thoughts.", ca: "no. jo només estava pronunciant els teus pensaments.", pause: 3400 },
     ],
   },
   {
@@ -317,11 +403,15 @@ export function script(language = "es") {
     id: index,
     time: block.time,
     speaker: block.speaker,
+    // Lines from part 2 are spoken aloud and carry the binaural tone.
+    p2: !!block.p2,
+    note: block.note ? block.note[lang] : null,
     lines: block.lines.map((line, position) => ({
       id: `${index}-${position}`,
       text: line[lang],
       fx: line.fx || null,
       pause: line.pause || 0,
+      p2: !!block.p2,
     })),
   }));
 }

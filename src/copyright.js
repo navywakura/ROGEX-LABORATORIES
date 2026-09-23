@@ -46,10 +46,10 @@ export const COPYRIGHT = {
       {
         heading: "3. «La fuga»",
         body: [
-          `«La fuga. Cuando la anomalía conoce a la anti anomalía» es una obra literaria original publicada por ${SHARED.storytelling}, escrita por ${SHARED.creator}.`,
+          `«La fuga. Cuando la anomalía conoce a la anti anomalía», incluida su Parte 2 —la clave de resolución del relato—, es una obra literaria original publicada por ${SHARED.storytelling}, escrita por ${SHARED.creator}.`,
           "© 2026 RxLabs S.T. Todos los derechos reservados. Obra original protegida desde el momento de su creación.",
           "Queda expresamente prohibida su reproducción total o parcial, su transcripción, su publicación en cualquier otro soporte, su traducción, su adaptación a cualquier formato —audiovisual, sonoro, escénico, interactivo o generado por máquina— y la creación de obras derivadas, sin autorización escrita y previa del titular.",
-          "La experiencia interactiva de /lafuga —su secuencia, sus tiempos, su sonido sintetizado, su interfaz y su código— forma parte de la obra y está protegida junto a ella.",
+          "La experiencia interactiva de /lafuga —su secuencia, sus tiempos, su sonido sintetizado, la lectura en voz de la Parte 2, su interfaz y su código— forma parte de la obra y está protegida junto a ella.",
         ],
       },
       {
@@ -128,10 +128,10 @@ export const COPYRIGHT = {
       {
         heading: "3. \"The escape\"",
         body: [
-          "\"La fuga. Cuando la anomalía conoce a la anti anomalía\" (\"The escape. When the anomaly meets the anti anomaly\") is an original literary work published by RxLabs S.T. (RxLabs StoryTelling) and written by the creator — R. Navarro.",
+          "\"La fuga. Cuando la anomalía conoce a la anti anomalía\" (\"The escape. When the anomaly meets the anti anomaly\"), including its Part 2 — the story's key of resolution — is an original literary work published by RxLabs S.T. (RxLabs StoryTelling) and written by the creator — R. Navarro.",
           "© 2026 RxLabs S.T. All rights reserved. An original work, protected from the moment of its creation.",
           "Reproduction in whole or in part, transcription, publication on any other medium, translation, adaptation to any format — audiovisual, audio, stage, interactive or machine-generated — and the creation of derivative works are expressly forbidden without the prior written authorisation of the rights holder.",
-          "The interactive experience at /lafuga — its sequence, its timing, its synthesised sound, its interface and its code — is part of the work and is protected together with it.",
+          "The interactive experience at /lafuga — its sequence, its timing, its synthesised sound, the spoken reading of Part 2, its interface and its code — is part of the work and is protected together with it.",
         ],
       },
       {
@@ -210,10 +210,10 @@ export const COPYRIGHT = {
       {
         heading: "3. «La fuga»",
         body: [
-          "«La fuga. Quan l'anomalia coneix l'anti anomalia» és una obra literària original publicada per RxLabs S.T. (RxLabs StoryTelling), escrita pel creador — R. Navarro.",
+          "«La fuga. Quan l'anomalia coneix l'anti anomalia», inclosa la seva Part 2 —la clau de resolució del relat—, és una obra literària original publicada per RxLabs S.T. (RxLabs StoryTelling), escrita pel creador — R. Navarro.",
           "© 2026 RxLabs S.T. Tots els drets reservats. Obra original protegida des del moment de la seva creació.",
           "Queda expressament prohibida la seva reproducció total o parcial, la seva transcripció, la seva publicació en qualsevol altre suport, la seva traducció, la seva adaptació a qualsevol format —audiovisual, sonor, escènic, interactiu o generat per màquina— i la creació d'obres derivades, sense autorització escrita i prèvia del titular.",
-          "L'experiència interactiva de /lafuga —la seva seqüència, els seus temps, el seu so sintetitzat, la seva interfície i el seu codi— forma part de l'obra i està protegida juntament amb ella.",
+          "L'experiència interactiva de /lafuga —la seva seqüència, els seus temps, el seu so sintetitzat, la lectura en veu de la Part 2, la seva interfície i el seu codi— forma part de l'obra i està protegida juntament amb ella.",
         ],
       },
       {

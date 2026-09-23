@@ -2057,3 +2057,9 @@ button { font-family: inherit; }
 
 .fuga-peer.is-gone { color: #3a3a3a; }
 .fuga-peer.is-gone i { background: #3a3a3a; animation: none; }
+
+/* Part two is spoken rather than typed. It is the same voice on the same
+   channel, so it is marked only by being a shade brighter — the reader
+   hears the difference, they do not need to be shown it twice. */
+.fuga-msg.is-spoken,
+.fuga-plain-block p.is-spoken { color: #fff; }
