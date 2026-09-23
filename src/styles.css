@@ -1782,6 +1782,34 @@ button { font-family: inherit; }
   z-index: 2;
 }
 
+/* During the session the log is the scrollport, not the page: the reader
+   can scroll back through what K said while more of it arrives, and the
+   feed only follows when they are already at the bottom. The column stays
+   620px wide while the scrollbar keeps to the edge of the window. */
+.fuga-live {
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+}
+
+.fuga-live .fuga-log {
+  min-height: 0;
+  max-width: none;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 40px max(20px, calc(50% - 310px)) 18vh;
+  scrollbar-width: thin;
+  scrollbar-color: #242424 transparent;
+}
+
+.fuga-live .fuga-log::-webkit-scrollbar { width: 9px; }
+.fuga-live .fuga-log::-webkit-scrollbar-track { background: transparent; }
+.fuga-live .fuga-log::-webkit-scrollbar-thumb {
+  background: #242424;
+  border-radius: 5px;
+}
+.fuga-live .fuga-log::-webkit-scrollbar-thumb:hover { background: #3a3a3a; }
+
 .fuga-stamp {
   margin: 44px 0 20px;
   color: #454545;
@@ -1889,8 +1917,6 @@ button { font-family: inherit; }
   animation: fuga-breathe 2.2s ease-in-out infinite;
 }
 
-.fuga-bottom { height: 1px; }
-
 .fuga-close {
   margin-top: 52px;
   padding-top: 26px;
@@ -1975,6 +2001,7 @@ button { font-family: inherit; }
 @media (max-width: 600px) {
   .fuga-bar { gap: 12px; padding: 12px 16px; }
   .fuga-log { padding: 28px 16px 40vh; }
+  .fuga-live .fuga-log { padding: 28px 16px 22vh; }
   .fuga-boot-inner { padding: 48px 16px 72px; }
   .fuga-sheet { padding: 40px 16px 80px; }
   .fuga-msg { max-width: 100%; }

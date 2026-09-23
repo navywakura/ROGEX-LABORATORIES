@@ -51,7 +51,7 @@ export class Channel {
 
     const filter = ctx.createBiquadFilter();
     filter.type = "lowpass";
-    filter.frequency.value = 220;
+    filter.frequency.value = 160;
     filter.connect(room);
 
     for (const frequency of [48, 55.5]) {
@@ -69,7 +69,7 @@ export class Channel {
     hiss.loop = true;
     const hissFilter = ctx.createBiquadFilter();
     hissFilter.type = "bandpass";
-    hissFilter.frequency.value = 900;
+    hissFilter.frequency.value = 420;
     hissFilter.Q.value = 0.6;
     const hissGain = ctx.createGain();
     hissGain.gain.value = 0.022;
@@ -113,18 +113,18 @@ export class Channel {
 
   // A message from K lands: short, dry, slightly downward.
   receive() {
-    this.#tone({ from: 760, to: 520, duration: 0.09, type: "triangle" });
+    this.#tone({ from: 268, to: 184, duration: 0.14, type: "triangle", gain: 0.1 });
   }
 
   // The reader answers: upward, so the two directions never sound alike.
   send() {
-    this.#tone({ from: 420, to: 700, duration: 0.11, type: "sine", gain: 0.06 });
+    this.#tone({ from: 150, to: 248, duration: 0.16, type: "sine", gain: 0.085 });
   }
 
   // A new block of the conversation opens.
   notify() {
-    this.#tone({ from: 660, to: 660, duration: 0.14, type: "sine", gain: 0.055 });
-    this.#tone({ from: 990, to: 990, duration: 0.18, type: "sine", gain: 0.045, delay: 0.13 });
+    this.#tone({ from: 232, to: 232, duration: 0.2, type: "sine", gain: 0.075 });
+    this.#tone({ from: 348, to: 348, duration: 0.26, type: "sine", gain: 0.06, delay: 0.17 });
   }
 
   // Something breaks: a burst of band-passed noise sweeping downward.
@@ -137,8 +137,8 @@ export class Channel {
     const filter = ctx.createBiquadFilter();
     filter.type = "bandpass";
     filter.Q.value = 1.4;
-    filter.frequency.setValueAtTime(2400, at);
-    filter.frequency.exponentialRampToValueAtTime(180, at + duration);
+    filter.frequency.setValueAtTime(1100, at);
+    filter.frequency.exponentialRampToValueAtTime(70, at + duration);
     const envelope = ctx.createGain();
     envelope.gain.setValueAtTime(0.0001, at);
     envelope.gain.linearRampToValueAtTime(0.09, at + 0.04);
@@ -150,7 +150,7 @@ export class Channel {
 
   // The uppercase block: the same blip, lower and harder.
   shout() {
-    this.#tone({ from: 300, to: 180, duration: 0.1, type: "square", gain: 0.05 });
+    this.#tone({ from: 116, to: 68, duration: 0.15, type: "square", gain: 0.055 });
   }
 
   close() {

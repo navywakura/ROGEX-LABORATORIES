@@ -85,16 +85,17 @@ const UI = {
   },
 };
 
-// K types at a human speed: long lines take longer, but nothing waits
-// forever and nothing arrives instantly.
+// K types at a human speed and then leaves the line to sit there. The
+// story is short on words and long on silence: read at this pace it runs
+// about nine minutes, and scrolling down is what shortens it.
 function typingTime(text, shout) {
-  const base = shout ? 14 : 26;
-  return Math.min(2600, Math.max(shout ? 320 : 620, text.length * base));
+  const base = shout ? 22 : 40;
+  return Math.min(4200, Math.max(shout ? 520 : 1000, text.length * base));
 }
 
 function gapAfter(line) {
-  if (line.fx === "shout") return 180;
-  return 340 + Math.min(900, line.text.length * 6);
+  if (line.fx === "shout") return 300;
+  return 700 + Math.min(1500, line.text.length * 10);
 }
 
 export default function LaFuga({ language = "es" }) {
@@ -119,7 +120,7 @@ export default function LaFuga({ language = "es" }) {
   const speedRef = useRef(1);
   const awayRef = useRef(0);
   const stickRef = useRef(true);
-  const bottomRef = useRef(null);
+  const logRef = useRef(null);
   const gestureRef = useRef(null);
 
   const audio = () => channelRef.current;
@@ -172,20 +173,23 @@ export default function LaFuga({ language = "es" }) {
     };
   }, [phase]);
 
-  // The reader decides whether the view follows K. Scrolling up to reread
-  // stops the feed from dragging the viewport back down.
+  // The log scrolls itself, not the page. The reader decides whether the
+  // view follows K: scrolling up to reread stops the feed from dragging
+  // them back down, and returning to the bottom hands the lead back.
   useEffect(() => {
+    const el = logRef.current;
+    if (!el) return undefined;
     const onScroll = () => {
-      const distance = document.documentElement.scrollHeight - window.innerHeight - window.scrollY;
-      stickRef.current = distance < 140;
+      stickRef.current = el.scrollHeight - el.clientHeight - el.scrollTop < 80;
     };
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+    el.addEventListener("scroll", onScroll, { passive: true });
+    return () => el.removeEventListener("scroll", onScroll);
+  }, [phase]);
 
   useEffect(() => {
-    if (stickRef.current) bottomRef.current?.scrollIntoView({ block: "end" });
-  }, [feed, typing, gesture]);
+    const el = logRef.current;
+    if (el && stickRef.current) el.scrollTop = el.scrollHeight;
+  }, [feed, typing, gesture, phase]);
 
   // What K notices: the title of the tab changes while the reader is away,
   // and the absence is counted for the line that claims to have seen it.
@@ -260,7 +264,7 @@ export default function LaFuga({ language = "es" }) {
       if (token.cancelled) return;
       push({ kind: "time", time: block.time, speaker: block.speaker });
       audio()?.notify();
-      await wait(1500);
+      await wait(2800);
       for (const line of block.lines) {
         if (token.cancelled) return;
         const shout = line.fx === "shout";
@@ -453,7 +457,7 @@ export default function LaFuga({ language = "es" }) {
         </button>
       </header>
 
-      <div className="fuga-log" aria-live="polite">
+      <div className="fuga-log" aria-live="polite" ref={logRef}>
         {feed.map((entry) => {
           if (entry.kind === "time") {
             return (
@@ -501,7 +505,6 @@ export default function LaFuga({ language = "es" }) {
           </div>
         )}
 
-        <div ref={bottomRef} className="fuga-bottom" />
       </div>
 
       {phase === "live" && (
