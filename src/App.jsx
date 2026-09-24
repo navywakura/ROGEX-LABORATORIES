@@ -13,6 +13,7 @@ import Articles from "./pages/Articles.jsx";
 import Product from "./pages/Product.jsx";
 import LaFuga from "./pages/LaFuga.jsx";
 import Copyright from "./pages/Copyright.jsx";
+import Releases from "./pages/Releases.jsx";
 import { basePath, languageForPath } from "./i18n.js";
 
 function isDocsHost() {
@@ -99,6 +100,9 @@ export default function App() {
         <Route path="/lafuga" element={<LaFuga language="es" />} />
         <Route path="/en/lafuga" element={<LaFuga language="en" />} />
         <Route path="/ca/lafuga" element={<LaFuga language="ca" />} />
+        <Route path="/releases" element={<Releases language="es" />} />
+        <Route path="/en/releases" element={<Releases language="en" />} />
+        <Route path="/ca/releases" element={<Releases language="ca" />} />
         <Route path="/derechos_de_autor" element={<Copyright language="es" />} />
         <Route path="/en/derechos_de_autor" element={<Copyright language="en" />} />
         <Route path="/ca/derechos_de_autor" element={<Copyright language="ca" />} />

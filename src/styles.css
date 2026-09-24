@@ -2177,3 +2177,7 @@ button { font-family: inherit; }
 }
 
 .fuga-sources a:hover { color: #fff; text-decoration: none; }
+
+/* /releases: keep the label column whole on narrow screens; long hashes wrap instead. */
+.releases .article-body table td:first-child { white-space: nowrap; }
+.releases .article-body table td { overflow-wrap: anywhere; }

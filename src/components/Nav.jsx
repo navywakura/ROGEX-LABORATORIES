@@ -5,9 +5,9 @@ import { basePath, localizedPath } from "../i18n.js";
 const WWW = SITE.url.replace(/\/$/, "");
 
 const LABELS = {
-  es: { contact: "Contacto", about: "RxLabs®", docs: "Docs", articles: "Artículos" },
-  en: { contact: "Contact", about: "RxLabs®", docs: "Docs", articles: "Articles" },
-  ca: { contact: "Contacte", about: "RxLabs®", docs: "Docs", articles: "Articles" },
+  es: { contact: "Contacto", about: "RxLabs®", docs: "Docs", articles: "Artículos", releases: "Releases" },
+  en: { contact: "Contact", about: "RxLabs®", docs: "Docs", articles: "Articles", releases: "Releases" },
+  ca: { contact: "Contacte", about: "RxLabs®", docs: "Docs", articles: "Articles", releases: "Releases" },
 };
 
 export default function Nav({ path, docsHost = false, language = "es" }) {
@@ -54,6 +54,7 @@ export default function Nav({ path, docsHost = false, language = "es" }) {
         {item("/about", labels.about)}
         {item("/docs", labels.docs)}
         {item("/articulos", labels.articles)}
+        {item("/releases", labels.releases)}
       </div>
       <div className="nav-cluster nav-products">
         {item("/echos", "echOS")}

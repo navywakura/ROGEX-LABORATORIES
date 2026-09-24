@@ -1,6 +1,16 @@
 // Shared by routing, article cards, metadata and Markdown export.
 export const ARTICLES = [
   {
+    slug: "echo4-release-rc2-descarga", date: "2026-09-24",
+    title: { es: "echoAI-4 ya se puede descargar: release candidate 2", en: "echoAI-4 is now available for download: release candidate 2", ca: "echoAI-4 ja es pot descarregar: release candidate 2" },
+    summary: {
+      es: "Publicamos el agente en Hugging Face: núcleo compilado sin modelo de lenguaje, córtex con tu propio modelo y el nuevo servidor MCP para agentes de código. Cómo lo comprobamos, sus rojos y cómo reproducirlo tú.",
+      en: "We are publishing the agent on Hugging Face: a compiled core with no language model, a cortex with your own model and the new MCP server for coding agents. How we checked it, its reds and how to reproduce it yourself.",
+      ca: "Publiquem l'agent a Hugging Face: nucli compilat sense model de llenguatge, còrtex amb el teu propi model i el nou servidor MCP per a agents de codi. Com ho hem comprovat, els seus vermells i com reproduir-ho tu.",
+    },
+    status: { es: "RELEASE · 4.0.0rc2 · acceso condicionado", en: "RELEASE · 4.0.0rc2 · gated", ca: "RELEASE · 4.0.0rc2 · accés condicionat" },
+  },
+  {
     slug: "echoai-negocio-agente-de-codigo", date: "2026-09-24",
     title: { es: "echoAI como producto: la IA que no se cree a su propia IA", en: "echoAI as a product: the AI that does not believe its own AI", ca: "echoAI com a producte: la IA que no es creu la seva pròpia IA" },
     summary: {
