@@ -2181,3 +2181,6 @@ button { font-family: inherit; }
 /* /releases: keep the label column whole on narrow screens; long hashes wrap instead. */
 .releases .article-body table td:first-child { white-space: nowrap; }
 .releases .article-body table td { overflow-wrap: anywhere; }
+
+/* Article tables: the first column (labels, names) breaks only between words, never mid-word. */
+.article-body table td:first-child, .article-body table th:first-child { overflow-wrap: normal; word-break: normal; }

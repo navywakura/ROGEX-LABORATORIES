@@ -1,6 +1,16 @@
 // Shared by routing, article cards, metadata and Markdown export.
 export const ARTICLES = [
   {
+    slug: "echo4-plan-benchmarks-con-y-sin-echo", date: "2026-09-24",
+    title: { es: "Cómo vamos a medir si ECHO mejora a un modelo: el plan de benchmarks", en: "How we will measure whether ECHO improves a model: the benchmark plan", ca: "Com mesurarem si ECHO millora un model: el pla de benchmarks" },
+    summary: {
+      es: "El mismo modelo con y sin ECHO en SimpleQA, MMLU, Humanity's Last Exam, FrontierScience, ARC-AGI-2 y ARC-AGI-3, con cinco modelos por API y Opus 5.5. Qué hace ECHO en cada uno, qué esperamos, cómo lo auditaremos y cuánto costará. Aún sin números.",
+      en: "The same model with and without ECHO on SimpleQA, MMLU, Humanity's Last Exam, FrontierScience, ARC-AGI-2 and ARC-AGI-3, with five API models and Opus 5.5. What ECHO does in each, what we expect, how we will audit it and what it will cost. No numbers yet.",
+      ca: "El mateix model amb i sense ECHO a SimpleQA, MMLU, Humanity's Last Exam, FrontierScience, ARC-AGI-2 i ARC-AGI-3, amb cinc models per API i Opus 5.5. Què fa ECHO en cadascun, què esperem, com ho auditarem i quant costarà. Encara sense números.",
+    },
+    status: { es: "PLAN · sin resultados aún", en: "PLAN · no results yet", ca: "PLA · encara sense resultats" },
+  },
+  {
     slug: "echo4-release-rc2-descarga", date: "2026-09-24",
     title: { es: "echoAI-4 ya se puede descargar: release candidate 2", en: "echoAI-4 is now available for download: release candidate 2", ca: "echoAI-4 ja es pot descarregar: release candidate 2" },
     summary: {
