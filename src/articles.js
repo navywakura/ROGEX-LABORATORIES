@@ -15,6 +15,16 @@ export const ARTICLES = [
     },
   },
   {
+    slug: "echo4-publicacion-hugging-face", date: "2026-09-24",
+    title: { es: "Publicar ECHO-4 en Hugging Face: qué haremos y qué esperar", en: "Publishing ECHO-4 on Hugging Face: what we will do and what to expect", ca: "Publicar ECHO-4 a Hugging Face: què farem i què esperar" },
+    summary: {
+      es: "Plan de RELEASE: un runtime de agencia determinista, no un modelo de lenguaje. Qué se publica, cómo reproducirlo en un clic y la reacción que esperamos.",
+      en: "The RELEASE plan: a deterministic agency runtime, not a language model. What ships, one-click reproduction and the reaction we expect.",
+      ca: "El pla de RELEASE: un runtime d'agència determinista, no un model de llenguatge. Què es publica, reproduir-lo amb un clic i la reacció que esperem.",
+    },
+    status: { es: "PLAN · aún no publicado", en: "PLAN · not yet published", ca: "PLA · encara no publicat" },
+  },
+  {
     slug: "echo4-relacion-historia-medida", date: "2026-09-22",
     title: { es: "ECHO-4 · RELATION-A: una historia que se puede reconstruir", en: "ECHO-4 · RELATION-A: a history that can be reconstructed", ca: "ECHO-4 · RELATION-A: una història que es pot reconstruir" },
     summary: {
