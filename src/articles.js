@@ -1,6 +1,20 @@
 // Shared by routing, article cards, metadata and Markdown export.
 export const ARTICLES = [
   {
+    slug: "echo4-doce-hitos-sabe-que-es", date: "2026-09-24", featured: true,
+    title: { es: "ECHO-4 hoy: de sentir su cuerpo a saber qué es", en: "ECHO-4 today: from sensing its body to knowing what it is", ca: "ECHO-4 avui: de sentir el seu cos a saber què és" },
+    summary: {
+      es: "12 de 14 hitos en verde. Qué responde cada fase, de percibir su cuerpo a entender la tribu y saber que es un programa en un PC, con resultados, rojos y límites.",
+      en: "12 of 14 milestones green. What each phase answers, from sensing its body to understanding the tribe and knowing it is a program on a PC, with results, reds and limits.",
+      ca: "12 de 14 fites en verd. Què respon cada fase, de percebre el seu cos a entendre la tribu i saber que és un programa en un PC, amb resultats, vermells i límits.",
+    },
+    status: { es: "12/14 en verde · SITUATE-2 en curso", en: "12/14 green · SITUATE-2 in progress", ca: "12/14 en verd · SITUATE-2 en curs" },
+    image: {
+      src: "/media/echoai/brand/echoai-1024.png", width: 1024, height: 1024, type: "image/png",
+      alt: { es: "Logo oficial del agente echoAI", en: "Official echoAI agent logo", ca: "Logo oficial de l'agent echoAI" },
+    },
+  },
+  {
     slug: "echo4-relacion-historia-medida", date: "2026-09-22",
     title: { es: "ECHO-4 · RELATION-A: una historia que se puede reconstruir", en: "ECHO-4 · RELATION-A: a history that can be reconstructed", ca: "ECHO-4 · RELATION-A: una història que es pot reconstruir" },
     summary: {
@@ -11,7 +25,7 @@ export const ARTICLES = [
     status: { es: "RELATION-A válido · RELATION-1 abierto", en: "RELATION-A valid · RELATION-1 open", ca: "RELATION-A vàlid · RELATION-1 obert" },
   },
   {
-    slug: "echo4-continuidad-dream-a-identidad", date: "2026-09-22", featured: true,
+    slug: "echo4-continuidad-dream-a-identidad", date: "2026-09-22",
     title: { es: "ECHO-4: continuidad verificada, primeros árboles de DREAM y una identidad propia", en: "ECHO-4: verified continuity, first DREAM trees and an identity of its own", ca: "ECHO-4: continuïtat verificada, primers arbres de DREAM i una identitat pròpia" },
     summary: {
       es: "CONTINUITY cierra su contrato software; DREAM-A ya registra y reproduce intentos. Nuevo logo oficial y una futura distribución del agente, con límites y resultados a la vista.",
