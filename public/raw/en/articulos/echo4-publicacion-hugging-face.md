@@ -13,8 +13,9 @@ will publish, how, and what reaction we expect.
 ECHO-4 **is not a language model**. We will not publish new weights or a fine-tuned
 model. What gets published is a **deterministic agency runtime with fact verification**:
 
-- **The core:** an integer loop in CPython (CAM memory, T prediction, Q decision and
-  the gate) that works **with the language model switched off**.
+- **The core:** an integer loop (CAM memory, T prediction, Q decision and the gate)
+  that works **with the language model switched off**. It will ship **compiled**
+  (see below).
 - **The simulated worlds and tests:** the environments it lives in, every phase's
   benches and the audits that rebuild each result.
 - **An interchangeable cortex:** an interface to plug in a local model (Qwen, Llama,
@@ -39,6 +40,25 @@ themselves, under its own licence. Without a language model, ECHO still works.
    `cognitive-agentic` we will use tags such as `deterministic-agent-runtime`,
    `grounded-agency` and `embodied-simulation`.
 6. **A visible section of limits and reds:** what failed, what we did not show, and why.
+
+## What will be open and what will not (hybrid model)
+
+No code that runs on someone else's machine is uncopyable. We have chosen a
+**hybrid model**:
+
+- **Open:** the simulated worlds, the test benches, the auditors, the contracts and
+  the receipts. Anyone will be able to verify the results.
+- **Compiled:** the core will ship as a binary wheel with its SHA-256 fingerprint.
+  It can be run and checked by its outputs, but not easily read.
+- **Restrictive licence and gated access:** copyright © RxLabs, a non-commercial or
+  source-available licence (pending legal advice) and downloads only after accepting
+  terms on Hugging Face.
+- **Optional:** a hosted version to try it without downloading anything.
+
+**We say it plainly:** with a compiled core you will be able to check that the
+receipts add up, but not read how the mechanism works inside. It is a deliberate
+trade-off between verifiability and protection. The exact licence and the compiler
+are still pending decisions.
 
 ## What we expect from the community
 
@@ -68,7 +88,8 @@ anthropomorphism alarms. That is fair.
 
 | They expect | Risk if missing |
 | --- | --- |
-| The code for the worlds and the tests | With weights only, they would assume the agent "lives in the prompt" |
+| The code for the worlds and the tests (open) | With weights only, they would assume the agent "lives in the prompt" |
+| The core's code | It will be compiled: runnable and auditable by its outputs, not readable |
 | One-click reproduction (script, container or Space) | If the audit is hard to repeat, the doubt stays |
 | Instructions to plug any local model in as the cortex | Without that decoupling, the architecture's central idea is lost |
 | A section of limits and failures | Without it, it would look like another promise project |

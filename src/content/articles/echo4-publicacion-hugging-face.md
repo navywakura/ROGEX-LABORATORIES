@@ -15,8 +15,9 @@ ECHO-4 **no es un modelo de lenguaje**. No publicaremos pesos nuevos ni un model
 ajustado. Lo que se publica es un **runtime de agencia determinista con
 verificación de hechos**:
 
-- **El núcleo:** un bucle de enteros en CPython (memoria CAM, predicción T, decisión
-  Q y gate) que funciona **con el modelo de lenguaje apagado**.
+- **El núcleo:** un bucle de enteros (memoria CAM, predicción T, decisión Q y gate)
+  que funciona **con el modelo de lenguaje apagado**. Se distribuirá **compilado**
+  (ver más abajo).
 - **Los mundos simulados y las pruebas:** los entornos donde vive, los bancos de
   cada fase y las auditorías que reconstruyen cada resultado.
 - **Un córtex intercambiable:** una interfaz para conectar un modelo local (Qwen,
@@ -42,6 +43,25 @@ cuenta, con su propia licencia. Sin modelo de lenguaje, ECHO sigue funcionando.
    chatbot de rol.»* Además de `cognitive-agentic`, usaremos etiquetas como
    `deterministic-agent-runtime`, `grounded-agency` y `embodied-simulation`.
 6. **Una sección visible de límites y rojos:** qué falló, qué no demostramos y por qué.
+
+## Qué será abierto y qué no (modelo híbrido)
+
+Ningún código que se ejecute en la máquina de otra persona es incopiable. Hemos
+elegido un **modelo híbrido**:
+
+- **Abierto:** los mundos simulados, los bancos de pruebas, los auditores, los
+  contratos y los recibos. Cualquiera podrá verificar los resultados.
+- **Compilado:** el núcleo se distribuirá como binario (wheel) con su huella
+  SHA-256. Se puede ejecutar y comprobar por sus salidas, pero no leer fácilmente.
+- **Licencia restrictiva y acceso condicionado:** copyright © RxLabs, una licencia
+  no comercial o *source-available* (pendiente de consulta legal) y descarga previa
+  aceptación de términos en Hugging Face.
+- **Opcional:** una versión alojada para probarlo sin descargar nada.
+
+**Lo decimos claro:** con el núcleo compilado, se podrá comprobar que los recibos
+cuadran, pero no leer cómo funciona el mecanismo por dentro. Es una concesión
+consciente entre verificabilidad y protección. La licencia exacta y el compilador
+siguen siendo decisiones pendientes.
 
 ## Qué esperamos de la comunidad
 
@@ -73,7 +93,8 @@ activarán alarmas de antropomorfismo. Es razonable.
 
 | Esperan | Riesgo si falta |
 | --- | --- |
-| El código de los mundos y de las pruebas | Si solo hubiera pesos, pensarían que el agente «está en el prompt» |
+| El código de los mundos y de las pruebas (abierto) | Si solo hubiera pesos, pensarían que el agente «está en el prompt» |
+| El código del núcleo | Será compilado: podrán ejecutarlo y auditar sus salidas, no leerlo |
 | Reproducir en un clic (script, contenedor o Space) | Si la auditoría es difícil de repetir, la duda se queda |
 | Instrucciones para conectar cualquier modelo local como córtex | Sin ese desacople, se pierde la idea central de la arquitectura |
 | Una sección de límites y fallos | Sin ella, parecería otro proyecto de promesas |

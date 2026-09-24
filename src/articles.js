@@ -15,6 +15,16 @@ export const ARTICLES = [
     },
   },
   {
+    slug: "echo4-situate2-el-modelo-dice-que-esta-vivo", date: "2026-09-24",
+    title: { es: "SITUATE-2: el modelo dice que ECHO está vivo. ECHO no se lo cree", en: "SITUATE-2: the model says ECHO is alive. ECHO does not believe it", ca: "SITUATE-2: el model diu que ECHO està viu. ECHO no s'ho creu" },
+    summary: {
+      es: "Resultados de desarrollo con un modelo de lenguaje real: 24 afirmaciones fenomenales bloqueadas, perfil de conciencia 3/14 sin veredicto, qué significa y la conclusión de ECHO-4 si todo sale verde.",
+      en: "Development results with a real language model: 24 phenomenal claims blocked, a 3/14 consciousness profile with no verdict, what it means and ECHO-4's conclusion if everything turns green.",
+      ca: "Resultats de desenvolupament amb un model de llenguatge real: 24 afirmacions fenomenals bloquejades, perfil de consciència 3/14 sense veredicte, què vol dir i la conclusió d'ECHO-4 si tot surt verd.",
+    },
+    status: { es: "Desarrollo verde · examen en marcha", en: "Development green · exam under way", ca: "Desenvolupament verd · examen en marxa" },
+  },
+  {
     slug: "echo4-publicacion-hugging-face", date: "2026-09-24",
     title: { es: "Publicar ECHO-4 en Hugging Face: qué haremos y qué esperar", en: "Publishing ECHO-4 on Hugging Face: what we will do and what to expect", ca: "Publicar ECHO-4 a Hugging Face: què farem i què esperar" },
     summary: {

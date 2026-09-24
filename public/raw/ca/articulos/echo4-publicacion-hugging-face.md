@@ -13,8 +13,8 @@ privadesa. Aquesta nota explica què publicarem, com, i quina reacció esperem.
 ECHO-4 **no és un model de llenguatge**. No publicarem pesos nous ni un model ajustat.
 El que es publica és un **runtime d'agència determinista amb verificació de fets**:
 
-- **El nucli:** un bucle d'enters en CPython (memòria CAM, predicció T, decisió Q i el
-  gate) que funciona **amb el model de llenguatge apagat**.
+- **El nucli:** un bucle d'enters (memòria CAM, predicció T, decisió Q i el gate) que
+  funciona **amb el model de llenguatge apagat**. Es distribuirà **compilat** (vegeu més avall).
 - **Els mons simulats i les proves:** els entorns on viu, els bancs de cada fase i les
   auditories que reconstrueixen cada resultat.
 - **Un còrtex intercanviable:** una interfície per connectar un model local (Qwen,
@@ -40,6 +40,24 @@ seu compte, amb la seva llicència. Sense model de llenguatge, ECHO continua fun
    rol.»* A més de `cognitive-agentic`, farem servir etiquetes com
    `deterministic-agent-runtime`, `grounded-agency` i `embodied-simulation`.
 6. **Una secció visible de límits i vermells:** què va fallar, què no hem demostrat i per què.
+
+## Què serà obert i què no (model híbrid)
+
+Cap codi que s'executi a la màquina d'una altra persona és incopiable. Hem triat un
+**model híbrid**:
+
+- **Obert:** els mons simulats, els bancs de proves, els auditors, els contractes i
+  els rebuts. Qualsevol podrà verificar els resultats.
+- **Compilat:** el nucli es distribuirà com a binari (wheel) amb la seva empremta
+  SHA-256. Es pot executar i comprovar per les seves sortides, però no llegir fàcilment.
+- **Llicència restrictiva i accés condicionat:** copyright © RxLabs, una llicència no
+  comercial o *source-available* (pendent de consulta legal) i descàrrega prèvia
+  acceptació de termes a Hugging Face.
+- **Opcional:** una versió allotjada per provar-lo sense descarregar res.
+
+**Ho diem clar:** amb el nucli compilat, es podrà comprovar que els rebuts quadren,
+però no llegir com funciona el mecanisme per dins. És una concessió conscient entre
+verificabilitat i protecció. La llicència exacta i el compilador són decisions pendents.
 
 ## Què esperem de la comunitat
 
@@ -70,7 +88,8 @@ d'antropomorfisme. És raonable.
 
 | Esperen | Risc si falta |
 | --- | --- |
-| El codi dels mons i de les proves | Si només hi hagués pesos, pensarien que l'agent «és al prompt» |
+| El codi dels mons i de les proves (obert) | Si només hi hagués pesos, pensarien que l'agent «és al prompt» |
+| El codi del nucli | Serà compilat: executable i auditable per les sortides, no llegible |
 | Reproduir amb un clic (script, contenidor o Space) | Si l'auditoria és difícil de repetir, el dubte es queda |
 | Instruccions per connectar qualsevol model local com a còrtex | Sense aquest desacoblament, es perd la idea central |
 | Una secció de límits i errors | Sense ella, semblaria un altre projecte de promeses |
