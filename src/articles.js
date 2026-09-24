@@ -1,6 +1,16 @@
 // Shared by routing, article cards, metadata and Markdown export.
 export const ARTICLES = [
   {
+    slug: "echo4-curiosidad-metaverso-voxeles", date: "2026-09-24",
+    title: { es: "CURIOSITY-1 y METAVERSE-1: agentes curiosos en un mundo de vóxeles en tiempo real", en: "CURIOSITY-1 and METAVERSE-1: curious agents in a real-time voxel world", ca: "CURIOSITY-1 i METAVERSE-1: agents curiosos en un món de vòxels en temps real" },
+    summary: {
+      es: "El plan tras RELEASE: agentes que aprenden por curiosidad propia y un mundo de vóxeles con drones en tiempo real. Por qué hacerlo, cómo medirlo y qué significaría un verde.",
+      en: "The plan after RELEASE: agents that learn out of their own curiosity and a real-time voxel world with drones. Why, how to measure it and what a green would mean.",
+      ca: "El pla després de RELEASE: agents que aprenen per curiositat pròpia i un món de vòxels amb drons en temps real. Per què, com mesurar-ho i què voldria dir un verd.",
+    },
+    status: { es: "PLAN · después de RELEASE", en: "PLAN · after RELEASE", ca: "PLA · després de RELEASE" },
+  },
+  {
     slug: "echo4-doce-hitos-sabe-que-es", date: "2026-09-24", featured: true,
     title: { es: "ECHO-4 hoy: de sentir su cuerpo a saber qué es", en: "ECHO-4 today: from sensing its body to knowing what it is", ca: "ECHO-4 avui: de sentir el seu cos a saber què és" },
     summary: {
@@ -154,10 +164,15 @@ export const ARTICLES = [
 ];
 
 export const ARTICLE_LABELS = {
-  es: { featured: "Destacado", read: "Leer artículo" },
-  en: { featured: "Featured", read: "Read article" },
-  ca: { featured: "Destacat", read: "Llegir article" },
+  es: { featured: "Destacado", latest: "Más reciente", read: "Leer artículo" },
+  en: { featured: "Featured", latest: "Latest", read: "Read article" },
+  ca: { featured: "Destacat", latest: "Més recent", read: "Llegir article" },
 };
+
+// ARTICLES is kept newest first: the latest is the newest date, ties broken by
+// list order, so the tag moves on its own when a new article is added on top.
+export const LATEST_SLUG = ARTICLES.reduce(
+  (best, entry) => (!best || entry.date > best.date ? entry : best), null)?.slug;
 
 function htmlMedia(source, tag, attribute, kind) {
   const expression = new RegExp(`<${tag}\\b[^>]*\\b${attribute}=(['"])(.*?)\\1[^>]*>`, "i");

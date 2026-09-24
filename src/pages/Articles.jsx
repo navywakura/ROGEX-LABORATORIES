@@ -1,7 +1,7 @@
 import { useLocation } from "react-router-dom";
 import { marked } from "marked";
 import { basePath } from "../i18n.js";
-import { ARTICLES, ARTICLE_LABELS, articleMediaFromSource } from "../articles.js";
+import { ARTICLES, ARTICLE_LABELS, LATEST_SLUG, articleMediaFromSource } from "../articles.js";
 import ArticleCard from "../components/ArticleCard.jsx";
 import FeaturedArticle from "../components/FeaturedArticle.jsx";
 import NotFound from "./NotFound.jsx";
@@ -28,6 +28,7 @@ export default function Articles({ language = "es" }) {
     return (
       <main className="page">
         <article className="sheet article-sheet">
+          {article.slug === LATEST_SLUG && !article.featured && <div className="article-featured-meta"><span className="latest-badge">{ARTICLE_LABELS[language].latest}</span>{article.status && <span>{article.status[language]}</span>}</div>}
           {article.featured && <div className="article-featured-meta"><span className="featured-badge">{ARTICLE_LABELS[language].featured}</span>{article.status && <span>{article.status[language]}</span>}</div>}
           <div className="article-body" dangerouslySetInnerHTML={{ __html: marked.parse(source) }} />
         </article>
@@ -62,6 +63,7 @@ export default function Articles({ language = "es" }) {
               language={language}
               media={articleMediaFromSource(entry, language, sourceFor(entry, language))}
               readLabel={copy.read}
+              latestLabel={entry.slug === LATEST_SLUG ? ARTICLE_LABELS[language].latest : null}
             />
           ))}
         </div>
