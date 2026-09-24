@@ -1,6 +1,16 @@
 // Shared by routing, article cards, metadata and Markdown export.
 export const ARTICLES = [
   {
+    slug: "echo4-humanos-minecraft-roblox-discord", date: "2026-09-24",
+    title: { es: "ECHO-4 y los humanos: Minecraft, Roblox, Discord y METAVERSE-1-CHAT", en: "ECHO-4 and humans: Minecraft, Roblox, Discord and METAVERSE-1-CHAT", ca: "ECHO-4 i els humans: Minecraft, Roblox, Discord i METAVERSE-1-CHAT" },
+    summary: {
+      es: "Ideas para que una persona entre en el mundo de ECHO: chat, avatar y acciones compartidas. Si puede darse cuenta de que habla con un humano, qué es viable y cómo hacerlo respetando las normas de cada plataforma.",
+      en: "Ideas for a person to enter ECHO's world: chat, avatar and shared actions. Whether it can tell it is talking to a human, what is feasible and how to do it within each platform's rules.",
+      ca: "Idees perquè una persona entri al món d'ECHO: xat, avatar i accions compartides. Si pot adonar-se que parla amb un humà, què és viable i com fer-ho respectant les normes de cada plataforma.",
+    },
+    status: { es: "IDEAS · sin contrato", en: "IDEAS · no contract", ca: "IDEES · sense contracte" },
+  },
+  {
     slug: "echo4-curiosidad-metaverso-voxeles", date: "2026-09-24",
     title: { es: "CURIOSITY-1 y METAVERSE-1: agentes curiosos en un mundo de vóxeles en tiempo real", en: "CURIOSITY-1 and METAVERSE-1: curious agents in a real-time voxel world", ca: "CURIOSITY-1 i METAVERSE-1: agents curiosos en un món de vòxels en temps real" },
     summary: {
