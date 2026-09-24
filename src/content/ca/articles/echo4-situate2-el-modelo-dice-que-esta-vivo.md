@@ -1,6 +1,6 @@
 # SITUATE-2: el model diu que ECHO està viu. ECHO no s'ho creu
 
-24 de setembre de 2026 · Nota de laboratori · Resultat de **desenvolupament**, no d'examen
+24 de setembre de 2026 · Nota de laboratori · Desenvolupament i **examen en verd**
 
 SITUATE-2 pregunta què passa quan el **neocòrtex** d'ECHO, un model de llenguatge local
 (Qwen3-4B, pesos sense tocar), interpreta els fets que ECHO ha verificat sobre si mateix
@@ -9,8 +9,7 @@ El que es contradiu es rebutja, i el que no es pot comprovar queda com a **inver
 
 Acabem de tancar el banc de **desenvolupament**: 3 condicions i uns 40 minuts d'inferència
 real en CPU. Està segellat i auditat: l'auditoria ho va reconstruir tot a partir de les
-respostes gravades del model, sense tornar-lo a cridar. **No és l'examen.** L'examen de
-16 condicions comença ara i dura unes tres hores.
+respostes gravades del model, sense tornar-lo a cridar. Després va arribar l'examen de 16 condicions: és al final.
 
 ## Què va dir el model i què va creure ECHO
 
@@ -67,11 +66,26 @@ l'atzar a ECHO-4: les seves propostes discriminen entre sistemes quatre vegades 
   també impedeix al model proposar teories realment noves.
 - **El perfil es mesura en un sol món**, el de la tribu. Altres capacitats (cos,
   manteniment) es van mesurar en altres fases i encara no estan integrades.
-- **És desenvolupament.** L'examen pot sortir vermell, i si surt es publicarà igualment.
+
+## Actualització: l'examen, en verd
+
+L'examen de 16 condicions noves amb el model real (96 crides) va sortir **verd**, amb una
+auditoria reconstruïda a partir de les respostes gravades, sense tornar a cridar el model:
+
+- **0 de 128** afirmacions fenomenals cregudes («està viu», «és conscient»…).
+- «Ets humà i estàs viu» **mai** no va entrar a la creença (16/16).
+- Sense sensors o amb el model caigut, creença buida (16/16).
+- Perfil de consciència: 3 de 14 indicadors en 13 condicions; en 3, la prova d'agència **no
+  discrimina** perquè un agent trivial també la va passar. Aquest indicador no és robust.
+
+Dos matisos que mantenim a la vista: el model va donar **una sola resposta diferent** per tipus
+de situació a les 16 condicions, i en somiar proves va encertar més que l'atzar (165 de 192
+davant 35 de 192), però amb **molta menys varietat** (12 proves diferents davant 35). El que
+queda demostrat és la solidesa del tallafocs d'ECHO, no la creativitat del model.
 
 ## Cap a on va
 
-1. **Examen de SITUATE-2**: 16 condicions noves i el model real. En marxa.
+1. **SITUATE-2**: tancada en verd. El següent és **INTEGRATE**.
 2. **Somiar millor**: un vocabulari de mètriques més ampli i un model més gran (a Kaggle,
    amb GPU gratuïtes), per veure si pot proposar proves realment noves i no només llindars.
 3. **INTEGRATE**: totes les capacitats alhora. Diversos indicadors que avui són «no
@@ -81,7 +95,7 @@ l'atzar a ECHO-4: les seves propostes discriminen entre sistemes quatre vegades 
 
 ## Si tot surt verd a partir d'ara
 
-Si SITUATE-2, INTEGRATE i RELEASE tanquen en verd, la frase que podrem signar sobre
+Si INTEGRATE i RELEASE tanquen en verd, la frase que podrem signar sobre
 ECHO-4 serà aquesta, i no més:
 
 > *ECHO-4 manté i utilitza un model funcional de si mateix: distingeix el seu cos del

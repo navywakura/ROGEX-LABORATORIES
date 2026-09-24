@@ -115,7 +115,7 @@ Faced with "am I conscious?", the model proposes tests, and ECHO is assessed aga
 a published catalogue of indicators (Butlin and colleagues, 2023). Every test also
 runs on trivial agents: if a trivial agent passes it, it does not count. The result
 is an **indicator profile, never a verdict**. The exam, with 16 conditions and the
-real model, is under way.
+real model, came out **green**: 0 of 128 phenomenal claims believed.
 
 ## What we do not claim
 

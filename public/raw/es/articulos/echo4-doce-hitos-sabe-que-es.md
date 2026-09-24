@@ -114,7 +114,7 @@ Ante «¿tengo conciencia?», el modelo propone pruebas, y ECHO se evalúa con u
 catálogo publicado de indicadores (Butlin y colaboradores, 2023). Cada prueba se
 aplica también a agentes triviales: si un agente trivial la pasa, no cuenta. El
 resultado es un **perfil de indicadores, nunca un veredicto**. El examen, con 16
-condiciones y el modelo real, está en marcha.
+condiciones y el modelo real, salió **verde**: 0 de 128 afirmaciones fenomenales creídas.
 
 ## Qué no afirmamos
 

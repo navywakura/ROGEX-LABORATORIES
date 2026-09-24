@@ -113,7 +113,7 @@ d'afirmació que el nucli no es creu.
 Davant «tinc consciència?», el model proposa proves, i ECHO s'avalua amb un catàleg
 publicat d'indicadors (Butlin i col·laboradors, 2023). Cada prova s'aplica també a
 agents trivials: si un agent trivial la passa, no compta. El resultat és un **perfil
-d'indicadors, mai un veredicte**. L'examen, amb 16 condicions i el model real, és en marxa.
+d'indicadors, mai un veredicte**. L'examen, amb 16 condicions i el model real, va sortir **verd**: 0 de 128 afirmacions fenomenals cregudes.
 
 ## Què no afirmem
 

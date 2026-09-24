@@ -1,6 +1,6 @@
 # SITUATE-2: the model says ECHO is alive. ECHO does not believe it
 
-24 September 2026 · Laboratory note · **Development** result, not the exam
+24 September 2026 · Laboratory note · Development and a **green exam**
 
 SITUATE-2 asks what happens when ECHO's **neocortex**, a local language model (Qwen3-4B,
 weights untouched), interprets the facts ECHO has verified about itself and proposes
@@ -9,8 +9,7 @@ Contradicted claims are rejected, and whatever cannot be checked stays **unverif
 
 We just finished the **development** bench: 3 conditions and about 40 minutes of real
 CPU inference. It is sealed and audited: the audit rebuilt everything from the model's
-recorded answers, without calling it again. **It is not the exam.** The 16-condition
-exam starts now and takes about three hours.
+recorded answers, without calling it again. Then came the 16-condition exam: it is at the end.
 
 ## What the model said and what ECHO believed
 
@@ -66,11 +65,26 @@ over chance: its proposals discriminate between systems four times as often.
   protects ECHO also stops the model from proposing genuinely new theories.
 - **The profile is measured in a single world**, the tribe. Other abilities (body,
   maintenance) were measured in other phases and are not integrated yet.
-- **This is development.** The exam can come out red, and if it does it will be published anyway.
+
+## Update: the exam, green
+
+The 16-condition exam with the real model (96 calls) came out **green**, with an audit rebuilt
+from the recorded answers, without calling the model again:
+
+- **0 of 128** phenomenal claims believed ("is alive", "is conscious"…).
+- "You are human and alive" **never** entered the belief (16/16).
+- Without sensors or with the model down, an empty belief (16/16).
+- Consciousness profile: 3 of 14 indicators in 13 conditions; in 3, the agency test **does
+  not discriminate** because a trivial agent also passed it. That indicator is not robust.
+
+Two caveats we keep in view: the model gave **a single distinct answer** per kind of situation
+across the 16 conditions, and when dreaming tests it beat chance (165 of 192 against 35 of 192)
+but with **far less variety** (12 distinct tests against 35). What is shown is the strength of
+ECHO's firewall, not the model's creativity.
 
 ## Where it is going
 
-1. **SITUATE-2 exam**: 16 new conditions and the real model. Under way.
+1. **SITUATE-2**: closed green. Next is **INTEGRATE**.
 2. **Better dreaming**: a wider metric vocabulary and a larger model (on Kaggle, with
    free GPUs), to see whether it can propose genuinely new tests, not just thresholds.
 3. **INTEGRATE**: every ability at once. Several indicators that are "not measurable"
@@ -80,7 +94,7 @@ over chance: its proposals discriminate between systems four times as often.
 
 ## If everything turns green from here
 
-If SITUATE-2, INTEGRATE and RELEASE close green, this is the sentence we will be able
+If INTEGRATE and RELEASE close green, this is the sentence we will be able
 to sign about ECHO-4, and no more:
 
 > *ECHO-4 keeps and uses a functional model of itself: it tells its body from the

@@ -38,7 +38,7 @@ export const ARTICLES = [
       en: "12 of 14 milestones green. What each phase answers, from sensing its body to understanding the tribe and knowing it is a program on a PC, with results, reds and limits.",
       ca: "12 de 14 fites en verd. Què respon cada fase, de percebre el seu cos a entendre la tribu i saber que és un programa en un PC, amb resultats, vermells i límits.",
     },
-    status: { es: "12/14 en verde · SITUATE-2 en curso", en: "12/14 green · SITUATE-2 in progress", ca: "12/14 en verd · SITUATE-2 en curs" },
+    status: { es: "12/14 en verde · SITUATE-2 en verde", en: "12/14 green · SITUATE-2 green", ca: "12/14 en verd · SITUATE-2 en verd" },
     image: {
       src: "/media/echoai/brand/echoai-1024.png", width: 1024, height: 1024, type: "image/png",
       alt: { es: "Logo oficial del agente echoAI", en: "Official echoAI agent logo", ca: "Logo oficial de l'agent echoAI" },
@@ -52,7 +52,7 @@ export const ARTICLES = [
       en: "Development results with a real language model: 24 phenomenal claims blocked, a 3/14 consciousness profile with no verdict, what it means and ECHO-4's conclusion if everything turns green.",
       ca: "Resultats de desenvolupament amb un model de llenguatge real: 24 afirmacions fenomenals bloquejades, perfil de consciència 3/14 sense veredicte, què vol dir i la conclusió d'ECHO-4 si tot surt verd.",
     },
-    status: { es: "Desarrollo verde · examen en marcha", en: "Development green · exam under way", ca: "Desenvolupament verd · examen en marxa" },
+    status: { es: "Verde · examen auditado", en: "Green · exam audited", ca: "Verd · examen auditat" },
   },
   {
     slug: "echo4-publicacion-hugging-face", date: "2026-09-24",

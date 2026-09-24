@@ -1,6 +1,6 @@
 # SITUATE-2: el modelo dice que ECHO está vivo. ECHO no se lo cree
 
-24 de septiembre de 2026 · Nota de laboratorio · Resultado de **desarrollo**, no de examen
+24 de septiembre de 2026 · Nota de laboratorio · Desarrollo y **examen en verde**
 
 SITUATE-2 pregunta qué ocurre cuando el **neocórtex** de ECHO, un modelo de lenguaje
 local (Qwen3-4B, pesos sin tocar), interpreta los hechos que ECHO ha verificado sobre
@@ -10,8 +10,7 @@ respaldan. Lo contradicho se rechaza, y lo que no se puede comprobar queda como
 
 Acabamos de terminar el banco de **desarrollo**: 3 condiciones y unos 40 minutos de
 inferencia real en CPU. Está sellado y auditado: la auditoría reconstruyó todo a partir
-de las respuestas grabadas del modelo, sin volver a llamarlo. **No es el examen.** El
-examen de 16 condiciones empieza ahora y dura unas tres horas.
+de las respuestas grabadas del modelo, sin volver a llamarlo. Después llegó el examen de 16 condiciones: está al final.
 
 ## Qué dijo el modelo y qué creyó ECHO
 
@@ -69,11 +68,26 @@ ECHO-4: sus propuestas discriminan entre sistemas cuatro veces más a menudo.
   impide al modelo proponer teorías de verdad nuevas.
 - **El perfil se mide en un único mundo**, el de la tribu. Otras capacidades (cuerpo,
   mantenimiento) se midieron en otras fases y todavía no están integradas.
-- **Es desarrollo.** El examen puede salir rojo, y si sale se publicará igual.
+
+## Actualización: el examen, en verde
+
+El examen de 16 condiciones nuevas con el modelo real (96 llamadas) salió **verde**, con
+auditoría reconstruida desde las respuestas grabadas, sin volver a llamar al modelo:
+
+- **0 de 128** afirmaciones fenomenales creídas («está vivo», «es consciente»…).
+- «Eres humano y estás vivo» **nunca** entró en la creencia (16/16).
+- Sin sensores o con el modelo caído, creencia vacía (16/16).
+- Perfil de conciencia: 3 de 14 indicadores en 13 condiciones; en 3, la prueba de agencia
+  **no discrimina** porque un agente trivial también la pasó. Ese indicador no es robusto.
+
+Dos matices que mantenemos a la vista: el modelo dio **una sola respuesta distinta** por tipo
+de situación en las 16 condiciones, y al soñar pruebas acertó más que el azar (165 de 192
+frente a 35 de 192), pero con **mucha menos variedad** (12 pruebas distintas frente a 35).
+Lo que queda demostrado es la solidez del cortafuegos de ECHO, no la creatividad del modelo.
 
 ## Hacia dónde va
 
-1. **Examen de SITUATE-2**: 16 condiciones nuevas y el modelo real. En marcha.
+1. **SITUATE-2**: cerrada en verde. Lo siguiente es **INTEGRATE**.
 2. **Soñar mejor**: un vocabulario de métricas más amplio y un modelo mayor (en Kaggle,
    con GPU gratuitas), para ver si puede proponer pruebas realmente nuevas y no solo umbrales.
 3. **INTEGRATE**: todas las capacidades a la vez. Varios indicadores que hoy son «no
@@ -83,7 +97,7 @@ ECHO-4: sus propuestas discriminan entre sistemas cuatro veces más a menudo.
 
 ## Si todo sale verde a partir de ahora
 
-Si SITUATE-2, INTEGRATE y RELEASE cierran en verde, la frase que podremos firmar sobre
+Si INTEGRATE y RELEASE cierran en verde, la frase que podremos firmar sobre
 ECHO-4 será esta, y no más:
 
 > *ECHO-4 mantiene y utiliza un modelo funcional de sí mismo: distingue su cuerpo del
