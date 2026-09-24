@@ -1,6 +1,16 @@
 // Shared by routing, article cards, metadata and Markdown export.
 export const ARTICLES = [
   {
+    slug: "echoai-negocio-agente-de-codigo", date: "2026-09-24",
+    title: { es: "echoAI como producto: la IA que no se cree a su propia IA", en: "echoAI as a product: the AI that does not believe its own AI", ca: "echoAI com a producte: la IA que no es creu la seva pròpia IA" },
+    summary: {
+      es: "Por qué nadie pagaría por otro chat y sí por una capa que verifica a los agentes de código. Trae tu propio modelo (GPT, Opus, Gemini, Qwen…), MCP y línea de comandos, y un modelo de negocio para cubrir unos 500 €/mes.",
+      en: "Why nobody would pay for another chat, but might for a layer that verifies coding agents. Bring your own model (GPT, Opus, Gemini, Qwen…), MCP and a command line, and a business model to cover about €500/month.",
+      ca: "Per què ningú no pagaria per un altre xat i sí per una capa que verifica els agents de codi. Porta el teu propi model (GPT, Opus, Gemini, Qwen…), MCP i línia d'ordres, i un model de negoci per cobrir uns 500 €/mes.",
+    },
+    status: { es: "PLAN · nada a la venta aún", en: "PLAN · nothing for sale yet", ca: "PLA · res a la venda encara" },
+  },
+  {
     slug: "echo4-humanos-minecraft-roblox-discord", date: "2026-09-24",
     title: { es: "ECHO-4 y los humanos: Minecraft, Roblox, Discord y METAVERSE-1-CHAT", en: "ECHO-4 and humans: Minecraft, Roblox, Discord and METAVERSE-1-CHAT", ca: "ECHO-4 i els humans: Minecraft, Roblox, Discord i METAVERSE-1-CHAT" },
     summary: {
