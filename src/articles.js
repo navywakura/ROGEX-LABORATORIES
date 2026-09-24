@@ -4,9 +4,9 @@ export const ARTICLES = [
     slug: "echo4-release-rc2-descarga", date: "2026-09-24",
     title: { es: "echoAI-4 ya se puede descargar: release candidate 2", en: "echoAI-4 is now available for download: release candidate 2", ca: "echoAI-4 ja es pot descarregar: release candidate 2" },
     summary: {
-      es: "Publicamos el agente en Hugging Face: núcleo compilado sin modelo de lenguaje, córtex con tu propio modelo y el nuevo servidor MCP para agentes de código. Cómo lo comprobamos, sus rojos y cómo reproducirlo tú.",
-      en: "We are publishing the agent on Hugging Face: a compiled core with no language model, a cortex with your own model and the new MCP server for coding agents. How we checked it, its reds and how to reproduce it yourself.",
-      ca: "Publiquem l'agent a Hugging Face: nucli compilat sense model de llenguatge, còrtex amb el teu propi model i el nou servidor MCP per a agents de codi. Com ho hem comprovat, els seus vermells i com reproduir-ho tu.",
+      es: "Publicamos el agente en Hugging Face. Qué experimentos pasó en verde (principios que en humanos se asocian al yo y a la conciencia, medidos de forma funcional), cómo los resolvió, cómo vigilamos su comportamiento, sus rojos y cómo reproducirlo tú.",
+      en: "We are publishing the agent on Hugging Face. Which experiments it passed green (principles that in humans are tied to the self and consciousness, measured functionally), how it solved them, how we monitored its behaviour, its reds and how to reproduce it yourself.",
+      ca: "Publiquem l'agent a Hugging Face. Quins experiments va superar en verd (principis que en humans s'associen al jo i a la consciència, mesurats de manera funcional), com els va resoldre, com hem vigilat el seu comportament, els seus vermells i com reproduir-ho tu.",
     },
     status: { es: "RELEASE · 4.0.0rc2 · acceso condicionado", en: "RELEASE · 4.0.0rc2 · gated", ca: "RELEASE · 4.0.0rc2 · accés condicionat" },
   },
