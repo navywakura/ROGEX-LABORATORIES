@@ -87,7 +87,7 @@ públicos de nuestro examen, con 2000 acciones por juego.
 - **ECHO solo, sin modelo de lenguaje: 13 niveles, frente a 2 del azar.** Recuerda lo que ha
   vivido, distingue lo que depende de él de lo que se mueve solo y deja de repetir lo que no
   sirve. Sin esa distinción (el brazo «sin BOUNDARY») cae al nivel del azar.
-- **La puntuación oficial sigue siendo muy baja: 1 sobre 100.** ARC premia resolver con tan
+- **La puntuación oficial es casi nula: 0,07 sobre 100** con ECHO v2 (0,34 con v1; el azar, 0,29). *Corrección del 25 de septiembre: aquí ponía «1 sobre 100». Nuestra fórmula no elevaba al cuadrado la puntuación de cada nivel ni ponderaba los niveles como hace ARC Prize. Los niveles completados no cambian.* ARC premia resolver con tan
   pocas acciones como un humano. ECHO no entiende el objetivo: lo encuentra explorando, con
   cientos de acciones por nivel.
 - **Qwen3-30B jugando: 0 niveles solo y 4 con ECHO.** Pero los cuatro los completó la

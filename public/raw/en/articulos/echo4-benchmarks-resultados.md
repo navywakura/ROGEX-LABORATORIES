@@ -88,7 +88,7 @@ games of our exam, with 2000 actions per game.
   what it has lived, tells what depends on it from what moves by itself, and stops repeating
   what does not work. Without that distinction (the "without BOUNDARY" arm) it falls to random
   level.
-- **The official score is still very low: 1 out of 100.** ARC rewards solving with as few actions
+- **The official score is almost zero: 0.07 out of 100** with ECHO v2 (0.34 with v1; random play, 0.29). *Correction of 25 September: this said "1 out of 100". Our formula did not square each level's score or weight the levels the way ARC Prize does. The levels completed do not change.* ARC rewards solving with as few actions
   as a human. ECHO does not understand the goal: it finds it by exploring, with hundreds of
   actions per level.
 - **Qwen3-30B playing: 0 levels alone and 4 with ECHO.** But all four were completed by ECHO's

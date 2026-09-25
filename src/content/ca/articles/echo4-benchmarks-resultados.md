@@ -86,7 +86,7 @@ del nostre examen, amb 2000 accions per joc.
 - **ECHO sol, sense model de llenguatge: 13 nivells, davant de 2 de l'atzar.** Recorda el que ha
   viscut, distingeix el que depèn d'ell del que es mou sol i deixa de repetir el que no serveix.
   Sense aquesta distinció (el braç «sense BOUNDARY») cau al nivell de l'atzar.
-- **La puntuació oficial continua sent molt baixa: 1 sobre 100.** ARC premia resoldre amb tan
+- **La puntuació oficial és gairebé nul·la: 0,07 sobre 100** amb ECHO v2 (0,34 amb v1; l'atzar, 0,29). *Correcció del 25 de setembre: aquí hi deia «1 sobre 100». La nostra fórmula no elevava al quadrat la puntuació de cada nivell ni ponderava els nivells com fa ARC Prize. Els nivells completats no canvien.* ARC premia resoldre amb tan
   poques accions com un humà. ECHO no entén l'objectiu: el troba explorant, amb centenars
   d'accions per nivell.
 - **Qwen3-30B jugant: 0 nivells sol i 4 amb ECHO.** Però tots quatre els va completar
