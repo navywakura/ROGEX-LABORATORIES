@@ -5,7 +5,7 @@
 Després de tancar en verd les fases científiques d'ECHO-4, publiquem l'agent perquè
 qualsevol pugui **instal·lar-lo, fer-lo servir i comprovar els nostres resultats**. La
 versió és **`4.0.0rc2`** i és a Hugging Face amb accés condicionat.
-**[Descàrregues i guia d'instal·lació → /releases](/ca/releases)**
+**[Descàrregues i guia d'instal·lació → /releases](/ca/echoai#release)**
 
 ## Què t'emportes
 
@@ -161,6 +161,6 @@ control. El que volem mesurar és on intervé ECHO:
 
 Encara no hi ha números.
 
-**Vols ajudar?** Descarrega'l des de [/releases](/ca/releases) i executa
+**Vols ajudar?** Descarrega'l des de [/releases](/ca/echoai#release) i executa
 `echoai reproduce integrate`. Si et dona `e1492e22…`, ets la primera reproducció
 independent. Si no, ho volem saber.

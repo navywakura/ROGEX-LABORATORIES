@@ -2,7 +2,7 @@
 
 24 de septiembre de 2026 · Nota de laboratorio · PLAN
 
-ECHO-4 ya se puede [descargar](/releases). La pregunta siguiente es la que haría cualquiera:
+ECHO-4 ya se puede [descargar](/echoai#release). La pregunta siguiente es la que haría cualquiera:
 **¿un modelo de lenguaje funciona mejor con ECHO que sin él?** Esta nota explica cómo lo
 vamos a medir, con qué benchmarks, qué esperamos y cuánto costará. **Todavía no hay
 números**: no hemos ejecutado nada. Primero se publica el plan; después, los resultados,
@@ -161,7 +161,7 @@ que lo respalde.
 ## Lo que queda fuera por ahora
 
 - **SWE-bench** (arreglar incidencias reales de código): es la prueba natural del
-  [servidor MCP de ECHO](/releases), pero necesita Docker, unos 100 GB y muchas horas. Lo
+  [servidor MCP de ECHO](/echoai#release), pero necesita Docker, unos 100 GB y muchas horas. Lo
   dejamos para después.
 - **Ningún resultado se publicará sin su auditoría.**
 

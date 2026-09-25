@@ -2,7 +2,7 @@
 
 24 de setembre de 2026 · Nota de laboratori · PLA
 
-ECHO-4 ja es pot [descarregar](/ca/releases). La pregunta següent és la que faria
+ECHO-4 ja es pot [descarregar](/ca/echoai#release). La pregunta següent és la que faria
 qualsevol: **un model de llenguatge funciona millor amb ECHO que sense?** Aquesta nota
 explica com ho mesurarem, amb quins benchmarks, què esperem i quant costarà. **Encara no hi
 ha números**: no hem executat res. Primer es publica el pla; després, els resultats, també
@@ -162,7 +162,7 @@ l'avali.
 ## El que queda fora de moment
 
 - **SWE-bench** (arreglar incidències reals de codi): és la prova natural del [servidor MCP
-  d'ECHO](/ca/releases), però necessita Docker, uns 100 GB i moltes hores. El deixem per més
+  d'ECHO](/ca/echoai#release), però necessita Docker, uns 100 GB i moltes hores. El deixem per més
   endavant.
 - **Cap resultat no es publicarà sense la seva auditoria.**
 

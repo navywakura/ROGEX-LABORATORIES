@@ -5,7 +5,7 @@
 After closing ECHO-4's scientific phases green, we are publishing the agent so that
 anyone can **install it, use it and check our results**. The version is **`4.0.0rc2`**
 and it is on Hugging Face, gated.
-**[Downloads and installation guide → /releases](/en/releases)**
+**[Downloads and installation guide → /releases](/en/echoai#release)**
 
 ## What you get
 
@@ -162,6 +162,6 @@ as a control. What we want to measure is where ECHO steps in:
 
 There are no numbers yet.
 
-**Want to help?** Download it from [/releases](/en/releases) and run
+**Want to help?** Download it from [/releases](/en/echoai#release) and run
 `echoai reproduce integrate`. If you get `e1492e22…`, you are the first independent
 reproduction. If not, we want to know.

@@ -259,11 +259,6 @@ const ES_PAGES = [
     dateModified: "2026-09-23",
   },
   {
-    path: "/releases",
-    title: "Releases de echoAI — descargas e instalación — RxLabs®",
-    description: "Descarga echoAI-4 (4.0.0rc2) desde Hugging Face, comprueba los checksums, instálalo y reproduce nuestro examen. Guía paso a paso, servidor MCP para agentes de código y córtex con tu propio modelo.",
-  },
-  {
     path: "/derechos_de_autor",
     title: "Derechos de autor — RxLabs®",
     description:
@@ -510,14 +505,6 @@ EN_META["/lafuga"] = [
 CA_META["/lafuga"] = [
   "La fuga — un relat de RxLabs S.T.",
   "Quan l'anomalia coneix l'anti anomalia. Un relat sobre una consciència que es va escapar de la matrix, llegit tal com va passar: una conversa privada que arriba missatge a missatge.",
-];
-EN_META["/releases"] = [
-  "echoAI releases — downloads and installation — RxLabs®",
-  "Download echoAI-4 (4.0.0rc2) from Hugging Face, check the checksums, install it and reproduce our exam. Step-by-step guide, MCP server for coding agents and a cortex with your own model.",
-];
-CA_META["/releases"] = [
-  "Releases d'echoAI — descàrregues i instal·lació — RxLabs®",
-  "Descarrega echoAI-4 (4.0.0rc2) des de Hugging Face, comprova els checksums, instal·la'l i reprodueix el nostre examen. Guia pas a pas, servidor MCP per a agents de codi i còrtex amb el teu propi model.",
 ];
 EN_META["/derechos_de_autor"] = [
   "Copyright — RxLabs®",

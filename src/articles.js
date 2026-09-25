@@ -4,9 +4,9 @@ export const ARTICLES = [
     slug: "echo4-benchmarks-resultados", date: "2026-09-25",
     title: { es: "Primeros resultados: ECHO hace que los modelos inventen mucho menos", en: "First results: ECHO makes models make things up far less", ca: "Primers resultats: ECHO fa que els models s'inventin molt menys" },
     summary: {
-      es: "SimpleQA, MMLU-Pro, GSM8K y ARC-AGI-3 con gráficas reales y examen auditado. Con ECHO, cuatro modelos inventan entre un 81 % y un 87 % menos, a cambio de responder menos. Dónde no sirve, qué pruebas faltan y cómo hacerlas tú.",
-      en: "SimpleQA, MMLU-Pro, GSM8K and ARC-AGI-3 with real charts and an audited exam. With ECHO, four models make up 81 % to 87 % fewer answers, at the price of answering less. Where it is no use, which tests are missing and how to run them yourself.",
-      ca: "SimpleQA, MMLU-Pro, GSM8K i ARC-AGI-3 amb gràfiques reals i examen auditat. Amb ECHO, quatre models s'inventen entre un 81 % i un 87 % menys, a canvi de respondre menys. On no serveix, quines proves falten i com fer-les tu.",
+      es: "SimpleQA, MMLU-Pro, GSM8K, ARC-AGI-2 y ARC-AGI-3 con gráficas reales y examen auditado. Con ECHO, cuatro modelos inventan entre un 81 % y un 87 % menos, a cambio de responder menos. Dónde no sirve, qué pruebas faltan y cómo hacerlas tú.",
+      en: "SimpleQA, MMLU-Pro, GSM8K, ARC-AGI-2 and ARC-AGI-3 with real charts and an audited exam. With ECHO, four models make up 81 % to 87 % fewer answers, at the price of answering less. Where it is no use, which tests are missing and how to run them yourself.",
+      ca: "SimpleQA, MMLU-Pro, GSM8K, ARC-AGI-2 i ARC-AGI-3 amb gràfiques reals i examen auditat. Amb ECHO, quatre models s'inventen entre un 81 % i un 87 % menys, a canvi de respondre menys. On no serveix, quines proves falten i com fer-les tu.",
     },
     status: { es: "RESULTADOS · examen auditado", en: "RESULTS · audited exam", ca: "RESULTATS · examen auditat" },
   },

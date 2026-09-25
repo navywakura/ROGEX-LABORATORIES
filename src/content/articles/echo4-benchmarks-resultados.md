@@ -1,6 +1,6 @@
 # Primeros resultados: ECHO hace que los modelos inventen mucho menos
 
-25 de septiembre de 2026 · Resultados auditados · SimpleQA, MMLU-Pro, GSM8K y ARC-AGI-3
+25 de septiembre de 2026 · Resultados auditados · SimpleQA, MMLU-Pro, GSM8K, ARC-AGI-2 y ARC-AGI-3
 
 Hace un día publicamos [el plan](/articulos/echo4-plan-benchmarks-con-y-sin-echo) para medir si
 ECHO mejora a un modelo de lenguaje. Ya tenemos los primeros números, **con sus rojos**. Todas
@@ -97,6 +97,29 @@ públicos de nuestro examen, con 2000 acciones por juego.
   completó dos niveles con **sus propias jugadas**, en solo 23 y 40 acciones. Las partidas se
   cortaron por el límite de uso, así que no cuentan. Es lo siguiente que queremos medir bien.
 
+## ARC-AGI-2: el modelo escribe un programa y ECHO lo comprueba (ROJO)
+
+ARC-AGI-2 son puzles de rejillas con ejemplos resueltos. Medimos tres brazos por modelo en las 120
+tareas públicas de evaluación (30 para DeepSeek, por presupuesto):
+- el modelo solo;
+- el modelo + ECHO: ECHO **ejecuta** su programa sobre los ejemplos, le dice dónde falla y solo
+  envía uno que los reproduzca todos;
+- un **control** con 4 programas sin verificar.
+
+<figure class="article-chart"><img src="/media/echoai/bench/arc2-score-es.svg" alt="Puntuación en ARC-AGI-2 de Qwen3-30B, DeepSeek V4.1 Flash y ECHO solo" loading="lazy" /></figure>
+
+- **DeepSeek:** 3,3 % solo, 6,7 % con ECHO y 6,7 % con el control. **Es rojo:** la mejora se explica
+  igual de bien por probar más programas. No podemos decir que verificar aporte aciertos.
+- **Qwen3-30B:** 0 % en los tres brazos. **ECHO solo**, sin modelo: 0 de 120.
+
+<figure class="article-chart"><img src="/media/echoai/bench/arc2-wrong-es.svg" alt="Respuestas incorrectas enviadas en ARC-AGI-2 por brazo" loading="lazy" /></figure>
+
+**Lo que sí se ve:** Qwen solo envió **105 respuestas incorrectas** y su control, 97. **Con ECHO envió
+0**, porque se abstuvo al no poder verificar. Es el mismo efecto que en SimpleQA: ECHO no deja pasar lo
+que no puede comprobar. Un programa de DeepSeek pasó todos los ejemplos y aun así falló el test:
+verificar contra los ejemplos no garantiza acertar lo nuevo. El examen costó 2,89 $ y la auditoría
+re-ejecutó los 570 registros con 0 diferencias.
+
 ## Lo que demuestra y lo que no
 
 - **Demuestra**, en un banco oficial y con cuatro modelos de cuatro empresas distintas, que un
@@ -117,13 +140,13 @@ casi todas por presupuesto:
 |---|---|---|
 | **Humanity's Last Exam** | si ECHO evita respuestas inventadas en preguntas de nivel experto | API de modelos (~10 $) |
 | **MMLU** y **FrontierScience** | el mismo cortafuegos en conocimiento general y ciencia de olimpiada | API de modelos (~15 $) |
-| **ARC-AGI-2** | el modelo propone un programa y ECHO lo verifica contra los ejemplos | API de modelos (60–130 $) |
+| **ARC-AGI-2 con modelos fuertes** | si verificar ayuda a un modelo que resuelve más tareas (con DeepSeek empató con el control) | API de modelos (40–130 $) |
 | **ARC-AGI-3 con modelos fuertes** | si un modelo que sí deduce reglas mejora con ECHO (la pista de Opus) | modelos frontera |
 | **SimpleQA con Gemini** y más modelos | ampliar la comparación | API de modelos |
 | **SWE-bench** | ECHO como verificador de agentes de código | Docker y unos 100 GB |
 
 **Cómo participar:**
-1. Descarga ECHO-4 desde la página de [releases](/releases).
+1. Descarga ECHO-4 desde la página de [releases](/echoai#release).
 2. Ejecuta la prueba con **nuestro método**:
    - contrato con umbrales **antes** del examen;
    - muestras fijadas por semilla;

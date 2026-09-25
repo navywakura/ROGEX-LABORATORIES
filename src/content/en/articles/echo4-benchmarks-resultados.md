@@ -1,6 +1,6 @@
 # First results: ECHO makes models make things up far less
 
-25 September 2026 · Audited results · SimpleQA, MMLU-Pro, GSM8K and ARC-AGI-3
+25 September 2026 · Audited results · SimpleQA, MMLU-Pro, GSM8K, ARC-AGI-2 and ARC-AGI-3
 
 A day ago we published [the plan](/en/articulos/echo4-plan-benchmarks-con-y-sin-echo) for
 measuring whether ECHO improves a language model. We now have the first numbers, **reds
@@ -98,6 +98,29 @@ games of our exam, with 2000 actions per game.
   levels with **its own moves**, in only 23 and 40 actions. The games were cut short by a usage
   limit, so they do not count. It is what we want to measure properly next.
 
+## ARC-AGI-2: the model writes a program and ECHO checks it (RED)
+
+ARC-AGI-2 is a set of grid puzzles with solved examples. We measured three arms per model on the 120
+public evaluation tasks (30 for DeepSeek, for budget reasons):
+- the model alone;
+- the model + ECHO: ECHO **runs** its program on the examples, tells it where it fails and only
+  submits one that reproduces them all;
+- a **control** with 4 unverified programs.
+
+<figure class="article-chart"><img src="/media/echoai/bench/arc2-score-en.svg" alt="ARC-AGI-2 score for Qwen3-30B, DeepSeek V4.1 Flash and ECHO alone" loading="lazy" /></figure>
+
+- **DeepSeek:** 3.3 % alone, 6.7 % with ECHO and 6.7 % with the control. **It is red:** the gain is
+  explained just as well by trying more programs. We cannot say that verifying adds correct answers.
+- **Qwen3-30B:** 0 % in all three arms. **ECHO alone**, with no model: 0 of 120.
+
+<figure class="article-chart"><img src="/media/echoai/bench/arc2-wrong-en.svg" alt="Incorrect answers submitted on ARC-AGI-2 per arm" loading="lazy" /></figure>
+
+**What does show:** Qwen alone submitted **105 incorrect answers** and its control 97. **With ECHO it
+submitted 0**, because it abstained when it could not verify. It is the same effect as on SimpleQA:
+ECHO does not let through what it cannot check. One DeepSeek program passed every example and still
+failed the test: verifying against the examples does not guarantee getting the new one right. The
+exam cost $2.89 and the audit re-ran all 570 records with 0 differences.
+
 ## What it shows and what it does not
 
 - **It shows**, on an official benchmark and with four models from four different companies,
@@ -118,13 +141,13 @@ almost all for budget reasons:
 |---|---|---|
 | **Humanity's Last Exam** | whether ECHO avoids made-up answers on expert-level questions | model API (~$10) |
 | **MMLU** and **FrontierScience** | the same firewall on general knowledge and olympiad science | model API (~$15) |
-| **ARC-AGI-2** | the model proposes a program and ECHO checks it against the examples | model API ($60–130) |
+| **ARC-AGI-2 with strong models** | whether verifying helps a model that solves more tasks (with DeepSeek it tied the control) | model API ($40–130) |
 | **ARC-AGI-3 with strong models** | whether a model that does work out rules improves with ECHO (the Opus hint) | frontier models |
 | **SimpleQA with Gemini** and more models | widen the comparison | model API |
 | **SWE-bench** | ECHO as a verifier for coding agents | Docker and about 100 GB |
 
 **How to take part:**
-1. Download ECHO-4 from the [releases](/en/releases) page.
+1. Download ECHO-4 from the [releases](/en/echoai#release) page.
 2. Run the test with **our method**:
    - a contract with thresholds **before** the exam;
    - samples fixed by seed;

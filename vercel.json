@@ -15,6 +15,9 @@
   ],
   "redirects": [
     { "source": "/echo", "destination": "/echos", "permanent": false },
+    { "source": "/releases", "destination": "/echoai#release", "permanent": false },
+    { "source": "/en/releases", "destination": "/en/echoai#release", "permanent": false },
+    { "source": "/ca/releases", "destination": "/ca/echoai#release", "permanent": false },
     { "source": "/en/echo", "destination": "/en/echos", "permanent": false },
     { "source": "/ca/echo", "destination": "/ca/echos", "permanent": false },
     {

@@ -2,7 +2,7 @@
 
 24 September 2026 · Laboratory note · PLAN
 
-ECHO-4 can now be [downloaded](/en/releases). The next question is the one anyone would ask:
+ECHO-4 can now be [downloaded](/en/echoai#release). The next question is the one anyone would ask:
 **does a language model do better with ECHO than without it?** This note explains how we
 will measure it, with which benchmarks, what we expect and what it will cost. **There are no
 numbers yet**: we have not run anything. The plan is published first; the results come
@@ -162,7 +162,7 @@ without an extract to back it.
 ## What is left out for now
 
 - **SWE-bench** (fixing real code issues): it is the natural test for [ECHO's MCP
-  server](/en/releases), but it needs Docker, about 100 GB and many hours. We are leaving it
+  server](/en/echoai#release), but it needs Docker, about 100 GB and many hours. We are leaving it
   for later.
 - **No result will be published without its audit.**
 

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { marked } from "marked";
 import { localizedPath } from "../i18n.js";
 import { PRODUCTS, PRODUCT_DATE, productFor } from "../products.js";
 import { docCatalog } from "../docs-catalog.js";
@@ -47,6 +48,14 @@ const COPY = {
   },
 };
 
+// /releases lives inside /echoai since 2026-09-25: same Markdown, its own H1 dropped.
+const RELEASES = import.meta.glob("../content/**/releases/index.md", { query: "?raw", import: "default", eager: true });
+
+function releaseHtml(language) {
+  const source = RELEASES[`../content/${language === "es" ? "" : language + "/"}releases/index.md`] || "";
+  return marked.parse(source.replace(/^# .*\n/, ""));
+}
+
 function Figure({ media, language, ui, hero = false }) {
   return (
     <figure className={`product-figure${hero ? " is-hero" : ""}`}>
@@ -89,7 +98,7 @@ export default function Product({ slug, language = "es" }) {
         <header className="product-head">
           <span className="bench-kicker">{copy.kicker}</span>
           {slug === "echoai" && <img className="echoai-agent-mark" src={`${ECHOAI_BRAND}/echoai-256.png`} width="96" height="96" alt="echoAI" decoding="async" />}
-          <h1>{product.name}</h1>
+          <h1>{slug === "echoai" ? "ECHO-4 release" : product.name}</h1>
           <p className="product-lead">{copy.lead}</p>
           <p className="product-meta">
             <time dateTime={updated}>{updated.split("-").reverse().join(" · ")}</time>
@@ -97,6 +106,12 @@ export default function Product({ slug, language = "es" }) {
             <span>{copy.status}</span>
           </p>
         </header>
+
+        {slug === "echoai" && (
+          <section id="release" className="product-section article-sheet releases">
+            <div className="article-body" dangerouslySetInnerHTML={{ __html: releaseHtml(language) }} />
+          </section>
+        )}
 
         <Figure media={hero} language={language} ui={ui} hero />
 

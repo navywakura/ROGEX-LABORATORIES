@@ -54,7 +54,6 @@ export default function Nav({ path, docsHost = false, language = "es" }) {
         {item("/about", labels.about)}
         {item("/docs", labels.docs)}
         {item("/articulos", labels.articles)}
-        {item("/releases", labels.releases)}
       </div>
       <div className="nav-cluster nav-products">
         {item("/echos", "echOS")}

@@ -113,7 +113,7 @@ export default function Footer({ language = "es", docsHost = false }) {
             ["about", go("/about", ui.about)],
             ["contact", go("/contact", ui.contact)],
             ["docs", go("/docs", ui.docs)],
-            ["releases", go("/releases", ui.releases)],
+            ["releases", go("/echoai", ui.releases)],
             ...labDocs.map((doc) => [doc.id, go(`/docs/${doc.id}`, doc.title)]),
             ["discord", <a href={SITE.discord} target="_blank" rel="noopener">Discord ↗</a>],
           ])}

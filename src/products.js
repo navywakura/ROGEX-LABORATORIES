@@ -520,7 +520,7 @@ export const PRODUCTS = [
   {
     slug: "echoai",
     name: "echoAI",
-    updated: "2026-09-22",
+    updated: "2026-09-25",
     section: "echoAI",
     docs: [
       "echoai/que-es",
@@ -604,7 +604,7 @@ export const PRODUCTS = [
         kicker: "Inteligencia artificial · línea 03",
         lead:
           "Un agente situado de dos relojes. El rápido representa, recuerda, anticipa, decide y aprende con estructuras discretas; el lento sólo puede proponer. No es un chatbot conectado a motores.",
-        status: "ECHO-3 14/15 · ECHO-4: CONTINUITY cerrado; DREAM-A iniciado",
+        status: "ECHO-4 · 4.0.0rc2 · benchmarks auditados",
         facts: [
           ["14 / 15", "certificados software de ECHO-3 en bancos acotados"],
           ["512 + 128", "neuronas LIF y Adaptive-LIF en el monitor de ECHO-2"],
@@ -656,7 +656,7 @@ export const PRODUCTS = [
         kicker: "Artificial intelligence · line 03",
         lead:
           "A two-clock situated agent. The fast clock represents, remembers, anticipates, decides and learns with discrete structures; the slow one can only propose. It is not a chatbot wired to motors.",
-        status: "ECHO-3 14/15 · ECHO-4: CONTINUITY closed; DREAM-A started",
+        status: "ECHO-4 · 4.0.0rc2 · audited benchmarks",
         facts: [
           ["14 / 15", "ECHO-3 software certificates in bounded benches"],
           ["512 + 128", "LIF and Adaptive-LIF neurons in the ECHO-2 monitor"],
@@ -708,7 +708,7 @@ export const PRODUCTS = [
         kicker: "Intel·ligència artificial · línia 03",
         lead:
           "Un agent situat de dos rellotges. El ràpid representa, recorda, anticipa, decideix i aprèn amb estructures discretes; el lent només pot proposar. No és un chatbot connectat a motors.",
-        status: "ECHO-3 14/15 · ECHO-4: CONTINUITY tancat; DREAM-A iniciat",
+        status: "ECHO-4 · 4.0.0rc2 · benchmarks auditats",
         facts: [
           ["14 / 15", "certificats de programari d'ECHO-3 en bancs acotats"],
           ["512 + 128", "neurones LIF i Adaptive-LIF al monitor d'ECHO-2"],
