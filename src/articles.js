@@ -1,6 +1,16 @@
 // Shared by routing, article cards, metadata and Markdown export.
 export const ARTICLES = [
   {
+    slug: "echo45-en-desarrollo", date: "2026-09-26", featured: true,
+    title: { es: "ECHO-4.5 está en desarrollo: un ECHO sin entrenar que aprende conceptos y juega a descubrir reglas", en: "ECHO-4.5 is in development: an untrained ECHO that learns concepts and plays to discover rules", ca: "ECHO-4.5 és en desenvolupament: un ECHO sense entrenar que aprèn conceptes i juga a descobrir regles" },
+    summary: {
+      es: "Una semilla de ECHO sin preentrenar que se clona en sandboxes y aprende conceptos verificados. Cuatro fases en verde (de 15 a 24 tareas reservadas; en juegos, de 0,506 a 0,678), la de metas en rojo, y cómo ECHO descubrió la mecánica de «la copia sobre el interruptor». Hacia ARC-AGI-1, 2 y 3 y ARC Prize 2026.",
+      en: "An untrained ECHO seed that is cloned into sandboxes and learns verified concepts. Four phases green (held-out tasks from 15 to 24; games from 0.506 to 0.678), the goal phase red, and how ECHO stumbled on the \"copy on the switch\" mechanic. Towards ARC-AGI-1, 2 and 3 and ARC Prize 2026.",
+      ca: "Una llavor d'ECHO sense preentrenar que es clona en sandboxes i aprèn conceptes verificats. Quatre fases en verd (de 15 a 24 tasques reservades; als jocs, de 0,506 a 0,678), la de metes en vermell, i com ECHO va descobrir la mecànica de «la còpia sobre l'interruptor». Cap a ARC-AGI-1, 2 i 3 i ARC Prize 2026.",
+    },
+    status: { es: "EN DESARROLLO · S0–S3 verdes · S4 en curso", en: "IN DEVELOPMENT · S0–S3 green · S4 in progress", ca: "EN DESENVOLUPAMENT · S0–S3 verds · S4 en curs" },
+  },
+  {
     slug: "echo4-benchmarks-resultados", date: "2026-09-25",
     title: { es: "Primeros resultados: ECHO hace que los modelos inventen mucho menos", en: "First results: ECHO makes models make things up far less", ca: "Primers resultats: ECHO fa que els models s'inventin molt menys" },
     summary: {
@@ -61,7 +71,7 @@ export const ARTICLES = [
     status: { es: "PLAN · después de RELEASE", en: "PLAN · after RELEASE", ca: "PLA · després de RELEASE" },
   },
   {
-    slug: "echo4-doce-hitos-sabe-que-es", date: "2026-09-24", featured: true,
+    slug: "echo4-doce-hitos-sabe-que-es", date: "2026-09-24",
     title: { es: "ECHO-4 hoy: de sentir su cuerpo a saber qué es", en: "ECHO-4 today: from sensing its body to knowing what it is", ca: "ECHO-4 avui: de sentir el seu cos a saber què és" },
     summary: {
       es: "12 de 14 hitos en verde. Qué responde cada fase, de percibir su cuerpo a entender la tribu y saber que es un programa en un PC, con resultados, rojos y límites.",

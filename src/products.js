@@ -531,12 +531,13 @@ export const PRODUCTS = [
       "echoai/proceso",
       "echoai/ruta",
       "echoai/echo4",
+      "echoai/echo45",
       "echoai/transfer",
       "echoai/drone3",
       "echoai/hardware",
       "echoai/limites",
     ],
-    articles: ["echo4-continuidad-dream-a-identidad", "echo4-dream-rsi-historia-compartida", "echo4-inicio-roadmap-oficial", "echo4-ego-funcional", "drone3-mision-integrada-sitl", "transfer3-aprender-no-basta", "echo3-trece-fases-verdes", "echo3-a-mitad"],
+    articles: ["echo45-en-desarrollo", "echo4-benchmarks-resultados", "echo4-continuidad-dream-a-identidad", "echo4-dream-rsi-historia-compartida", "echo4-inicio-roadmap-oficial", "echo4-ego-funcional", "drone3-mision-integrada-sitl", "transfer3-aprender-no-basta", "echo3-trece-fases-verdes", "echo3-a-mitad"],
     media: [
       {
         src: "/media/echoai/opengraph/echo2.png",

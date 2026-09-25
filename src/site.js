@@ -207,6 +207,12 @@ const ES_PAGES = [
     dateModified: "2026-09-22",
   },
   {
+    path: "/docs/echoai/echo45",
+    title: "ECHO-4.5 — documentación técnica (en desarrollo)",
+    description: "Una semilla de ECHO sin preentrenar que aprende conceptos verificados en sandboxes clonables. S0–S3 en verde (tareas reservadas de 15 a 24; juegos 0,506 → 0,678), S4 en curso. Examen en ARC-AGI-1, 2 y 3.",
+    dateModified: "2026-09-26",
+  },
+  {
     path: "/docs/echoai/relation",
     title: "ECHO-4 — RELATION-A: historia relacional medida",
     description: "RELATION-A reconstruye 912 episodios de desarrollo con memoria por agente. Registro pasivo, sin ventaja conductual demostrada; RELATION-B/C/D pendientes.",
@@ -493,6 +499,8 @@ for (const entry of ARTICLES) {
 EN_META["/docs/echoai/transfer"] = ["TRANSFER-3 — contract, results and state", "TRANSFER-3 is green: transferred perceptual calibration, sealed campaign under human custody, B 38/0 and C 48/1. Static rooms; no hardware and no flight."];
 CA_META["/docs/echoai/transfer"] = ["TRANSFER-3 — contracte, resultats i estat", "TRANSFER-3 és verd: calibració perceptiva transferida, campanya segellada amb custòdia humana, B 38/0 i C 48/1. Sales estàtiques; sense maquinari ni vol."];
 
+EN_META["/docs/echoai/echo45"] = ["ECHO-4.5 — technical documentation (in development)", "An untrained ECHO seed that learns verified concepts in clonable sandboxes. S0–S3 green (held-out tasks 15 → 24; games 0.506 → 0.678), S4 in progress. Exam on ARC-AGI-1, 2 and 3."];
+CA_META["/docs/echoai/echo45"] = ["ECHO-4.5 — documentació tècnica (en desenvolupament)", "Una llavor d'ECHO sense preentrenar que aprèn conceptes verificats en sandboxes clonables. S0–S3 en verd (tasques reservades 15 → 24; jocs 0,506 → 0,678), S4 en curs. Examen a ARC-AGI-1, 2 i 3."];
 EN_META["/docs/echoai/echo4"] = ["ECHO-4 — official roadmap: self, other and shared history", "ECHO-4 roadmap v4: RELATION-A records reconstructible histories without a demonstrated behavioural advantage. SELF and CONTINUITY are closed within scope; B/C/D remain pending."];
 CA_META["/docs/echoai/echo4"] = ["ECHO-4 — full de ruta oficial: jo, altre i història compartida", "Full de ruta ECHO-4 v4: RELATION-A registra històries reconstruïbles sense avantatge conductual demostrat. SELF i CONTINUITY tancats dins del seu abast; B/C/D pendents."];
 EN_META["/docs/echoai/relation"] = ["ECHO-4 — RELATION-A: measured relational history", "RELATION-A reconstructs 912 development episodes with per-agent memory. Passive recording, no demonstrated behavioural advantage; RELATION-B/C/D pending."];

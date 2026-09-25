@@ -709,6 +709,88 @@ La pausa editorial de v2 fue seguida por CONT-B/C/D y DREAM-A. Ahora toca fijar 
 
 ---
 
+<!-- src/content/echoai/echo45.md · /docs/echoai/echo45 -->
+
+# ECHO-4.5 · documentación técnica (en desarrollo)
+
+Actualizado el 26 de septiembre de 2026. ECHO-4.5 **no está publicado todavía**: esta página
+documenta cómo se construye y qué se ha medido hasta hoy. Cada fase tiene un contrato con su criterio
+de verde escrito **antes** de medir, y se publica también cuando sale roja.
+
+## Qué es
+
+ECHO-4.5 parte de una **semilla sin preentrenar** de ECHO que se clona en sandboxes y aprende en
+ellas. El objetivo es que adquiera **conceptos verificados** y los reutilice en problemas nuevos. Se
+mide en ARC-AGI-1, ARC-AGI-2 y ARC-AGI-3.
+
+| Pieza | Función |
+|---|---|
+| **Semilla** | un vocabulario de operaciones pequeñas sobre rejillas: geometría, objetos, gravedad, mitades, secciones, colores. Hoy tiene 84 familias |
+| **Sandbox** | una copia con su biblioteca de conceptos, su curva de aprendizaje y un **diario encadenado por hashes** (cada programa verificado y cada concepto nacido) |
+| **Despierto** | búsqueda de programas; solo es **hecho** lo que reproduce todos los ejemplos resueltos |
+| **Sueño** | lo que se repite en programas de tareas distintas se convierte en un **concepto** nuevo, también con huecos de color («recolorear X por Y») |
+| **Intuición** | costes enteros que hacen probar antes lo que más ha funcionado; opcionalmente, una red entrenada en GPU con tareas «soñadas» |
+| **Gimnasio** | 1009 tareas de entrenamiento de ARC-AGI-1 y ARC-AGI-2. 201 quedan **reservadas** para medir la transferencia. Las evaluaciones están **selladas por código** |
+| **Agente de juegos** | el paquete `echo-arc` para ARC-AGI-3: memoria verificada, BOUNDARY, reloj del juego, clic dentro del objeto y descubrimiento del propio cuerpo |
+
+## Fases y resultados
+
+| Fase | Criterio de verde (fijado antes) | Resultado |
+|---|---|---|
+| S0 · semilla, sandboxes y gimnasio | que funcionen y se auditen | ✅ |
+| S1 · objetos en rejillas | más tareas reservadas que la semilla | ✅ 15 → **21** |
+| S2 · aprender mejor | más de 21 con búsqueda determinista | ✅ **24** |
+| S3 · juegos como objetos | más puntuación oficial que v2, los mismos niveles o más, repetición exacta | ✅ 0,506 → **0,678** (7 niveles) |
+| S4 · inferir la meta y planificar | más niveles y más puntuación que S3 | 🔴 en curso (iteraciones 1 y 2 en rojo) |
+| S5 · simulador de juegos | por fijar | pendiente |
+
+**Detalles que importan:**
+- **Búsqueda determinista:** se quitó el límite de tiempo por tarea, porque hacía que el resultado
+  dependiera de la carga de la CPU. Ahora dos medidas dan exactamente el mismo conjunto de tareas.
+- **El presupuesto no era el techo:** con 1500 expansiones se resuelven las mismas tareas que con 400.
+  El límite era el vocabulario.
+- **Red de intuición:** se entrenó en una GPU T4 de Kaggle con 150 000 tareas generadas por ECHO a
+  partir de rejillas reales de entrenamiento. Acierta el 79 % de las veces entre sus 5 primeras
+  sugerencias en tareas inventadas, pero en las reservadas empata con la intuición por frecuencias.
+- **S4:** en el juego g50t la meta exige una mecánica causal («una copia sobre el interruptor abre
+  la compuerta»). La tercera iteración añade detectar causas, comprobarlas actuando y planificar en
+  dos pasos. Desde la segunda iteración se mide con **3 semillas por juego**, porque con una sola la
+  suerte pesaba más que la mejora.
+
+## EGO-MEMORIA-1 (en paralelo)
+
+Una aldea simulada de agentes, algunos mentirosos, donde la memoria de ECHO se borra entre episodios
+y escribir en el diario cuesta. Se mide si **surge por necesidad** el hábito de documentar y si los
+recuerdos, con su valencia entera (+ o −), **causan** su conducta. En desarrollo, con 8 semillas:
+- el diario le hace ganar tiempo en 8 de 8;
+- borrar la memoria formativa cambia a quién elige en 8 de 8, y borrar una al azar no;
+- dos clones idénticos acaban con posturas distintas en 8 de 8.
+
+Es un yo **funcional**; no demuestra conciencia.
+
+## Examen final de ECHO-4.5
+
+| | Requisito |
+|---|---|
+| R1 · ARC-AGI-1 (400 tareas de evaluación) | superar el 0 % y a la semilla sin entrenar |
+| R2 · ARC-AGI-2 (120 tareas de evaluación) | superar el 0 % y a la semilla |
+| R3 · ARC-AGI-3 (16 juegos que no se usan para desarrollar) | completar al menos el 20 % de los 112 niveles |
+| R4 | auditoría completa: programas, conceptos y cadena del diario |
+
+La puntuación oficial de ARC-AGI-3 se publica siempre: cada nivel se eleva al cuadrado y los niveles
+se ponderan por su número.
+
+## ARC Prize 2026
+
+Competimos como equipo **RxLabs** con el paquete `echo-arc`, autocontenido y sin el núcleo de ECHO-4.
+Si ganamos premio, se publicará en CC-BY 4.0, como exigen las reglas. Plazos: envío final el 2 de
+noviembre; *paper track* el 9 de noviembre.
+
+Resultados de ECHO-4: [benchmarks](/articulos/echo4-benchmarks-resultados) · Nota de avance:
+[ECHO-4.5 en desarrollo](/articulos/echo45-en-desarrollo).
+
+---
+
 <!-- src/content/echoai/relation.md · /docs/echoai/relation -->
 
 # E4-RELATION-1 · RELATION-A
@@ -2219,6 +2301,108 @@ Un resultado negativo bien medido también responde a la pregunta.
 - Carta de Derechos Digitales, Gobierno de España (2021). [espanadigital.gob.es](https://espanadigital.gob.es/lineas-de-actuacion/carta-de-derechos-digitales)
 
 — R.N.
+
+---
+
+<!-- src/content/articles/echo45-en-desarrollo.md · /articulos/echo45-en-desarrollo -->
+
+# ECHO-4.5 está en desarrollo: un ECHO sin entrenar que aprende conceptos y juega a descubrir reglas
+
+26 de septiembre de 2026 · En desarrollo · ECHO-4.5 · ARC-AGI-1, 2 y 3
+
+Después de publicar [los benchmarks de ECHO-4](/articulos/echo4-benchmarks-resultados) nos
+hicimos una pregunta incómoda: ECHO es muy bueno diciendo «no lo sé», pero **en ARC no sabe casi
+nada**. En ARC-AGI-3 completa niveles explorando, con cientos de acciones, y su puntuación oficial es
+de 0,07 sobre 100. En ARC-AGI-2, sin un modelo de lenguaje, resolvió 0 de 120.
+
+Así nació **ECHO-4.5**: una **semilla de ECHO sin preentrenar** que se clona en sandboxes y **aprende
+allí**. Aprende conceptos a partir de lo que resuelve y los reutiliza en problemas que nunca ha visto.
+Esta nota cuenta dónde estamos: cuatro fases en verde, una en rojo y lo que falta.
+
+<figure class="article-chart"><img src="/media/echoai/echo45/g50t-portada.png" alt="Juego g50t de ARC-AGI-3: el cuadrado de ECHO llega al marco en U después de abrir la compuerta" loading="lazy" /></figure>
+
+## La idea
+
+- **Una semilla que sabe muy poco:** unas decenas de operaciones pequeñas sobre rejillas.
+- **Sandboxes clonables:** cada copia tiene su biblioteca de conceptos, su curva de aprendizaje y un
+  **diario encadenado por hashes** donde queda cada hecho y cada concepto nacido.
+- **Aprende en dos fases:**
+  - **despierto**, busca programas, y solo guarda como hecho lo que reproduce **todos** los
+    ejemplos;
+  - **dormido**, convierte en concepto nuevo lo que se repite en tareas distintas.
+- **Las evaluaciones oficiales están selladas por código** y no se abren hasta el examen final.
+
+## Dónde estamos
+
+<figure class="article-chart"><img src="/media/echoai/echo45/progreso-es.svg" alt="Progreso de ECHO-4.5: tareas reservadas de 15 a 24 y puntuación en juegos de desarrollo de 0,506 a 0,678; S4 en rojo" loading="lazy" /></figure>
+
+| Fase | Qué hace | Resultado |
+|---|---|---|
+| **S0** | semilla, sandboxes y gimnasio de 1009 tareas | ✅ hecho |
+| **S1** | ver las rejillas como **objetos** | ✅ de 15 a **21** tareas reservadas |
+| **S2** | aprender mejor: intuición, vocabulario ampliado y búsqueda determinista | ✅ de 21 a **24** |
+| **S3** | ver los **juegos** como objetos | ✅ puntuación en juegos de desarrollo de 0,506 a **0,678** |
+| **S4** | deducir la **meta** de un juego y planificar | 🔴 **en curso**: dos iteraciones en rojo |
+| **S5** | simulador propio de juegos para entrenar | pendiente |
+
+Las «tareas reservadas» son 201 tareas de entrenamiento que ECHO **nunca usa para aprender**. Sirven
+para medir si lo aprendido **se transfiere** a problemas nuevos.
+
+## Lo que hemos aprendido por el camino
+
+- **Aprender no sirve si no llegas.** Durante tres rondas de entrenamiento el aprendizaje no subió
+  nada, porque el vocabulario no alcanzaba las soluciones. Buscar cuatro veces más tampoco cambió
+  nada. Lo que funcionó fue **ampliar el vocabulario**: rejillas divididas por líneas, contornos,
+  huecos, contar objetos.
+- **Más vocabulario a ciegas empeora.** Añadir operaciones sin más **empeoró** el resultado. Hizo
+  falta una **intuición**, que prueba antes lo que más ha funcionado. También entrenamos una red
+  neuronal en una GPU con 150 000 tareas «soñadas» por el propio ECHO: acierta el 79 % de las veces
+  en tareas inventadas, pero en las reales empata con la intuición simple.
+- **ECHO descubre quién es.** En los juegos con teclas, identifica solo qué objeto es su cuerpo,
+  porque es lo que se mueve cuando él actúa.
+- **Saber quién eres no basta sin una meta.** Explorar sin saber adónde ir no suma niveles.
+
+## El rojo más interesante: entender una mecánica
+
+<figure class="article-chart"><img src="/media/echoai/echo45/g50t-copia-interruptor.png" alt="Cinco fotogramas del juego g50t: una copia roja sobre el interruptor abre la compuerta y el cuadrado llega al marco en U" loading="lazy" /></figure>
+
+En el juego **g50t** controlas un cuadrado granate en un laberinto. La meta es un marco en forma de U
+del mismo color. El camino está cortado por una compuerta. La tecla **ACTION5** deja una **copia**
+de ti y te devuelve al principio. Si dejas la copia **sobre el interruptor** (el extremo de la tubería
+celeste), la compuerta se abre y puedes llegar a la meta.
+
+ECHO lo consiguió **por casualidad**, tras 1800 acciones. Una persona lo deduce en unas decenas. Al
+medir con tres semillas por juego vimos que esa victoria fue suerte: la sacó en 1 de 3. Por eso S4
+sigue en rojo.
+
+**Lo que falta ahora es la causalidad.** ECHO tiene que notar que «cuando había algo mío en ese
+punto, la compuerta cambió», comprobarlo actuando y planificar en dos pasos: primero la causa, luego
+la meta. Es la tercera iteración de S4.
+
+## Cómo lo mediremos
+
+**El examen final de ECHO-4.5** comparará el ECHO entrenado con la semilla sin entrenar:
+
+| | Requisito |
+|---|---|
+| **ARC-AGI-1** | superar el 0 % y a la semilla |
+| **ARC-AGI-2** | superar el 0 % y a la semilla |
+| **ARC-AGI-3** | completar al menos el **20 % de los niveles** de 16 juegos que no ha tocado (hoy, 11,6 %) |
+| **Auditoría** | completa |
+
+Además competimos en **ARC Prize 2026** en Kaggle como equipo RxLabs. Partimos de muy abajo: hoy el
+primero de ARC-AGI-3 tiene 19,45 puntos y nosotros, menos de 1. Lo que nos interesa es medir **cuánto
+aporta ECHO** y contarlo en el *paper track*.
+
+## Lo que no afirmamos
+
+- Que ECHO «entienda» como una persona. Aquí «entender» significa reutilizar un concepto verificado
+  en tareas nuevas.
+- Que vaya a ganar ARC Prize.
+- Que los resultados sobre el «yo» de ECHO sean conciencia: son funcionales y se miden desde fuera.
+
+Lo técnico está en la [documentación de ECHO-4.5](/docs/echoai/echo45). Publicaremos cada
+fase, verde o roja.
 
 ---
 
