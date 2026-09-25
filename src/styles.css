@@ -2184,3 +2184,6 @@ button { font-family: inherit; }
 
 /* Article tables: the first column (labels, names) breaks only between words, never mid-word. */
 .article-body table td:first-child, .article-body table th:first-child { overflow-wrap: normal; word-break: normal; }
+
+.article-chart { margin: 1.5rem 0 2rem; padding: 12px; background: #fff; border: 1px solid #303030; border-radius: 4px; }
+.article-chart img { display: block; width: 100%; height: auto; }
