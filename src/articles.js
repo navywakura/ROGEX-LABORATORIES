@@ -9,6 +9,10 @@ export const ARTICLES = [
       ca: "Una llavor d'ECHO sense preentrenar que es clona en sandboxes i aprèn conceptes verificats. Quatre fases en verd (de 15 a 24 tasques reservades; als jocs, de 0,506 a 0,678), la de metes en vermell, i com ECHO va descobrir la mecànica de «la còpia sobre l'interruptor». Cap a ARC-AGI-1, 2 i 3 i ARC Prize 2026.",
     },
     status: { es: "EN DESARROLLO · S0–S3 verdes · S4 en curso", en: "IN DEVELOPMENT · S0–S3 green · S4 in progress", ca: "EN DESENVOLUPAMENT · S0–S3 verds · S4 en curs" },
+    image: {
+      src: "/media/echoai/echo45/og-echo45.png", width: 1200, height: 630, type: "image/png",
+      alt: { es: "ECHO-4.5 en desarrollo: el juego g50t de ARC-AGI-3 y el icono de echoAI", en: "ECHO-4.5 in development: the ARC-AGI-3 game g50t and the echoAI icon", ca: "ECHO-4.5 en desenvolupament: el joc g50t d'ARC-AGI-3 i la icona d'echoAI" },
+    },
   },
   {
     slug: "echo4-benchmarks-resultados", date: "2026-09-25",
