@@ -28,8 +28,9 @@ mide en ARC-AGI-1, ARC-AGI-2 y ARC-AGI-3.
 | S1 · objetos en rejillas | más tareas reservadas que la semilla | ✅ 15 → **21** |
 | S2 · aprender mejor | más de 21 con búsqueda determinista | ✅ **24** |
 | S3 · juegos como objetos | más puntuación oficial que v2, los mismos niveles o más, repetición exacta | ✅ 0,506 → **0,678** (7 niveles) |
-| S4 · inferir la meta y planificar | más niveles y más puntuación que S3 | 🔴 en curso (iteraciones 1 y 2 en rojo) |
-| S5 · simulador de juegos | por fijar | pendiente |
+| S4 · inferir la meta y planificar | más niveles y más puntuación que S3 | ✅ en desarrollo (iteración 3, v5: 0,849 de media en 3 semillas) |
+| S5 · simulador de juegos (ARC3-GYM) | v5 supera a v3 en juegos nuevos | 🔴 contrato original · ✅ examen S5-D: v5.2 1103 niveles frente a 940 |
+| S6 · automejora: ECHO pide operaciones a un modelo y las verifica | ≥ 27 reservadas, y más que la petición fija | ⏳ en marcha |
 
 **Detalles que importan:**
 - **Búsqueda determinista:** se quitó el límite de tiempo por tarea, porque hacía que el resultado

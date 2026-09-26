@@ -28,8 +28,9 @@ ARC-AGI-1, ARC-AGI-2 and ARC-AGI-3.
 | S1 · objects in grids | more held-out tasks than the seed | ✅ 15 → **21** |
 | S2 · learning better | more than 21 with deterministic search | ✅ **24** |
 | S3 · games as objects | higher official score than v2, same levels or more, exact replay | ✅ 0.506 → **0.678** (7 levels) |
-| S4 · inferring the goal and planning | more levels and a higher score than S3 | 🔴 in progress (iterations 1 and 2 red) |
-| S5 · game simulator | to be fixed | pending |
+| S4 · inferring the goal and planning | more levels and a higher score than S3 | ✅ in development (iteration 3, v5: 0.849 mean over 3 seeds) |
+| S5 · game simulator (ARC3-GYM) | v5 beats v3 on new games | 🔴 original contract · ✅ S5-D exam: v5.2 1103 levels against 940 |
+| S6 · self-improvement: ECHO asks a model for operations and verifies them | ≥ 27 held-out, and more than the fixed request | ⏳ running |
 
 **Details that matter:**
 - **Deterministic search:** the per-task time limit was removed, because it made the result depend

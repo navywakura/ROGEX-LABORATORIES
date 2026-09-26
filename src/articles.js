@@ -1,7 +1,21 @@
 // Shared by routing, article cards, metadata and Markdown export.
 export const ARTICLES = [
   {
-    slug: "echo45-en-desarrollo", date: "2026-09-26", featured: true,
+    slug: "echo45-avances-s1-s6", date: "2026-09-26", featured: true,
+    title: { es: "ECHO-4.5 avanza: un modelo del mundo, un simulador de juegos propio y ECHO pidiendo ayuda a un modelo de lenguaje", en: "ECHO-4.5 moves on: a world model, our own game simulator and ECHO asking a language model for help", ca: "ECHO-4.5 avança: un model del món, un simulador de jocs propi i ECHO demanant ajuda a un model de llenguatge" },
+    summary: {
+      es: "S4 en verde, S5 en verde por examen (100 juegos nuevos: 1103 niveles frente a 940), cajas y juegos de clic, el paquete de ARC Prize en Kaggle y S6 en marcha: ECHO escribe sus peticiones a un modelo de lenguaje y verifica lo que recibe. Resultados de S6 en unas 12 horas.",
+      en: "S4 green, S5 green by exam (100 new games: 1103 levels against 940), boxes and click games, the ARC Prize package on Kaggle, and S6 running: ECHO writes its own requests to a language model and verifies what it gets. S6 results in about 12 hours.",
+      ca: "S4 en verd, S5 en verd per examen (100 jocs nous: 1103 nivells davant de 940), caixes i jocs de clic, el paquet d'ARC Prize a Kaggle i S6 en marxa: ECHO escriu les seves peticions a un model de llenguatge i verifica el que rep. Resultats de S6 d'aquí a unes 12 hores.",
+    },
+    status: { es: "EN DESARROLLO · S0–S5 verdes · S6 en marcha", en: "IN DEVELOPMENT · S0–S5 green · S6 running", ca: "EN DESENVOLUPAMENT · S0–S5 verds · S6 en marxa" },
+    image: {
+      src: "/media/echoai/echo45/og-echo45.png", width: 1200, height: 630, type: "image/png",
+      alt: { es: "ECHO-4.5 en desarrollo: el juego g50t de ARC-AGI-3 y el icono de echoAI", en: "ECHO-4.5 in development: the ARC-AGI-3 game g50t and the echoAI icon", ca: "ECHO-4.5 en desenvolupament: el joc g50t d'ARC-AGI-3 i la icona d'echoAI" },
+    },
+  },
+  {
+    slug: "echo45-en-desarrollo", date: "2026-09-26",
     title: { es: "ECHO-4.5 está en desarrollo: un ECHO sin entrenar que aprende conceptos y juega a descubrir reglas", en: "ECHO-4.5 is in development: an untrained ECHO that learns concepts and plays to discover rules", ca: "ECHO-4.5 és en desenvolupament: un ECHO sense entrenar que aprèn conceptes i juga a descobrir regles" },
     summary: {
       es: "Una semilla de ECHO sin preentrenar que se clona en sandboxes y aprende conceptos verificados. Cuatro fases en verde (de 15 a 24 tareas reservadas; en juegos, de 0,506 a 0,678), la de metas en rojo, y cómo ECHO descubrió la mecánica de «la copia sobre el interruptor». Hacia ARC-AGI-1, 2 y 3 y ARC Prize 2026.",

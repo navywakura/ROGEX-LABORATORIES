@@ -28,8 +28,9 @@ ARC-AGI-1, ARC-AGI-2 i ARC-AGI-3.
 | S1 · objectes en graelles | més tasques reservades que la llavor | ✅ 15 → **21** |
 | S2 · aprendre millor | més de 21 amb cerca determinista | ✅ **24** |
 | S3 · jocs com a objectes | més puntuació oficial que v2, els mateixos nivells o més, repetició exacta | ✅ 0,506 → **0,678** (7 nivells) |
-| S4 · deduir la meta i planificar | més nivells i més puntuació que S3 | 🔴 en curs (iteracions 1 i 2 en vermell) |
-| S5 · simulador de jocs | per fixar | pendent |
+| S4 · deduir la meta i planificar | més nivells i més puntuació que S3 | ✅ en desenvolupament (iteració 3, v5: 0,849 de mitjana en 3 llavors) |
+| S5 · simulador de jocs (ARC3-GYM) | v5 supera v3 en jocs nous | 🔴 contracte original · ✅ examen S5-D: v5.2 1103 nivells davant de 940 |
+| S6 · automillora: ECHO demana operacions a un model i les verifica | ≥ 27 reservades, i més que la petició fixa | ⏳ en marxa |
 
 **Detalls que importen:**
 - **Cerca determinista:** es va treure el límit de temps per tasca, perquè feia que el resultat
