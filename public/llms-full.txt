@@ -637,6 +637,8 @@ Un aviso que ya está publicado: el dominio certificado usa celdas de tres metro
 
 # ECHO-4 — roadmap oficial
 
+<img class="model-doc-mark" src="/media/echoai/models/echo4-256.png" width="96" height="96" alt="Símbolo de ECHO-4: el yo y el otro entrelazados" />
+
 22 de septiembre de 2026 · Versión 4 · CONTINUITY cerrada; RELATION-A verificado
 
 **Objetivo:** desarrollar representación funcional de sí mismo, del otro y de la historia compartida, y medir cuándo interactuar mejora los resultados. E4-DREAM-1 añade una rama cortical para investigar cómo mejorar la exploración a partir de experiencia registrada.

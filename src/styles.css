@@ -1572,6 +1572,11 @@ button { font-family: inherit; }
 }
 /* Official agent identity; the laboratory navigation retains its R mark. */
 .echoai-agent-mark { display: block; width: 96px; height: 96px; margin: 1.25rem 0; }
+.echoai-banner { display: block; width: min(100%, 420px); height: auto; margin: 1.25rem 0 0.5rem; }
+.model-title { display: flex; align-items: center; gap: 0.75rem; }
+.model-mark { width: 1.6em; height: 1.6em; flex: none; }
+.rxlabs-mark { display: block; width: 96px; height: 96px; margin: 0 0 1rem; }
+.article-body .model-doc-mark { display: block; width: 96px; height: 96px; margin: 1rem 0 1.5rem; }
 .article-body .echoai-article-mark { display: block; width: 128px; height: 128px; margin: 1.5rem 0; }
 
 /* ── La fuga ─────────────────────────────────────────────────────────────

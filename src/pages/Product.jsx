@@ -4,7 +4,7 @@ import { localizedPath } from "../i18n.js";
 import { PRODUCTS, PRODUCT_DATE, productFor } from "../products.js";
 import { docCatalog } from "../docs-catalog.js";
 import { ARTICLES } from "../articles.js";
-import { ECHOAI_BRAND } from "../identity.js";
+import { ECHOAI_BRAND, ECHOAI_MODELS } from "../identity.js";
 
 const COPY = {
   es: {
@@ -97,8 +97,13 @@ export default function Product({ slug, language = "es" }) {
       <article className="sheet product">
         <header className="product-head">
           <span className="bench-kicker">{copy.kicker}</span>
-          {slug === "echoai" && <img className="echoai-agent-mark" src={`${ECHOAI_BRAND}/echoai-256.png`} width="96" height="96" alt="echoAI" decoding="async" />}
-          <h1>{slug === "echoai" ? "ECHO-4 release" : product.name}</h1>
+          {slug === "echoai" && <img className="echoai-banner" src={`${ECHOAI_BRAND}/echoai-banner-1500.png`} width="1500" height="495" alt="echoAI" decoding="async" />}
+          {slug === "echoai" ? (
+            <h1 className="model-title">
+              <img className="model-mark" src={`${ECHOAI_MODELS}/echo4-128.png`} width="64" height="64" alt="" aria-hidden="true" decoding="async" />
+              ECHO-4 release
+            </h1>
+          ) : <h1>{product.name}</h1>}
           <p className="product-lead">{copy.lead}</p>
           <p className="product-meta">
             <time dateTime={updated}>{updated.split("-").reverse().join(" · ")}</time>

@@ -1,5 +1,7 @@
 # ECHO-4 — official roadmap
 
+<img class="model-doc-mark" src="/media/echoai/models/echo4-256.png" width="96" height="96" alt="ECHO-4 mark: the self and the other, linked" />
+
 22 September 2026 · Version 4 · CONTINUITY closed; RELATION-A verified
 
 **Goal:** develop functional representations of self, another agent and their shared history, and measure when interaction helps. E4-DREAM-1 adds a cortical research branch for improving exploration using recorded experience.

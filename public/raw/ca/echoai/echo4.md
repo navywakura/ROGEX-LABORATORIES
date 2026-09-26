@@ -1,5 +1,7 @@
 # ECHO-4 — full de ruta oficial
 
+<img class="model-doc-mark" src="/media/echoai/models/echo4-256.png" width="96" height="96" alt="Símbol d'ECHO-4: el jo i l'altre entrellaçats" />
+
 22 de setembre de 2026 · Versió 4 · CONTINUITY tancada; RELATION-A verificat
 
 **Objectiu:** desenvolupar representacions funcionals d'un mateix, de l'altre i de la història compartida, i mesurar quan la interacció ajuda. E4-DREAM-1 afegeix una branca cortical per millorar l'exploració amb experiència registrada.
